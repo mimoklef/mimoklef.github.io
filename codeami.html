@@ -59,13 +59,16 @@
         <div class="row align-items-center">
 
           <div class="col-6 col-xl-2" data-aos="fade-down">
-            <h1 class="mb-0"><a href="/" class="text-white h2 mb-0" style="font-size: 20px;">Mohamed Bouyakhlef</a></h1>
+            
           </div>
           <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
 
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li><a class="gotohome" href="/">Home</a></li>
+                <li class="eng"><a class="gotohome" href="/">Home</a></li>
+                <li class="fr"><a class="gotohome" href="/">Accueil</a></li>
+                <li class="fr"><a class="gotoproject" href="/projets">Projets</a></li>
+                <li class="eng"><a class="gotoproject" href="/projets">Projects</a></li>
                 <li><a class="gotocontact" href="contact">Contact</a></li>
               </ul>
             </nav>
@@ -120,43 +123,6 @@
     <script src="js/cookieSetting.js"></script>
 
 
-<!--
-    <div id="audioplayer" class="audioplayer">
-
-      <div class="audioheader">
-        <i onclick="hideplayer()" class="icon-close closeplayerbtn musicbtn"></i>
-        <div class="fromright">Conquest Of Paradise - Vangelis</div>
-      </div>
-      <div id="waveform"></div>
-      <div class="audioheader">
-        <div id="playpause" onclick="playM()"><span class="icon-play_arrow musicbtn playpausebtn"></span></div>
-        <div class="vol">
-          <div id="volume"></div>
-        </div>
-      </div>
-      <div id="audioloader" class="audioloader">
-        <div class="lds-roller">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-    </div>
-    <div class="showplayerbtn" id="showplayer">
-      <i onclick="showplayer()" id="showplayericon" class="icon-music_note musicbtn"></i>
-
-    </div>
-
-
-    <script src="js/audioplayer.js"></script>
-    <script src="js/audioplayer-jquery.js"></script>
--->
-
 
 
   </div>
@@ -190,15 +156,13 @@
                     </br>
                     <h3>I'm still working on this project.</h3>
                     </br>
-                    <h5>I do this as a tribute to a similar site that used to exist.</h5>
+                    <h5>I do this as a tribute to a similar site that used to exist,<b>code-ami.fr</b></h5>
 
-                    <h5>It is a website, or web and mobile application (PWA) that will be used by Nintendo players to exchange friend-codes in order to play together.
+                    <h5>It a web application that will be used by Nintendo players to exchange friend-codes in order to play together.
                     </h5>
                     </br>
-                    <h5>A beta version il already online at <a style="text-decoration: underline;" href="https://www.codeami.fr" target="_blank">codeami.fr</a> and I'm still working on the final version, wich will be more developped.
+                    <h5>Due to major changes, it is currently <b>unavailable</b>.<!--<a style="text-decoration: underline;" href="https://www.codeami.fr" target="_blank">codeami.fr</a> and I'm still working on the final version, wich will be more developped.-->
                     </h5>
-                    </br>
-                    <h5>I use <b>Express.js</b> and <b>Vue.js</b> and the website is hosted by <b>AWS</b>.
                     </h5>
                     <h5>I will expand this page as the project progresses.</h5>
                     </br>
@@ -212,15 +176,13 @@
                     </br>
                     <h3>Je suis toujours en train de travailler sur ce projet.</h3>
                     </br>
-                    <h5>Je le fais en hommage à un site similaire qui existait jadis.</h5>
+                    <h5>Je le fais en hommage à un site similaire qui existait jadis, <b>code-ami.fr</b></h5>
 
-                    <h5>C'est un site, ou application web et mobile (PWA) qui servira aux joueurs Nintendo à échanger des codes amis pour jouer ensemble.
+                    <h5>C'est une appli web qui servira aux joueurs Nintendo à échanger des codes amis pour jouer ensemble.
                     </h5>
                     </br>
-                    <h5>Une version beta est en ligne sur <a style="text-decoration: underline;" href="https://www.codeami.fr" target="_blank">codeami.fr</a> et la version finale est en cours de développement et sera bien plus développée.
+                    <h5>Le site est actuellement <b>indisponible</b> puisqu'il subit une grosse refonte <!-- <a style="text-decoration: underline;" href="https://www.codeami.fr" target="_blank">codeami.fr</a> et la version finale est en cours de développement et sera bien plus développée.-->
                     </h5>
-                    </br>
-                    <h5>J'utilise <b>Express.js</b> et <b>Vue.js</b> comme technologies, le site est hébergé par <b>AWS</b>.
                     </h5>
                     <h5>J'étofferai cette page au fur et à mesure que le projet avancera :)</h5>
                     </br>
@@ -230,302 +192,6 @@
 
             </div>
 
-
-<!--
-            <div class="row justify-content-center description">
-              <div class="col-md-9">
-
-                <h1 class="text-center eng">A brief presentation</h1>
-                <h1 class="text-center fr">Présentation</h1>
-                </br>
-                <h3 class="left20">Concept</h3>
-
-                <div class="mparag eng" data-aos="fade">
-                  <img src="images/starpig/screen1.PNG" class="bigImg">
-                  <p>
-                    So like I said it's a Starfox like, so the objective is to <b>shoot</b> enemies while the camera is
-                    moving, and try to catch as many <b>coins</b> as we can.
-                  </p>
-                  <p>And to do so, we have two <b>weapons</b>, an infinite <b>machinegun</b> and <b>rockets</b>.</p>
-                  <br>
-                  <p>The player looses <b>health points</b> as he gets shot and if he has shield he looses <b
-                      style="color: blue;">shield points</b>.</br>
-                    He looses when he looses all his HP's.</p>
-                </div>
-                <div class="mparag fr" data-aos="fade">
-                  <img src="images/starpig/screen1.PNG" class="bigImg">
-                  <p>
-                    Comme je l'ai dit c'est un "Strafox like", l'objectif est de <b>tirer</b> sur les ennemis pendant
-                    que la camera va en avant, et récupérer autant de <b>pièces</b> que l'on peut.
-                  </p>
-                  <p>Pour ce faire, Nous avons deux <b>armes</b>, une <b>mitrailleuse</b> infinie et des
-                    <b>roquettes</b>.
-                  </p>
-                  <br>
-                  <p>Le joueur perd <b>points de vie</b> quand il se fait tirer de dessus et s'il a des <b
-                      style="color: blue;">points de bouclier</b> il les perd en priorité.</br>
-                    Il perd la partie quand il n'a plus d'<b>HP</b>s.</p>
-                </div>
-
-                <h3 class="left20 eng">Health</h3>
-                <h3 class="left20 fr">Vie</h3>
-                <div class="parag">
-                  <p class="eng">A brief feature I added to the health bar is the picture of Marco (player's
-                    character).</br>
-                    This image changes depending on player's HP's (Yeah like in 1994's Aladdin).</p>
-                  <p class="fr">Une feature que j'ai rajouté est la photo de Marco (le joueur).</br>
-                    Cette image change selon les <b>HP</b>s du joueur (Oui comme Aladdin de 1994).</p>
-                  <div class="flexRow" data-aos="fade">
-                    <div>
-                      <img src="/images/starpig/IconHappyMarco.png" class="fullW">
-                      <h5 class="text-center">HP > 70%</h5>
-                    </div>
-                    <div>
-                      <img src="/images/starpig/IconNormalMarco.png" class="fullW">
-                      <h5 class="text-center">70% > HP > 30%</h5>
-                    </div>
-                    <div>
-                      <img src="/images/starpig/IconHurtMarco.png" class="fullW">
-                      <h5 class="text-center">HP < 30%</h5>
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-
-                <h3 class="left20;">Bonus</h3>
-                <div class="parag" data-aos="fade">
-                  <p class="eng">
-                    The player can get <b>bonuses</b> by taking them directly, like the <b
-                      style="color: blue; font-size: larger;">X2</b> bonus that gives him a double machinegun for a few
-                    seconds, or
-                    the <b>heart</b> that gives him HP's.
-                  </p>
-                  <p class="fr">
-                    Le joueur peut récupérer des <b>bonus</b> en les touchant, comme le bonus <b
-                      style="color: blue; font-size: larger;">X2</b> qui lui donne une double mitrailleuse pendant
-                    quelques secondes, ou
-                    le <b>coeur</b> qui lui rend des HP.
-                  </p>
-                  <img src="images/starpig/heart.PNG" class="fullW">
-                </div>
-
-                <h3 class="left20 eng">Bonus box</h3>
-                <h3 class="left20 eng">Boites mystère</h3>
-
-                <div class="flexRow parag" data-aos="fade">
-                  <img src="images/starpig/box.PNG" class="w30">
-                  <p class="eng pad10">
-                    He can also have a random bonus by detroying a <b>bonus box</b>.
-                    Those boxes can contain :</br></br>
-                    - Health points.</br>
-                    - Shield points.</br>
-                    - Double machinegun.</br>
-                    - Rockets.</br>
-                    - Coins.</br>
-                  </p>
-                  <p class="fr pad10">
-                    Il peut aussi récupérer des bonu en détruisant les <b>boites mystère</b>.
-                    Ces boites peuvent contenir :</br></br>
-                    - Des points de vie (HP).</br>
-                    - Des points de bouclier (SP).</br>
-                    - Double mitrailleuse (X2).</br>
-                    - Des roquettes.</br>
-                    - Des pièces.</br>
-                  </p>
-
-
-                </div>
-
-
-                <h3 class="left20 eng">Enemies</h3>
-                <h3 class="left20 fr">Ennemis</h3>
-
-                <div class="parag eng" data-aos="fade">
-
-                  </br>
-                  <p>There are different kinds of enemies, but before that let's see how they spawn.</p>
-                  <h4 class="left5">Spawn</h4>
-                  <div class="flexRow">
-                    <p class="pad10 mar10">Enemies spawn inside a 3x3 grid, when the player enters a trigger zone.
-                      <img src="/images/starpig/codespawn.PNG" class="fullW">
-                      <img src="/images/starpig/spawn1.PNG" class="fullW">
-                    </p>
-                    <img src="/images/starpig/grid.PNG" class="half">
-                  </div>
-                  <p>
-                    I used C#'s <b>enum</b> and <b>Dictionnary</b> to create this feature so that it simplifies enemies
-                    spawn.</br>
-                    Then I made the triggers that can spawn as many enemies as we want, by choosing their type and
-                    location.
-                  </p>
-
-                  <h4 class="left5">Shooting</h4>
-                  <p>The shooting system is pretty simple, it doesn't use any <b>physics</b>, only <b>code</b>.</br>
-                    Enemies (like the player) shoot a projectile that damages the opponent in contact.</p>
-                  <p>The <b>damage</b> scale depends on the enemy itself and the <b>difficulty</b> chosen by the
-                    player.</br>
-                    Enemies can shoot <b>straight forward</b> (or backward to be exact) or aim the <b>player</b>.</p>
-                  <div class="parag">
-                    <div>
-                      <p>Straight shot :</p>
-                      <img src="/images/starpig/forward.PNG" class="fullW">
-                    </div>
-                    <div>
-                      <p>Aim shot :</p>
-                      <img src="/images/starpig/aim.PNG" class="fullW">
-                    </div>
-                  </div>
-
-                  <h4 class="left5">Movement</h4>
-                  <div class="parag">
-                    <p>Enemies have different <b>behaviors.</b></p>
-                    <li>Static : Doesn't move at all.</li>
-                    <li>Left Right : Moves continuously from left to right.</li>
-                    <li>Follow player : Follows the player on X and Y axes.</li>
-                    <li>Rafale : Follows the player while shooting, stops while he reloads.</li>
-
-                  </div>
-                  <h4 class="left5">Enemies Types</h4>
-
-
-                  <h5>Following plane</h5>
-                  <div class="flexRow mparag">
-                    <img src="/images/starpig/follow.PNG" class="w30">
-                    <p class="pad10">This enemy <b>follows</b> the player on the <b>X</b> and <b>Y</b> axes and shoots
-                      <b>straight</b>.</br><br>
-                      At level 1 and in easy mode he has <b>80</b> HP and shoots <b>6</b> times before reloading.
-                    </p>
-                  </div>
-
-                  <h5>Right to Left plane</h5>
-                  <div class="flexRow mparag">
-                    <img src="/images/starpig/gd.PNG" class="w30">
-                    <p class="pad10">This enemy goes <b>infinitely</b> from <b>right</b> to <b>left</b> and vice versa.
-                      He shoots <b>straight</b> </br>
-                      at level 1 but aims the player at level 2.</br><br>
-                      At level 1 and in easy mode he has <b>80</b> HP and shoots <b>8</b> times before reloading.
-                    </p>
-                  </div>
-
-                  <h5>Static plane</h5>
-                  <div class="flexRow mparag">
-                    <img src="/images/starpig/static.PNG" class="w30">
-                    <p class="pad10">This enemy <b>doesn't move</b> from his place and shoots <b>at the
-                        player</b>.</br><br>
-                      At level 1 and in easy mode he has <b>80</b> HP and shoots <b>5</b> times before reloading.
-                    </p>
-                  </div>
-
-                  <h5>Burst plane</h5>
-                  <div class="flexRow mparag">
-                    <img src="/images/starpig/rafale.PNG" class="w30">
-                    <p class="pad10">This enemy <b>follows</b> the player on the <b>X</b> and <b>Y</b> axes and
-                      <b>stands</b> on his place while <b>reloading</b>.</br>
-                      He shoots only when he's moving and shoots <b>straight</b>.</br><br>
-                      At level 1 and in easy mode he has <b>100</b> HP and shoots <b>5</b> times before reloading.
-                    </p>
-                  </div>
-
-                </div>
-
-                <div class="parag fr" data-aos="fade">
-
-                  </br>
-                  <p>Il y a différents types d'ennemis mais avant ça regardons comment ils apparaissent (spawn).</p>
-                  <h4 class="left5">Apparition (spawn)</h4>
-                  <div class="flexRow">
-                    <p class="pad10 mar10">Les ennemis apparaissent dans une grille en 3x3 quand le joueur entre dans un
-                      trigger.
-                      <img src="/images/starpig/codespawn.PNG" class="fullW">
-                      <img src="/images/starpig/spawn1.PNG" class="fullW">
-                    </p>
-                    <img src="/images/starpig/grid.PNG" class="half">
-                  </div>
-                  <p>
-                    J'ai utilisé les <b>enum</b> et <b>Dictionnary</b> de C# pour créer ça afin de simplifier le
-                    spawn.</br>
-                    Ensuite j'ai créé les triggers qui peuvent spawn autant d'ennemis qu'on le veut, en choisissant le
-                    type et l'emplacement.
-                  </p>
-
-                  <h4 class="left5">Tir</h4>
-                  <p>Le système de tir est assez simple, il n'utilise pas de <b>physique</b>, seulement du
-                    <b>code</b>.</br>
-                    Les ennemis (comme le jour) tirent des projectiles qui endommagent l'adversaire (et disparaissent)
-                    au contact.
-                  </p>
-                  <p>Les <b>dégats</b> dépendent du type d'ennemi et de la <b>difficulté</b> choisie par le joueur.</br>
-                    Les ennemis peuvent tirer <b>droit</b> ou viser le <b>joueur</b>.</p>
-                  <div class="parag">
-                    <div>
-                      <p>Tirs droits :</p>
-                      <img src="/images/starpig/forward.PNG" class="fullW">
-                    </div>
-                    <div>
-                      <p>Tir de visée :</p>
-                      <img src="/images/starpig/aim.PNG" class="fullW">
-                    </div>
-                  </div>
-
-                  <h4 class="left5">Mouvement</h4>
-                  <div class="parag">
-                    <p>Les ennemis ont plusieurs <b>comportements.</b></p>
-                    <li>Statique : ne bouge pas du tout (sur les axes X et Y).</li>
-                    <li>Droite Gauche : Va de gauche à droite (comme un essuie glace).</li>
-                    <li>Suiveur : Suit le joueur sur les axes X et Y.</li>
-                    <li>Rafale : Suit le joueur quand il tire et s'arrête quand il recharge.</li>
-
-                  </div>
-                  <h4 class="left5">Types d'ennemis</h4>
-
-
-                  <h5>Avion suiveur</h5>
-                  <div class="flexRow mparag">
-                    <img src="/images/starpig/follow.PNG" class="w30">
-                    <p class="pad10">Cet ennemi <b>suit</b> le joueur sur les axes <b>X</b> et <b>Y</b> et tire
-                      <b>droit</b>.</br><br>
-                      Au niveau 1 en mode facile il a <b>80</b> HP et tire <b>6</b> fois avant de recharger.
-                    </p>
-                  </div>
-
-                  <h5>Gauche droite</h5>
-                  <div class="flexRow mparag">
-                    <img src="/images/starpig/gd.PNG" class="w30">
-                    <p class="pad10">Cet ennemi passe <b>infiniment</b> de <b>droite</b> à <b>gauche</b> et vice versa.
-                      Il tire <b>droit</b> </br>
-                      au niveau 1 mais vise le joueur au niveau 2.</br><br>
-                      Au niveau 1 et en mode facile, il a <b>80</b> HP et tire <b>8</b> fois avant de recharger.
-                    </p>
-                  </div>
-
-                  <h5>Avions statiques</h5>
-                  <div class="flexRow mparag">
-                    <img src="/images/starpig/static.PNG" class="w30">
-                    <p class="pad10">Cet ennemi est <b>immobile</b> et tire en visant <b>le joueur</b>.</br><br>
-                      Au niveau 1 et en mode facile, il a <b>80</b> HP et tire <b>5</b> fois avant de recharger.
-                    </p>
-                  </div>
-
-                  <h5>Rafale</h5>
-                  <div class="flexRow mparag">
-                    <img src="/images/starpig/rafale.PNG" class="w30">
-                    <p class="pad10">Cet ennemi <b>suit</b> le joueur sur les axes <b>X</b> et <b>Y</b> et reste <b>
-                        immobile</b> pendant qu'il <b>recharge</b>.</br>
-                      Il ne tire que lorsqu'il est en mouvement et tire <b>droit</b>.</br><br>
-                      Au niveau 1 et en mode facile, il a <b>100</b> HP et tire <b>5</b> fois avant de recharger.
-                    </p>
-                  </div>
-
-                </div>
-
-              </div>
-
-
-            </div>
-          -->
 
 
 

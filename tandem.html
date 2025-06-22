@@ -59,13 +59,16 @@
         <div class="row align-items-center">
 
           <div class="col-6 col-xl-2" data-aos="fade-down">
-            <h1 class="mb-0"><a href="/" class="text-white h2 mb-0" style="font-size: 20px;">Mohamed Bouyakhlef</a></h1>
+            
           </div>
           <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
 
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li><a class="gotohome" href="/">Home</a></li>
+                <li class="eng"><a class="gotohome" href="/">Home</a></li>
+                <li class="fr"><a class="gotohome" href="/">Accueil</a></li>
+                <li class="fr"><a class="gotoproject" href="/projets">Projets</a></li>
+                <li class="eng"><a class="gotoproject" href="/projets">Projects</a></li>
                 <li><a class="gotocontact" href="contact">Contact</a></li>
               </ul>
             </nav>
@@ -120,42 +123,7 @@
     <script src="js/cookieSetting.js"></script>
 
 
-<!--
-    <div id="audioplayer" class="audioplayer">
 
-      <div class="audioheader">
-        <i onclick="hideplayer()" class="icon-close closeplayerbtn musicbtn"></i>
-        <div class="fromright">Conquest Of Paradise - Vangelis</div>
-      </div>
-      <div id="waveform"></div>
-      <div class="audioheader">
-        <div id="playpause" onclick="playM()"><span class="icon-play_arrow musicbtn playpausebtn"></span></div>
-        <div class="vol">
-          <div id="volume"></div>
-        </div>
-      </div>
-      <div id="audioloader" class="audioloader">
-        <div class="lds-roller">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-    </div>
-    <div class="showplayerbtn" id="showplayer">
-      <i onclick="showplayer()" id="showplayericon" class="icon-music_note musicbtn"></i>
-
-    </div>
-
-
-    <script src="js/audioplayer.js"></script>
-    <script src="js/audioplayer-jquery.js"></script>
--->
 
 
 
@@ -178,7 +146,7 @@
 
             <div class="row justify-content-center">
 
-              <div class="col-md-7">
+              <div class="col-md-6 flexRow">
                 <div class="row mb-5">
                   <div class="col-12 eng">
                     <h2 class="site-section-heading text-center">Tandem / BeGood</h2>
@@ -187,11 +155,8 @@
                     </h5>
                     </br>
                     <h5>It's a web and mobile application for remote pairing and linguistic and cultural exchange, managing activities, etc...</h5>
-                    <h5>The project's business model is <a target="_blank" href="https://www.techtarget.com/whatis/definition/B2B2C-business-to-business-to-consumer#:~:text=Essex%2C%20Industry%20Editor-,B2B2C%20(business%2Dto%2Dbusiness%2Dto%2Dconsumer),and%20services%20and%20online%20retailers.">B2B2C</a></h5>
-                    <h5>The <a href="#schema">schema</a> below explains it a little better.</h5>
                     </br>
                     <h5>The main technologies used are <b>Node.js (Express.js)</b> with <b>MongoDB</b> as the database, <b>Vue.js</b> for the front end, <b>Socket.io</b> for instant messaging, <b>Debian 10</b> and <b>Bash</b> scripting for deployment.
-                    I also made it a <a target="_blank" href="https://en.wikipedia.org/wiki/Progressive_web_app">PWA</a> or <b>Progressive Web Application</b> to make it more easily usable on mobile.</h5>
                   </div>
                   
                   
@@ -203,26 +168,20 @@
                     </h5>
                     </br>
                     <h5>C'est une application web et mobile de jumelage à distance et d'échange linguistique et culturel, de gestion d'activités etc...</h5>
-                    <h5>Le modèle économique du projet est <a target="_blank" href="https://www.techtarget.com/whatis/definition/B2B2C-business-to-business-to-consumer#:~:text=Essex%2C%20Industry%20Editor-,B2B2C%20(business%2Dto%2Dbusiness%2Dto%2Dconsumer),and%20services%20and%20online%20retailers.">B2B2C</a></h5>
-                    <h5>Le <a href="#schema">schéma</a> ci-dessous explique un peu mieux.</h5>
                     </br>
                     <h5>Les principales technologies utilisées sont <b>Node.js (Express.js)</b> avec <b>MongoDB</b>
                       comme base de données, <b>Vue.js</b> pour le front, <b>Socket.io</b> pour la messagerie instantannée, <b>Debian 10</b> et du scripting <b>Bash</b> pour le
                       déploiement.
-                    J'en ai aussi fait une <a target="_blank" href="https://en.wikipedia.org/wiki/Progressive_web_app">PWA</a> ou <b>Progressive Web Application</b> pour la rendre plus facilement utilisable sur mobile.</h5>
                   </div>
                 </div>
               </div>
+              <div>
+                <img style="height: 500px;" src="/images/tandem/tandem1.PNG">
+              </div>
 
-            </div>
-
-            <div id="schema" class="row justify-content-center description">
-              <img src="images/tandem/schema.PNG" class="fullW">
-            </br>
-              <img src="images/tandem/themes_schema.PNG" class="fullW">
             </div>
              
-
+<!--
               <div class="row justify-content-center description">
               <div class="col-md-9">
 
@@ -242,6 +201,8 @@
               </div>
             </div>
             </div>
+-->
+
 
 
             <div class="row justify-content-center description">
@@ -250,19 +211,16 @@
                 <h1 class="text-center eng">A brief presentation of main features</h1>
                 <h1 class="text-center fr">Présentation</h1>
                 </br>
-                <h3 class="left20 eng">Application architecture</h3>
-                <h3 class="left20 fr">Architecture de l'application</h3>
+                <h3 class="left20">Design</h3>
                 <div class="parag" data-aos="fade">
-                  <p class="eng">
-                    </br>-The backend is an <b>Express.js REST API</b>.
-                    </br>-The frontend is a responsive <b>Vue.js</b> application.
-                    </br>-Data is stored in a <b>MongoDB</b> database.
-                  </p>
                   <p class="fr">
-                    </br>-Le backend est une <b>API REST</b> utilisant <b>Express.js</b>.
-                    </br>-Le frontend est une application <b>Vue.js</b>.
-                    </br>-Les données sont stockées dans une base de données <b>MongoDB</b>.
+                    </br>J’ai réalisé l’interface utilisateur sur <b>Figma</b>.
                   </p>
+                  <p class="eng">
+                    </br>I designed the full UI on <b>Figma</b>.
+                  </p>
+                  <img src="images/tandem/figma.PNG" class="fullW">
+
                 </div>
 
                 <h3 class="left20 eng">Login</h3>

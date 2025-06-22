@@ -53,13 +53,15 @@
           <div class="row align-items-center">
 
             <div class="col-6 col-xl-2" data-aos="fade-down">
-              <h1 class="mb-0"><a href="/" class="text-white h2 mb-0" style="font-size: 20px;">Mohamed Bouyakhlef</a></h1>
             </div>
             <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
               <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
 
                 <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                  <li class="active"><a class="gotohome" href="/">Home</a></li>
+                  <li class="active eng"><a class="gotohome" href="/">Home</a></li>
+                  <li class="active fr"><a class="gotohome" href="/">Accueil</a></li>
+                  <li class="fr"><a class="gotoproject" href="/projets">Projets</a></li>
+                  <li class="eng"><a class="gotoproject" href="/projets">Projects</a></li>
                   <li><a class="gotocontact" href="contact">Contact</a></li>
                 </ul>
               </nav>
@@ -108,48 +110,12 @@
         <div class="site-mobile-menu-body"></div>
       </div>
 
+
+      
       <iframe width="100%" frameBorder="0" id="iframeview" src="/" title="PORTFOLIO"></iframe>
 
       <script src="https://unpkg.com/wavesurfer.js"></script>
       <script src="js/cookieSetting.js"></script>
-
-  <!--
-
-      <div id="audioplayer" class="audioplayer">
-
-        <div class="audioheader">
-          <i onclick="hideplayer()" class="icon-close closeplayerbtn musicbtn"></i>
-          <div class="fromright">Conquest Of Paradise - Vangelis</div>
-        </div>
-        <div id="waveform"></div>
-        <div class="audioheader">
-          <div id="playpause" onclick="playM()"><span class="icon-play_arrow musicbtn playpausebtn"></span></div>
-          <div class="vol">
-            <div id="volume"></div>
-          </div>
-        </div>
-        <div id="audioloader" class="audioloader">
-          <div class="lds-roller">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>
-      <div class="showplayerbtn" id="showplayer">
-        <i onclick="showplayer()" id="showplayericon" class="icon-music_note musicbtn"></i>
-
-      </div>
-
-
-      <script src="js/audioplayer.js"></script>
-      <script src="js/audioplayer-jquery.js"></script>
-  -->
 
 
 
@@ -176,7 +142,6 @@
               </header>
               <div class="consolebody">
                 <div id="dialog">
-                  <!--<p>> Welcome to my Portfolio !</p>-->
                 </div>
 
 
@@ -197,10 +162,6 @@
 
 
 
-      <div id="content" class="animate-bottom">
-
-
-        <div class="site-wrap">
 
 
 
@@ -208,140 +169,37 @@
 
 
 
-          </br>
-
-
-          <div class="col-12 ">
-            <h2 class="site-section-heading text-center eng">My projects</h2>
-            <h2 class="site-section-heading text-center fr">Mes projets</h2>
-          </div>
-
-          <div class="container-fluid" data-aos="fade" data-aos-delay="500">
-            <div class="row">
-
-              <!--<div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">CodeAmi.fr</h2>
-                    <h5 class="white eng">Nintendo friend code exchange site</h5>
-                    <h5 class="white fr">Site d'échange de codes ami Nintendo</h5>
-                    <a href="codeami" class="btn btn-outline-white py-2 px-4"><span class="eng"><span class="eng">More
-                          Infos</span><span class="fr">Voir plus</span></span><span class="fr">Voir plus</span></a>
-                  </div>
-                  <img src="images/mushroom.png" alt="Image" class="img-fluid">
-                </div>
-              </div>-->
-
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">Tandem / BeGood</h2>
-                    <h5 class="white eng">correspondence application</h5>
-                    <h5 class="white fr">Appli de correspondance</h5>
-                    <a href="tandem" class="btn btn-outline-white py-2 px-4"><span class="eng"><span class="eng">More
-                          Infos</span><span class="fr">Voir plus</span></span><span class="fr">Voir plus</span></a>
-                  </div>
-                  <img src="images/tandem/vv.png" alt="Image" class="img-fluid">
-                </div>
-              </div>
-
-
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">Count Of Money</h2>
-                    <h5 class="white eng">Crypto-currencies app with NodeJS/Vue.js</h5>
-                    <h5 class="white fr">Appli de crypto-monnaies en NodeJS/Vue.js</h5>
-                    <a href="crypto" class="btn btn-outline-white py-2 px-4"><span class="eng"><span class="eng">More
-                          Infos</span><span class="fr">Voir plus</span></span><span class="fr">Voir plus</span></a>
-                  </div>
-                  <img src="images/cryptoTumb.png" alt="Image" class="img-fluid">
-                </div>
-              </div>
-
-
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">Time Manager</h2>
-                    <h5 class="white eng">Time managing app made with Elixir/Vue.js</h5>
-                    <h5 class="white fr">Appli de Time Management en Elixir/Vue.js</h5>
-                    <a href="timemanager" class="btn btn-outline-white py-2 px-4"><span class="eng"><span class="eng">More
-                          Infos</span><span class="fr">Voir plus</span></span><span class="fr">Voir plus</span></a>
-                  </div>
-                  <img src="images/timemanagertumb.PNG" alt="Image" class="img-fluid">
-                </div>
-              </div>
-
-
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">WeatherApp</h2>
-                    <h5 class="white eng">A Node.js weather web app</h5>
-                    <h5 class="white fr">Appli de web météo en Node.js</h5>
-                    <a href="weather" class="btn btn-outline-white py-2 px-4"><span class="eng">More Infos</span><span
-                        class="fr">Voir plus</span></a>
-                  </div>
-                  <img src="images/weather.jpg" alt="Image" class="img-fluid">
-                </div>
-              </div>
-
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">Music Player</h2>
-                    <h5 class="white eng">A C# ASP.NET web music player</h5>
-                    <h5 class="white fr">Appli web de streaming musical en C# ASP.NET</h5>
-                    <a href="/musicplayer" class="btn btn-outline-white py-2 px-4"><span class="eng">More
-                        Infos</span><span class="fr">Voir plus</span></a>
-                  </div>
-                  <img src="images/suplayertumb.png" alt="Image" class="img-fluid">
-                </div>
-              </div>
-
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">Starpig</h2>
-                    <h5 class="white eng">Video Game made on Unity</h5>
-                    <h5 class="white fr">Jeu vidéo réalisé sur Unity</h5>
-                    <a href="starpig" class="btn btn-outline-white py-2 px-4"><span class="eng">More Infos</span><span
-                        class="fr">Voir plus</span></a>
-                  </div>
-                  <img src="images/tumbsp.png" alt="Image" class="img-fluid">
-                </div>
-              </div>
-<!--
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">Moocs</h2>
-                    <h5 class="white eng">PHP booking Web application</h5>
-                    <h5 class="white fr">Appli web de réservation en PHP</h5>
-                    <a href="mooc" class="btn btn-outline-white py-2 px-4"><span class="eng">More Infos</span><span
-                        class="fr">Voir plus</span></a>
-                  </div>
-                  <img src="images//moocs/moocsTumb.png" alt="Image" class="img-fluid">
-                </div>
-              </div>
--->
+<section class="hero-section">
+  <div class="hero-content">
+    <div class="text-content">
+      <h1 class="fr">Bienvenue sur<br><span>mon Portfolio</span></h1>
+      <h1 class="eng">Welcome to<br><span>my Portfolio</span></h1>
+      <p class="name">Mohamed Bouyakhlef</p>
+      <button class="cta fr">Concepteur & Développeur Web</button>
+      <button class="cta eng">Web conceptor & developer</button>
+    </div>
+    <div class="image-content">
+      <img src="/images/bonhomme.jpg" alt="Portrait dessiné" />
+    </div>
+  </div>
+  <div class="hero-footer">
+    <div>
+      <a class="fr" href="/projets"> <img src="images/icon_fleche.png" alt="→" class="icon-fleche"> Mes projets</a>
+      <a class="eng" href="/projets"> <img src="images/icon_fleche.png" alt="→" class="icon-fleche"> My projects</a>
+      <!--<a href="/contact"> <img src="images/icon_fleche.png" alt="→" class="icon-fleche"> Contact</a>-->
+      <a class="fr" target="_blank" href="/Portfolio de Mimo.pdf"> <img src="images/icon_fleche.png" alt="→" class="icon-fleche">Version PDF</a>
+      <a class="eng" target="_blank" href="/Portfolio de Mimo.pdf"> <img src="images/icon_fleche.png" alt="→" class="icon-fleche">PDF Version</a>
+    </div>
+  </div>
+</section>
 
 
 
-            </div>
-          </div>
 
-          <div class="footer">
-            <div class="container-fluid text-center">
-              <p>
-                Copyright
-                <script>document.write(new Date().getFullYear());</script> All rights reserved | Mohamed Bouyakhlef
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+
+
+        
+
 
 
 
@@ -368,7 +226,6 @@
 
       <script src="js/main.js"></script>
 
-    </div>
 
     <script src="js/iframeset-jquery.js"></script>
 

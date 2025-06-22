@@ -45,6 +45,10 @@ function manageNavBar(url) {
       var $this = $(this);
       $this.parent().addClass("active");
     });
+    $('.gotoproject').each(function () {
+      var $this = $(this);
+      $this.parent().removeClass("active");
+    });
     $('.gotocontact').each(function () {
       var $this = $(this);
       $this.parent().removeClass("active");
@@ -60,12 +64,31 @@ function manageNavBar(url) {
         var $this = $(this);
         $this.parent().addClass("active");
       });
-    } else {
+    } else
+    if (url === "projets") {
+      $('.gotohome').each(function () {
+        var $this = $(this);
+        $this.parent().removeClass("active");
+        console.log("contact")
+      });
+      $('.gotocontact').each(function () {
+        var $this = $(this);
+        $this.parent().removeClass("active");
+      });
+      $('.gotoproject').each(function () {
+        var $this = $(this);
+        $this.parent().addClass("active");
+      });}
+     else {
       $('.gotohome').each(function () {
         var $this = $(this);
         $this.parent().removeClass("active");
       });
       $('.gotocontact').each(function () {
+        var $this = $(this);
+        $this.parent().removeClass("active");
+      });
+      $('.gotoproject').each(function () {
         var $this = $(this);
         $this.parent().removeClass("active");
       });
