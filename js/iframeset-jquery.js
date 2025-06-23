@@ -60,6 +60,11 @@ function manageNavBar(url) {
         $this.parent().removeClass("active");
         console.log("contact")
       });
+      $('.gotoproject').each(function () {
+        var $this = $(this);
+        $this.parent().removeClass("active");
+        console.log("contact")
+      });
       $('.gotocontact').each(function () {
         var $this = $(this);
         $this.parent().addClass("active");
