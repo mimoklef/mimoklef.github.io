@@ -2045,6 +2045,11 @@ body.animation-mode {
   transition: transform 0.2s ease, opacity 0.5s ease;
   z-index: 20;
   animation: pulse 2s infinite;
+
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+  user-select: none;         /* Standard */
 }
 
 @media (max-width: 768px) {
@@ -2134,4 +2139,147 @@ body.animation-mode {
   background-repeat: no-repeat;
   background-position: bottom center;
   aspect-ratio: 1 / 1;
+}
+
+/*Avion Porco Rosso*/
+
+#start-button {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  padding: 14px 26px;
+  font-size: 20px;
+  font-weight: bold;
+  background: #fff3d1;
+  color: #4a2d13;
+  border: 3px solid #b48c5c;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 10000;
+  transition: all 0.3s ease;
+}
+
+#start-button:hover {
+  background: #ffe9a8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.25);
+}
+
+#plane {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  transform: translate(-100px, 300px) rotate(0deg);
+  z-index: 9999;
+  display: none;
+  pointer-events: none;
+}
+
+#plane-img {
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/poroplane1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(90deg); /* vers la droite */
+}
+
+.smoke {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  filter: blur(2px);
+  animation: puff 1s linear forwards;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+@keyframes puff {
+  to {
+    opacity: 0;
+    transform: translateX(-25px) translateY(-10px) scale(1.5);
+  }
+}
+
+
+
+#launch-plane {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at center, #ffffff, #e0f7e9);
+  border: 4px solid #ea7070;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(140, 215, 144, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.5s ease;
+  z-index: 20;
+  animation: pulse 2s infinite;
+
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+  user-select: none;         /* Standard */
+}
+
+@media (max-width: 768px) {
+  #launch-plane {
+    display: none;
+  }
+}
+
+#launch-plane:hover {
+  transform: scale(1.05);
+}
+
+#launch-plane.animate-out {
+  animation: wiggle 0.3s ease-in-out 3, fadeOut 0.5s ease-out forwards;
+}
+
+
+
+
+
+
+
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; transform: scale(0.8); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+#launch-plane img {
+  width: 80px;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+#launch-plane img {
+  width: 70px;
+  height: auto;
+}
+#launch-plane img {
+  width: 80px;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
