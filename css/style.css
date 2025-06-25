@@ -2187,7 +2187,7 @@ body.animation-mode {
 }
 
 .smoke {
-  position: absolute;
+  position: fixed;   
   width: 14px;
   height: 14px;
   background: rgba(255, 255, 255, 0.6);
