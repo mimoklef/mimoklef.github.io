@@ -151,12 +151,12 @@
                     <h5>I did it in 3 weeks and I did with 3 classmates.</h5>
                     </br>
                     <h5>This is a crypto currency stocks application.</h5>
-                    <h5>In this app, we can lookup for crypto-currencies and see their values in numbers and graphs</h5>
-                    <h5>We can also read latest articles about crypto currency and subscribe to crypto online newspapers</h5>
+                    <h5>In this app, we can look up crypto-currencies and see their values in numbers and graphs.</h5>
+                    <h5>I also built an automatic article aggregator that scrapes many online magazines and stores every article in the same format.</h5>
+                    <h5>A background task checks all saved RSS feeds every 30&nbsp;minutes to fetch new posts automatically.</h5>
                     </br>
-                    <h5>Main used technologies are <b>NodeJs</b>, <b>Express.js</b> with <b>Firebase</b> databse, <b>Vue.js</b> and
-                      <b>Docker</b> and <b>Azure</b> for deployment.
-                    </h5>
+                    <h5>Main used technologies are <b>NodeJs</b>, <b>Express.js</b> with <b>Firebase</b> database, <b>Vue.js</b> and
+                      <b>Docker</b> and <b>Azure</b> for deployment.</h5>
                   </div>
                   
                   
@@ -168,8 +168,9 @@
                     </h5>
                     </br>
                     <h5>C'est une application web de stocks de crypto-monnaies.</h5>
-                    <h5>Dedans, on peut avoir les derniers cours des crypto-monnaies et leurs évolutions</h5>
-                    <h5>On peut aussi lire les derniers articles des revues en ligne qui parlent de crypto-monnaie et s'y abonner.</h5>
+                    <h5>Dedans, on peut suivre la valeur des différentes monnaies sous forme de chiffres et de graphiques.</h5>
+                    <h5>J'ai aussi conçu un agrégateur d'articles qui récupère de nombreux journaux en ligne et uniformise leur présentation.</h5>
+                    <h5>Une tâche planifiée vérifie toutes les 30&nbsp;minutes l'ensemble des flux RSS enregistrés et ajoute automatiquement les nouveaux articles.</h5>
                     </br>
                     <h5>Les principales technologies utilisées sont <b>NodeJs</b>, <b>Express.js</b> avec <b>Firebase</b>
                       comme base de données, <b>Vue.js</b> pour le front et <b>Docker</b> et <b>Azure</b> pour le
@@ -256,18 +257,18 @@
                   <h4 class="left20 fr">Partie admin</h4>
                   <div class="parag" data-aos="fade">
                     <p class="eng">
-                      Admins can access an app settings page where they can choose the currencies that are visible to users or not, they can do the same to crypto magazines (RSS feeds in the picture), and create new ones and delete the existing.
+                      Admins can access an app settings page where they decide which currencies are available for users and manage the list of crypto magazines. They can add or remove RSS feeds at any time.
                     </p>
                     <p class="fr">
-                      Les admins peuvent avoir accès à une page de paramêtres de l'application dans laquelle ils peuvent selectionner les crypto-monnaies visibles par les utilisateurs, ils peuvent en faire de même pour les revues (RSS feeds dans la photo), ainsi qu'en rajouter de nouvelles ou en supprimer.
+                      Les admins peuvent accéder à une page de paramètres où ils choisissent les crypto‑monnaies disponibles pour les utilisateurs et gèrent la liste des magazines. Ils peuvent ajouter ou supprimer des flux RSS à tout moment.
                     </p>
                     <img src="images/crypto/appsetting.PNG" class="fullW">
-                    <p class="eng">These are the journals that provide the different articles, the application retrieves them from RSS feeds registered by the admins and stores them in the database, it updates them every hour.</p>
-                    <p class="fr">Ce sont ces revues qui fournissent les différents articles, l'application les récupère depuis des flux RSS enregistrés par les admins et les stock dans la base de données, elle les met à jour toutes les heures.</p>
-                    
-                    
-                    <p class="eng">To do so, admins have to do the RSS feed mapping, because all RSS feeds are different, so I created a special tool that makes mapping very easy, fast and above all avoids making mistakes.</p>
-                    <p class="fr">Pour faire cela, les admins doivent faire le mappage des flux RSS qu'ils ajoutent, parce que tous les flux RSS sont différents,  j'ai donc créé un outil spécial qui rend le mapping très facile, rapide et surtout qui évite de faire des erreurs.</p>
+                    <p class="eng">The application checks these feeds every 30&nbsp;minutes. When a new entry appears, it scrapes the full article with site specific rules and saves it in the database with a unified style.</p>
+                    <p class="fr">L'application vérifie ces flux toutes les 30&nbsp;minutes. Lorsqu'un nouvel article apparaît, il est scrappé grâce aux règles dédiées puis enregistré dans la base de données avec un format unifié.</p>
+
+
+                    <p class="eng">Because each RSS feed is different, I built an RSS mapping tool that makes it quick and safe to link any feed to our format.</p>
+                    <p class="fr">Comme chaque flux RSS a sa propre structure, j'ai développé un outil de mappage RSS pour lier facilement un nouveau flux à notre modèle sans erreur.</p>
                     <h5 class="left20 eng">RSS Mapping tool</h4>
                     <h5 class="left20 fr">Outil de mappage RSS</h4>
                     <img src="images/crypto/modifyfeed.gif" class="fullW">
@@ -277,44 +278,41 @@
                   </br>
                   <div class="flexRow parag" data-aos="fade">
                     <div class="pad10 half eng">
-                      <p>Articles are then accessible in this page :
-                      </p>
+                      <p>Users can consult the news from this page:</p>
 
                       <p>
-                        - Latest : Shows latest articles with a "see more" button in the bottom of the page.
+                        - Latest : shows the most recent articles with a "see more" button at the bottom.
                       </p>
                       <p>
-                        - Keywords : Shows articles with user's saved keywords.
+                        - Keywords : lists the articles that match the user's saved keywords.
                       </p>
                       <p>
-                        - Search : Searches for all articles that contain the keywords written by the user.
+                        - Search : finds all articles containing the keywords entered by the user.
                       </p>
                       <br>
-                      <p>The user can click on an article to open it.
+                      <p>Clicking on an article opens it in a dedicated page. Thanks to the scraping and normalization process, all articles share the same layout.
                       </p>
                     </div>
                     <div class="pad10 half fr">
-                      <p>Les articles sont ensuite disponibles sur cette page :</p>
+                      <p>Les utilisateurs peuvent consulter les actualités depuis cette page :</p>
 
                       <p>
-                        - Latest : Liste les derniers articles avec un bouton "voir plus" en bas de page pour afficher la suite.
+                        - Latest : liste les articles les plus récents avec un bouton "voir plus" en bas.
                       </p>
                       <p>
-                        - Keywords : Montre tous les articles contenant les mots clé enregistrés par l'utilisateur.
+                        - Keywords : affiche les articles correspondant aux mots clé enregistrés par l'utilisateur.
                       </p>
                       <p>
-                        - Search : Cherche dans les articles.
+                        - Search : recherche dans tous les articles ceux contenant les mots clé saisis.
                       </p>
                       <br>
-                      <p>L'utilisateur peut cliquer sur un article pour l'afficher.
+                      <p>En cliquant sur un article, il s'ouvre dans une page dédiée. Tous les articles gardent la même présentation grâce au travail de normalisation.
                       </p>
                     </div>
                     <img src="images/crypto/articles.gif" class="half">
                   </div>
-                  <p class="eng">This opens it in a page like this :
-                  </p>
-                  <p class="fr">Cela l'ouvre dans une page comme celle-ci
-                    </p>
+                  <p class="eng">An opened article looks like this:</p>
+                  <p class="fr">Voici à quoi ressemble un article ouvert :</p>
                   <img src="images/crypto/articledetail.gif" class="fullW">
                 </div>
 
