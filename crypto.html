@@ -154,9 +154,9 @@
                     <h5>In this app, we can lookup for crypto-currencies and see their values in numbers and graphs</h5>
                     <h5>We can also read latest articles about crypto currency and subscribe to crypto online newspapers</h5>
                     </br>
-                    <h5>Main used technologies are <b>NodeJs</b>, <b>Express.js</b> with <b>Firebase</b> databse, <b>Vue.js</b> and
+                    <!--<h5>Main used technologies are <b>NodeJs</b>, <b>Express.js</b> with <b>Firebase</b> databse, <b>Vue.js</b> and
                       <b>Docker</b> and <b>Azure</b> for deployment.
-                    </h5>
+                    </h5>-->
                   </div>
                   
                   
@@ -171,9 +171,9 @@
                     <h5>Dedans, on peut avoir les derniers cours des crypto-monnaies et leurs évolutions</h5>
                     <h5>On peut aussi lire les derniers articles des revues en ligne qui parlent de crypto-monnaie et s'y abonner.</h5>
                     </br>
-                    <h5>Les principales technologies utilisées sont <b>NodeJs</b>, <b>Express.js</b> avec <b>Firebase</b>
+                    <!--<h5>Les principales technologies utilisées sont <b>NodeJs</b>, <b>Express.js</b> avec <b>Firebase</b>
                       comme base de données, <b>Vue.js</b> pour le front et <b>Docker</b> et <b>Azure</b> pour le
-                      déploiement.</h5>
+                      déploiement.</h5>-->
                   </div>
                 </div>
               </div>
@@ -192,89 +192,41 @@
             <div class="row justify-content-center description">
               <div class="col-md-9">
 
-                <h1 class="text-center eng">A brief presentation of main features</h1>
-                <h1 class="text-center fr">Présentation</h1>
+                <h1 class="text-center eng">A brief presentation of the features I developed</h1>
+                <h1 class="text-center fr">Présentation des fonctionnalités que j'ai développé</h1>
                 </br>
-                <h3 class="left20 eng">Application architecture</h3>
-                <h3 class="left20 fr">Architecture de l'application</h3>
-                <div class="parag" data-aos="fade">
-                  <p class="eng">
-                    </br>-The backend is an <b>Express.js REST API</b>.
-                    </br>-The frontend is a <b>Vue.js</b> application that communicated with the API, but is completely
-                    separated from it.
-                    </br>-Data is stored in a <b>Firebase</b> database.
-                  </p>
-                  <p class="fr">
-                    </br>-Le backend est une <b>API REST</b> utilisant <b>Express.js</b>.
-                    </br>-Le frontend est une application <b>Vue.js</b> qui communique avec l'API mais qui en est
-                    séparée.
-                    </br>-Les données sont stockées dans une base de données <b>Firebase</b>.
-                  </p>
-                </div>
 
-                <h3 class="left20 eng">Login and register</h3>
-                <h3 class="left20 fr">Connexion et inscription</h3>
 
-                <div class="parag" data-aos="fade">
-                  <div class="flexCol">
-                    <img src="images/crypto/loginpage.PNG" class="fullW">
-                    <div class="pad10 eng">
-                      <p>Users can login and signup from this form.</br></br>
-                        This sends a sign in / signup request to the API that accepts or rejects it.
-                        </br></br>When the user isn't authentified, all routes except Home and articles lead to this page, as only authentified
-                        users can access crypto stocks.
-                        </br></br>Of course the application uses password hash and other security features...
-                      </p>
-                      </br></br>
-                      <p>
-                        Users can always change their informations in the settings page.
-                        </br></br>They can also choose the crypto-currencies and keywords they are interested in so they always have an eye on their crypto values and better article suggestions.
-                      </p>
-                    </div>
 
-                    <div class="pad10 fr">
-                      <p>Les utilisateurs peuvent se connecter et s'inscrire depuis ce formulaire .</br></br>
-                        Il envoie une requete à l'API qui accepte ou pas la connexion / inscription.
-                        </br></br>Quand l'utilisateur n'est pas authentifié tous les routes sauf l'index et la page des articles mènent à cette page, car il
-                        faut se connecter pour avoir accès aux cours des cryptos.
-                        </br></br>L'application utilise des features de sécurité comme le hash etc...
-                      </p>
-                      </br></br>
-                      <p>
-                        Les utilisateurs peuvent ensuite changer leurs informations dans les paramêtres
-                        </br></br>Ils peuvent aussi choisir les crypto-monnaies ainsi que les mots clé qui les interessent afin d'avoir toujours un oeil sur les valeurs de leurs cryptos et de meilleures suggestions d'articles.
-                      </p>
-                    </div>
-                  </div>
-                  </br>
-                  <img src="images/crypto/usersettings.gif" class="fullW">
-                </div>
+
+
 
                 <h3 class="left20">Articles</h3>
                 <div class="pad10">
-                  <h4 class="left20 eng">Admin part</h4>
-                  <h4 class="left20 fr">Partie admin</h4>
                   <div class="parag" data-aos="fade">
-                    <p class="eng">
-                      Admins can access an app settings page where they can choose the currencies that are visible to users or not, they can do the same to crypto magazines (RSS feeds in the picture), and create new ones and delete the existing.
-                    </p>
-                    <p class="fr">
-                      Les admins peuvent avoir accès à une page de paramêtres de l'application dans laquelle ils peuvent selectionner les crypto-monnaies visibles par les utilisateurs, ils peuvent en faire de même pour les revues (RSS feeds dans la photo), ainsi qu'en rajouter de nouvelles ou en supprimer.
-                    </p>
-                    <img src="images/crypto/appsetting.PNG" class="fullW">
-                    <p class="eng">These are the journals that provide the different articles, the application retrieves them from RSS feeds registered by the admins and stores them in the database, it updates them every hour.</p>
-                    <p class="fr">Ce sont ces revues qui fournissent les différents articles, l'application les récupère depuis des flux RSS enregistrés par les admins et les stock dans la base de données, elle les met à jour toutes les heures.</p>
+
+                    <p class="eng">I developed an automated system to fetch articles from crypto-related RSS feeds every 30 minutes. The articles are stored in the database with their metadata, optimizing performance by avoiding repeated requests on each user visit.</p>
+                    <p class="fr">J’ai développé un système de récupération automatique d’articles depuis des flux RSS de sites crypto, avec une mise à jour toutes les 30 minutes. Les articles sont stockés en base de données avec leurs métadonnées, ce qui permet d’optimiser les performances en évitant les requêtes répétées à chaque visite utilisateur.</p>
                     
-                    
-                    <p class="eng">To do so, admins have to do the RSS feed mapping, because all RSS feeds are different, so I created a special tool that makes mapping very easy, fast and above all avoids making mistakes.</p>
-                    <p class="fr">Pour faire cela, les admins doivent faire le mappage des flux RSS qu'ils ajoutent, parce que tous les flux RSS sont différents,  j'ai donc créé un outil spécial qui rend le mapping très facile, rapide et surtout qui évite de faire des erreurs.</p>
+                    <p class="eng">The articles are then scraped from the website and formatted for clear and consistent display.</p>
+                    <p class="fr">Les articles sont ensuite scrappés depuis le site et mis en page pour être affichés de manière claire et uniforme.</p>
+                  </br>
+                  <img src="images/crypto/articledetail.gif" class="fullW">
+
+                </br>
+                </br>
+                </br>
                     <h5 class="left20 eng">RSS Mapping tool</h4>
                     <h5 class="left20 fr">Outil de mappage RSS</h4>
+
+                    <p class="eng">To do this, admins need to map the RSS feeds they add, since each feed has a different structure. I therefore created a custom tool that makes the mapping process very easy and intuitive.</p>
+                    <p class="fr">Pour faire cela, les admins doivent faire le mappage des flux RSS qu'ils ajoutent, parce que tous les flux RSS sont différents,  j'ai donc créé un outil spécial qui rend le mapping très facile et intuitif.</p>
+                    
                     <img src="images/crypto/modifyfeed.gif" class="fullW">
                   </div>
-                  
-                  
                   </br>
+
+                  
                   <div class="flexRow parag" data-aos="fade">
                     <div class="pad10 half eng">
                       <p>Articles are then accessible in this page :
