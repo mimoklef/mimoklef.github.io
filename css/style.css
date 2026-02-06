@@ -2205,7 +2205,14 @@ body.animation-mode {
   }
 }
 
-
+.bottom-date{
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
 
 #launch-plane {
   position: fixed;
