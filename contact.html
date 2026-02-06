@@ -42,18 +42,6 @@
       color: darkred;
     }
 
-    button {
-      background-color: white;
-    }
-
-    button:hover {
-      background-color: red;
-    }
-
-    button:active {
-      background-color: red;
-      transform: scale(0.95);
-    }
   </style>
 
 </head>
@@ -211,7 +199,208 @@
   <div class="contact-content">
     <div class="contact-item contact-left">
       <p class="contact-label">E-mail</p>
-      <a target="_blank" href="mailto:morganbkf@gmail.com"><p class="contact-info">morganbkf@gmail.com</p></a>
+      <div class="email-wrap">
+  <button type="button" class="contact-info email-copy" data-email="morganbkf@gmail.com">
+    morganbkf@gmail.com
+  </button>
+  <div class="email-tooltip"><span class="eng">Click to copy</span><span class="fr">Cliquez pour copier</span></div>
+
+  <div class="copy-toast" aria-live="polite" aria-atomic="true"><span class="fr">Email copié !</span><span class="eng">Email copied !</span></div>
+</div>
+
+
+<script>
+  const btn = document.querySelector(".email-copy");
+  const wrap = document.querySelector(".email-wrap");
+  const toast = document.querySelector(".email-toast");
+
+  let t;
+
+  btn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(btn.dataset.email);
+    } catch {
+      const ta = document.createElement("textarea");
+      ta.value = btn.dataset.email;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    }
+
+    // hide tooltip, show toast
+    wrap.classList.add("copied");
+    toast.classList.add("show");
+
+    clearTimeout(t);
+    t = setTimeout(() => {
+      toast.classList.remove("show");
+      wrap.classList.remove("copied");
+    }, 1200);
+  });
+</script>
+
+
+
+
+
+
+
+
+<style>
+  .email-wrap{
+    position: relative;          /* base pour le toast en absolute */
+    display: inline-block;       /* n'occupe pas toute la ligne */
+  }
+
+  .contact-info{
+    /* ton style existant */
+    font: inherit;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    color: inherit;
+    transition: color .15s ease, transform .12s ease, opacity .15s ease;
+    outline: none;
+
+  }
+  .email-wrap.copied .email-tooltip{
+  opacity: 0;
+  transform: translateX(-50%) translateY(4px);
+}
+
+/* Focus UNIQUEMENT au clavier */
+.contact-info:focus-visible{
+  outline: 2px solid rgba(0,0,0,.25);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Focus souris → rien */
+.contact-info:focus:not(:focus-visible){
+  outline: none;
+}
+  /* hover: texte plus sombre (comme ton hover sur <a>) */
+  .email-copy:hover{
+    opacity: 0.25 !important;      /* ajuste selon ton thème */
+  }
+
+  /* état "bouton pressé" */
+  .contact-info:active{
+    transform: translateY(1px) scale(0.98);
+    opacity: .85;
+  }
+
+  /* focus clavier (important si bouton) */
+  .contact-info:focus-visible{
+    outline: 2px solid rgba(0,0,0,.25);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* petit toast "Email copié !" */
+  .copy-toast{
+    position: absolute;
+    top: -18px;                 /* "en haut" */
+    left: calc(100% + 10px);    /* à côté du texte */
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(0,0,0,.85);
+    color: white;
+
+    opacity: 0;
+    transform: translateY(4px);
+    pointer-events: none;       /* ne bloque pas le clic */
+    transition: opacity .15s ease, transform .15s ease;
+  }
+
+  .copy-toast.show{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* optionnel: classe pressée ajoutée par JS */
+  .contact-info.pressed{
+    transform: translateY(1px) scale(0.98);
+    opacity: .85;
+  }
+
+
+  .email-wrap{
+  position: relative;
+  display: inline-block;
+}
+
+/* TON hover */
+.email-copy:hover{
+  opacity: 0.25 !important;
+}
+
+/* pas de focus moche */
+.email-copy{
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  user-select: none;
+}
+.email-copy:focus{
+  outline: none;
+}
+
+/* tooltip hover */
+.email-tooltip{
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  font-size: 11px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.email-wrap:hover .email-tooltip{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* message après clic */
+.email-toast{
+  position: absolute;
+  top: -18px;
+  left: calc(100% + 8px);
+  font-size: 11px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.email-toast.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
+
     </div>
 
     <div class="contact-image">
