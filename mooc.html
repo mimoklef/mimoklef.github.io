@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+
+<head>
+  <title>Moocs - PHP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="css/lightgallery.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/swiper.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+
+
+
+</head>
+
+<body id="body">
+
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+
+
+  <div id="notframe">
+
+    <header class="site-navbar" role="banner">
+
+      <div class="container-fluid">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-xl-2" data-aos="fade-down">
+            
+          </div>
+          <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
+            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                <li class="eng"><a class="gotohome" href="/">Home</a></li>
+                <li class="fr"><a class="gotohome" href="/">Accueil</a></li>
+                <li class="fr"><a class="gotoproject" href="/projets">Projets</a></li>
+                <li class="eng"><a class="gotoproject" href="/projets">Projects</a></li>
+                <li><a class="gotocontact" href="contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
+            <div class="d-none d-xl-inline-block">
+              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
+                <li>
+                  <a title="Change langage" Maction="switchlang" class="pl-0 pr-3 cursor"><span
+                      class="icon-language js-menu-close"></span></a>
+                </li>
+                <li class="codepenli">
+                    <a target="_blank" href="https://codepen.io/morganbkf" 
+                      class="pl-0 pr-3 codepen-link" 
+                      aria-label="CodePen">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          fill="currentColor">
+
+
+                        <g fill="none"
+                          stroke="currentColor"
+                          stroke-width="33"
+                          stroke-linejoin="round">
+
+                          <path d="M81 198v116l175 117 175-117V198L256 81z"/>
+                          <path d="M81 198l175 116 175-116M256 81v117"/>
+                          <path d="M81 314l175-116 175 116M256 431V314"/>
+
+                        </g>
+                      </svg>
+                    </span>
+                    </a>
+                  </li>
+                <li>
+                  <a target="_blank" href="https://github.com/mimoklef" class="pl-0 pr-3"><span
+                      class="icon-github"></span></a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://www.linkedin.com/in/morganbkf/" class="pl-0 pr-3"><span
+                      class="icon-linkedin"></span></a>
+                </li>
+                <li>
+<!-- CV ? -->
+                </li>
+                <li>
+                  <a target="_blank" href="mailto:morganbkf@gmail.com" class="pl-0 pr-3"><span
+                      class="icon-mail_outline"></span></a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
+                class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </header>
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <iframe width="100%" frameBorder="0" id="iframeview" src="/mooc" title="PORTFOLIO"></iframe>
+
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="js/cookieSetting.js"></script>
+
+
+<!--
+    <div id="audioplayer" class="audioplayer">
+
+      <div class="audioheader">
+        <i onclick="hideplayer()" class="icon-close closeplayerbtn musicbtn"></i>
+        <div class="fromright">Conquest Of Paradise - Vangelis</div>
+      </div>
+      <div id="waveform"></div>
+      <div class="audioheader">
+        <div id="playpause" onclick="playM()"><span class="icon-play_arrow musicbtn playpausebtn"></span></div>
+        <div class="vol">
+          <div id="volume"></div>
+        </div>
+      </div>
+      <div id="audioloader" class="audioloader">
+        <div class="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <div class="showplayerbtn" id="showplayer">
+      <i onclick="showplayer()" id="showplayericon" class="icon-music_note musicbtn"></i>
+
+    </div>
+
+
+    <script src="js/audioplayer.js"></script>
+    <script src="js/audioplayer-jquery.js"></script>
+-->
+
+
+
+  </div>
+
+  <div id="inframe">
+
+
+
+
+
+
+
+
+
+
+    <div class="animate-bottom">
+
+
+
+      <div class="site-wrap">
+
+
+        <div class="site-section eng" data-aos="fade">
+          <div class="container-fluid">
+
+            <div class="row justify-content-center">
+
+              <div class="col-md-7">
+                <div class="row mb-5">
+                  <div class="col-12 ">
+                    <h2 class="site-section-heading text-center">Moocs</h2>
+                    <h3>I made this project for my first intership in summer 2018.</h3>
+                    <h5>It was my first real web application and it took me a little bit less than one month to learn
+                      PHP for the first time and to create the app.</h5>
+                    </br>
+                    <h5>The objective of this application is to give teachers at the university the ability to book a
+                      recording room in which they record their lessons in the form of Moocs.
+                    </h5>
+                    </br>
+                    <h5>PS : Don't pay attention to the design it has been changed for the final version of the
+                      application (deployment).</h5>
+                    </br>
+                    <h5>Used technologies are <b>PHP</b>, <b>MySQL</b> and web technologies as <b>HTML</b>, <b>CSS</b>,
+                      and <b>JavaScript</b>/<b>JQuery</b>.</h5>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div class="row justify-content-center description">
+              <div class="col-md-9">
+                <h1 class="text-center">A few features from this app</h1>
+                </br>
+                <h3 class="left20">User previlieges</h3>
+                <div class="flexRow parag" data-aos="fade">
+                  <img src="images/moocs/menumember.png" class="w30">
+                  <div class="pad10">
+                    <p>
+                      It has two account types, <b>admins</b> and <b>members</b>.</br>
+                      <b>Admins</b> can access some pages that <b>members</b> can't reach.</br>
+                      As you can see in the pictures here, the nav bar is different
+                      depending on the account type.</br></br>
+                      And of course in those pages the first
+                      PHP statement is a condition that verifies user previlieges
+                      and displays a message if the user isn't a <b>admin</b>.
+                    </p>
+                  </div>
+                  <img src="images/moocs/adminmenu.png" class="w30">
+                </div>
+
+                <h3 class="left20">Profiles</h3>
+                <div class="parag" data-aos="fade">
+                  <p>
+                    - All users have a <b>profile page</b> that everyone can visit. This page contains a <b>search
+                      form</b> to search for users by their usernames.<br>
+                    - Users can also <b>upload a picture</b> to use as profile picture.
+                  </p>
+                  <img src="images/moocs/profil.png" class="fullW">
+                </div>
+
+
+                <h3 class="left20">Mailbox</h3>
+
+                <div class="parag" data-aos="fade">
+                  <div class="flexRow ">
+                    <img src="images/moocs/messagerie.png" class="half mar10">
+                    <!--Add the send and Erase buttons here and CSS-->
+                    <img src="images/moocs/inbox.png" class="half mar10">
+                  </div>
+                  </br>
+                  <p>Users can <b>send mails</b> to each others and access their <b>mailboxes</b>.</br>
+                  </p>
+                </div>
+
+
+
+                <h3 class="left20">Member counter</h3>
+
+                <div class="parag" data-aos="fade">
+                  <div class="flexRow">
+                    <img src="images/moocs/counter.png" class="half">
+                    <div class="pad10">
+                      <p>
+                        In the footer. Yeah like in the old forums.
+                      </p>
+                    </div>
+
+                  </div>
+                  </br>
+
+                </div>
+
+
+                <h3 class="left20">Reservations</h3>
+                <div class="parag" data-aos="fade">
+                  <h5>This one is the most important feature of this project.</h5>
+                  <p><b>Users</b> can create <b>reservation requests</b> that <b>admins</b> can <b>validate</b> or not.
+                  </p>
+                  <p>PS : Yeah I know the design is too simple, it was my first web app ever so ¯\_(ツ)_/¯</p>
+                  <img src="images/moocs/reservation.png" class="fullW">
+                  </br>
+                  <p>Here is the reservation requests page that only <b>admins</b> can access.</p>
+                  <img src="images/moocs/demandes.png" class="fullW">
+                </div>
+
+
+
+                <h3 class="left20">Time slot availability check</h3>
+                <div class="parag" data-aos="fade">
+                  <h5>This one is the second most important feature.</h5>
+                  <p><b>Users</b> can check if a <b>time slot</b> is <b>available</b> or or not.</p>
+                  <p>This is also automatically done when they make a new reservation <b>request</b> so they can't
+                    create it if it overlaps another existing one.</p>
+                  <img src="images/moocs/verifier1.png" class="fullW">
+                  </br>
+                  <img src="images/moocs/verifier2.png" class="fullW">
+                  <p>And if there is a problem they can contact an admin by pressing the button in the bottom.</p>
+                </div>
+
+
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="site-section fr" data-aos="fade">
+          <div class="container-fluid">
+
+            <div class="row justify-content-center">
+
+              <div class="col-md-7">
+                <div class="row mb-5">
+                  <div class="col-12">
+                    <h2 class="site-section-heading text-center">Moocs</h2>
+                    <h3>J'ai réalisé ce projet pour mon premier stage en été 2018.</h3>
+                    <h5>C'était ma première véritable application web et il m'a fallu un peu moins d'un mois pour
+                      apprendre le PHP pour la première fois et pour créer l'application.
+                      </br>
+                      <h5>L'objectif de cette application est de donner aux enseignants de l'université la possibilité
+                        de réserver une salle d'enregistrement dans laquelle ils enregistrent leurs cours sous forme de
+                        Moocs.
+                      </h5>
+                      </br>
+                      <h5>PS : Ne faites pas attention au design, il a été modifié pour la version finale de
+                        l'application (déploiement).</h5>
+                      </br>
+                      <h5>Les technologies utilisées sont <b>PHP</b>, <b>MySQL</b> et les technologies web basiques
+                        comme <b>HTML</b>, <b>CSS</b>, et <b>JavaScript</b>/<b>JQuery</b>.</h5>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div class="row justify-content-center description">
+              <div class="col-md-9">
+                <h1 class="text-center">Quelques fonctionnalités de l'application </h1>
+                </br>
+                <h3 class="left20">Droits</h3>
+                <div class="flexRow parag" data-aos="fade">
+                  <img src="images/moocs/menumember.png" class="w30">
+                  <div class="pad10">
+                    <p>
+                      Il existe deux types de comptes, les <b>admins</b> et les <b>membres</b>.</br>
+                      Les <b>administrateurs</b> peuvent accéder à certaines pages inaccessibles aux <b>membres</b>
+                      .</br>
+                      Comme vous pouvez le voir sur les photos ici, la barre de navigation est différente
+                      selon le type de compte.</br></br>
+                      Et bien sûr, dans ces pages, le premier bloc PHP est une condition qui permet de vérifier les
+                      droits de l'utilisateur
+                      et affiche un message si l'utilisateur n'est pas un <b>admin</b>.
+                    </p>
+                  </div>
+                  <img src="images/moocs/adminmenu.png" class="w30">
+                </div>
+
+                <h3 class="left20">Profils</h3>
+                <div class="parag" data-aos="fade">
+                  <p>
+                    - Tous les utilisateurs ont un <b>profil</b> que tout le monde peut visiter. Cette page contient un
+                    <b>formulaire de recherche</b> pour rechercher les utilisateurs par leur nom.<br>
+                    - Les utilisateurs peuvent également <b> télécharger une photo</b> à utiliser comme photo de profil.
+                  </p>
+                  <img src="images/moocs/profil.png" class="fullW">
+                </div>
+
+
+                <h3 class="left20">Messagerie</h3>
+
+                <div class="parag" data-aos="fade">
+                  <div class="flexRow ">
+                    <img src="images/moocs/messagerie.png" class="half mar10">
+                    <!--Add the send and Erase buttons here and CSS-->
+                    <img src="images/moocs/inbox.png" class="half mar10">
+                  </div>
+                  </br>
+                  <p>Les utilisateurs peuvent s'envoyer des <b>messages</b> sous forme de petits <b>mails</b>.</br>
+                  </p>
+                </div>
+
+
+
+                <h3 class="left20">Compteur de membres</h3>
+
+                <div class="parag" data-aos="fade">
+                  <div class="flexRow">
+                    <img src="images/moocs/counter.png" class="half">
+                    <div class="pad10">
+                      <p>
+                        Dans les footers. Ouais comme dans les vieux forums.
+                      </p>
+                    </div>
+
+                  </div>
+                  </br>
+
+                </div>
+
+
+                <h3 class="left20">Réservations</h3>
+                <div class="parag" data-aos="fade">
+                  <h5>C'est la fonctionnalité la plus importante du projet.</h5>
+                  <p>Les <b>utilisateurs</b> peuvent créer des <b>demandes de réservation</b> que les <b>admins</b>
+                    peuvent <b>valider</b> ou pas.</p>
+                  <p>PS : Oui le design est très simple, mais c'était ma toute première application web ¯\_(ツ)_/¯</p>
+                  <img src="images/moocs/reservation.png" class="fullW">
+                  </br>
+                  <p>Voici la page de requêtes de réservations que seuls les <b>admins</b> peuvent voir.</p>
+                  <img src="images/moocs/demandes.png" class="fullW">
+                </div>
+
+
+
+                <h3 class="left20">Contrôle de la disponibilité des créneaux horaires</h3>
+
+                <div class="parag" data-aos="fade">
+                  <h5>C'est le deuxième fonctionnalité la plus importante du projet.</h5>
+                  <p>Les <b>utilisateurs</b> peuvent vérifier si un créneau horaire</b> est <b>disponible</b> ou pas.
+                  </p>
+                  <p>Cela se fait aussi automatiquement lorsqu'ils font une nouvelle <b>demande de réservation</b>, de
+                    sorte qu'ils ne puissent pas la créer si elle empiète sur une autre existante.</p>
+                  <img src="images/moocs/verifier1.png" class="fullW">
+                  </br>
+                  <img src="images/moocs/verifier2.png" class="fullW">
+                  <p>Et s'il y a le moindre problème ils peuvent contacter les admins en cliquant sur le bouton en bas.
+                  </p>
+                </div>
+
+
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="footer">
+          <div class="container-fluid text-center">
+            <p>
+              Copyright
+              <script>document.write(new Date().getFullYear());</script> All rights reserved | Morgan Bouyakhlef
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="/js/langagesetting.js"></script>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/picturefill.min.js"></script>
+    <script src="js/lightgallery-all.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+  </div>
+  <script src="js/iframeset-jquery.js"></script>
+</body>
+
+</html>

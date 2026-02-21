@@ -1,0 +1,128 @@
+    .flipnote-font {
+      font-family: 'Gloria Hallelujah', cursive !important;
+    }
+  
+    .flipnote-text {
+      font-family: 'Gloria Hallelujah', cursive !important;
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 4px;
+      outline: none !important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+
+    .letter {
+      display: inline-block;
+      animation-duration: 0.25s;
+      animation-timing-function: steps(1);
+      animation-iteration-count: infinite;
+    }
+
+    .letter:nth-child(1) { animation-name: move1; animation-delay: 0s; }
+    .letter:nth-child(2) { animation-name: move2; animation-delay: 0.03s; }
+    .letter:nth-child(3) { animation-name: move3; animation-delay: 0.06s; }
+    .letter:nth-child(4) { animation-name: move4; animation-delay: 0.09s; }
+    .letter:nth-child(5) { animation-name: move5; animation-delay: 0.12s; }
+    .letter:nth-child(6) { animation-name: move6; animation-delay: 0.15s; }
+    .letter:nth-child(7) { animation-name: move7; animation-delay: 0.18s; }
+    .letter:nth-child(8) { animation-name: move8; animation-delay: 0.21s; }
+    .letter:nth-child(9) { animation-name: move9; animation-delay: 0.24s; }
+    .letter:nth-child(10) { animation-name: move10; animation-delay: 0.27s; }
+    .letter:nth-child(11) { animation-name: move11; animation-delay: 0.3s; }
+    .letter:nth-child(12) { animation-name: move12; animation-delay: 0.33s; }
+    .letter:nth-child(13) { animation-name: move13; animation-delay: 0.36s; }
+    .letter:nth-child(14) { animation-name: move14; animation-delay: 0.39s; }
+    .letter:nth-child(15) { animation-name: move15; animation-delay: 0.42s; }
+    .letter:nth-child(16) { animation-name: move16; animation-delay: 0.45s; }
+    .letter:nth-child(17) { animation-name: move17; animation-delay: 0.48s; }
+    .letter:nth-child(18) { animation-name: move18; animation-delay: 0.51s; }
+    .letter:nth-child(19) { animation-name: move19; animation-delay: 0.54s; }
+    .letter:nth-child(20) { animation-name: move20; animation-delay: 0.57s; }
+
+    /* Animations très subtiles : 0.5px à 1px, légers angles */
+    @keyframes move1 {
+      0%, 100% { transform: translate(0.5px, -0.5px) rotate(0.2deg); }
+      50%      { transform: translate(-0.5px, 0.5px) rotate(-0.2deg); }
+    }
+    @keyframes move2 {
+      0%, 100% { transform: translate(-0.5px, -0.3px) rotate(0.1deg); }
+      50%      { transform: translate(0.4px, 0.3px) rotate(-0.1deg); }
+    }
+    @keyframes move3 {
+      0%, 100% { transform: translate(0px, 0px) rotate(0.1deg); }
+      50%      { transform: translate(-0.7px, 0.3px) rotate(-0.1deg); }
+    }
+    @keyframes move4 {
+      0%, 100% { transform: translate(0.7px, -0.7px) rotate(0.1deg); }
+      50%      { transform: translate(0px, 0.4px) rotate(-0.1deg); }
+    }
+    @keyframes move5 {
+      0%, 100% { transform: translate(0.4px, 0.4px) rotate(0.15deg); }
+      50%      { transform: translate(-0.4px, -0.6px) rotate(-0.15deg); }
+    }
+    @keyframes move6 {
+      0%, 100% { transform: translate(0px, -0.4px) rotate(0.1deg); }
+      50%      { transform: translate(0.5px, 0.4px) rotate(-0.1deg); }
+    }
+    @keyframes move7 {
+      0%, 100% { transform: translate(-0.6px, 0.3px) rotate(0.2deg); }
+      50%      { transform: translate(0.6px, -0.3px) rotate(-0.2deg); }
+    }
+    @keyframes move8 {
+      0%, 100% { transform: translate(0.6px, 0.5px) rotate(0.1deg); }
+      50%      { transform: translate(-0.4px, -0.4px) rotate(-0.1deg); }
+    }
+    @keyframes move9 {
+      0%, 100% { transform: translate(-0.2px, 0.2px) rotate(0.2deg); }
+      50%      { transform: translate(0.4px, -0.3px) rotate(-0.2deg); }
+    }
+    @keyframes move10 {
+      0%, 100% { transform: translate(0.5px, -0.5px) rotate(0.1deg); }
+      50%      { transform: translate(-0.5px, 0.5px) rotate(-0.1deg); }
+    }
+    @keyframes move11 {
+      0%, 100% { transform: translate(0.4px, -0.3px) rotate(0.15deg); }
+      50%      { transform: translate(-0.4px, 0.5px) rotate(-0.15deg); }
+    }
+    @keyframes move12 {
+      0%, 100% { transform: translate(0.3px, 0.4px) rotate(0.1deg); }
+      50%      { transform: translate(-0.3px, -0.4px) rotate(-0.1deg); }
+    }
+    @keyframes move13 {
+      0%, 100% { transform: translate(0.2px, -0.2px) rotate(0.1deg); }
+      50%      { transform: translate(-0.5px, 0.3px) rotate(-0.1deg); }
+    }
+    @keyframes move14 {
+      0%, 100% { transform: translate(0.3px, 0.2px) rotate(0.2deg); }
+      50%      { transform: translate(-0.3px, -0.3px) rotate(-0.2deg); }
+    }
+    @keyframes move15 {
+      0%, 100% { transform: translate(0.2px, 0.3px) rotate(0.15deg); }
+      50%      { transform: translate(-0.4px, -0.5px) rotate(-0.15deg); }
+    }
+    @keyframes move16 {
+      0%, 100% { transform: translate(0.3px, -0.4px) rotate(0.1deg); }
+      50%      { transform: translate(-0.3px, 0.3px) rotate(-0.1deg); }
+    }
+    @keyframes move17 {
+      0%, 100% { transform: translate(-0.2px, 0.2px) rotate(0.1deg); }
+      50%      { transform: translate(0.3px, -0.2px) rotate(-0.1deg); }
+    }
+    @keyframes move18 {
+      0%, 100% { transform: translate(0.5px, 0.4px) rotate(0.2deg); }
+      50%      { transform: translate(-0.5px, -0.5px) rotate(-0.2deg); }
+    }
+    @keyframes move19 {
+      0%, 100% { transform: translate(0.4px, -0.3px) rotate(0.15deg); }
+      50%      { transform: translate(-0.4px, 0.4px) rotate(-0.15deg); }
+    }
+    @keyframes move20 {
+      0%, 100% { transform: translate(0.6px, -0.2px) rotate(0.1deg); }
+      50%      { transform: translate(-0.5px, 0.3px) rotate(-0.1deg); }
+    }
+

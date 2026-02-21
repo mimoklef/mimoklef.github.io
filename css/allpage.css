@@ -1,0 +1,94 @@
+.allpage{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100% !important;
+    height: 100%;
+    background-color: black;
+    z-index:10;
+    display: flex;
+    flex-direction: column;
+  }
+  .centerpage{
+    width: 700px;
+    height: 100px;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .video{
+    margin: auto;
+    width: 99% !important;
+    height: 90% !important;
+  }
+
+
+  #linkcontainer{
+      height: 50px;
+      background-color: black;
+      color: white;
+      width: 80%;
+      margin: auto;
+      margin-top: 20px;
+      border: 1px solid grey;
+      box-shadow:  0 0 8px grey;
+      border-radius: 15px;
+      outline: none;
+      display: flex;
+      flex-direction: row;
+  }
+  #youtubelink{
+    background-color: black;
+    border: none;
+    color: white;
+    width: 85%;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 20px;
+    outline: none;
+  }
+  #youtubelink:active, #youtubelink:focus{
+    box-shadow:  0 0 15px grey;
+  }
+
+  #loadbtn{
+    width: 15%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .youtubecontain{
+      height: 100%;
+      margin: auto 0;
+      display: flex;
+  }
+
+  .none{
+      display: none;
+  }
+
+  @media only screen and (max-width: 800px) {  /*Mobile version*/
+    .video{
+        max-height: 20% !important;
+        margin: 0 !important;
+      }
+      .allpage{
+        flex-direction: column-reverse;
+      }
+      .youtubecontain{
+        margin: 0;
+      }
+    }

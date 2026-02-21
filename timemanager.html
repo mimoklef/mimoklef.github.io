@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+
+<head>
+  <title>Time Manager - Elixir / Vue.js</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="css/lightgallery.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/swiper.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+
+
+
+</head>
+
+<body id="body">
+
+
+
+
+
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+
+
+  <div id="notframe">
+
+    <header class="site-navbar" role="banner">
+
+      <div class="container-fluid">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-xl-2" data-aos="fade-down">
+            
+          </div>
+          <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
+            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                <li class="eng"><a class="gotohome" href="/">Home</a></li>
+                <li class="fr"><a class="gotohome" href="/">Accueil</a></li>
+                <li class="fr"><a class="gotoproject" href="/projets">Projets</a></li>
+                <li class="eng"><a class="gotoproject" href="/projets">Projects</a></li>
+                <li><a class="gotocontact" href="contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
+            <div class="d-none d-xl-inline-block">
+              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
+                <li>
+                  <a title="Change langage" Maction="switchlang" class="pl-0 pr-3 cursor"><span
+                      class="icon-language js-menu-close"></span></a>
+                </li>
+                <li class="codepenli">
+                    <a target="_blank" href="https://codepen.io/morganbkf" 
+                      class="pl-0 pr-3 codepen-link" 
+                      aria-label="CodePen">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          fill="currentColor">
+
+
+                        <g fill="none"
+                          stroke="currentColor"
+                          stroke-width="33"
+                          stroke-linejoin="round">
+
+                          <path d="M81 198v116l175 117 175-117V198L256 81z"/>
+                          <path d="M81 198l175 116 175-116M256 81v117"/>
+                          <path d="M81 314l175-116 175 116M256 431V314"/>
+
+                        </g>
+                      </svg>
+                    </span>
+                    </a>
+                  </li>
+                <li>
+                  <a target="_blank" href="https://github.com/mimoklef" class="pl-0 pr-3"><span
+                      class="icon-github"></span></a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://www.linkedin.com/in/morganbkf/" class="pl-0 pr-3"><span
+                      class="icon-linkedin"></span></a>
+                </li>
+                <li>
+<!-- CV ? -->
+                </li>
+                <li>
+                  <a target="_blank" href="mailto:morganbkf@gmail.com" class="pl-0 pr-3"><span
+                      class="icon-mail_outline"></span></a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
+                class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </header>
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <iframe width="100%" frameBorder="0" id="iframeview" src="/timemanager" title="PORTFOLIO"></iframe>
+
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="js/cookieSetting.js"></script>
+
+
+<!--
+    <div id="audioplayer" class="audioplayer">
+
+      <div class="audioheader">
+        <i onclick="hideplayer()" class="icon-close closeplayerbtn musicbtn"></i>
+        <div class="fromright">Conquest Of Paradise - Vangelis</div>
+      </div>
+      <div id="waveform"></div>
+      <div class="audioheader">
+        <div id="playpause" onclick="playM()"><span class="icon-play_arrow musicbtn playpausebtn"></span></div>
+        <div class="vol">
+          <div id="volume"></div>
+        </div>
+      </div>
+      <div id="audioloader" class="audioloader">
+        <div class="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <div class="showplayerbtn" id="showplayer">
+      <i onclick="showplayer()" id="showplayericon" class="icon-music_note musicbtn"></i>
+
+    </div>
+
+
+    <script src="js/audioplayer.js"></script>
+    <script src="js/audioplayer-jquery.js"></script>
+-->
+
+
+
+  </div>
+
+  <div id="inframe">
+
+
+
+
+
+
+    <div class="animate-bottom">
+
+
+      <div class="site-wrap">
+
+        <div class="site-section" data-aos="fade">
+          <div class="container-fluid">
+
+            <div class="row justify-content-center">
+
+              <div class="col-md-7">
+                <div class="row mb-5">
+                  <div class="col-12 eng">
+                    <h2 class="site-section-heading text-center">Time Manager</h2>
+                    <h3>I made this project for my first "piscine" at school.</h3>
+                    <h5>It was a 3 weeks long "piscine" and I did it in group with a classmate.</h5>
+                    </br>
+                    <h5>This is a (professional) time management wep application.</h5>
+                    <h5>The concept is pretty simple : all employees of a company have access to the app, they have
+                      access to their working times and they can clock in and out</h5>
+                    <h5>Managers can create new working times to their employees, and edit or delete existing ones.</h5>
+                    <h5>All users can access their respective informations and managers can access other employees
+                      infos.</h5>
+                    </br>
+                    <h5>Main used technologies are <b>Elixir</b>, <b>Phoenix</b> with <b>Postgres</b>, <b>Vue.js</b> and
+                      <b>Docker</b> and <b>Azure</b> for deployment.
+                    </h5>
+                  </div>
+                  <div class="col-12 fr">
+                    <h2 class="site-section-heading text-center">Time Manager</h2>
+                    <h3>J'ai réalisé ce projet pour ma première piscine à l'école.</h3>
+                    <h5>Cette piscine a duré 3 semaines et c'était un projet de groupe, nous l'avons réalisé à deux.
+                    </h5>
+                    </br>
+                    <h5>C'est une application web de management de temps.</h5>
+                    <h5>Le concept est simple: Tous les employés ont accès à l'application avec leurs comptes, ils ont
+                      accès à leurs temps de travail et à la pointeuse</h5>
+                    <h5>Managers can create new working times to their employees, and edit or delete existing ones.</h5>
+                    <h5>Tous les utilisateurs ont accès à leurs informations et les managers peuvent accéder aux
+                      informations des autres employés.</h5>
+                    </br>
+                    <h5>Les principales technologies utilisées sont <b>Elixir</b>, <b>Phoenix</b> avec <b>Postgres</b>
+                      comme base de données, <b>Vue.js</b> pour le front et <b>Docker</b> et <b>Azure</b> pour le
+                      déploiement.</h5>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div class="row justify-content-center description">
+              <div class="col-md-9">
+
+                <h1 class="text-center eng">A brief presentation of main features</h1>
+                <h1 class="text-center fr">Présentation</h1>
+                </br>
+                <h3 class="left20 eng">Application architecture</h3>
+                <h3 class="left20 fr">Architecture de l'application</h3>
+                <div class="parag" data-aos="fade">
+                  <p class="eng">
+                    </br>-The backend is an <b>Elixir REST API</b>.
+                    </br>-The frontend is a <b>Vue.js</b> application that communicated with the API, but is completely
+                    separated from it.
+                    </br>-Data is stored in a <b>Postgres</b> database.
+                  </p>
+                  <p class="fr">
+                    </br>-Le backend est une <b>API REST</b> utilisant <b>Elixir</b>.
+                    </br>-Le frontend est une application <b>Vue.js</b> qui communique avec l'API mais qui en est
+                    séparée.
+                    </br>-Les données sont stockées dans une base de données <b>Postgres</b>.
+                  </p>
+                </div>
+
+                <h3 class="left20 eng">Login and register</h3>
+                <h3 class="left20 fr">Connexion et inscription</h3>
+
+                <div class="parag" data-aos="fade">
+                  <div class="flexRow">
+                    <img src="images/TimeManager/login.png" class="half">
+                    <div class="pad10 eng">
+                      <p>Users can login from this form.</br></br>
+                        This sends a sign in request to the API that accepts or rejects connexion.
+                        </br></br>When the user isn't authentified, all routes lead to this page, as only authentified
+                        users can access the application.
+                        </br></br>Of course the application uses password hash and other security features...
+                      </p>
+                      </br></br>
+                      <p>
+                        Only managers can create new users as it is a professional application.
+                        </br></br>All users can edit their password or email but only managers can have acces to, and
+                        edit other users informations.
+                      </p>
+                    </div>
+
+                    <div class="pad10 fr">
+                      <p>Les utilisateurs peuvent se connecter depuis ce formulaire .</br></br>
+                        Il envoie une requete à l'API qui accepte ou pas la connexion.
+                        </br></br>Quand l'utilisateur n'est pas authentifié tous les routes mènent à cette page, car il
+                        faut se connecter pour avoir accès à l'application.
+                        </br></br>L'application utilise des features de sécurité comme le hash etc...
+                      </p>
+                      </br></br>
+                      <p>
+                        Seuls les managers peuvent créer de nouveaux utilisateurs.
+                        </br></br>Tous les utilisateurs peuvent éditer leurs mots de passe ou emails mais seuls les
+                        managers peuvent avoir accès aux informations des autres.
+                    </div>
+                  </div>
+                  </br>
+                  <img src="images/TimeManager/users.png" class="fullW">
+                </div>
+
+                <h3 class="left20 eng">Working times</h3>
+                <h3 class="left20 fr">Horaires de travail</h3>
+                <div class="pad10">
+                  <h4 class="left20 eng">Calendar</h4>
+                  <h4 class="left20 fr">Calendrier</h4>
+                  <div class="parag" data-aos="fade">
+                    <p class="eng">
+                      All users have access to their calendar in their home page.
+                    </p>
+                    <p class="fr">
+                      Tous les utilisateurs ont accès au calendrer dans leur page d'accueil.
+                    </p>
+                    <img src="images/TimeManager/calendrier.png" class="fullW">
+                    <p class="eng">This calendar lists all working times of the week (with start and end time).</p>
+                    <p class="fr">Ce calendrier liste tous les horaires de travail de la semaine.</p>
+                  </div>
+                  <h4 class="left20 eng">Working time List</h4>
+                  <h4 class="left20 fr">Liste des horaires</h4>
+                  <div class="flexRow parag" data-aos="fade">
+                    <div class="pad10 half eng">
+                      <p>They can also view their working times in this list that classifies them into 3 categories :
+                      </p>
+
+                      <p>
+                        - Today : Today's working times.
+                      </p>
+                      <p>
+                        - Upcomming : Working times to come, starting the next day.
+                      </p>
+                      <p>
+                        - Latest : Previous working times.
+                      </p>
+                      <p>The user can click on each categorie to expand or hide content.
+                        </br>All those categories lists only list 3 working times, but the user can click "Show all" to
+                        see more items.
+                      </p>
+                    </div>
+                    <div class="pad10 half fr">
+                      <p>Les utilisateurs peuvent aussi voir leurs horaires depuis cette list, ils sont classifiés comme
+                        ceci :</p>
+
+                      <p>
+                        - Aujourd'hui : Les horaires de la journée.
+                      </p>
+                      <p>
+                        - A venir : Les horaires à venir, à partir du lendemain.
+                      </p>
+                      <p>
+                        - Passé : Les horaires passés et terminés.
+                      </p>
+                      <p>L'utilisateur peut cliquuer sur une catégorie pour l'afficher.
+                        </br>Ces catégories listent au maximum 3 horaires mais l'utilisateur peut cliquer sur "Voir
+                        tout" pour voir tout.
+                      </p>
+                    </div>
+                    <img src="images/TimeManager/wts.png" class="half">
+                  </div>
+                  <p class="eng">The user can also click on "See more" to get more informations about a working time :
+                  </p>
+                  <p class="fr">Ils peuvent aussi cliquer sur "voir plus" pour voir les détails de l'horaire sélectionné
+                    :</p>
+                  <img src="images/TimeManager/wt.png" class="fullW">
+                  <p class="eng">As I'm connected as a manager, I can modify it, delete it or even create a new working
+                    time.</p>
+                  <p class="fr">Comme je suis connecté en tant que manager, je peux modifier l'horaire, le supprimer ou
+                    même en créer un nouveau.</p>
+                </div>
+
+
+                <h3 class="left20 eng">Chart manager</h3>
+                <h3 class="left20 fr">Graphiques</h3>
+                <div class="parag" data-aos="fade">
+                  <p class="eng">
+                    This page contains user's statistics.
+                    </br> It has 3 chart :
+                    </br> -Working time by week : Gives a (selected) week's total worked hours, classified to day and
+                    night hours, and overtime.
+                    </br> -Total working time : Gives total worked hours, classified to day and night hours, and
+                    overtime.
+                    </br> -Working time by day : Gives each day's total worked hours.
+                  </p>
+                  <p class="fr">
+                    Cette page contient les statistique de l'utilisateur.
+                    </br> elle contient trois graphiques :
+                    </br> -Temps de travail par semaine : Donne le total des heures de travail par semaine
+                    (sélectionnée), en précisant le nombre d'heures de jour, de nuit et supplémentaires.
+                    </br> -Temps de travail total : Donne le total des heures travaillées en précisant le nombre
+                    d'heures de jour, de nuit et supplémentaires.
+                    </br> -Temps de travail journalier : Donne le total d'heures travaillées chaque jour.
+                  </p>
+                  <h5 class="eng">Working time by week (day/night/overtime):</h5>
+                  <h5 class="fr">Temps total par semaine (jour/nuit/heures sup):</h5>
+                  <img src="images/TimeManager/chart1.png" class="fullW">
+                  <h5 class="eng">Total working time by day:</h5>
+                  <h5 class="fr">Total journalier:</h5>
+                  <img src="images/TimeManager/chart2.png" class="fullW">
+                </div>
+
+
+
+                <h3 class="left20 eng">Clock</h3>
+                <h3 class="left20 fr">Pointeuse</h3>
+                <div class="parag flexRow" data-aos="fade">
+
+                  <img src="/images/TimeManager/clock.png" class="fullW">
+                  <div class="pad10 eng">
+                    <p>
+                      Every authentified user can access this page to clock in and out.
+                    </p>
+                    </br>
+                    <p>
+                      He can only click the "Start/End" button if there's a working time going on at the moment.
+                      </br>This clock is connected to the backend and if there is a clock in but no clock out yet for
+                      current working time, it shows an "End time" button instead of "Start time".
+                      </br>There is no need to stay in the page or even connected one we clock in, we only need to
+                      access the app to clock out at the end of our working time.
+                    </p>
+                    </br>
+                    <p>
+                      The box in the bottom shows current (or next if there isn't any running at the moment) working
+                      time's informations.
+                      </br>In this screen there isn't any working time running, so it shows the next one, so we can't
+                      click on the start/end button.
+                    </p>
+                  </div>
+                  <div class="pad10 fr">
+                    <p>
+                      Tout utilisateur authentifié peut accéder à cette page pour pointer (début et fin).
+                    </p>
+                    </br>
+                    <p>
+                      Il ne peut cliquer sur le bouton que pendant les horaires de travail.
+                      </br>La page est connectée au backend et s'il y a un pointage début mais pas de fin, le bouton
+                      affiche "Finir" au lieu de "Débuter".
+                      </br>L'utilisateur peut quitter la page et même l'application après avoir pointé et revenir
+                      seulement à la fin de ses heures de travail pour faire un pointage de sortie.
+                    </p>
+                    </br>
+                    <p>
+                      La section en bas montre les informations de l'horaire de travail actuel (ou le prochain s'il n'y
+                      a pas d'horaire en ce moment).
+                      </br>Dans cette capture il n'y a pas d'horaire donc elle montre le prochain, et on ne peut pas
+                      cliquer sur le bouton de pointage.
+                    </p>
+                  </div>
+                </div>
+
+
+                <h3 class="left20">Mobile</h3>
+                <div class="parag" data-aos="fade">
+
+                  <div class="pad10">
+                    <p class="eng">
+                      Like you saw in the previous screen, the application is fully <b>responsive</b> and adapts to
+                      device's screen.
+                      </br>We used <b>Cordova</b> because it was requested by he subject but the web application works
+                      very good on mobiles.
+                    </p>
+                    <p class="fr">
+                      Comme vous l'avez vu dans le screen précédent, l'application est <b>responsive</b> aet s'adapte à
+                      l'écran.
+                      </br>Nous avons utilisé <b>Cordova</b> car c'était demandé mais l'application marche très bien sur
+                      les navigateurs sur mobile/tablette.
+                    </p>
+
+                  </div>
+                </div>
+
+                <h3 class="left20 eng">Deploy</h3>
+                <h3 class="left20 fr">Déploiement</h3>
+                <div class="parag" data-aos="fade">
+
+                  <div class="pad10">
+                    <p class="eng">
+                      To deploy the app, we used 3 <b>Docker</b> images (backend, frontend and database), which we have
+                      deployed on <b>Azure</b>.
+                      </br>We also used <b>Github actions</b> to deploy each time we push new modifications.
+                    </p>
+                    <p class="fr">
+                      Pour déployer l'application, nous avons utilisé 3 image <b>Docker</b> (backend, frontend et base
+                      de données), que l'on a déployé sur <b>Azure</b>.
+                      </br>Nous avons aussi utilisé <b>Github actions</b> pour le déploiement continu.
+                    </p>
+
+                  </div>
+                </div>
+
+
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="footer">
+          <div class="container-fluid text-center">
+            <p>
+              Copyright
+              <script>document.write(new Date().getFullYear());</script> All rights reserved | Morgan Bouyakhlef
+            </p>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="/js/langagesetting.js"></script>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/picturefill.min.js"></script>
+    <script src="js/lightgallery-all.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+  </div>
+  <script src="js/iframeset-jquery.js"></script>
+</body>
+
+</html>

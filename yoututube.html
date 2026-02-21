@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <title>Youtube No Ads</title>
+
+  <link rel="stylesheet" href="css/allpage.css">
+  <meta name="google" content="notranslate">
+
+
+
+
+
+
+</head>
+<body id="body">
+
+  <div class="allpage">
+      <div id="linkcontainer">
+      <input type="text" placeholder="Youtube link" id="youtubelink">
+      <button id="loadbtn" onclick="load()">GO</button>
+    </div>
+    <div class="youtubecontain" id="youtubecontain">
+    <iframe id="video" class="fullW text-center video none" allowfullscreen style="height: 100%;" src="https://www.youtube.com/embed/5m3VZ9JgjnQ">
+    </iframe>
+    </div>
+</div>
+
+
+  <script>
+  
+  if (document.cookie.indexOf("VISITOR_INFO1_LIVE=") == -1) {
+      document.cookie= document.cookie+";VISITOR_INFO1_LIVE=oKckVSqvaGw; path=/; domain=.youtube.com";
+      console.log(document.cookie);
+    }
+
+    function load(){
+      let link = document.getElementById('youtubelink').value;
+      link = "//www.youtube.com/embed/"+ getId(link)+"?autoplay=1";
+
+      document.getElementById('video').src = link;
+     
+      document.getElementById('video').classList.remove('none');
+
+    }
+
+
+    function getId(url) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+
+    return (match && match[2].length === 11)
+      ? match[2]
+      : null;
+    }
+    
+
+
+var input = document.getElementById("youtubelink");
+
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("loadbtn").click();
+  }
+});
+
+ let lWidth = window.screen.width
+  if (lWidth<900) {
+    document.getElementById("youtubecontain").style = "height:400px"
+  }
+  </script>
+
+</body>
+</html>

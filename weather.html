@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+
+<head>
+  <title>Weather App - Node.js</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="css/lightgallery.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/swiper.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+
+
+
+</head>
+
+<body id="body">
+
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+
+
+  <div id="notframe">
+
+    <header class="site-navbar" role="banner">
+
+      <div class="container-fluid">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-xl-2" data-aos="fade-down">
+            
+          </div>
+          <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
+            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                <li class="eng"><a class="gotohome" href="/">Home</a></li>
+                <li class="fr"><a class="gotohome" href="/">Accueil</a></li>
+                <li class="fr"><a class="gotoproject" href="/projets">Projets</a></li>
+                <li class="eng"><a class="gotoproject" href="/projets">Projects</a></li>
+                <li><a class="gotocontact" href="contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
+            <div class="d-none d-xl-inline-block">
+              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
+                <li>
+                  <a title="Change langage" Maction="switchlang" class="pl-0 pr-3 cursor"><span
+                      class="icon-language js-menu-close"></span></a>
+                </li>
+                <li class="codepenli">
+                    <a target="_blank" href="https://codepen.io/morganbkf" 
+                      class="pl-0 pr-3 codepen-link" 
+                      aria-label="CodePen">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          fill="currentColor">
+
+
+                        <g fill="none"
+                          stroke="currentColor"
+                          stroke-width="33"
+                          stroke-linejoin="round">
+
+                          <path d="M81 198v116l175 117 175-117V198L256 81z"/>
+                          <path d="M81 198l175 116 175-116M256 81v117"/>
+                          <path d="M81 314l175-116 175 116M256 431V314"/>
+
+                        </g>
+                      </svg>
+                    </span>
+                    </a>
+                  </li>
+                <li>
+                  <a target="_blank" href="https://github.com/mimoklef" class="pl-0 pr-3"><span
+                      class="icon-github"></span></a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://www.linkedin.com/in/morganbkf/" class="pl-0 pr-3"><span
+                      class="icon-linkedin"></span></a>
+                </li>
+                <li>
+<!-- CV ? -->
+                </li>
+                <li>
+                  <a target="_blank" href="mailto:morganbkf@gmail.com" class="pl-0 pr-3"><span
+                      class="icon-mail_outline"></span></a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
+                class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </header>
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <iframe width="100%" frameBorder="0" id="iframeview" src="/weather" title="PORTFOLIO"></iframe>
+
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="js/cookieSetting.js"></script>
+
+
+<!--
+    <div id="audioplayer" class="audioplayer">
+
+      <div class="audioheader">
+        <i onclick="hideplayer()" class="icon-close closeplayerbtn musicbtn"></i>
+        <div class="fromright">Conquest Of Paradise - Vangelis</div>
+      </div>
+      <div id="waveform"></div>
+      <div class="audioheader">
+        <div id="playpause" onclick="playM()"><span class="icon-play_arrow musicbtn playpausebtn"></span></div>
+        <div class="vol">
+          <div id="volume"></div>
+        </div>
+      </div>
+      <div id="audioloader" class="audioloader">
+        <div class="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <div class="showplayerbtn" id="showplayer">
+      <i onclick="showplayer()" id="showplayericon" class="icon-music_note musicbtn"></i>
+
+    </div>
+
+
+    <script src="js/audioplayer.js"></script>
+    <script src="js/audioplayer-jquery.js"></script>
+-->
+
+
+
+  </div>
+
+  <div id="inframe">
+
+
+
+
+
+
+
+
+
+
+    <div class="animate-bottom">
+
+
+      <div class="site-wrap">
+
+
+
+
+
+
+
+
+        <div class="site-section" data-aos="fade">
+          <div class="container-fluid">
+
+            <div class="row justify-content-center">
+
+              <div class="col-md-7">
+                <div class="row mb-5">
+                  <div class="col-12 eng">
+                    <h2 class="site-section-heading text-center">Weather App</h2>
+                    <h3>I made this project for my first Node.js class.</h3>
+                    <h5>It took me a little bit less than two weeks (while having other courses) to create the app.</h5>
+                    </br>
+                    <h5>This is a simple weather web application. Users can register to save their cities, they can
+                      access realtime weather and forecast.
+                    </h5>
+                    </br>
+                    <h5>Main used technologies are <b>Node.js</b>, <b>Express.js</b> with <b>MongoDB</b> database,
+                      simple <b>HTML</b> and <b>CSS</b> and <b>JavaScript</b>/<b>JQuery</b>.</h5>
+                  </div>
+                  <div class="col-12 fr">
+                    <h2 class="site-section-heading text-center">Weather App</h2>
+                    <h3>J'ai réalisé ce projet pour mon premier cours de Node.js.</h3>
+                    <h5>Il m'a pris à peu près 2 semaines (avec d'autres cours à coté).</h5>
+                    </br>
+                    <h5>Il s'agit d'une simple application de web météo. Les utilisateurs peuvent enregistrer leurs
+                      villes favorites pour avoir accès à leur météo en temps réel et aux prévisions.
+                    </h5>
+                    </br>
+                    <h5>Les principales technologies utilisées sont <b>Node.js</b>, <b>Express.js</b> avec
+                      <b>MongoDB</b> comme bdd, du simple <b>HTML</b>, <b>CSS</b> et <b>JavaScript</b>/<b>JQuery</b>.
+                    </h5>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div class="row justify-content-center description">
+              <div class="col-md-9">
+                <!--class="row"  4 par ligne-->
+                <!--id="lightgallery"  Click to open gallery-->
+                <h1 class="text-center eng">A brief presentation</h1>
+                <h1 class="text-center fr">Une brève présentation</h1>
+
+                </br>
+                <h3 class="left20 eng">Application architecture</h3>
+                <h3 class="left20 fr">L'architecture de l'application</h3>
+                <div class="parag" data-aos="fade">
+                  <p class="eng">
+                    -Only authentified users can access the application.
+                    </br>-Users can eiter login or create a new account, they can store their favorite cities to have
+                    access to their current weather in Home page and forecast in detail page.
+                    </br>-Weather is gotten from OpenWeather API.
+                    </br>-Data is stored in a MongoDB database.
+                    </br>-Frontend uses Nunjucks.
+                    </br>-The app uses many security features.
+                  </p>
+                  <p class="fr">
+                    -Seuls les utilisateurs authentifiés peuvent avoir accès à l'application.
+                    </br>-Ils peuvent se connecter ou créer un compte, ensuite ils peuvent enregistrer leurs villes pour
+                    avoir accès à leur météo actuelle dans la page d'accueil, ou aux prévisions dans la page de détails.
+                    </br>-La météo est récupérée depuis OpenWeather API.
+                    </br>-Les données sont enregistrées dans une bdd MongoDB.
+                    </br>-Le frontend utilise Nunjucks.
+                    </br>-L'application utilise plusieurs features de sécurité différentes.
+                  </p>
+                </div>
+
+                <h3 class="left20 eng">Login and register</h3>
+                <h3 class="left20 fr">Connexion et enregistrement</h3>
+
+                <div class="parag" data-aos="fade">
+                  <div class="flexRow">
+                    <img src="images/weather/login.png" class="half">
+                    <div class="pad10">
+                      <p class="eng">
+                        Users can login from this form.</br></br>
+                        Login like all other forms in this web app, is protected by CSRF tokens.
+                      </p>
+                      <p class="fr">
+                        Les utilisateurs peuvent se connecter depuis ce formulaire.</br></br>
+                        Ce formulaire comme tous les autres de l'application utilise les CSRF tokens.
+                      </p>
+                      <img src="images/weather/csrf.png" class="fullW">
+                      <img src="images/weather/logincsrf.png" class="fullW">
+                      <img src="images/weather/logincsrf1.png" class="fullW">
+
+                    </div>
+                  </div>
+                  </br>
+                  <h4 class="eng">Here is register form :</h4>
+                  <h4 class="fr">Voici le formulaire de création de compte :</h4>
+                  <div class="flexRow">
+                    <div class="pad10 half">
+                      <p class="eng">
+                        Register errors (and other forms errors) are handled in server side and returned to users as a
+                        simple text/message that shows in red.
+                      </p>
+                      <p class="fr">
+                        Les erreurs d'enregistrement (et celles des autres formulaires) sont gérées par le serveur et
+                        sont retournées à l'utilisateur sous la forme d'un simple message rouge.
+                      </p>
+                    </div>
+                    <img src="images/weather/dupl1.png" class="half">
+                  </div>
+                  <img src="images/weather/duplError.png" class="fullW">
+                </div>
+
+                <h3 class="left20 eng">User's cities</h3>
+                <h3 class="left20 fr">Les villes de l'utilisateur</h3>
+
+                <div class="parag" data-aos="fade">
+                  <p class="eng">
+                    Users can add, modify and delete cities that they want to see in their home menu.
+                  </p>
+                  <p class="fr">
+                    L'utilisateur peut ajouter, modifier et supprimer les villes qu'il souhaite voir dans sa page
+                    d'accueil.
+                  </p>
+                  <img src="images/weather/cities.png" class="fullW">
+                  <p class="eng">To add a city, they need to open a form that looks like this :</p>
+                  <p class="fr">Pour ajouter une ville, il faut passer par ce formulaire :</p>
+                  <p class="eng">This form has an auto completion feature to make sure users can't add fictive cities,
+                    or simply cities that aren't managed by the API.</p>
+                  <p class="fr">Ce formulaire a une feature d'auto completion pour être sûr que l'utilisateur ne pourra
+                    pas ajouter de villes fictives, ou qui ne sont pas prises en charge par l'API.</p>
+                  <div class="pad10 half">
+                    <p class="eng">First of all, the user needs to select a country.</p>
+                    <p class="eng">Then according to the country he choosed, he can choose a city.</p>
+                    <p class="fr">Tout d'abord, l'utilisateur doit choisir un pays.</p>
+                    <p class="fr">Ensuite, il devra choisir une ville dans ce pays.</p>
+                  </div>
+                  <div class="flexRow">
+                    <img src="images/weather/cntrsrch.png" class="half pad10">
+                    <img src="images/weather/citysrch.png" class="half pad10">
+                  </div>
+
+                  <h5 class="eng">The way it works is pretty simple :</h5>
+                  <p class="eng">
+                    </br>Countries list is directly loaded after the page finishes loading, it's a simple static JSON
+                    file than we load in client-side using JavaScript and AJAX.
+                    </br>When the user selects a city, the value is directly used as a parameter to load cities list
+                    from the API using AJAX.
+                    </br>The API has a route that returns a list of all supported cities of a country in JSON format.
+                  </p>
+
+                  <h5 class="fr">La manière dont ça marche est assez simple :</h5>
+                  <p class="fr">
+                    </br>La liste des pays est chargée avec la page, c'est un simple fichier JSON statique que l'on
+                    charge depuis le serveur en utilisant JavaScript et AJAX.
+                    </br>Ensuite, quand l'utilisateur choisit un pays, la valeur choisie est directement utilisée pour
+                    récupérer la liste des villes depuis l'API, encore une fois en utilisant AJAX.
+                    </br>L'API a une route qui retourne la liste des villes prises en compte d'un pays (passé en
+                    parametre) par l'appli sous format JSON.
+                  </p>
+                  <img src="images/weather/city.png" class="fullW">
+                  <p class="pad10 eng">Then the list is saved in client-side to be used in the auto completion.</p>
+                  <p class="pad10 fr">Enfin la liste est sauvegardée du coté du client et est utilisée pour l'auto
+                    completion.</p>
+                </div>
+
+
+                <h3 class="left20 eng">Getting weather</h3>
+                <h3 class="left20 fr">La météo</h3>
+                <div class="parag" data-aos="fade">
+                  <p class="eng">
+                    There are two data asynchroneous methods :
+                    </br> -They both take as parameter a city ID and return a JSON object (raw data).
+                    </br> -The first one gets current weather in a city from OpenWeather API and the second one gets
+                    forceast.
+                  </p>
+                  <p class="fr">
+                    Il y a deux méthodes asynchrones :
+                    </br> -Toutes les deux prennent l'ID d'une ville comme parametre et retournent un objet JSON
+                    (données brutes).
+                    </br> -La première récupère la météo actuelle et la deuxième les prévisions.
+                  </p>
+                  <p class="eng">They look like this :</p>
+                  <p class="fr">Elles ressemblent à ceci :</p>
+                  <img src="images/weather/todaywtr.png" class="fullW">
+                  <p class="eng">After getting raw data, we process it and show informations that the user needs.</p>
+                  <p class="fr">Après avoir récupéré les données, on les traite et affiche le résultat désiré à
+                    l'utilisateur.</p>
+                  <img src="images/weather/details.png" class="fullW">
+                </div>
+
+
+
+                <h3 class="left20 eng">Security</h3>
+                <h3 class="left20 fr">Sécurité</h3>
+                <div class="parag" data-aos="fade">
+                  <p class="eng">
+                    To make this app as secure as it can be, I used many security features :
+                    </br>-HTTPS
+                    </br>-JWT
+                    </br>-CSRF Tokens
+                    </br>-Rate limit (to prevent DDOS)
+                    </br>-XSS filter
+                    </br>-Password hash (Bcrypt)
+                    </br>-Helmet js (HTTP headers)
+                  </p>
+                  <p class="fr">
+                    Pour rendre cette application sécurisée, j'ai utilisé plusieurs features de sécurité :
+                    </br>-HTTPS
+                    </br>-JWT
+                    </br>-CSRF Tokens
+                    </br>-Rate limit (pour contrer les attaques DDOS)
+                    </br>-Filtre XSS
+                    </br>-hash des mots de passe (Bcrypt)
+                    </br>-Helmet js (headers HTTP)
+                  </p>
+
+                </div>
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="footer">
+          <div class="container-fluid text-center">
+            <p>
+              Copyright
+              <script>document.write(new Date().getFullYear());</script> All rights reserved | Morgan Bouyakhlef
+            </p>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="/js/langagesetting.js"></script>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/picturefill.min.js"></script>
+    <script src="js/lightgallery-all.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+  </div>
+  <script src="js/iframeset-jquery.js"></script>
+</body>
+
+</html>

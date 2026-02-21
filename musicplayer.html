@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+
+<head>
+  <title>Music Player - .NET C#</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="css/lightgallery.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/swiper.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+
+
+
+</head>
+
+<body id="body">
+
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+
+
+  <div id="notframe">
+
+
+    <header class="site-navbar" role="banner">
+
+      <div class="container-fluid">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-xl-2" data-aos="fade-down">
+            
+          </div>
+          <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
+            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                <li class="eng"><a class="gotohome" href="/">Home</a></li>
+                <li class="fr"><a class="gotohome" href="/">Accueil</a></li>
+                <li class="fr"><a class="gotoproject" href="/projets">Projets</a></li>
+                <li class="eng"><a class="gotoproject" href="/projets">Projects</a></li>
+                <li><a class="gotocontact" href="contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
+            <div class="d-none d-xl-inline-block">
+              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
+
+                <li>
+                  <a title="Change langage" Maction="switchlang" class="pl-0 pr-3 cursor"><span
+                      class="icon-language js-menu-close"></span></a>
+                </li>
+                <li class="codepenli">
+                    <a target="_blank" href="https://codepen.io/morganbkf" 
+                      class="pl-0 pr-3 codepen-link" 
+                      aria-label="CodePen">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          fill="currentColor">
+
+
+                        <g fill="none"
+                          stroke="currentColor"
+                          stroke-width="33"
+                          stroke-linejoin="round">
+
+                          <path d="M81 198v116l175 117 175-117V198L256 81z"/>
+                          <path d="M81 198l175 116 175-116M256 81v117"/>
+                          <path d="M81 314l175-116 175 116M256 431V314"/>
+
+                        </g>
+                      </svg>
+                    </span>
+                    </a>
+                  </li>
+                <li>
+                  <a target="_blank" href="https://github.com/mimoklef" class="pl-0 pr-3"><span
+                      class="icon-github"></span></a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://www.linkedin.com/in/morganbkf/" class="pl-0 pr-3"><span
+                      class="icon-linkedin"></span></a>
+                </li>
+                <li>
+<!-- CV ? -->
+                </li>
+                <li>
+                  <a target="_blank" href="mailto:morganbkf@gmail.com" class="pl-0 pr-3"><span
+                      class="icon-mail_outline"></span></a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
+                class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </header>
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <iframe width="100%" frameBorder="0" id="iframeview" src="/musicplayer" title="PORTFOLIO"></iframe>
+
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="js/cookieSetting.js"></script>
+
+
+<!--
+    <div id="audioplayer" class="audioplayer">
+
+      <div class="audioheader">
+        <i onclick="hideplayer()" class="icon-close closeplayerbtn musicbtn"></i>
+        <div class="fromright">Conquest Of Paradise - Vangelis</div>
+      </div>
+      <div id="waveform"></div>
+      <div class="audioheader">
+        <div id="playpause" onclick="playM()"><span class="icon-play_arrow musicbtn playpausebtn"></span></div>
+        <div class="vol">
+          <div id="volume"></div>
+        </div>
+      </div>
+      <div id="audioloader" class="audioloader">
+        <div class="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <div class="showplayerbtn" id="showplayer">
+      <i onclick="showplayer()" id="showplayericon" class="icon-music_note musicbtn"></i>
+
+    </div>
+
+
+    <script src="js/audioplayer.js"></script>
+    <script src="js/audioplayer-jquery.js"></script>
+-->
+
+
+
+  </div>
+
+  <div id="inframe">
+
+
+
+    <div class="animate-bottom">
+
+
+      <div class="site-wrap">
+
+
+        <div class="site-section" data-aos="fade">
+          <div class="container-fluid">
+
+            <div class="row justify-content-center">
+
+              <div class="col-md-7">
+                <div class="row mb-5">
+                  <div class="col-12 eng">
+                    <h2 class="site-section-heading text-center">Music Player</h2>
+                    <h3>I made this project for my first .NET dev class.</h3>
+                    <h5>It was a 4 weeks long project.</h5>
+                    </br>
+                    <h5>This is a web music player.</h5>
+                    <h5>The concept is pretty simple : Anyone can access the app but you need to be authentified to use
+                      it.</h5>
+                    <h5>You can create different playlists that you and only you can access.</h5>
+                    <h5>Songs can be uploaded by any authentified user, either in audio format or from a Youtube video.
+                      They're visible by all users</h5>
+                    </br>
+                    <h5>Main used technologies are <b>ASP.NET</b> in <b>C#</b> with <b>MySql</b> database, <b>Razor</b>
+                      and simple web technologies as <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b><b>JQuery</b>.
+                      </br>The app was deployed on <b>Azure</b>.
+                    </h5>
+                  </div>
+                  <div class="col-12 fr">
+                    <h2 class="site-section-heading text-center">Music Player</h2>
+                    <h3>J'ai réalisé ce projet pour mon premier cours de développement .NET.</h3>
+                    <h5>C'était un projet d'un mois.</h5>
+                    </br>
+                    <h5>C'est une application web de streaming musical.</h5>
+                    <h5>Le concept est plutôt simple : Tout le monde peut accéder à l'application mais il faut
+                      s'authentifier pour l'utiliser.</h5>
+                    <h5>L'utilisateur peut créer plusieurs playlists auxquelles il sera le seul à avoir accès.</h5>
+                    <h5>Les musiques quant à elles peuvent être uploadées par n'importe quel utilisateur connecté, sous
+                      format audio ou depuis une vidéo Youtube. Elles sont communes à tous les utilisateurs.</h5>
+                    </br>
+                    <h5>Les principales technologies utilisées sont <b>ASP.NET</b> en <b>C#</b> avec une base de données
+                      <b>MySql</b>, <b>Razor</b> and les technologies web basiques comme <b>HTML</b>, <b>CSS</b> et
+                      <b>JavaScript</b><b>JQuery</b>.
+                      </br>L'application a été déployée sur <b>Azure</b>.
+                    </h5>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div class="row justify-content-center description">
+              <div class="col-md-9">
+                <!--class="row"  4 par ligne-->
+                <!--id="lightgallery"  Click to open gallery-->
+
+                <h1 class="text-center eng">A brief presentation of main features</h1>
+                <h1 class="text-center fr">Une petite présentation</h1>
+                </br>
+                <h3 class="left20 eng">Application architecture</h3>
+                <h3 class="left20 fr">L'architecture de l'application</h3>
+                <div class="parag" data-aos="fade">
+                  <p class="eng">
+                    -The backend is in <b>ASP.NET</b>/<b>C#</b>.
+                    </br>-The frontend is using <b>Razor</b> and basic web technologies.
+                    </br>-Data is stored in a <b>MySql</b> database but songs are stored in mp3 format on the server.
+                  </p>
+                  <p class="fr">
+                    -LE backend est en <b>ASP.NET</b>/<b>C#</b>.
+                    </br>-Le frontend utilise <b>Razor</b> et les technologies web basiques.
+                    </br>-Les données sont stockées dans une bdd <b>MySql</b> mais les chansons sont stockées sur le
+                    serveur sous format mp3.
+                  </p>
+                </div>
+
+                <h3 class="left20 eng">Login and register</h3>
+                <h3 class="left20 fr">Connexion et inscription</h3>
+
+                <div class="parag" data-aos="fade">
+                  <img src="images/suplayer/login.png" class="fullW">
+                  <div class="flexRow">
+                    <div class="pad10">
+                      <p class="eng">
+                        Users can use this form to login/register.
+                        </br></br>When the user isn't authentified, he can only access this page as all other pages lead
+                        to an error message which tells him to authentify.
+                        </br></br>Of course the application uses many security features as <b>hash</b>, <b>JWT</b>,
+                        <b>SCRF Tokens</b>, <b>HTTPS</b> etc...
+                      </p>
+                      <p class="fr">
+                        Les utilisateurs peuvent utiliser ce formulaire pour se connecter ou s'inscrire.
+                        </br></br>C'est la seule page à laquelle peut avoir accès un utilisateur non connecté puisque
+                        toutes les autres pages mèneront à un message lui demandant de se connecter.
+                        </br></br>Biensûr l'application utilise plusieurs features de sécurité comme le <b>hash</b>,
+                        <b>JWT</b>, <b>SCRF Tokens</b>, <b>HTTPS</b> etc...
+                      </p>
+
+                    </div>
+                  </div>
+                  </br>
+                  <p class="eng">Here's the error message when a user tries to access an route without being
+                    authentified.</p>
+                  <p class="fr">Voici le message qu'a un utilisateur non connecté quand il essaie d'accéder à une route
+                    interdite.</p>
+                  <img src="images/suplayer/logerror.png" class="fullW">
+                </div>
+
+                <h3 class="left20 eng">Music</h3>
+                <h3 class="left20 fr">Musique</h3>
+                <div class="pad10">
+                  <div class="parag" data-aos="fade">
+                    <p class="eng">
+                      All authentified users can access this page, and songs are common to all users.
+                    </p>
+                    <p class="fr">
+                      Tous les utilisateur connectés peuvent avoir accès à cette page et les musiques sont communes à
+                      tous les utilisateurs.
+                    </p>
+                    <img src="images/suplayer/musiclist.png" class="fullW">
+                  </div>
+                  <div class="flexRow parag" data-aos="fade">
+                    <div class="pad10 half">
+                      <p class="eng">They can also upload new songs on this from.</p>
+                      <p class="fr">Ils peuvent aussi uploader de nouvelles musiques ici.</p>
+
+                      <p class="eng">
+                        They can upload songs using :
+                      </p>
+                      <p class="fr">
+                        Ils peuvent le faire en utilisant :
+                      </p>
+                      <p class="eng">
+                        - Mp3/wav format
+                      </p>
+                      <p class="fr">
+                        - Des fichies Mp3/wav.
+                      </p>
+                      <p class="eng">
+                        - Youtube links : the application converts the video to mp3 format and stores it.
+                        <br></br>They can name the artist and the song themselfs, but if they don't do, those filds will
+                        be automatically generated from the file/video.
+                      </p>
+                      <p class="fr">
+                        - Des liens Youtube : L'application convertit en mp3 et les stocke.
+                        <br></br>Ils peuvent remplir le nom de la chanson et de l'artiste eux même, mais s'ils ne le
+                        font pas l'application les génère depuis le fichier/vidéo.
+                      </p>
+                      <img src="images/suplayer/fromyt.png" class="fullW">
+                    </div>
+                    <img src="images/suplayer/addmusic1.png" class="half">
+                  </div>
+                </div>
+
+
+                <h3 class="left20">Playlists</h3>
+                <div class="parag" data-aos="fade">
+                  <p class="eng">
+                    This is where users can create/edit/delete their playlists.
+                  </p>
+                  <p class="fr">
+                    C'est ici que l'utilisateur peut créer/éditer/supprimer ses playlists.
+                  </p>
+                  <img src="images/suplayer/playlists.png" class="fullW">
+                  <p class="eng">They can click a playlist to open the player :</p>
+                  <p class="fr">Il peut accèder au lecteur en cliquant sur une playlist :</p>
+                  <img src="images/suplayer/playliston.png" class="fullW">
+                  <p class="eng">
+                    In the player, users can :
+                    </br> - Play/Stop music.
+                    </br> - Go directly to a part of the current music.
+                    </br> - Change music
+                    </br> - Adjust volume.
+                    </br> - Change player's color.
+                    </br>To Play/Stop, adjust volume and change music, they can either us the buttons or keyboard
+                    shortcuts.
+                    </br>User's preferences (volume, player's color etc..) are saved and used by default when he opens
+                    the player.
+                    </br>They can also play a music individually from the songs list.
+                  </p>
+                  <p class="fr">
+                    Dans celui-ci il peut :
+                    </br> - Démarrer/Arrêter la musique.
+                    </br> - Passer directement à un certain instant de la musique.
+                    </br> - Changer la musique
+                    </br> - Ajuster le volume.
+                    </br> - Changer les couleurs du lecteur.
+                    </br>Pour Play/Stop, le volume et le changement de musique, il peut utiliser les boutons ou les
+                    raccourcis clavier.
+                    </br>Les préférences de l'utilisateur sont stockées (volume, couleur etc..) et utilisées par défault
+                    à chaque fois qu'il utilise le lecteur.
+                    </br>L'utilisateur peut aussi jouer une musique directement depuis la liste des musiques.
+                  </p>
+                  <img src="images/suplayer/musicplayer1.png" class="fullW">
+                </div>
+
+
+
+
+                <h3 class="left20">Mobile</h3>
+                <div class="parag" data-aos="fade">
+
+                  <div class="pad10">
+                    <p class="eng">
+                      The application is <b>responsive</b> and adapts to device's screen. So it can also be used on
+                      mobile/tablets.
+                    </p>
+                    <p class="fr">
+                      L'application est <b>responsive</b> et s'adapte à l'écran. L'application peut donc aussi être
+                      utilisée sur mobile/tablette.
+                    </p>
+                    <div class="flexRow">
+                      <img src="images/suplayer/mobile.png" class="half pad10">
+                      <img src="images/suplayer/mobile1.png" class="half pad10">
+                    </div>
+                  </div>
+                </div>
+
+                <h3 class="left20 eng">Security</h3>
+                <h3 class="left20 fr">Sécurité</h3>
+                <div class="parag" data-aos="fade">
+
+                  <div class="pad10">
+                    <p class="eng">
+                      This application uses many security feature as :
+                      </br>-HTTPS
+                      </br>-JWT
+                      </br>-CSRF Tokens
+                      </br>-Rate limit (to prevent DDOS)
+                      </br>-XSS filter
+                      </br>-Password hash (Bcrypt)
+                      </br>-And others...
+                    </p>
+                    <p class="fr">
+                      L'application utilise plusieures features de sécurité comme :
+                      </br>-HTTPS
+                      </br>-JWT
+                      </br>-CSRF Tokens
+                      </br>-Rate limit (contre les attaques DDOS)
+                      </br>-Filtre XSS
+                      </br>-Hash des mots de passe (Bcrypt)
+                      </br>-Et d'autres encore...
+                    </p>
+                  </div>
+                </div>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <script src="/js/cookieSetting.js"></script>
+
+
+
+
+        <div class="footer">
+          <div class="container-fluid text-center">
+            <p>
+              Copyright
+              <script>document.write(new Date().getFullYear());</script> All rights reserved | Morgan Bouyakhlef
+            </p>
+
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="/js/langagesetting.js"></script>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/picturefill.min.js"></script>
+    <script src="js/lightgallery-all.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+
+    <script src="js/main.js"></script>
+  </div>
+  <script src="js/iframeset-jquery.js"></script>
+</body>
+
+</html>

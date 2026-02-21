@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+
+<head>
+  <title>Crypto - Express.js / Vue.js</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="css/lightgallery.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/swiper.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+
+
+
+</head>
+
+<body id="body">
+
+
+
+
+
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+
+
+  <div id="notframe">
+
+    <header class="site-navbar" role="banner">
+
+      <div class="container-fluid">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-xl-2" data-aos="fade-down">
+            
+          </div>
+          <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
+            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                <li class="eng"><a class="gotohome" href="/">Home</a></li>
+                <li class="fr"><a class="gotohome" href="/">Accueil</a></li>
+                <li class="fr"><a class="gotoproject" href="/projets">Projets</a></li>
+                <li class="eng"><a class="gotoproject" href="/projets">Projects</a></li>
+                <li><a class="gotocontact" href="contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
+            <div class="d-none d-xl-inline-block">
+              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
+                <li>
+                  <a title="Change langage" Maction="switchlang" class="pl-0 pr-3 cursor"><span
+                      class="icon-language js-menu-close"></span></a>
+                </li>
+                <li class="codepenli">
+                    <a target="_blank" href="https://codepen.io/morganbkf" 
+                      class="pl-0 pr-3 codepen-link" 
+                      aria-label="CodePen">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          fill="currentColor">
+
+
+                        <g fill="none"
+                          stroke="currentColor"
+                          stroke-width="33"
+                          stroke-linejoin="round">
+
+                          <path d="M81 198v116l175 117 175-117V198L256 81z"/>
+                          <path d="M81 198l175 116 175-116M256 81v117"/>
+                          <path d="M81 314l175-116 175 116M256 431V314"/>
+
+                        </g>
+                      </svg>
+                    </span>
+                    </a>
+                  </li>
+                <li>
+                  <a target="_blank" href="https://github.com/mimoklef" class="pl-0 pr-3"><span
+                      class="icon-github"></span></a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://www.linkedin.com/in/morganbkf/" class="pl-0 pr-3"><span
+                      class="icon-linkedin"></span></a>
+                </li>
+                <li>
+                </li>
+                <li>
+                  <a target="_blank" href="mailto:morganbkf@gmail.com" class="pl-0 pr-3"><span
+                      class="icon-mail_outline"></span></a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
+                class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </header>
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <iframe width="100%" frameBorder="0" id="iframeview" src="/crypto" title="PORTFOLIO"></iframe>
+
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="js/cookieSetting.js"></script>
+
+
+
+  </div>
+
+  <div id="inframe">
+
+
+
+
+
+
+    <div class="animate-bottom">
+
+
+      <div class="site-wrap">
+
+        <div class="site-section" data-aos="fade">
+          <div class="container-fluid">
+
+
+            <div class="row justify-content-center">
+
+              <div class="col-md-6 flexRow">
+                <div class="row mb-5">
+                  <div class="col-12 eng">
+                    <h2 class="site-section-heading text-center">Count of money</h2>
+                    <h3>I made this project for a web project at school.</h3>
+                    <h5>I did it in 3 weeks and I did with 3 classmates.</h5>
+                    </br>
+                    <h5>This is a crypto currency stocks application.</h5>
+                    <h5>In this app, we can lookup for crypto-currencies and see their values in numbers and graphs</h5>
+                    <h5>We can also read latest articles about crypto currency and subscribe to crypto online newspapers</h5>
+                    </br>
+                    <!--<h5>Main used technologies are <b>NodeJs</b>, <b>Express.js</b> with <b>Firebase</b> databse, <b>Vue.js</b> and
+                      <b>Docker</b> and <b>Azure</b> for deployment.
+                    </h5>-->
+                  </div>
+                  
+                  
+                  
+                  <div class="col-12 fr">
+                    <h2 class="site-section-heading text-center">Count of money</h2>
+                    <h3>J'ai réalisé ce projet pour un projet web à l'école.</h3>
+                    <h5>C'était un projet en groupe qui a duré 3 semaines
+                    </h5>
+                    </br>
+                    <h5>C'est une application web de stocks de crypto-monnaies.</h5>
+                    <h5>Dedans, on peut avoir les derniers cours des crypto-monnaies et leurs évolutions</h5>
+                    <h5>On peut aussi lire les derniers articles des revues en ligne qui parlent de crypto-monnaie et s'y abonner.</h5>
+                    </br>
+                    <!--<h5>Les principales technologies utilisées sont <b>NodeJs</b>, <b>Express.js</b> avec <b>Firebase</b>
+                      comme base de données, <b>Vue.js</b> pour le front et <b>Docker</b> et <b>Azure</b> pour le
+                      déploiement.</h5>-->
+                  </div>
+                </div>
+              </div>
+              <div>
+                <img style="height: 500px;" src="/images/crypto/cryptophone.png">
+              </div>
+
+            </div>
+             
+
+
+
+
+
+
+            <div class="row justify-content-center description">
+              <div class="col-md-9">
+
+                <h1 class="text-center eng">A brief presentation of the features I developed</h1>
+                <h1 class="text-center fr">Présentation des fonctionnalités que j'ai développé</h1>
+                </br>
+
+
+
+
+
+
+                <h3 class="left20">Articles</h3>
+                <div class="pad10">
+                  <div class="parag" data-aos="fade">
+
+                    <p class="eng">I developed an automated system to fetch articles from crypto-related RSS feeds every 30 minutes. The articles are stored in the database with their metadata, optimizing performance by avoiding repeated requests on each user visit.</p>
+                    <p class="fr">J’ai développé un système de récupération automatique d’articles depuis des flux RSS de sites crypto, avec une mise à jour toutes les 30 minutes. Les articles sont stockés en base de données avec leurs métadonnées, ce qui permet d’optimiser les performances en évitant les requêtes répétées à chaque visite utilisateur.</p>
+                    
+                    <p class="eng">The articles are then scraped from the website and formatted for clear and consistent display.</p>
+                    <p class="fr">Les articles sont ensuite scrappés depuis le site et mis en page pour être affichés de manière claire et uniforme.</p>
+                  </br>
+                  <img src="images/crypto/articledetail.gif" class="fullW">
+
+                </br>
+                </br>
+                </br>
+                    <h5 class="left20 eng">RSS Mapping tool</h4>
+                    <h5 class="left20 fr">Outil de mappage RSS</h4>
+
+                    <p class="eng">To do this, admins need to map the RSS feeds they add, since each feed has a different structure. I therefore created a custom tool that makes the mapping process very easy and intuitive.</p>
+                    <p class="fr">Pour faire cela, les admins doivent faire le mappage des flux RSS qu'ils ajoutent, parce que tous les flux RSS sont différents,  j'ai donc créé un outil spécial qui rend le mapping très facile et intuitif.</p>
+                    
+                    <img src="images/crypto/modifyfeed.gif" class="fullW">
+                  </div>
+                  </br>
+
+                  
+                  <div class="flexRow parag" data-aos="fade">
+                    <div class="pad10 half eng">
+                      <p>Articles are then accessible in this page :
+                      </p>
+
+                      <p>
+                        - Latest : Shows latest articles with a "see more" button in the bottom of the page.
+                      </p>
+                      <p>
+                        - Keywords : Shows articles with user's saved keywords.
+                      </p>
+                      <p>
+                        - Search : Searches for all articles that contain the keywords written by the user.
+                      </p>
+                      <br>
+                      <p>The user can click on an article to open it.
+                      </p>
+                    </div>
+                    <div class="pad10 half fr">
+                      <p>Les articles sont ensuite disponibles sur cette page :</p>
+
+                      <p>
+                        - Latest : Liste les derniers articles avec un bouton "voir plus" en bas de page pour afficher la suite.
+                      </p>
+                      <p>
+                        - Keywords : Montre tous les articles contenant les mots clé enregistrés par l'utilisateur.
+                      </p>
+                      <p>
+                        - Search : Cherche dans les articles.
+                      </p>
+                      <br>
+                      <p>L'utilisateur peut cliquer sur un article pour l'afficher.
+                      </p>
+                    </div>
+                    <img src="images/crypto/articles.gif" class="half">
+                  </div>
+                  <p class="eng">This opens it in a page like this :
+                  </p>
+                  <p class="fr">Cela l'ouvre dans une page comme celle-ci
+                    </p>
+                  <img src="images/crypto/articledetail.gif" class="fullW">
+                </div>
+
+
+                <h3 class="left20 eng">Currencies</h3>
+                <h3 class="left20 fr">Crypto-monnaies</h3>
+                <div class="parag" data-aos="fade">
+                  <p class="eng">
+                    Here's the crypto-currencies page.
+                    </br> It lists all active (selected by the admin) currencies
+                    </br> In the "my currencies" onglet the user can access his favorite currencies.
+                    </br> It also has a search bar.
+                    </br> The user can also access a currency's details by clicking it.
+              </p>
+                  <p class="fr">
+                    Voici la page des crypto-monnaies.
+                    </br> Elle liste toutes les crypto-monnaies actives (par l'admin)
+                    </br> Dans l'onglet "my currencies" l'utilisateur peut accéder à ses crypto-monnaies favorites
+                    </br> Il y a aussi un outil recherche.
+                    </br> L'utilisateur peut aussi accéder aux détails d'une crypto-monnaie en appuyant dessus.
+                    
+                  </p>
+                  <img src="images/crypto/cryptos.gif" class="fullW">
+                  <h5 class="eng">Details :</h5>
+                  <h5 class="fr">Details :</h5>
+
+                  <img src="images/crypto/cryptodetails.png" class="fullW">
+                </div>
+
+                <h3 class="left20">Mobile</h3>
+                <div class="parag" data-aos="fade">
+
+                  <div class="pad10">
+                    <p class="eng">
+                      The application is fully <b>responsive</b> and adapts to
+                      device's screen.
+                    </p>
+                    <p class="fr">
+                      L'application est <b>responsive</b> et s'adapte à
+                      l'écran de l'utilisateur.
+                    </p>
+                    <img src="images/crypto/mobilecrypto.gif" class="fullW">
+                  </div>
+
+                </div>
+
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="footer">
+          <div class="container-fluid text-center">
+            <p>
+              Copyright
+              <script>document.write(new Date().getFullYear());</script> All rights reserved | Morgan Bouyakhlef
+            </p>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="/js/langagesetting.js"></script>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/picturefill.min.js"></script>
+    <script src="js/lightgallery-all.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+  </div>
+  <script src="js/iframeset-jquery.js"></script>
+</body>
+
+</html>

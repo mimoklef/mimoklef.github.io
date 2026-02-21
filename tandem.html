@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+
+<head>
+  <title>Tandem / BeGood - Express.js / Vue.js</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="css/lightgallery.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/swiper.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+
+
+
+</head>
+
+<body id="body">
+
+
+
+
+
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+
+
+  <div id="notframe">
+
+    <header class="site-navbar" role="banner">
+
+      <div class="container-fluid">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-xl-2" data-aos="fade-down">
+            
+          </div>
+          <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
+            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                <li class="eng"><a class="gotohome" href="/">Home</a></li>
+                <li class="fr"><a class="gotohome" href="/">Accueil</a></li>
+                <li class="fr"><a class="gotoproject" href="/projets">Projets</a></li>
+                <li class="eng"><a class="gotoproject" href="/projets">Projects</a></li>
+                <li><a class="gotocontact" href="contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
+            <div class="d-none d-xl-inline-block">
+              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
+                <li>
+                  <a title="Change langage" Maction="switchlang" class="pl-0 pr-3 cursor"><span
+                      class="icon-language js-menu-close"></span></a>
+                </li>
+                <li class="codepenli">
+                    <a target="_blank" href="https://codepen.io/morganbkf" 
+                      class="pl-0 pr-3 codepen-link" 
+                      aria-label="CodePen">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          fill="currentColor">
+
+
+                        <g fill="none"
+                          stroke="currentColor"
+                          stroke-width="33"
+                          stroke-linejoin="round">
+
+                          <path d="M81 198v116l175 117 175-117V198L256 81z"/>
+                          <path d="M81 198l175 116 175-116M256 81v117"/>
+                          <path d="M81 314l175-116 175 116M256 431V314"/>
+
+                        </g>
+                      </svg>
+                    </span>
+                    </a>
+                  </li>
+                <li>
+                  <a target="_blank" href="https://github.com/mimoklef" class="pl-0 pr-3"><span
+                      class="icon-github"></span></a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://www.linkedin.com/in/morganbkf/" class="pl-0 pr-3"><span
+                      class="icon-linkedin"></span></a>
+                </li>
+                <li>
+<!-- CV ? -->
+                </li>
+                <li>
+                  <a target="_blank" href="mailto:morganbkf@gmail.com" class="pl-0 pr-3"><span
+                      class="icon-mail_outline"></span></a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
+                class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </header>
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <iframe width="100%" frameBorder="0" id="iframeview" src="/tandem" title="PORTFOLIO"></iframe>
+
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="js/cookieSetting.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div id="inframe">
+
+
+
+
+
+
+    <div class="animate-bottom">
+
+
+      <div class="site-wrap">
+
+        <div class="site-section" data-aos="fade">
+          <div class="container-fluid">
+
+            <div class="row justify-content-center">
+
+              <div class="col-md-6 flexRow">
+                <div class="row mb-5">
+                  <div class="col-12 eng">
+                    <h2 class="site-section-heading text-center">Tandem / BeGood</h2>
+                    <h3>I carried out this project during my apprenticeship, which lasted one year and 7 months.</h3>
+                    <h5>I did everything from A to Z, from diagrams on <b>Figma</b> to deployment on a <b>Debian 10</b> server, including technical choices, writing the specification and other documents, as well as development, but the idea is obviously that of the company I was working for.
+                    </h5>
+                    </br>
+                    <h5>It's a web and mobile application for remote pairing and linguistic and cultural exchange, managing activities, etc...</h5>
+                    </br>
+                    <h5>The main technologies used are <b>Node.js (Express.js)</b> with <b>MongoDB</b> as the database, <b>Vue.js</b> for the front end, <b>Socket.io</b> for instant messaging, <b>Debian 10</b> and <b>Bash</b> scripting for deployment.
+                  </div>
+                  
+                  
+                  
+                  <div class="col-12 fr">
+                    <h2 class="site-section-heading text-center">Tandem / BeGood</h2>
+                    <h3>J'ai réalisé ce projet pendant mon alternance qui a duré un an et 7 mois.</h3>
+                    <h5>J'ai tout fait de A à Z, des schémas sur <b>Figma</b> au déploiement sur un serveur <b>Debian 10</b> en passant par le choix techniques, l'écriture du cahier des charges et autres documents ainsi que le développement, mais l'idée est évidemment celle de l'entreprise dans laquelle je travaillais.
+                    </h5>
+                    </br>
+                    <h5>C'est une application web et mobile de jumelage à distance et d'échange linguistique et culturel, de gestion d'activités etc...</h5>
+                    </br>
+                    <h5>Les principales technologies utilisées sont <b>Node.js (Express.js)</b> avec <b>MongoDB</b>
+                      comme base de données, <b>Vue.js</b> pour le front, <b>Socket.io</b> pour la messagerie instantannée, <b>Debian 10</b> et du scripting <b>Bash</b> pour le
+                      déploiement.
+                  </div>
+                </div>
+              </div>
+              <div>
+                <img style="height: 500px;" src="/images/tandem/tandem1.png">
+              </div>
+
+            </div>
+             
+<!--
+              <div class="row justify-content-center description">
+              <div class="col-md-9">
+
+              <div class="parag" data-aos="fade">
+                <p class="fr">
+                  En gros, nous avons plusieurs thèmes (Tandem, associations etc...) que l'administrateur peut créer et gérer.
+                  </br>Dans chacun de ces thèmes, nous avons un certains nombre d'organisations (Associations, écoles etc...) qui ont chacune des utilisateurs (membres, élèves etc...) et des superviseurs (ou profs) qui participent à l'organisation des activités, l'inscription des nouveaux membres etc...
+                  </br>Une organisation ne peut être inscrite que par l'admin ou par son organisation mère (qui a été inscrite par l'admin), cette dernière peut inscrire à son tour ses membres et ses superviseurs, qui peuvent aussi inscrire de nouveaux membres, le tout dans une limite de nombres d'utilisateurs qui dépend du plan souscri par l'organisation mère.
+                </p>
+                <p class="eng">
+                  Basically, we have several themes (Tandem, associations etc...) that the administrator can create and manage.
+                  </br>In each of these themes, we have a number of organizations (Associations, schools etc...) that each have users (members, students etc...) and supervisors (or teachers) who participate in the organization of activities, insciprtion of new members etc...
+                  </br>An organization can only be registered by the admin or by its parent organization (which has been registered by the admin), the latter can in turn register its members and supervisors, who can also register new members, all within a limit of numbers of users that depends on the plan subscribed by the parent organization.
+                </p>
+                <p class="fr">Chaque thème a ses propres centres d'intérêts mais le plus important à retenir c'est que chaque <b>organisation mère</b> a son propre écosystème avec uniquement ses organisations partenaires et leurs membres / superviseurs, c'est à dire que ces derniers ne peuvent en aucun cas entrer en contact avec des membres d'une organisation appartenant à un autre écosystème.</p>
+                <p class="eng">Each theme has its own hobbies but the most important thing to remember is that each <b>parent organization</b> has its own ecosystem with only its partner organizations and their members/supervisors, which means that they cannot in any way contact members of an organization belonging to another ecosystem.</p>
+              </div>
+            </div>
+            </div>
+-->
+
+
+
+            <div class="row justify-content-center description">
+              <div class="col-md-9">
+
+                <h1 class="text-center eng">A brief presentation of main features</h1>
+                <h1 class="text-center fr">Présentation</h1>
+                </br>
+                <h3 class="left20">Design</h3>
+                <div class="parag" data-aos="fade">
+                  <p class="fr">
+                    </br>J’ai réalisé l’interface utilisateur sur <b>Figma</b>.
+                  </p>
+                  <p class="eng">
+                    </br>I designed the full UI on <b>Figma</b>.
+                  </p>
+                  <img src="images/tandem/figma.png" class="fullW">
+
+                </div>
+
+                <h3 class="left20 eng">Login</h3>
+                <h3 class="left20 fr">Connexion</h3>
+
+                <div class="parag" data-aos="fade">
+                  <div class="flexCol">
+                    <img src="images/tandem/langage.gif" class="fullW">
+                    <div class="pad10 eng">
+                      <p>Users can login from this form.
+                        </br>There is no signup form as all users are created by their organisation as sayed before.
+                      <p>
+                        As you see, the application is available in 4 langages.
+                      </p>
+                    </div>
+
+                    <div class="pad10 fr">
+                      <p>Les utilisateurs peuvent se connecter depuis ce formulaire .
+                       
+                        </br>Il n'y a pas de formulaire d'inscription comme tous les utilisateurs sont inscrits par leur organisation comme dit plus haut
+                      </p>
+                      </br>
+                      <p>
+                        Comme vous le voyez, l'application existe en 4 langues.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!--<h3 class="left20 eng">Register</h3>
+                <h3 class="left20 fr">Inscription</h3>
+
+                <div class="parag" data-aos="fade">
+                  <div class="flexCol">
+                    <div class="flexRow">
+                    <img src="images/tandem/inscription.gif" style="margin: 1px;" class="half">
+                    <img src="images/tandem/inscription_admin.gif" style="margin: 1px;"  class="half">
+                    </div>
+                    <div class="pad10 eng">
+                      <p>Here's the inscription page, only organizers can access it, even in backend, all requests have permissions middlewares, I will explain how it works in the <a href="#code_section">code section</a> down.</p>
+                    </div>
+
+                    <div class="pad10 fr">
+                      <p>Voici la page d'inscription, seuls les organisateurs peuvent y accéder, même en backend, toutes les demandes ont différents middlewares qui vérifient les permissions, j'expliquerai comment ça fonctionne dans la <a href="#code_section">section code</a> en bas.</p>
+                    </div>
+                  </div>
+                </div>-->
+
+
+                <h3 class="left20 fr">Activités</h3>
+                <h3 class="left20 eng">Activities</h3>
+                <p class="fr">Les activités sont organisées dans un calendrier entièrement codé par moi-même, je n'ai utilisé aucun plugin etc...</p>
+                <p class="eng">The activities are organized in a calendar entirely coded by myself, I did not use any plugin etc.</p>                <div class="pad10">
+                  <h4 class="left20 eng">Organizer part</h4>
+                  <h4 class="left20 fr">Partie organisateur</h4>
+                  <div class="parag" data-aos="fade">
+                    <p class="eng">
+                      The organizer can create, modify and delete HIS activities, he can only modify and delete those of other organizers/supervisors if they have granted him this right, but any activity can be deleted by his hierarchical superior (the hierarchy explained above).</p>
+                    <p class="fr">
+                      L'organisateur peut créer, modifier et supprimer SES activités, il ne peut modifier et supprimer celles des autres organisateurs / superviseur que si ces derniers lui ont accordé ce droit, mais toute activité peut être supprimée par son superieur hierarchique (la hiérarchie expliquée plus haut).</p>
+                    <img src="images/tandem/Activites_presentation.gif" class="fullW">
+                  </div>
+
+                  <h4 class="left20 eng">Member part</h4>
+                  <h4 class="left20 fr">Partie membre</h4>
+                  <div class="flexRow">
+                    <div class="half pad10">
+                      <img src="images/tandem/activites_mobile2.gif" class="fullW" style="margin: auto;">
+                    </div>
+                    <div class="parag half flexRow" data-aos="fade">
+                    <div class="parag" style="margin: auto;">
+                      <p class="eng">Members can see the activities they have access to (from the groups they are in etc...) and can register for them.</p>
+                      <p class="fr">Les membres peuvent voir les activités auxquelles ils ont accès (de par les groupes auxquels ils appartiennent etc...) et peuvent s'inscrire dessus.</p>
+                      
+                      <p class="eng">The activities can also be filtered by date by clicking on a date on the calendar, by month, those coming up this month and those in the next few months, as well as the history of past activities, the user can also filter by group to see only the activities related to a group he/she belongs to, as can be seen in the picture.</p>
+                      <p class="fr">On peut aussi filtrer les activités par date en cliquant sur une date sur le calendrier, par mois, ceux à venir ce mois-ci et ceux des prochains mois, ainsi que l'historique des activités passées, l'utilisateur peut aussi filtrer par groupe pour ne voir que les activités liées à un groupe auquel il appartient, comme on peut le voir sur la photo.</p>
+                        
+                    </br>
+                    <p class="fr">Et oui, toute l'application est responsive et accessible depuis un mobile</p>
+                    <p class="eng">And yes, the whole application is responsive and accessible from a mobile</p>
+                    
+                    </div>
+                    </div>
+
+                  </div>
+
+
+                <!--<h3 class="left20 eng">News</h3>
+                <h3 class="left20 fr">Actus</h3>
+                <div class="parag" data-aos="fade">
+                  <p class="eng">
+                    Here anyone can publish something, it can be a simple text or images (with text).
+                    </br> Other members (same ecosystem) can see thoses publications, like and comment them.
+              </p>
+                  <p class="fr">
+                    Ici tout le monde peut publier quelque chose, ça peut être une texte simple tout comme ça peut être des photos (accompagnées de texte)
+                    </br> Les autres utilisateurs (du même écosystème) peuvent voir ces publications, les commenter et les liker.
+                    
+                  </p>
+                  <img src="images/tandem/Actu_edit.gif" class="fullW">
+                </div>-->
+<br>
+<br>
+                <h3 class="left20 fr">Profil</h3>
+                <h3 class="left20 eng">Profile</h3>
+                <div class="parag" data-aos="fade">
+
+                  <div class="pad10">
+                    <p class="eng">
+                      Each user can fill his profile with his informations and fill his hobbies (if it's a member) so he can match with other members and get to know them.
+                    </p>
+                    <p class="fr">
+                      Tout utilisateur peut remplir son profil et renseigner ses centres d'intérêts (si c'est un membre) pour pouvoir accéder à la page de matching avec les autres utilisateurs et faire leur connaissance.
+                    </p>
+                    <img src="images/tandem/profil_edit_enfant.gif" class="fullW">
+                  </div>
+
+                  <div class="pad10">
+                    <p class="fr">Tout type d'utilisateurs a un profil différent avec des élements différents à renseigner</p>
+                    <p class="eng">Every type of user has a different profile with different elements to fill in</p>
+                    <div class="flexRow">
+                      <img src="images/tandem/profil_enfant.png" class="half" style="margin: 1px;">
+                      <img src="images/tandem/profillycee.png" class="half" style="margin: 1px;">
+                    </div>
+                    <div class="flexRow">
+                      <img src="images/tandem/professeur.png" class="half" style="margin: auto">
+                    </div>
+                  </div>
+                  </div>
+
+
+
+
+
+                  <h3 class="left20">Messages</h3>
+                  <div class="parag" data-aos="fade">
+                    <div class="pad10">
+                      <p class="fr">Les utilisateurs d'un même écosystème (en plus de l'admin) peuvent s'envoyer des messages instantannés. J'ai utilisé socket.io que j'ai sécurisé en faisant en sortes que l'envoi de messages ne se fasse pas par requête socket mais par https</p>
+                      <p class="eng">Users in the same ecosystem (in addition to the admin) can send each other instant messages.  I used socket.io, which I secured by making sure that messages were not sent by socket request but by https.</p>
+                    </div>
+                    <img src="images/tandem/conversation_socket.gif" class="fullW">
+
+                  </div>
+
+
+
+                                    <h3 class="left20 fr">Modération</h3>
+                  <h3 class="left20 eng">Moderating</h3>
+                  <div class="parag" data-aos="fade">
+                    <div class="pad10">
+                    </br>
+                      <div class="flexRow">
+                        <div class="half flexRow">
+                          <img src="images/tandem/moderation.png" class="half" style="margin: auto;">                          
+                        </div>
+                        <div class="half flexRow">
+                            <p class="fr" style="margin: auto;">Tous les membres peuvent signaler du contenu allant contre les règles d'utilisation, comme des propos insultants en messages ou sur un profil. Les responsables ont des fonctions de modération pour s'occuper de ces cas.</p>
+                            <p class="eng" style="margin: auto;">All members can report content that goes against the rules of use, such as offensive language in posts or on a profile. Managers have moderation functions to handle these cases.</p>                    
+                          </div>
+                      </div>
+                      <img src="images/tandem/signalement.png" class="fullW">
+                    </div>
+
+                    <div class="pad10">
+                    </br>
+
+                        <p class="fr">J'ai aussi créé une interface de moderation sur laquelle on peut visualiser l'ensemble des utilisateurs existants.</p>
+                        <p class="eng">I've also created a page where a moderator we can see all users and moderate them. </p>
+      
+                      <div class="flexRow">
+                        <img src="images/tandem/utilisateurs.gif" class="half" style="margin: 1px;">
+                        <img src="images/tandem/utilisateurs2.gif" class="half" style="margin: 1px;">
+                      </div>                    
+                    </div>
+
+                  </div>
+
+
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="footer">
+          <div class="container-fluid text-center">
+            <p>
+              Copyright
+              <script>document.write(new Date().getFullYear());</script> All rights reserved | Morgan Bouyakhlef
+            </p>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="/js/langagesetting.js"></script>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/picturefill.min.js"></script>
+    <script src="js/lightgallery-all.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+  </div>
+  <script src="js/iframeset-jquery.js"></script>
+</body>
+
+</html>
