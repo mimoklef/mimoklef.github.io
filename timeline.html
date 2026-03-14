@@ -701,6 +701,21 @@
   font-family:"Caveat", cursive;
 }
 
+.media-link{
+  display:block;
+  color:inherit;
+  text-decoration:none;
+}
+
+.media-link:focus-visible{
+  outline:2px dashed rgba(188, 74, 68, 0.8);
+  outline-offset:4px;
+}
+
+.year-inline-marker{
+  display:none;
+}
+
     .card-top{
       display:grid;
       grid-template-columns:130px 1fr;
@@ -714,6 +729,10 @@
       flex-direction:column;
       gap:10px;
       position:relative;
+    }
+
+    .card-top > .meta{
+      min-width:0;
     }
 
     .tag{
@@ -739,6 +758,12 @@
       line-height:1.6;
       font-size:0.96rem;
       color:var(--ink-soft);
+      overflow-wrap:anywhere;
+    }
+
+    .meta h2,
+    .details span{
+      overflow-wrap:anywhere;
     }
 
     .details{
@@ -877,6 +902,58 @@
     .s2{ top:980px; left:120px; transform:rotate(-7deg); }
     .s3{ bottom:180px; right:140px; transform:rotate(5deg); }
 
+    @media (max-width: 1280px){
+      #page{
+        padding:64px 36px 96px;
+      }
+
+      .year-items{
+        gap:22px 16px;
+      }
+
+      .card-top{
+        grid-template-columns:minmax(112px, 36%) 1fr;
+        gap:14px;
+      }
+
+      .collage-card.has-side-photo .card-top{
+        grid-template-columns:118px 1fr 112px;
+      }
+
+      #y2004 .collage-card{
+        grid-column:1 / -1 !important;
+      }
+
+      #y2011 .photo-piece{
+        grid-column:span 2 !important;
+        margin-top:0;
+        padding:8px;
+      }
+
+      #y2011 .collage-card{
+        grid-column:3 / span 4 !important;
+      }
+
+      #y2011 .photo-piece-media{
+        aspect-ratio:4 / 3;
+        max-height:190px;
+      }
+
+      #y2020 .collage-card.has-side-photo{
+        grid-column:1 / -1 !important;
+      }
+
+      .meta h2{
+        font-size:1.28rem;
+        line-height:1.12;
+      }
+
+      .meta p{
+        font-size:0.92rem;
+        line-height:1.5;
+      }
+    }
+
     @media (max-width: 900px){
       #marge{
         width:120px;
@@ -904,6 +981,18 @@
         grid-template-columns:1fr;
       }
 
+      .below-photos{
+        grid-template-columns:1fr;
+        gap:10px;
+      }
+
+      .below-photos .thumb,
+      .below-photos .thumb.full-row{
+        width:100%;
+        max-width:none;
+        aspect-ratio:16 / 9;
+      }
+
       .after-photo-item:nth-child(1),
       .after-photo-item:nth-child(2),
       .after-photo-item:nth-child(3){
@@ -919,7 +1008,7 @@
       }
 
       .thumb{
-        max-width:180px;
+        max-width:260px;
       }
 
       .hand-note{
@@ -927,32 +1016,79 @@
       }
     }
 
-    @media (max-width: 640px){
-      #conteneur-extensible{
-        flex-direction:column;
-      }
-
+    @media (max-width: 900px){
       #marge{
-        width:100%;
-        min-height:90px;
-        border-right:none;
-        border-bottom:2px solid rgba(255, 128, 128, 0.9);
-      }
-
-      .date-marker{
-        position:static;
-        display:inline-block;
-        margin:18px 10px;
-        transform:none;
-        width:auto;
-      }
-
-      .date-marker::before{
-        left:14px;
+        display:none;
       }
 
       #page{
         margin-left:0;
+        padding:42px 18px 70px;
+      }
+
+      .intro{
+        margin-bottom:56px;
+      }
+
+      .intro h1{
+        font-size:clamp(3rem, 15vw, 4.5rem);
+      }
+
+      .intro p{
+        font-size:1.7rem;
+        line-height:1.45;
+      }
+
+      .year-section{
+        margin-bottom:74px;
+      }
+
+      .year-items{
+        gap:16px;
+      }
+
+      .meta .tag{
+        display:none;
+      }
+
+      .year-inline-marker{
+        display:inline-block;
+        margin:0 0 12px 2px;
+        font-family:"Caveat", cursive;
+        font-size:52px;
+        font-weight:800;
+        color:var(--date-red-dark);
+        letter-spacing:0.015em;
+        transform:rotate(-4deg);
+        text-shadow:1px 1px 0 rgba(255,255,255,0.6);
+      }
+
+      .year-section:nth-child(even) .year-inline-marker{
+        color:var(--date-red);
+        transform:rotate(2deg);
+      }
+
+      .collage-card.has-side-photo .card-top > .thumb:not(.thumb-side){
+        order:1;
+      }
+
+      .collage-card.has-side-photo .card-top{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+      }
+
+      .collage-card.has-side-photo .card-top > .thumb.thumb-side{
+        order:2;
+        justify-self:start;
+        width:min(72vw, 240px);
+        max-width:none;
+        margin-top:6px;
+      }
+
+      .collage-card.has-side-photo .card-top > .meta{
+        order:3;
       }
     }
   </style>
@@ -968,7 +1104,7 @@
       <div class="intro">
         <h1>Mon histoire</h1>
         <p>
-          Une timeline façon carnet / collage, où plusieurs projets peuvent vivre dans une même année.
+          Ce carnet, c'est un bout de moi, année après année.
         </p>
       </div>
 
@@ -1006,12 +1142,6 @@
         title: "Début de ma passion pour le dessin",
         voice: "Jusqu'à mon adolescence, je dessinais tout le temps. Mes dessins animés préférés, mes amis, des animaux, un peu de tout en fait 🤔",
         aside: "Bon, ça va du gribouilli au dessin plus ou moins correct ; je ne suis pas un artiste, mais je me débrouille..."
-      },
-      {
-        year: 2005,
-        title: "Je commence le Taekwondo à 5 ans",
-        voice: "Bon, à cet âge, je n'étais ni sérieux ni assidu, mais c'est un début...",
-        aside: "J'y retourne après, t'inquiète."
       },
       {
         year: 2011,
@@ -1130,7 +1260,6 @@
       { mode: 'card', start: 2, span: 4, classes: 'tape-left soft photo-clean no-frame', image: 'images/timeline/2000_cigogne.png' },
       { mode: 'card', start: 1, span: 2, classes: 'tape-left soft polaroid photo-landscape photo-contain no-frame', image: 'images/timeline/2004-velo.png' },
       { mode: 'card', start: 3, span: 4, classes: 'tape-right crumpled wide text-only', hidePhoto: true },
-      { mode: 'card', start: 2, span: 3, classes: 'tape-center soft text-only', hidePhoto: true },
       { mode: 'card', start: 4, span: 2, classes: 'tape-double flat-photo photo-contain hatena-short', image: 'images/timeline/hatena.png' },
       { mode: 'card', start: 1, span: 4, classes: 'tape-left wide soft tkd-crop', image: 'images/timeline/2012-taekwondo.jpg' },
       { mode: 'card', start: 2, span: 3, classes: 'tape-right soft photo-landscape', hidePhoto: true },
@@ -1143,7 +1272,7 @@
       { mode: 'card', start: 3, span: 3, classes: 'tape-left soft photo-portrait', hidePhoto: true },
       { mode: 'card', start: 1, span: 2, classes: 'tape-slim text-only soft', hidePhoto: true },
       { mode: 'card', start: 3, span: 3, classes: 'tape-right crumpled wide', hidePhoto: true },
-      { mode: 'card', start: 2, span: 4, classes: 'tape-center wide photo-landscape', image: 'images/timeline/2020-nodejs.png', sidePhoto: 'images/timeline/2020-nodejs-surpris.png' },
+      { mode: 'card', start: 2, span: 4, classes: 'tape-center wide photo-landscape', image: 'images/timeline/2020-nodejs.png', sidePhoto: 'images/timeline/2020-nodejs-surpris.png', sidePhotoClass: 'nodejs-side-mobile-left' },
       { mode: 'card', start: 1, span: 3, classes: 'tape-left soft', hidePhoto: true, belowPhotos: [
         { image: 'images/starpig/screen1.png', className: 'full-row contain-photo' }
       ] },
@@ -1166,10 +1295,12 @@
         { start: 5, span: 2, offset: 'offset-down', image: 'images/timeline/2004-dessin3.png' }
       ],
       2011: [
-        { start: 1, span: 2, offset: 'offset-up', image: 'images/timeline/2011-flipnote1.png', className: 'contain-photo' },
-        { start: 4, span: 2, offset: 'offset-down', image: 'images/timeline/2011-flipnote2.png', className: 'contain-photo' },
-        { start: 2, span: 2, offset: 'offset-up', image: 'images/timeline/2011-flipnote3.png', className: 'contain-photo' },
-        { start: 5, span: 2, offset: 'offset-down', image: 'images/timeline/2011-flipnote4.png', className: 'contain-photo' }
+        { start: 1, span: 2, offset: 'offset-up', image: 'images/timeline/2011-flipnote1.png', className: 'contain-photo', link: 'https://www.youtube.com/watch?v=D0A_P3_B7cI' },
+        { start: 4, span: 2, offset: 'offset-down', image: 'images/timeline/2011-flipnote2.png', className: 'contain-photo', link: 'https://www.youtube.com/watch?v=R0-z0ylARKE' },
+        { start: 2, span: 2, offset: 'offset-up', image: 'images/timeline/2011-flipnote3.png', className: 'contain-photo', link: 'https://www.youtube.com/watch?v=72Lk9SUgw4E' },
+        { start: 5, span: 2, offset: 'offset-down', image: 'images/timeline/2011-flipnote4.png', className: 'contain-photo', link: 'https://www.youtube.com/watch?v=5fiCnZSy9FE' },
+        { start: 3, span: 2, offset: 'offset-down', image: 'images/timeline/2011-flipnote5.png', className: 'contain-photo', link: 'https://www.youtube.com/watch?v=C7WRLkVj6Rs' },
+        { start: 1, span: 2, offset: 'offset-down', image: 'images/timeline/2011-flipnote.png', className: 'contain-photo', link: 'https://www.youtube.com/watch?v=NV6MBDvKoVE' }
       ],
       2018: [
         { start: 1, span: 2, offset: 'offset-up', image: 'images/timeline/2018-stage.png', className: 'contain-photo stage-short' }
@@ -1235,7 +1366,10 @@
         ? `<div class=\"meta-with-icon\"><h2>${renderMarkedText(item.title)}</h2><img class=\"meta-icon\" src=\"${layout.metaIcon}\" alt=\"logo\"></div>`
         : `<h2>${renderMarkedText(item.title)}</h2>`;
       const photoHtml = hasPhoto
-        ? `<figure class=\"thumb\"><img class=\"thumb-media\" src=\"${photoUrl(item, layout, idx)}\" alt=\"Illustration ${item.year}\" loading=\"lazy\"></figure>`
+        ? `<figure class=\"thumb\">${layout.link
+            ? `<a class=\"media-link\" href=\"${layout.link}\" target=\"_blank\" rel=\"noopener noreferrer\"><img class=\"thumb-media\" src=\"${photoUrl(item, layout, idx)}\" alt=\"Illustration ${item.year}\" loading=\"lazy\"></a>`
+            : `<img class=\"thumb-media\" src=\"${photoUrl(item, layout, idx)}\" alt=\"Illustration ${item.year}\" loading=\"lazy\">`
+          }</figure>`
         : '';
 
       const sidePhotoHtml = layout.sidePhoto
@@ -1313,7 +1447,10 @@
 
         return `
           <figure class="photo-piece span-${piece.span} ${piece.offset} ${piece.className || ''}" style="grid-column:${piece.start} / span ${piece.span};">
-            <img class="photo-piece-media" src="${piece.image}" alt="Photo ${year}" loading="lazy">
+            ${piece.link
+              ? `<a class="media-link" href="${piece.link}" target="_blank" rel="noopener noreferrer"><img class="photo-piece-media" src="${piece.image}" alt="Photo ${year}" loading="lazy"></a>`
+              : `<img class="photo-piece-media" src="${piece.image}" alt="Photo ${year}" loading="lazy">`
+            }
           </figure>
         `;
       }).join('');
@@ -1328,6 +1465,7 @@
 
       return `
         <section class="year-section" id="y${year}" data-year="${year}" style="margin-top:${gapPx}px;">
+          <div class="year-inline-marker">${year}</div>
           <div class="year-items">${content}</div>
         </section>
       `;
