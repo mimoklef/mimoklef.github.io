@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timeline Portfolio Séyès</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap");
+
+    :root{
+      --ink:#1f1f1f;
+      --ink-soft:#464241;
+      --date-red:#bc4a44;
+      --date-red-dark:#8f2f33;
+      --paper-glow:rgba(255,255,255,0.8);
+    }
+
+    html, body{
+      margin:0;
+      height:100%;
+      font-family:"Avenir Next", "Segoe UI", "Trebuchet MS", sans-serif;
+      color:var(--ink);
+      scroll-behavior:smooth;
+    }
+
+    #conteneur-extensible{
+      display:flex;
+      min-height:100vh;
+      align-items:stretch;
+    }
+
+    /* -------- MARGE -------- */
+
+    #marge{
+      width:197px;
+      background-image:url("https://www.morganbkf.com/images/seyes/carreau_marge_seyes.svg");
+      background-repeat:repeat;
+      background-size:80px 80px;
+      border-right:2px solid rgba(255, 128, 128, 0.9);
+      box-sizing:border-box;
+      position:relative;
+      flex-shrink:0;
+    }
+
+    .date-marker{
+      position:absolute;
+      left:16px;
+      width:150px;
+      padding:2px 4px;
+      font-family:"Caveat", cursive;
+      font-size:50px;
+      font-weight:800;
+      color:var(--date-red-dark);
+      letter-spacing:0.015em;
+      transform:rotate(-4deg);
+      text-shadow:1px 1px 0 rgba(255,255,255,0.6);
+      border:none;
+      background:none;
+      box-shadow:none;
+    }
+
+    .date-marker:nth-child(even){
+      transform:rotate(3deg);
+      color:var(--date-red);
+      left:14px;
+    }
+
+    .date-marker:nth-child(3n){
+      transform:rotate(-1.5deg);
+      left:18px;
+    }
+
+    /* -------- PAGE -------- */
+
+    #page{
+      flex:1;
+      margin-left:-2px;
+      background-image:url("https://www.morganbkf.com/images/seyes/carreau_seyes.svg");
+      background-repeat:repeat;
+      background-size:80px 80px;
+      position:relative;
+      padding:80px 70px 120px;
+      box-sizing:border-box;
+    }
+
+    .intro{
+      max-width:760px;
+      margin-bottom:90px;
+      font-family:"Caveat", cursive;
+    }
+
+    .intro h1{
+      font-size:clamp(2.4rem, 5vw, 4.6rem);
+      line-height:0.95;
+      margin:0 0 20px;
+      font-weight:800;
+      letter-spacing:-0.03em;
+      font-size: 120px;
+    }
+
+    .intro p{
+      max-width:620px;
+      font-size:35px;
+      line-height:1.7;
+      color:var(--ink-soft);
+      margin:0;
+      background:rgba(255,255,255,0.42);
+      display:inline;
+      box-shadow:8px 0 0 rgba(255,255,255,0.42), -8px 0 0 rgba(255,255,255,0.42);
+    }
+
+    /* -------- BLOCS PAR ANNÉE -------- */
+
+    .year-section{
+      margin-bottom:120px;
+      position:relative;
+    }
+
+    .year-items{
+      display:grid;
+      grid-template-columns:repeat(6, minmax(70px, 1fr));
+      grid-auto-flow:dense;
+      gap:26px 18px;
+      align-items:start;
+    }
+
+    .year-items > *{
+      min-width:0;
+    }
+
+.collage-card{
+  grid-column:span 3;
+  background:rgba(255,255,255,0.9);
+  border:1px solid rgba(0,0,0,0.07);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.10),
+    0 2px 8px rgba(0,0,0,0.05);
+  padding:22px;
+  position:relative;
+  backdrop-filter:blur(2px);
+  opacity:1;
+  transform:translateX(var(--shift-x, 0px)) rotate(var(--rotate, -2deg));
+  border-radius:2px 6px 3px 5px;
+}
+
+/* Variations de base automatiques */
+.collage-card:nth-child(1){ --rotate:-2.8deg; --shift-x:-6px; }
+.collage-card:nth-child(2){ --rotate:1.7deg; --shift-x:10px; }
+.collage-card:nth-child(3){ --rotate:-1.2deg; --shift-x:4px; }
+.collage-card:nth-child(4){ --rotate:2.6deg; --shift-x:-8px; }
+.collage-card:nth-child(5){ --rotate:-3.4deg; --shift-x:6px; }
+.collage-card:nth-child(6){ --rotate:1.1deg; --shift-x:-2px; }
+
+/* Variantes de placement */
+.span-2{ grid-column:span 2; }
+.span-3{ grid-column:span 3; }
+.span-4{ grid-column:span 4; }
+.span-5{ grid-column:span 5; }
+
+/* Scotch par défaut */
+.collage-card::before{
+  content:none;
+}
+
+.card-top{
+  position:relative;
+}
+
+.card-top::before{
+  content:none;
+}
+
+.details{
+  position:relative;
+}
+
+.details::before,
+.details::after{
+  content:none;
+}
+
+.details::before{
+  left:18px;
+  transform:rotate(-8deg);
+}
+
+.details::after{
+  right:16px;
+  transform:rotate(10deg);
+}
+
+/* Effet de matière léger */
+.collage-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(to bottom, rgba(255,255,255,0.18), rgba(0,0,0,0.02)),
+    radial-gradient(circle at 20% 15%, rgba(0,0,0,0.03), transparent 28%);
+  mix-blend-mode:multiply;
+  opacity:0.45;
+}
+
+/* --- Variantes de scotch --- */
+
+.tape-left::before{
+  left:16px;
+  transform:rotate(-13deg);
+}
+
+.tape-left .card-top::before{
+  right:30px;
+  transform:rotate(7deg);
+}
+
+.tape-right::before{
+  left:auto;
+  right:16px;
+  transform:rotate(12deg);
+}
+
+.tape-right .card-top::before{
+  right:10px;
+  transform:rotate(14deg);
+}
+
+.tape-center::before{
+  left:50%;
+  transform:translateX(-55%) rotate(-4deg);
+}
+
+.tape-center .card-top::before{
+  right:50%;
+  transform:translateX(58%) rotate(6deg);
+}
+
+.tape-double::before{
+  left:14px;
+  transform:rotate(-9deg);
+}
+
+.tape-double .card-top::before{
+  right:14px;
+  transform:rotate(9deg);
+}
+
+.tape-rough::before{
+  height:18px;
+  width:74px;
+  background:rgba(244, 215, 118, 0.62);
+  clip-path:polygon(0 18%, 100% 0, 96% 90%, 6% 100%);
+}
+
+.tape-slim::before{
+  width:48px;
+  height:15px;
+  background:rgba(214, 239, 255, 0.55);
+  transform:rotate(8deg);
+}
+
+.tape-slim .card-top::before{
+  width:46px;
+  height:15px;
+  background:rgba(255, 224, 120, 0.5);
+}
+
+.hatena-short .card-top::before{
+  right:8px;
+  top:-18px;
+  transform:rotate(5deg);
+}
+
+/* important pour le 2e morceau de scotch */
+.meta{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  position:relative;
+}
+
+/* --- Variantes de formes --- */
+
+.soft{
+  border-radius:8px 3px 10px 4px;
+}
+
+.wide{
+  padding:28px 30px 24px;
+}
+
+.tall .thumb{
+  aspect-ratio:4 / 6;
+}
+
+.offset-up{
+  margin-top:-18px;
+}
+
+.offset-down{
+  margin-top:22px;
+}
+
+.crumpled{
+  border-radius:3px 9px 4px 11px;
+  box-shadow:
+    0 16px 34px rgba(0,0,0,0.11),
+    0 3px 10px rgba(0,0,0,0.05);
+}
+
+.crumpled::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(0,0,0,0.035), transparent 22%),
+    radial-gradient(circle at 78% 70%, rgba(0,0,0,0.03), transparent 25%),
+    linear-gradient(135deg, rgba(255,255,255,0.12), rgba(0,0,0,0.03));
+  opacity:0.55;
+}
+
+/* --- Variantes d’images --- */
+
+.thumb{
+  margin:0;
+  width:100%;
+  aspect-ratio:4 / 5;
+  overflow:hidden;
+  background:#fff;
+  border:8px solid #fff;
+  box-shadow:0 6px 16px rgba(0,0,0,0.16);
+  transform:rotate(-4deg);
+}
+
+.card-top .thumb{
+  margin-top:4px;
+}
+
+.thumb-media{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+
+.collage-card:nth-child(even) .thumb{
+  transform:rotate(3deg);
+}
+
+.polaroid .thumb{
+  border-width:8px 8px 18px 8px;
+}
+
+.flat-photo .thumb{
+  transform:none;
+}
+
+.small-photo .thumb{
+  max-width:110px;
+}
+
+.photo-portrait .thumb{ aspect-ratio:3 / 4; }
+.photo-landscape .thumb{ aspect-ratio:16 / 10; }
+.photo-square .thumb{ aspect-ratio:1 / 1; }
+.photo-raw .thumb{ border-width:4px; border-color:rgba(255,255,255,0.82); }
+
+.photo-clean .thumb{
+  border:0;
+  box-shadow:none;
+  transform:none;
+}
+
+.no-frame .thumb{
+  border:0;
+  box-shadow:none;
+  background:transparent;
+}
+
+.photo-clean .thumb .thumb-media{
+  object-fit:contain;
+}
+
+.hatena-short .thumb{
+  aspect-ratio:4 / 3;
+  max-height:120px;
+}
+
+.tkd-crop .thumb{
+  aspect-ratio: 3 / 5;
+}
+
+.collage-card.has-side-photo .card-top{
+  grid-template-columns:130px 1fr 112px;
+}
+
+.thumb.thumb-side{
+  aspect-ratio:4 / 5;
+  transform:rotate(4deg);
+}
+
+.thumb.thumb-side.tall-phone{
+  aspect-ratio:9 / 19;
+  max-height:360px;
+  align-self:center;
+}
+
+.below-photos{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:2fr 2fr 3fr;
+  gap:12px;
+}
+
+.below-photos .thumb{
+  aspect-ratio:16 / 10;
+  transform:rotate(-2deg);
+}
+
+.below-photos .thumb .thumb-media{
+  object-fit:contain;
+}
+
+.below-photos .thumb.bp{
+  aspect-ratio:4 / 3;
+  transform:rotate(2deg);
+}
+
+.below-photos .thumb.full-row{
+  grid-column:1 / -1;
+  aspect-ratio:16 / 6;
+}
+
+.image-only .card-top{
+  display:block;
+  margin:0;
+}
+
+.image-only .thumb{
+  margin:2px auto 0;
+}
+
+.text-only .card-top{
+  display:block;
+  margin:0;
+}
+
+.text-only .meta{
+  gap:14px;
+}
+
+.image-only .details{
+  display:none;
+}
+
+/* --- Eléments hors cartes --- */
+
+.hand-note{
+  grid-column:span 2;
+  align-self:start;
+  padding:14px 10px;
+  font-size:1.05rem;
+  line-height:1.45;
+  color:rgba(18,18,18,0.72);
+  font-style:italic;
+  transform:rotate(var(--note-rotate, -4deg));
+  text-shadow:0 1px 0 rgba(255,255,255,0.5);
+  font-family:"Caveat", cursive;
+}
+
+.hand-note strong{
+  display:block;
+  margin-bottom:6px;
+  font-size:0.86rem;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:rgba(65,65,65,0.7);
+}
+
+.note-a{ --note-rotate:-7deg; margin-top:12px; }
+.note-b{ --note-rotate:5deg; margin-top:-8px; }
+
+.photo-piece{
+  grid-column:span 2;
+  position:relative;
+  margin:0;
+  padding:10px;
+  background:rgba(255,255,255);
+  border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 10px 24px rgba(0,0,0,0.09);
+  transform:rotate(-2deg);
+}
+
+.photo-piece::before,
+.photo-piece::after{
+  content:none;
+}
+
+.photo-piece::before{
+  top:-10px;
+  left:8px;
+  transform:rotate(-12deg);
+}
+
+.photo-piece::after{
+  top:auto;
+  bottom:-10px;
+  right:10px;
+  transform:rotate(9deg);
+}
+
+.photo-piece-media{
+  display:block;
+  width:100%;
+  aspect-ratio:4 / 5;
+  object-fit:cover;
+  border:6px solid #fff;
+  transform:none;
+}
+
+.photo-piece.contain-photo .photo-piece-media{
+  object-fit:contain;
+  border:0;
+}
+
+.photo-piece.stage-short .photo-piece-media{
+  aspect-ratio:4 / 3;
+  max-height:140px;
+}
+
+.photo-piece.gamevideo-wide .photo-piece-media{
+  aspect-ratio:16 / 10;
+  max-height:300px;
+}
+
+.photo-piece.gamevideo-blueprint .photo-piece-media{
+  aspect-ratio:16 / 8;
+  max-height:320px;
+}
+
+.after-photo-row{
+  display:grid;
+  grid-template-columns:repeat(6, minmax(70px, 1fr));
+  gap:14px 16px;
+  margin-top:6px;
+}
+
+.after-photo-item{
+  margin:0;
+}
+
+.after-photo-item:nth-child(1){
+  grid-column:1 / span 3;
+}
+
+.after-photo-item:nth-child(2){
+  grid-column:4 / span 3;
+}
+
+.after-photo-item:nth-child(3){
+  grid-column:2 / span 4;
+}
+
+.end-heart-wrap{
+  grid-column:1 / -1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+  margin:34px auto 0;
+  text-align:center;
+}
+
+.end-heart-note{
+  margin:0;
+  font-family:"Caveat", cursive;
+  font-size:clamp(1.8rem, 4.2vw, 2.8rem);
+  line-height:1.05;
+  color:rgba(42, 28, 28, 0.9);
+}
+
+.end-heart-image{
+  display:block;
+  width:min(100%, 680px);
+  max-height:520px;
+  object-fit:contain;
+  border:0;
+  box-shadow:none;
+}
+
+.photo-piece.epicery-phone{
+  margin-top:6px;
+  margin-bottom:28px;
+}
+
+.photo-piece.epicery-near{
+  margin-top:56px;
+}
+
+.photo-piece.epicery-phone .photo-piece-media{
+  aspect-ratio:9 / 19;
+  max-height:460px;
+}
+
+.photo-piece.boardingates-big{
+  margin-top:10px;
+  margin-bottom:24px;
+}
+
+.boardingates-card-drop{
+  margin-top:28px;
+}
+
+.photo-piece.boardingates-big .photo-piece-media{
+  aspect-ratio: 4 / 5;
+  max-height: 420px;
+}
+
+.photo-piece.yourcodex-big{
+  margin-top:20px;
+  margin-bottom:24px;
+}
+
+.photo-piece.yourcodex-big .photo-piece-media{
+  aspect-ratio:16 / 10;
+  max-height:360px;
+}
+
+.photo-piece.keurr-doodle{
+  margin-top:26px;
+}
+
+.photo-piece.keurr-doodle .photo-piece-media{
+  aspect-ratio:1 / 1;
+  max-height:220px;
+}
+
+.meta-with-icon{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.meta-icon{
+  width:40px;
+  height:40px;
+  object-fit:contain;
+  flex-shrink:0;
+}
+
+.raw-paper-image{
+  margin:0;
+  transform:rotate(-5deg);
+}
+
+.raw-paper-image .raw-photo{
+  width:100%;
+  max-width:320px;
+  aspect-ratio:4 / 3;
+  background:center/contain no-repeat;
+}
+
+.photo-contain .thumb{
+  min-height:180px;
+}
+
+.photo-contain .thumb .thumb-media{
+  object-fit:contain;
+}
+
+.icon-strip{
+  grid-column:span 4;
+  display:grid;
+  grid-template-columns:repeat(4, minmax(56px, 88px));
+  gap:16px;
+  align-items:center;
+}
+
+.icon-slot{
+  width:100%;
+  aspect-ratio:1 / 1;
+  background:center/contain no-repeat;
+}
+
+/* --- Petits détails manuels --- */
+
+
+.doodle{
+  position:absolute;
+  bottom:10px;
+  right:14px;
+  font-size:0.78rem;
+  color:rgba(0,0,0,0.36);
+  font-style:italic;
+  transform:rotate(-4deg);
+  font-family:"Caveat", cursive;
+}
+
+.scribble{
+  font-family:"Caveat", cursive;
+}
+
+    .card-top{
+      display:grid;
+      grid-template-columns:130px 1fr;
+      gap:22px;
+      align-items:start;
+      margin-bottom:14px;
+    }
+
+    .meta{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      position:relative;
+    }
+
+    .tag{
+      display:inline-block;
+      width:fit-content;
+      padding:6px 10px;
+      font-size:0.72rem;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      background:#111;
+      color:#fff;
+    }
+
+    .meta h2{
+      margin:0;
+      font-family:"Georgia", "Times New Roman", serif;
+      font-size:1.5rem;
+      line-height:1.05;
+    }
+
+    .meta p{
+      margin:0;
+      line-height:1.6;
+      font-size:0.96rem;
+      color:var(--ink-soft);
+    }
+
+    .details{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .details span{
+      font-size:0.82rem;
+      padding:8px 12px;
+      background:rgba(255,255,255,0.7);
+      border:1px dashed rgba(0,0,0,0.18);
+    }
+
+    mark{
+      border-image-source:url("https://raw.githubusercontent.com/mimoklef/highlighter-pen/refs/heads/main/assets/marker.png");
+      border-image-slice:0 27 0 29 fill;
+      border-image-width:0 1ch 0 1ch;
+      border-image-outset:0 1ch 0 1ch;
+      border-image-repeat:round stretch;
+      background-color:transparent;
+      -webkit-box-decoration-break:clone;
+      box-decoration-break:clone;
+      padding:0.8em 0;
+      color:inherit;
+      font-weight:700;
+      mix-blend-mode: multiply;
+    }
+
+    /* ---- Starpig plane loop button (GameDev 2020) ---- */
+
+    #launch-plane.plane-launch-btn{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:10px;
+      padding:11px 20px 10px;
+      border:1px solid rgba(74, 58, 41, 0.34);
+      border-radius:3px 7px 4px 8px;
+      background:
+        linear-gradient(165deg, rgba(255,255,255,0.72), rgba(246,236,210,0.8)),
+        repeating-linear-gradient(
+          -12deg,
+          rgba(125, 98, 66, 0.06) 0,
+          rgba(125, 98, 66, 0.06) 2px,
+          transparent 2px,
+          transparent 8px
+        );
+      color:#3a2a1d;
+      font-size:0.84rem;
+      font-weight:700;
+      letter-spacing:0.05em;
+      text-transform:uppercase;
+      line-height:1;
+      cursor:pointer;
+      box-shadow:
+        0 6px 14px rgba(46, 35, 24, 0.2),
+        inset 0 1px 0 rgba(255,255,255,0.58);
+      transform:rotate(-2.2deg);
+      transition:transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    #launch-plane.plane-launch-btn:hover{
+      transform:translateY(-2px) rotate(0.9deg);
+      box-shadow:
+        0 10px 18px rgba(46, 35, 24, 0.24),
+        inset 0 1px 0 rgba(255,255,255,0.62);
+      filter:saturate(1.08);
+    }
+
+    #launch-plane.plane-launch-btn::before{ content:none; }
+
+    #launch-plane.plane-launch-btn::after{
+      content:"";
+      position:absolute;
+      inset:1px;
+      border:1px dashed rgba(98, 76, 50, 0.26);
+      border-radius:3px 6px 4px 7px;
+      pointer-events:none;
+    }
+
+    #plane{
+      position:fixed;
+      top:0;
+      left:0;
+      width:60px;
+      height:60px;
+      transform:translate(-100px, 300px) rotate(0deg);
+      z-index:2147483647;
+      display:none;
+      pointer-events:none;
+      will-change:transform;
+    }
+
+    #plane-img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+      transform:rotate(90deg);
+      filter:drop-shadow(0 2px 4px rgba(0,0,0,0.28));
+    }
+
+    .smoke{
+      position:fixed;
+      width:14px;
+      height:14px;
+      background:rgba(255, 255, 255, 0.62);
+      border-radius:50%;
+      filter:blur(2px);
+      animation:puff 1s linear forwards;
+      pointer-events:none;
+      z-index:9998;
+    }
+
+    @keyframes puff {
+      to {
+        opacity:0;
+        transform:translateX(-25px) translateY(-10px) scale(1.5);
+      }
+    }
+
+    .scribble{
+      position:absolute;
+      font-size:0.9rem;
+      color:rgba(0,0,0,0.4);
+      font-style:italic;
+      pointer-events:none;
+      user-select:none;
+    }
+
+    .s1{ top:180px; right:80px; transform:rotate(8deg); }
+    .s2{ top:980px; left:120px; transform:rotate(-7deg); }
+    .s3{ bottom:180px; right:140px; transform:rotate(5deg); }
+
+    @media (max-width: 900px){
+      #marge{
+        width:120px;
+      }
+
+      .date-marker{
+        left:6px;
+        width:95px;
+        padding:2px 2px;
+      }
+
+      #page{
+        padding:50px 24px 80px;
+      }
+
+      .year-items{
+        grid-template-columns:1fr;
+      }
+
+      .year-items > *{
+        grid-column:1 / -1 !important;
+      }
+
+      .after-photo-row{
+        grid-template-columns:1fr;
+      }
+
+      .after-photo-item:nth-child(1),
+      .after-photo-item:nth-child(2),
+      .after-photo-item:nth-child(3){
+        grid-column:1 / -1;
+      }
+
+      .end-heart-image{
+        width:min(100%, 92vw);
+      }
+
+      .card-top{
+        grid-template-columns:1fr;
+      }
+
+      .thumb{
+        max-width:180px;
+      }
+
+      .hand-note{
+        font-size:0.98rem;
+      }
+    }
+
+    @media (max-width: 640px){
+      #conteneur-extensible{
+        flex-direction:column;
+      }
+
+      #marge{
+        width:100%;
+        min-height:90px;
+        border-right:none;
+        border-bottom:2px solid rgba(255, 128, 128, 0.9);
+      }
+
+      .date-marker{
+        position:static;
+        display:inline-block;
+        margin:18px 10px;
+        transform:none;
+        width:auto;
+      }
+
+      .date-marker::before{
+        left:14px;
+      }
+
+      #page{
+        margin-left:0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="conteneur-extensible">
+    <div id="marge">
+      <div id="year-markers"></div>
+    </div>
+
+    <div id="page">
+      <div class="intro">
+        <h1>Mon histoire</h1>
+        <p>
+          Une timeline façon carnet / collage, où plusieurs projets peuvent vivre dans une même année.
+        </p>
+      </div>
+
+      <div id="timeline-root"></div>
+
+    </div>
+  </div>
+
+  <div id="plane" aria-hidden="true">
+    <img
+      id="plane-img"
+      src="images/porcoplane.png"
+      alt=""
+      draggable="false"
+      onerror="if(!this.dataset.step){this.dataset.step='1';this.src='/images/porcoplane.png';}else if(this.dataset.step==='1'){this.dataset.step='2';this.src='images/poroplane1.png';}else if(this.dataset.step==='2'){this.dataset.step='3';this.src='/images/poroplane1.png';}"
+    >
+  </div>
+
+  <script>
+    const extractedItems = [
+      {
+        year: 2000,
+        title: "1er avril 2000 - Non, c'est pas une blague.",
+        voice: "Livraison par cigogne, bien sûr ! Mes parents devaient être contents ; enfin, ils ont intérêt, avec un fils comme moi 😎",
+        aside: "Promis après ça, je redeviens sérieux (ou presque)."
+      },
+      {
+        year: 2004,
+        title: "Le vélo",
+        voice: "C'est à cet âge que j'ai 'réussi' à faire du vélo à 2 roues. Bon, le secret, c'est qu'il faut pédaler, mais ça reste entre nous, OK ?",
+        aside: "J'ai eu le cul posé dessus jusqu'à mes 12 ans."
+      },
+      {
+        year: 2004,
+        title: "Début de ma passion pour le dessin",
+        voice: "Jusqu'à mon adolescence, je dessinais tout le temps. Mes dessins animés préférés, mes amis, des animaux, un peu de tout en fait 🤔",
+        aside: "Bon, ça va du gribouilli au dessin plus ou moins correct ; je ne suis pas un artiste, mais je me débrouille..."
+      },
+      {
+        year: 2005,
+        title: "Je commence le Taekwondo à 5 ans",
+        voice: "Bon, à cet âge, je n'étais ni sérieux ni assidu, mais c'est un début...",
+        aside: "J'y retourne après, t'inquiète."
+      },
+      {
+        year: 2011,
+        title: "Flipnote, nom de Dieu !",
+        voice: "J'ai adoré chaque seconde passée dessus à créer des petites histoires et les animer",
+        aside: "Ça m'a donné quelques bases en animation 2D aussi, hehe..."
+      },
+      {
+        year: 2012,
+        title: "Je commence sérieusement le (old school) Taekwondo",
+        voice: "Cette fois, ça devient une vraie passion, et quand je ne regarde pas des films d'arts martiaux, je m'entraîne. En parallèle, je fais du parkour et plein d'autres trucs.",
+        aside: "Je fais quelques petits tournois et j'atteins la ceinture noire"
+      },
+      {
+        year: 2017,
+        title: "Obtention du Bac à 17 ans",
+        voice: "En vrai, je l'ai obtenu de justesse. J'étais pas très sérieux, j'aimais pas l'école.",
+        aside: "Je ne m'intéressais qu'aux langues et aux sciences, mais flemme de faire des calculs 🥱"
+      },
+      {
+        year: 2017,
+        title: "Je commence un DUT 'Statistiques et Informatique Décisionnelle'",
+        voice: "Je ne pensais pas aimer 'l'école' un jour mais il y a un début à tout ! Enfin j'ai surtout aimé la partie informatique.",
+        aside: "Je découvre que j'ADORE le dev !"
+      },
+      {
+        year: 2017,
+        title: "'je veux faire des jeux vidéo !'",
+        voice: "Je découvre [[Unreal Engine]] et le [[Game Dev]]. J'y passe pratiquement tout mon temps libre.",
+        aside: "Ça me donne même un très bon niveau en dev., ce qui me sert dans mes études."
+      },
+      {
+        year: 2018,
+        title: "Mon premier stage en tant que développeur [[PHP]]",
+        voice: "Ça n'a duré qu'un mois, mais j'ai adoré, et j'ai fait une appli de réservations.",
+        aside: "C'était très moche MAIS fonctionnel ! 😁"
+      },
+      {
+        year: 2019,
+        title: "DUT obtenu",
+        voice: "",
+        aside: "Allez CIAO la [[Data Science]], moi je veux faire du dev ! 🗣"
+      },
+      {
+        year: 2019,
+        title: "J'intègre SUPINFO",
+        voice: "Beaucoup de projets de classe qui touchent à plein de domaines différents.",
+        aside: "C'était très diversifié, vraiment très chouette cursus !"
+      },
+      {
+        year: 2020,
+        title: "Je découvre [[Node.js]] en classe",
+        voice: "Mais wow ! Pourquoi j'ai pas connu ça plus tôt ? Je suis un homme de Cro-Magnon qui découvre le feu, c'est la joie !",
+        aside: "Y a pas de retour en arrière avec [[JavaScript]]. Je veux plus toucher à autre chose que ça !"
+      },
+      {
+        year: 2020,
+        title: "Petit jeu sur [[Unity]]",
+        voice: "C'est un projet de classe : Un mois pour faire rail shooter façon Star Fox.",
+        aside: "J'ai choisi comme thème Porco Rosso parce que j'aime bien !"
+      },
+      {
+        year: 2020,
+        title: "Stage de 3 mois chez OWNR - Développeur [[ASP.NET C#]]",
+        voice: "En 2 mois, je crée les bases d'une web app de gestion de grilles d'évaluation.",
+        aside: "C'est aussi mon premier stage rémunéré 😏"
+      },
+      {
+        year: 2020,
+        title: "J'intègre Epitech !",
+        voice: "Rythme intense. Des projets à tout va. Du dev, du dev, du dev.",
+        aside: "Laissez-moi respirer ! 🗣 (non, en vrai pas besoin)"
+      },
+      {
+        year: 2020,
+        title: "Quoi de mieux qu'une piscine pour apprendre à pisser du code ?",
+        voice: "Ma première piscine à [[Epitech]] : 48h pour créer une application complète",
+        aside: "C'est pas pour faire le mec, mais c'était plus facile que je le pensais ! Puis j'ai découvert [[Vue.js]], mon nouvel amour 😏"
+      },
+      {
+        year: 2021,
+        title: "De 2021 -> 2022, je travaille comme concepteur et dev. web chez Boardingates/Genius, en alternance",
+        voice: "J'ai l'occasion de travailler sur un projet de A à Z, de la conception au déploiement et à la maintenance. Beaucoup d'autonomie !",
+        aside: "Puis surtout... j'ai fait du [[Node.js]] et [[Vue.js]] 😏"
+      },
+      {
+        year: 2022,
+        title: "J'ai mon diplôme MSc",
+        voice: "Je suis (enfin) libéré, délivré !",
+        aside: "Mais que vais-je faire maintenant ? (spoiler : du dev.)"
+      },
+      {
+        year: 2022,
+        title: "2022 -> 2024, Epicery !",
+        voice: "Après quelques mois de chômage je rentre sur du concret : performance, bugs, incidents, priorités, et surtout... la qualité sur le long terme, faut faire quelque chose qui tient.",
+        aside: "Chouette expérience, j'ai beaucoup appris !"
+      },
+      {
+        year: 2024,
+        title: "2024 -> 2025, Je travaille pour une petite ESN, YourCodex.",
+        voice: " Du code, du code et encore du code ? Non, en vrai, là j'ai fait beaucoup de conception aussi.",
+        aside: "Franchement pour du travail en ESN, c'était très correct."
+      },
+      {
+        year: 2026,
+        title: "Et maintenant ?",
+        voice: "Je compte poursuivre dans le dev en reprenant mes études dans l'[[UX]].",
+        aside: "Et je cherche une alternance (en dev), du coup recrutez-moi en fait !"
+      }
+    ];
+
+    const timelineRoot = document.getElementById('timeline-root');
+    const markersRoot = document.getElementById('year-markers');
+
+    const manualLayoutByIndex = [
+      { mode: 'card', start: 2, span: 4, classes: 'tape-left soft photo-clean no-frame', image: 'images/timeline/2000_cigogne.png' },
+      { mode: 'card', start: 1, span: 2, classes: 'tape-left soft polaroid photo-landscape photo-contain no-frame', image: 'images/timeline/2004-velo.png' },
+      { mode: 'card', start: 3, span: 4, classes: 'tape-right crumpled wide text-only', hidePhoto: true },
+      { mode: 'card', start: 2, span: 3, classes: 'tape-center soft text-only', hidePhoto: true },
+      { mode: 'card', start: 4, span: 2, classes: 'tape-double flat-photo photo-contain hatena-short', image: 'images/timeline/hatena.png' },
+      { mode: 'card', start: 1, span: 4, classes: 'tape-left wide soft tkd-crop', image: 'images/timeline/2012-taekwondo.jpg' },
+      { mode: 'card', start: 2, span: 3, classes: 'tape-right soft photo-landscape', hidePhoto: true },
+      { mode: 'card', start: 4, span: 3, classes: 'tape-center crumpled photo-square', hidePhoto: true },
+      { mode: 'card', start: 1, span: 4, classes: 'tape-double wide photo-landscape', hidePhoto: true, afterPhotos: [
+        { image: 'images/timeline/2017-jeuvideo.png', className: 'contain-photo gamevideo-wide', alt: 'Capture Unreal Engine' },
+        { image: 'images/timeline/2017-jeuvideo1.png', className: 'contain-photo gamevideo-wide', alt: 'Capture gameplay' },
+        { image: 'images/timeline/2017-jeuxvideo-blueprint.png', className: 'contain-photo gamevideo-blueprint', alt: 'Blueprint Unreal' }
+      ] },
+      { mode: 'card', start: 3, span: 3, classes: 'tape-left soft photo-portrait', hidePhoto: true },
+      { mode: 'card', start: 1, span: 2, classes: 'tape-slim text-only soft', hidePhoto: true },
+      { mode: 'card', start: 3, span: 3, classes: 'tape-right crumpled wide', hidePhoto: true },
+      { mode: 'card', start: 2, span: 4, classes: 'tape-center wide photo-landscape', image: 'images/timeline/2020-nodejs.png', sidePhoto: 'images/timeline/2020-nodejs-surpris.png' },
+      { mode: 'card', start: 1, span: 3, classes: 'tape-left soft', hidePhoto: true, belowPhotos: [
+        { image: 'images/starpig/screen1.png', className: 'full-row contain-photo' }
+      ] },
+      { mode: 'card', start: 4, span: 3, classes: 'tape-double crumpled', hidePhoto: true },
+      { mode: 'card', start: 2, span: 4, classes: 'tape-right wide', hidePhoto: true },
+      { mode: 'card', start: 1, span: 3, classes: 'tape-center soft text-only', hidePhoto: true, metaIcon: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg', belowPhotos: [
+        { image: 'images/TimeManager/calendrier.png', className: 'full-row contain-photo' }
+      ] },
+      { mode: 'card', start: 3, span: 4, classes: 'tape-left crumpled wide boardingates-card-drop', hidePhoto: true, outsidePhoto: 'images/timeline/boardingates.png', outsideStart: 1, outsideSpan: 2, outsideOffset: 'offset-down', outsideClassName: 'contain-photo boardingates-big' },
+      { mode: 'card', start: 2, span: 3, classes: 'tape-right soft', hidePhoto: true },
+      { mode: 'card', start: 1, span: 3, classes: 'tape-double crumpled wide photo-contain', image: 'images/epicery_logo.png', outsidePhoto: 'images/timeline/epicery.png', outsideStart: 4, outsideSpan: 3, outsideOffset: 'offset-down epicery-near', outsideClassName: 'contain-photo epicery-phone' },
+      { mode: 'card', start: 1, span: 3, classes: 'tape-center wide soft', hidePhoto: true, outsidePhoto: 'images/timeline/yourcodex1.png', outsideStart: 4, outsideSpan: 3, outsideOffset: 'offset-down', outsideClassName: 'contain-photo yourcodex-big' },
+      { mode: 'card', start: 3, span: 3, classes: 'tape-left crumpled text-only', hidePhoto: true, endHeart: true, endHeartImage: 'images/timeline/keurr.png' }
+    ];
+
+    const extraPiecesByYear = {
+      2004: [
+        { start: 3, span: 2, offset: 'offset-up', image: 'images/timeline/2004-dessin.png' },
+        { start: 1, span: 2, offset: 'offset-up', image: 'images/timeline/2004-dessin1.png' },
+        { start: 5, span: 2, offset: 'offset-down', image: 'images/timeline/2004-dessin3.png' }
+      ],
+      2011: [
+        { start: 1, span: 2, offset: 'offset-up', image: 'images/timeline/2011-flipnote1.png', className: 'contain-photo' },
+        { start: 4, span: 2, offset: 'offset-down', image: 'images/timeline/2011-flipnote2.png', className: 'contain-photo' },
+        { start: 2, span: 2, offset: 'offset-up', image: 'images/timeline/2011-flipnote3.png', className: 'contain-photo' },
+        { start: 5, span: 2, offset: 'offset-down', image: 'images/timeline/2011-flipnote4.png', className: 'contain-photo' }
+      ],
+      2018: [
+        { start: 1, span: 2, offset: 'offset-up', image: 'images/timeline/2018-stage.png', className: 'contain-photo stage-short' }
+      ]
+    };
+
+    const escapeHtml = (str) => String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+
+    const renderMarkedText = (text) => {
+      const value = String(text || '');
+      return value
+        .split(/(\[\[.*?\]\])/g)
+        .filter(Boolean)
+        .map((chunk) => {
+          if(chunk.startsWith('[[') && chunk.endsWith(']]')){
+            return `<mark>${escapeHtml(chunk.slice(2, -2))}</mark>`;
+          }
+          return escapeHtml(chunk);
+        })
+        .join('');
+    };
+
+    const photoUrl = (item, layout, idx) => {
+      if(layout.image){
+        return layout.image;
+      }
+      return `https://picsum.photos/seed/fallback-${item.year}-${idx}/920/700`;
+    };
+
+    const buildCard = (item, idx) => {
+      const layout = manualLayoutByIndex[item._globalIndex] || { mode: 'card', start: 2, span: 3, classes: 'tape-left soft', hidePhoto: false };
+      const isGameDev2020 = item.year === 2020 && item.title === 'Petit jeu sur Unity';
+
+      if(layout.mode === 'raw'){
+        return `
+          <figure class="raw-paper-image span-${layout.span}" style="grid-column:${layout.start} / span ${layout.span};">
+            <div class="raw-photo" style="background-image:url('${layout.image}');"></div>
+          </figure>
+          <div class="${layout.noteClass || 'hand-note note-b'} span-${layout.noteSpan || 3}" style="grid-column:${layout.noteStart || 4} / span ${layout.noteSpan || 3};">
+            <strong>${renderMarkedText(item.title)}</strong>
+            ${item.voice ? `${renderMarkedText(item.voice)} ` : ''}${renderMarkedText(item.aside)}
+          </div>
+        `;
+      }
+
+      const hasPhoto = !layout.hidePhoto;
+      const textOnlyClass = hasPhoto ? '' : 'text-only';
+      const classes = [
+        'collage-card',
+        `span-${layout.span}`,
+        layout.classes || '',
+        textOnlyClass,
+        layout.sidePhoto ? 'has-side-photo' : ''
+      ].filter(Boolean).join(' ');
+
+      const voiceHtml = item.voice ? `<p>${renderMarkedText(item.voice)}</p>` : '';
+      const titleHtml = layout.metaIcon
+        ? `<div class=\"meta-with-icon\"><h2>${renderMarkedText(item.title)}</h2><img class=\"meta-icon\" src=\"${layout.metaIcon}\" alt=\"logo\"></div>`
+        : `<h2>${renderMarkedText(item.title)}</h2>`;
+      const photoHtml = hasPhoto
+        ? `<figure class=\"thumb\"><img class=\"thumb-media\" src=\"${photoUrl(item, layout, idx)}\" alt=\"Illustration ${item.year}\" loading=\"lazy\"></figure>`
+        : '';
+
+      const sidePhotoHtml = layout.sidePhoto
+        ? `<figure class=\"thumb thumb-side ${(layout.sidePhotoClass || '')}\"><img class=\"thumb-media\" src=\"${layout.sidePhoto}\" alt=\"Visuel secondaire ${item.year}\" loading=\"lazy\"></figure>`
+        : '';
+
+      const belowPhotosHtml = Array.isArray(layout.belowPhotos) && layout.belowPhotos.length
+        ? `<div class=\"below-photos\">${layout.belowPhotos.map((p) => `<figure class=\"thumb ${(p.className || '')}\"><img class=\"thumb-media\" src=\"${p.image}\" alt=\"Capture ${item.year}\" loading=\"lazy\"></figure>`).join('')}</div>`
+        : '';
+
+      const outsidePhotoHtml = layout.outsidePhoto
+        ? `
+          <figure class=\"photo-piece span-${layout.outsideSpan || 2} ${layout.outsideOffset || 'offset-down'} ${layout.outsideClassName || ''}\" style=\"grid-column:${layout.outsideStart || 5} / span ${layout.outsideSpan || 2};\">
+            <img class=\"photo-piece-media\" src=\"${layout.outsidePhoto}\" alt=\"Photo ${item.year}\" loading=\"lazy\">
+          </figure>
+        `
+        : '';
+
+      const afterPhotosHtml = Array.isArray(layout.afterPhotos) && layout.afterPhotos.length
+        ? `<div class=\"after-photo-row\" style=\"grid-column:1 / -1;\">${layout.afterPhotos.map((p) => `
+            <figure class=\"photo-piece after-photo-item ${p.className || ''}\"> 
+              <img class=\"photo-piece-media\" src=\"${p.image}\" alt=\"${p.alt || `Photo ${item.year}`}\" loading=\"lazy\"> 
+            </figure>
+          `).join('')}</div>`
+        : '';
+
+      const endHeartHtml = layout.endHeart
+        ? `<div class=\"end-heart-wrap\">
+            <p class=\"end-heart-note\">Si vous êtes arrivés jusqu'ici, coeur sur vous.</p>
+            <img class=\"end-heart-image\" src=\"${layout.endHeartImage}\" alt=\"Coeur\" loading=\"lazy\">
+          </div>`
+        : '';
+
+      const planeButtonHtml = isGameDev2020
+        ? '<button id="launch-plane" class="plane-launch-btn" type="button">On fait un looping ?</button>'
+        : '';
+
+      return `
+        <article class="${classes}" style="grid-column:${layout.start} / span ${layout.span};">
+          ${(item._globalIndex % 4 === 0) ? '' : ''}
+          <div class="card-top">
+            ${photoHtml}
+            <div class="meta">
+              <span class="tag">${item.year}</span>
+              ${titleHtml}
+              ${voiceHtml}
+            </div>
+            ${sidePhotoHtml}
+          </div>
+          <div class="details">
+            ${planeButtonHtml}
+            <span>${renderMarkedText(item.aside)}</span>
+          </div>
+          ${belowPhotosHtml}
+        </article>
+        ${outsidePhotoHtml}
+        ${afterPhotosHtml}
+        ${endHeartHtml}
+      `;
+    };
+
+    const buildExtraPieces = (year) => {
+      const extras = extraPiecesByYear[year] || [];
+      return extras.map((piece) => {
+        if(piece.type === 'slots'){
+          const slots = Array.from({ length: piece.count || 4 }, (_, idx) => `
+            <div class="icon-slot ${piece.slotClass || ''}" data-slot="${year}-${idx + 1}"></div>
+          `).join('');
+          return `
+            <div class="icon-strip span-${piece.span}" style="grid-column:${piece.start} / span ${piece.span};">
+              ${slots}
+            </div>
+          `;
+        }
+
+        return `
+          <figure class="photo-piece span-${piece.span} ${piece.offset} ${piece.className || ''}" style="grid-column:${piece.start} / span ${piece.span};">
+            <img class="photo-piece-media" src="${piece.image}" alt="Photo ${year}" loading="lazy">
+          </figure>
+        `;
+      }).join('');
+    };
+
+    const buildYearSection = (year, items, gapPx = 0) => {
+      let content = '';
+      items.forEach((item, idx) => {
+        content += buildCard(item, idx);
+      });
+      content += buildExtraPieces(year);
+
+      return `
+        <section class="year-section" id="y${year}" data-year="${year}" style="margin-top:${gapPx}px;">
+          <div class="year-items">${content}</div>
+        </section>
+      `;
+    };
+
+    const groupByYear = (items) => {
+      const map = new Map();
+      items.forEach((item) => {
+        if(!map.has(item.year)){
+          map.set(item.year, []);
+        }
+        map.get(item.year).push(item);
+      });
+      return [...map.entries()].sort((a, b) => a[0] - b[0]);
+    };
+
+    const buildYearMarkers = (years) => {
+      markersRoot.innerHTML = years.map((year) => `<div class="date-marker" data-year="${year}">${year}</div>`).join('');
+    };
+
+    const placeMarkers = () => {
+      const sections = [...document.querySelectorAll('.year-section')];
+      sections.forEach((section) => {
+        const year = section.dataset.year;
+        const marker = markersRoot.querySelector(`.date-marker[data-year="${year}"]`);
+        if(!marker){
+          return;
+        }
+        const top = Math.max(80, section.offsetTop - 10);
+        marker.style.top = `${top}px`;
+      });
+    };
+
+    const renderTimeline = () => {
+      const indexedItems = extractedItems.map((item, index) => ({ ...item, _globalIndex: index }));
+      const grouped = groupByYear(indexedItems);
+      const years = grouped.map(([year]) => year);
+      timelineRoot.innerHTML = grouped.map(([year, items], idx) => {
+        const previousYear = idx > 0 ? grouped[idx - 1][0] : year;
+        const missingYears = Math.max(0, year - previousYear - 1);
+        const gapPx = missingYears * 90;
+        return buildYearSection(year, items, gapPx);
+      }).join('');
+      buildYearMarkers(years);
+      placeMarkers();
+    };
+
+    renderTimeline();
+    window.addEventListener('resize', placeMarkers);
+    window.addEventListener('load', placeMarkers);
+  </script>
+  <script src="js/porco_rosso_plane.js"></script>
+  
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="en" translate="no">
 
 <head>
-  <title>CodeAmi.fr - Express.js Vue.js</title>
+  <title>CodeAmi.fr - Morgan Bouyakhlef</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="google" content="notranslate">
@@ -33,16 +33,20 @@
 
   <link rel="stylesheet" href="css/style.css">
 
+  <style>
+    a {
+      color: red;
+    }
 
+    a:hover {
+      color: darkred;
+    }
 
-
+  </style>
 
 </head>
 
 <body id="body">
-
-
-
 
 
 
@@ -51,9 +55,10 @@
   <script src="js/jquery-ui.js"></script>
 
 
+
   <div id="notframe">
 
-    <header class="site-navbar" role="banner">
+    <header style="z-index: 500;" class="site-navbar" role="banner">
 
       <div class="container-fluid">
         <div class="row align-items-center">
@@ -114,14 +119,8 @@
                       class="icon-linkedin"></span></a>
                 </li>
                 <li>
-                
-                  <a target="_blank" href="https://codepen.io/morganbkf" class="pl-0 pr-3" aria-label="CodePen">
-  <img src="assets/icons/codepen.svg" alt="CodePen" width="20" height="20">
-</a>
-
-
+<!-- CV ? -->
                 </li>
-                
                 <li>
                   <a target="_blank" href="mailto:morganbkf@gmail.com" class="pl-0 pr-3"><span
                       class="icon-mail_outline"></span></a>
@@ -130,7 +129,8 @@
             </div>
 
             <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
-                class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+                class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a>
+            </div>
 
           </div>
 
@@ -149,112 +149,4193 @@
 
     <iframe width="100%" frameBorder="0" id="iframeview" src="/codeami" title="PORTFOLIO"></iframe>
 
-    <script src="https://unpkg.com/wavesurfer.js"></script>
     <script src="js/cookieSetting.js"></script>
-
-
 
 
   </div>
 
   <div id="inframe">
+  <style>
+        :root {
+      --bg1: #f7fbff;
+      --bg2: #fff6fb;
+      --ink: #1c2430;
+      --muted: #586174;
+      --card: #ffffffcc;
+      --border: #e8eef6;
+      --accent: #5aa9ff;
+      --accent2: #ff7fb2;
+      --mint: #45d6a0;
+      --sun: #ffc857;
+      --lav: #9b8cff;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --shadow: 0 18px 55px rgba(18, 33, 63, 0.1);
+      --shadow-soft: 0 10px 25px rgba(18, 33, 63, 0.08);
+      --container: 1160px;
+      --fast: 140ms;
+      --mid: 220ms;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Nunito", system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(1100px 700px at 10% 10%, rgba(90, 169, 255, 0.22), transparent 55%),
+        radial-gradient(900px 600px at 90% 20%, rgba(255, 127, 178, 0.2), transparent 55%),
+        radial-gradient(1000px 800px at 50% 100%, rgba(69, 214, 160, 0.15), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height: 100dvh;
+    }
+
+    .mangabtnhaut{
+      border: 2px solid #b5b5b5 !important;
+      box-shadow: 0 3px 0 #b8b8b8;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      transform: translateY(-160%);
+      transition: transform var(--mid) ease;
+      z-index: 999;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .container {
+      width: min(calc(100% - 36px), var(--container));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(12px);
+      background: rgba(247, 251, 255, 0.68);
+      border-bottom: 1px solid rgba(232, 238, 246, 0.9);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      font-weight: 900;
+    }
+
+    .brand-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(90,169,255,0.2), rgba(255,127,178,0.15));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .brand-badge img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .brand-meta .wordmark-main {
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .brand-meta .wordmark-main .code {
+      color: #2f4d3f !important;
+    }
+
+    .brand-meta .wordmark-main .ami {
+      color: #e60012 !important;
+      margin-left: 5px;
+    }
+
+    .brand-meta small {
+      color: var(--muted);
+      font-weight: 700;
+      margin-top: 3px;
+      font-size: 12px;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.78);
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 13px;
+      padding: 9px 11px;
+      border-radius: 11px;
+      transition: background var(--fast) ease, color var(--fast) ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      background: rgba(255,255,255,0.74);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .section {
+      padding: 56px 0;
+    }
+
+    .hero {
+      padding-top: 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid rgba(232, 238, 246, 0.92);
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(10px);
+      padding: 18px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 11px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 800;
+      background: rgba(255,255,255,0.72);
+      margin-bottom: 10px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.7);
+    }
+
+    h1 {
+      margin: 0;
+      line-height: 0.98;
+      font-size: clamp(38px, 6vw, 66px);
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 12px 0 14px;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 800;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      max-width: 72ch;
+      font-weight: 700;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .btn {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      font-weight: 900;
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--ink);
+      padding: 11px 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.8);
+      transition: transform var(--fast) ease, box-shadow var(--fast) ease;
+    }
+
+    .btn:hover { box-shadow: var(--shadow-soft); }
+
+    .btn:active { transform: translateY(1px) scale(0.995); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, rgba(90,169,255,0.92), rgba(155,140,255,0.35));
+      border-color: rgba(90,169,255,0.38);
+    }
+
+    .uikit-note {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .uikit-scroll-run {
+      position: relative;
+    }
+
+    .uikit-sticky-nav-wrap {
+      position: sticky;
+      top: var(--demo-sticky-top, 76px);
+      z-index: 18;
+      margin-bottom: 12px;
+      width: min(620px, 100%);
+      transition: width var(--mid) ease;
+    }
+
+    .uikit-sticky-nav-wrap.is-expanded {
+      width: 100%;
+    }
+
+    .uikit-sticky-nav-wrap .demo-navbar {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-soft);
+      padding: 7px 9px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      transition: padding var(--mid) ease, border-radius var(--mid) ease;
+    }
+
+    .uikit-sticky-nav-wrap.is-expanded .demo-navbar {
+      padding: 10px;
+      border-radius: 18px;
+    }
+
+    .uikit-sticky-nav-wrap .demo-navbar-main {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      flex: 1 1 auto;
+    }
+
+    .uikit-sticky-nav-wrap .demo-menu-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border: 2px solid rgba(28,36,48,.24);
+      border-radius: 12px;
+      background: linear-gradient(180deg, #ffffff 0%, #f4fbff 100%);
+      color: #2b465b;
+      cursor: pointer;
+      box-shadow: 0 4px 0 rgba(28,36,48,.28), 0 10px 18px rgba(18,33,63,.10);
+      transition: transform .14s ease, box-shadow .14s ease, filter .14s ease;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex: 0 0 auto;
+    }
+
+    .uikit-sticky-nav-wrap .demo-menu-toggle:hover {
+      transform: rotate(-.6deg) scale(1.02);
+      box-shadow: 0 5px 0 rgba(28,36,48,.28), 0 14px 22px rgba(18,33,63,.14);
+    }
+
+    .uikit-sticky-nav-wrap .demo-menu-toggle:active {
+      transform: translateY(1px) scale(.985);
+      box-shadow: 0 2px 0 rgba(28,36,48,.28), 0 8px 14px rgba(18,33,63,.10);
+    }
+
+    .uikit-sticky-nav-wrap .demo-navbar-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 900;
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
+    .uikit-sticky-nav-wrap .demo-navbar-brand img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      transition: width var(--mid) ease, height var(--mid) ease;
+    }
+
+    .uikit-sticky-nav-wrap.is-expanded .demo-navbar-brand img {
+      width: 34px;
+      height: 34px;
+    }
+
+    .uikit-sticky-nav-wrap .demo-wordmark {
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .uikit-sticky-nav-wrap .demo-wordmark .code {
+      color: #2f4d3f;
+    }
+
+    .uikit-sticky-nav-wrap .demo-wordmark .ami {
+      color: #e60012;
+      margin-left: 5px;
+    }
+
+    .uikit-sticky-nav-wrap .demo-navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 16px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      justify-content: flex-start;
+    }
+
+    .uikit-sticky-nav-wrap .nav-link {
+      text-decoration: none;
+      color: black;
+      font-weight: 900;
+      font-size: 12px;
+      height: 34px;
+      padding: 0 10px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 11px;
+      border: 2px solid #21372d;
+      background: #fffef8;
+      white-space: nowrap;
+      position: relative;
+      box-shadow: 0 3px 0 #21372d;
+      transition: height var(--mid) ease, font-size var(--mid) ease, padding var(--mid) ease, transform .14s ease, box-shadow .14s ease, filter .14s ease;
+    }
+
+    .uikit-sticky-nav-wrap.is-expanded .nav-link {
+      font-size: 14px;
+      height: 40px;
+      padding: 0 12px;
+    }
+
+    .uikit-sticky-nav-wrap .manga-btn {
+      border: 2px solid #21372d !important;
+      box-shadow: 0 3px 0 #21372d;
+    }
+
+
+    .uikit-sticky-nav-wrap .nav-link:hover,
+    .uikit-sticky-nav-wrap .manga-btn:hover {
+      transform: translateY(-2px) rotate(-.6deg) scale(1.02) !important;
+      box-shadow: 0 6px 0 rgba(28,36,48,.42), 0 14px 22px rgba(0,0,0,.14) !important;
+    }
+
+    .uikit-sticky-nav-wrap .nav-link.is-active,
+    .uikit-sticky-nav-wrap .manga-btn:active,
+    .uikit-sticky-nav-wrap .manga-btn.is-active {
+      transform: translateY(1px) scale(.985) !important;
+      box-shadow: 0 2px 0 rgba(28,36,48,.42), 0 6px 12px rgba(0,0,0,.10) !important;
+    }
+
+    .uikit-sticky-nav-wrap .nav-link.is-active {
+      background: #bee3ff;
+    }
+
+    .uikit-sticky-nav-wrap .demo-profile-btn {
+      border: 2px solid #21372d;
+      box-shadow: 0 3px 0 #21372d;
+      border-radius: 12px;
+      background: #fff;
+      color: #1a2736;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 900;
+      font-size: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      flex: 0 0 auto;
+      transition: height var(--mid) ease, font-size var(--mid) ease, padding var(--mid) ease, transform .14s ease, box-shadow .14s ease, filter .14s ease;
+    }
+
+    .uikit-sticky-nav-wrap.is-expanded .demo-profile-btn {
+      width: 42px;
+      height: 42px;
+      padding: 0;
+    }
+
+    .uikit-sticky-nav-wrap .demo-profile-btn:hover {
+      transform: translateY(-2px) rotate(-.6deg) scale(1.02);
+      box-shadow: 0 6px 0 rgba(28,36,48,.42), 0 14px 22px rgba(0,0,0,.14);
+    }
+
+    .uikit-sticky-nav-wrap .demo-profile-btn:active {
+      transform: translateY(1px) scale(.985);
+      box-shadow: 0 2px 0 rgba(28,36,48,.42), 0 6px 12px rgba(0,0,0,.10);
+      filter: brightness(.98);
+    }
+
+    .uikit-sticky-nav-wrap .demo-profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .uikit-sticky-nav-wrap .demo-mobile-backdrop {
+      display: none;
+    }
+
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .demo-navbar {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-soft);
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .demo-navbar-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 900;
+    }
+
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .demo-navbar-brand img {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+    }
+
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .demo-wordmark {
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .demo-wordmark .code {
+      color: #2f4d3f;
+    }
+
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .demo-wordmark .ami {
+      color: #e60012;
+      margin-left: 5px;
+    }
+
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .demo-navbar-links {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .nav-link {
+      text-decoration: none;
+      color: black;
+      font-weight: 900;
+      font-size: 14px;
+      height: 40px;
+      padding: 0 12px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 11px;
+      border: 2px solid #21372d;
+      background: #fffef8;
+      white-space: nowrap;
+      position: relative;
+      box-shadow: 0 3px 0 #21372d;
+      transition: transform .14s ease, box-shadow .14s ease, filter .14s ease;
+    }
+
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .manga-btn {
+      border: 2px solid #21372d !important;
+      box-shadow: 0 3px 0 #21372d;
+    }
+
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .nav-link:hover,
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .manga-btn:hover {
+      transform: translateY(-2px) rotate(-.6deg) scale(1.02) !important;
+      box-shadow: 0 6px 0 rgba(28,36,48,.42), 0 14px 22px rgba(0,0,0,.14) !important;
+    }
+
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .nav-link.is-active,
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .manga-btn:active,
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .manga-btn.is-active {
+      transform: translateY(1px) scale(.985) !important;
+      box-shadow: 0 2px 0 rgba(28,36,48,.42), 0 6px 12px rgba(0,0,0,.10) !important;
+    }
+
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .nav-link.is-active {
+      background: #bee3ff;
+    }
+
+    .notif-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: #ff4d7e;
+      display: inline-block;
+      margin-left: 5px;
+      box-shadow: 0 0 0 0 rgba(255, 77, 126, .55);
+      animation: dotPulse 1.4s ease-in-out infinite;
+    }
+
+    @keyframes dotPulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 77, 126, .55); }
+      70% { box-shadow: 0 0 0 8px rgba(255, 77, 126, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 77, 126, 0); }
+    }
+
+    .manga-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .manga-btn {
+      border: none;
+      color: black;
+      font-weight: 900;
+      font-size: 13px;
+      border-radius: 11px;
+      height: 38px;
+      padding: 0 14px;
+      cursor: pointer;
+      background: #fffef8;
+      transition: transform var(--fast) ease, box-shadow var(--fast) ease, border-color var(--fast) ease, background var(--fast) ease;
+    }
+
+    .manga-btn:hover,
+    .manga-btn.is-hover {
+      transform: translateY(-2px) rotate(-.6deg) scale(1.02);
+      box-shadow: 0 6px 0 rgba(28,36,48,.42), 0 14px 22px rgba(0,0,0,.14);
+    }
+
+    .manga-btn:active,
+    .manga-btn.is-active {
+      transform: translateY(1px) scale(.985);
+      box-shadow: 0 2px 0 rgba(28,36,48,.42), 0 6px 12px rgba(0,0,0,.10);
+      filter: brightness(0.98);
+    }
+
+    .manga-btn:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(90,169,255,0.28), 0 6px 0 rgba(28,36,48,.42), 0 14px 22px rgba(0,0,0,.14);
+    }
+
+    .manga-btn--primary {
+      background: #e60012;
+      color: white;
+    }
+
+    .manga-btn--danger {
+      border-color: rgba(255,127,178,0.35);
+      background: linear-gradient(135deg, rgba(255,127,178,0.18), rgba(255,200,87,0.2));
+    }
+
+    .manga-btn--ghost {
+      background: #fffef8;
+      color: black;
+      border: 2px solid #21372d !important;
+    }
+
+    .state-chip {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.8);
+      border-radius: 999px;
+      padding: 6px 9px;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 900;
+      margin-right: 6px;
+    }
+
+    .uikit-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.78);
+      padding: 12px;
+      margin-top: 10px;
+    }
+
+    .uikit-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+      font-weight: 900;
+    }
+
+    .mini-badge {
+      border-radius: 999px;
+      border: 1px solid rgba(69,214,160,0.26);
+      background: rgba(69,214,160,0.17);
+      color: #1f5a43;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 5px 8px;
+    }
+
+    .uikit-actions {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .demo-tabs {
+      margin-top: 10px;
+    }
+
+    .demo-tabs-list {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .demo-tab {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.72);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: background var(--fast) ease, color var(--fast) ease, transform var(--fast) ease, border-color var(--fast) ease;
+    }
+
+    .demo-tab:hover {
+      color: var(--ink);
+      background: rgba(255,255,255,0.92);
+    }
+
+    .demo-tab:active {
+      transform: translateY(1px);
+    }
+
+    .demo-tab.active {
+      color: var(--ink);
+      border-color: rgba(90,169,255,0.34);
+      background: linear-gradient(135deg, rgba(90,169,255,0.2), rgba(255,127,178,0.12));
+    }
+
+    .demo-tab-panel {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.74);
+      padding: 11px;
+      margin-top: 8px;
+      font-size: 13px;
+      color: #2a3649;
+      font-weight: 700;
+      display: none;
+    }
+
+    .demo-tab-panel.active {
+      display: block;
+    }
+
+    .partie-view-switch {
+      margin-top: 10px;
+      display: inline-flex;
+      gap: 8px;
+      padding: 6px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.75);
+    }
+
+    .partie-view-btn {
+      border: 2px solid #21372d;
+      box-shadow: 0 3px 0 #21372d;
+      border-radius: 11px;
+      background: #fffef8;
+      color: #182536;
+      min-height: 36px;
+      padding: 0 12px;
+      font-weight: 900;
+      font-size: 12px;
+      cursor: pointer;
+      transition: transform .14s ease, box-shadow .14s ease, background .14s ease;
+    }
+
+    .partie-view-btn:hover {
+      transform: translateY(-2px) rotate(-.4deg) scale(1.015);
+      box-shadow: 0 6px 0 rgba(28,36,48,.42), 0 14px 22px rgba(0,0,0,.14);
+    }
+
+    .partie-view-btn.active {
+      transform: translateY(1px) scale(.985);
+      box-shadow: 0 2px 0 rgba(28,36,48,.42), 0 6px 12px rgba(0,0,0,.10);
+      background: linear-gradient(135deg, rgba(90,169,255,0.24), rgba(255,127,178,0.18));
+    }
+
+    .partie-panels {
+      position: relative;
+      margin-top: 10px;
+      min-height: 200px;
+      transition: min-height var(--mid) ease;
+    }
+
+    .partie-panel {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translateY(8px) scale(.995);
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity var(--mid) ease, transform var(--mid) ease;
+    }
+
+    .partie-panel.active {
+      position: relative;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+      visibility: visible;
+      z-index: 1;
+    }
+
+    .partie-page {
+      margin-top: 2px;
+      border-radius: 22px;
+      border: 1px solid rgba(232,238,246,1);
+      background:
+        radial-gradient(560px 260px at 8% 0%, rgba(90,169,255,.15), transparent 58%),
+        radial-gradient(480px 260px at 98% 8%, rgba(255,127,178,.14), transparent 60%),
+        rgba(255,255,255,.68);
+      box-shadow: 0 14px 28px rgba(18,33,63,.08);
+      padding: 12px;
+    }
+
+    .partie-page-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 2px 2px 10px;
+    }
+
+    .partie-page-head h4 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 1000;
+      line-height: 1.15;
+    }
+
+    .partie-page-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 10px;
+    }
+
+    .partie-col {
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .partie-block {
+      border-radius: 16px;
+      border: 1px solid rgba(232,238,246,1);
+      background: rgba(255,255,255,.78);
+      padding: 10px;
+    }
+
+    .partie-block h5 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      font-weight: 1000;
+      color: #24344a;
+    }
+
+    .partie-inline-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .partie-cta {
+      border: 2px solid #2e6db6;
+      border-radius: 12px;
+      min-height: 38px;
+      padding: 0 12px;
+      background: linear-gradient(135deg, #5aa9ff, #3f8fe9);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 1000;
+      box-shadow: 0 3px 0 #2e6db6;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .partie-cta.danger {
+      border-color: rgba(122,22,34,.55);
+      background: linear-gradient(135deg, #f05361, #d94152);
+      box-shadow: 0 3px 0 rgba(122,22,34,.82);
+    }
+
+    .partie-page .composer {
+      margin-top: 8px;
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 14px;
+      background: rgba(255,255,255,.76);
+      padding: 8px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .partie-page .composer input {
+      width: 100%;
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 11px;
+      min-height: 38px;
+      padding: 0 11px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .partie-page .composer button {
+      border: 2px solid #2e6db6;
+      border-radius: 11px;
+      min-height: 38px;
+      padding: 0 12px;
+      background: linear-gradient(135deg, #5aa9ff, #3f8fe9);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 1000;
+      box-shadow: 0 3px 0 #2e6db6;
+    }
+
+
+    .uikit-demo .modalSection .composer {
+      margin-top: 8px;
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 14px;
+      background: rgba(255,255,255,.76);
+      padding: 8px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .uikit-demo .modalSection .composer input {
+      width: 100%;
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 11px;
+      min-height: 38px;
+      padding: 0 11px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .uikit-demo .modalSection .composer button {
+      border: 2px solid #2e6db6;
+      border-radius: 11px;
+      min-height: 38px;
+      padding: 0 12px;
+      background: linear-gradient(135deg, #5aa9ff, #3f8fe9);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 1000;
+      box-shadow: 0 3px 0 #2e6db6;
+    }
+
+    @media (max-width: 900px) {
+      .partie-view-switch {
+        display: none;
+      }
+
+      .partie-panels {
+        min-height: 0;
+      }
+
+      .partie-panel[data-partie-panel="modal"] {
+        display: none !important;
+      }
+
+      .partie-panel[data-partie-panel="page"] {
+        position: relative;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        visibility: visible;
+        z-index: 1;
+      }
+
+      .partie-page-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .ui-span-full {
+      grid-column: 1 / -1;
+    }
+
+    .anchor-target {
+      scroll-margin-top: 92px;
+    }
+
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .demo-navbar {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .demo-navbar-brand,
+    .uikit-demo:not(.uikit-sticky-nav-wrap) .demo-navbar-links {
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+
+    .uikit-demo .sessions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .uikit-demo .session {
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 18px;
+      background: rgba(255,255,255,.72);
+      padding: 12px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      box-shadow: 0 10px 20px rgba(18,33,63,.06);
+    }
+
+    .uikit-demo .sTop {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .uikit-demo .gameIcon {
+      width: 46px;
+      height: 46px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.7);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(90,169,255,.18), rgba(255,127,178,.12));
+      flex: 0 0 auto;
+    }
+
+    .uikit-demo .gameIconImg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .uikit-demo .meta {
+      min-width: 0;
+    }
+
+    .uikit-demo .meta b {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      letter-spacing: .2px;
+    }
+
+    .uikit-demo .sub {
+      margin-top: 3px;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 12px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .uikit-demo .pills {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .uikit-demo .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(232,238,246,1);
+      background: rgba(255,255,255,.70);
+      font-weight: 900;
+      font-size: 12px;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .uikit-demo .pill i {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .uikit-demo .pill.mint i { background: var(--mint); }
+    .uikit-demo .pill.sun i { background: var(--sun); }
+    .uikit-demo .pill.lav i { background: var(--lav); }
+
+    .uikit-demo .livePill i {
+      animation: livePillGlow 1.8s ease-in-out infinite;
+    }
+
+    @keyframes livePillGlow {
+      0%, 100% { box-shadow: 0 0 0 rgba(69,214,160,0); transform: scale(1); opacity: .9; }
+      50% { box-shadow: 0 0 0 4px rgba(69,214,160,0.25); transform: scale(1.08); opacity: 1; }
+    }
+
+    .uikit-demo .side {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .uikit-demo .badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .uikit-demo .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 900;
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(232,238,246,1);
+      background: rgba(248,251,255,.9);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .uikit-demo .badge.good { color: #1b6b57; border-color: rgba(69,214,160,.35); background: rgba(69,214,160,.12); }
+    .uikit-demo .badge.hot { color: #6b3b56; border-color: rgba(255,127,178,.35); background: rgba(255,127,178,.12); }
+    .uikit-demo .badge.warn { color: #6a4b16; border-color: rgba(255,200,87,.45); background: rgba(255,200,87,.14); }
+
+    .uikit-demo .join {
+      border: 2px solid rgba(28,36,48,.32);
+      background: #fff;
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 4px 0 rgba(28,36,48,.42), 0 10px 18px rgba(0,0,0,.10);
+      transition: transform .15s ease, box-shadow .15s ease;
+      white-space: nowrap;
+      text-decoration: none;
+      color: inherit;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .uikit-demo .join:hover { transform: translateY(-2px) rotate(-.5deg) scale(1.02); box-shadow: 0 6px 0 rgba(28,36,48,.42), 0 14px 22px rgba(0,0,0,.14); }
+    .uikit-demo .join:active { transform: translateY(1px) scale(.985); box-shadow: 0 2px 0 rgba(28,36,48,.42), 0 6px 12px rgba(0,0,0,.10); }
+
+    .uikit-demo .join.mangaBtn {
+      border-color: rgba(22,76,105,.52);
+    }
+
+    .uikit-demo .modal-window {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.25);
+      inset: auto;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      border-radius: 18px;
+      border: 1px dashed rgba(232,238,246,.95);
+      margin-top: 10px;
+    }
+
+    .uikit-demo .modalCard {
+      width: min(900px, 100%);
+      max-height: none;
+      overflow: visible;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(232,238,246,.95);
+      border-radius: 22px;
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(10px);
+      position: relative;
+      padding: 16px;
+    }
+
+    .uikit-demo .modalClose {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 34px;
+      height: 34px;
+      border: 2px solid rgba(28,36,48,.32);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 1000;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 0 rgba(28,36,48,.42), 0 10px 18px rgba(0,0,0,.10);
+    }
+
+    .uikit-demo .modalHead {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+      padding-right: 34px;
+    }
+
+    .uikit-demo .modalTitle h2 { margin: 0; font-size: 18px; }
+    .uikit-demo .modalSub { margin-top: 6px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .uikit-demo .modalSection { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(232,238,246,.85); }
+    .uikit-demo .modalSection h3 { margin: 0 0 10px; font-size: 14px; }
+
+    .uikit-demo .modalGameBadge {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 22px;
+      border: 1px solid rgba(28,36,48,.12);
+      background: rgba(255,255,255,.66);
+    }
+
+    .uikit-demo .modalGameBadge .cover {
+      width: 54px;
+      height: 54px;
+      min-height: 54px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.7);
+      overflow: hidden;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(90,169,255,.18), rgba(255,127,178,.12));
+    }
+
+    .uikit-demo .coverImg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .uikit-demo .gText .g { margin: 0; font-weight: 1000; font-size: 13px; }
+    .uikit-demo .gText .p { margin: 6px 0 0; font-weight: 900; font-size: 12px; opacity: .72; }
+    .uikit-demo .platformInlineList { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 7px; }
+    .uikit-demo .platformInlineChip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(232,238,246,1);
+      background: rgba(255,255,255,.76);
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .uikit-demo .platformThumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 5px;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 1px solid rgba(28,36,48,.14);
+    }
+
+    .uikit-demo .platformThumb img {
+      width: 12px;
+      height: 12px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .uikit-demo .descBox { margin-top: 10px; border: 1px dashed rgba(232,238,246,1); border-radius: 14px; background: rgba(255,255,255,.62); padding: 10px; }
+    .uikit-demo .descText { margin-top: 6px; white-space: pre-line; font-weight: 800; color: var(--muted); font-size: 12px; }
+    .uikit-demo .accessLine { margin-top: 10px; display: flex; align-items: center; gap: 8px; font-weight: 900; color: var(--muted); font-size: 12px; }
+
+    .uikit-demo .timeline {
+      margin-top: 10px;
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 14px;
+      background: rgba(255,255,255,.74);
+      padding: 10px;
+    }
+
+    .uikit-demo .timeTop.main { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px; font-weight: 900; color: var(--muted); }
+    .uikit-demo .timeState { margin-top: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-weight: 800; color: var(--muted); font-size: 12px; }
+    .uikit-demo .stateBadge { display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 999px; font-size: 11px; font-weight: 900; border: 1px solid rgba(69,214,160,.35); background: rgba(69,214,160,.12); color: #1b6b57; }
+    .uikit-demo .track.active { margin-top: 10px; height: 8px; border-radius: 999px; background: rgba(232,238,246,1); position: relative; overflow: hidden; }
+    .uikit-demo .track .fill { width: 42%; height: 100%; background: linear-gradient(90deg, var(--accent), var(--mint)); }
+
+    .uikit-demo .people { display: flex; flex-direction: column; gap: 10px; }
+    .uikit-demo .personRow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 14px;
+      background: rgba(255,255,255,.70);
+      padding: 10px;
+    }
+
+    .uikit-demo .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(232,238,246,1);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .uikit-demo .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .uikit-demo .who { display: flex; flex-direction: column; min-width: 0; }
+    .uikit-demo .who b { font-size: 13px; }
+    .uikit-demo .rowActions { margin-left: auto; display: flex; gap: 8px; }
+
+    .uikit-demo .tinyBtn {
+      border: 2px solid rgba(28,36,48,.32);
+      background: #fff;
+      border-radius: 12px;
+      padding: 6px 10px;
+      font-weight: 900;
+      font-size: 12px;
+      box-shadow: 0 3px 0 rgba(28,36,48,.38), 0 8px 14px rgba(0,0,0,.10);
+    }
+
+    .uikit-demo .tinyBtn.danger {
+      background: #f05361;
+      color: #fff;
+      border-color: rgba(122,22,34,.55);
+      box-shadow: 0 3px 0 rgba(122,22,34,.82), 0 8px 14px rgba(240,83,97,.20);
+    }
+
+    .uikit-demo .chat {
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 14px;
+      background: rgba(255,255,255,.72);
+      padding: 10px;
+      margin-top: 8px;
+      max-height: 210px;
+      overflow: auto;
+    }
+
+    .uikit-demo .chatList { display: flex; flex-direction: column; gap: 8px; }
+    .uikit-demo .bubble { display: flex; align-items: flex-end; gap: 8px; }
+    .uikit-demo .bubble.me { justify-content: flex-end; }
+
+    .uikit-demo .commentAvatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(232,238,246,1);
+      background: rgba(255,255,255,.88);
+      flex: 0 0 auto;
+    }
+
+    .uikit-demo .commentAvatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .uikit-demo .baloon {
+      max-width: min(86%, 480px);
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 12px;
+      background: rgba(255,255,255,.86);
+      padding: 8px 10px;
+    }
+
+    .uikit-demo .bubble.me .baloon {
+      background: rgba(90,169,255,.15);
+      border-color: rgba(90,169,255,.36);
+    }
+
+    .uikit-demo .commentTop {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+
+    .uikit-demo .commentAuthor { font-size: 12px; font-weight: 900; }
+    .uikit-demo .commentTime { font-size: 11px; color: var(--muted); font-weight: 800; }
+    .uikit-demo .commentMsg { font-size: 12px; font-weight: 800; color: #2a3649; }
+
+    .uikit-demo .sharedContactRow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 14px;
+      background: rgba(255,255,255,.74);
+      padding: 10px;
+      margin-top: 8px;
+    }
+
+    .uikit-demo .sharedContactLogo {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      border-radius: 12px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(232,238,246,1);
+      background: #fff;
+    }
+
+    .uikit-demo .sharedContactLogo img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .uikit-demo .sharedContactMain { min-width: 0; display: flex; flex-direction: column; }
+    .uikit-demo .sharedContactMain b { font-size: 13px; }
+    .uikit-demo .sharedContactValue { font-size: 12px; font-weight: 800; color: var(--muted); overflow-wrap: anywhere; }
+
+    .profile-demo {
+      margin-top: 10px;
+      border-radius: 24px;
+      border: 1px solid rgba(232,238,246,1);
+      background:
+        radial-gradient(560px 280px at 8% 0%, rgba(90,169,255,.18), transparent 58%),
+        radial-gradient(480px 260px at 98% 8%, rgba(255,127,178,.16), transparent 60%),
+        rgba(255,255,255,.62);
+      box-shadow: 0 16px 30px rgba(0,0,0,.08);
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    .profile-demo .pd-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 12px;
+    }
+
+    .profile-demo .pd-card {
+      border-radius: 22px;
+      border: 1px solid rgba(28,36,48,.12);
+      background: rgba(255,255,255,.74);
+      box-shadow: 0 10px 22px rgba(0,0,0,.08);
+      padding: 14px;
+      min-width: 0;
+    }
+
+    .profile-demo .pd-avatarRow { display: flex; align-items: center; gap: 12px; }
+    .profile-demo .pd-avatar {
+      width: 74px;
+      height: 74px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.72);
+      box-shadow: 0 10px 18px rgba(0,0,0,.1);
+      flex: 0 0 auto;
+    }
+
+    .profile-demo .pd-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .profile-demo .pd-name { margin: 0; font-size: 20px; font-weight: 1000; line-height: 1.1; }
+
+    .profile-demo .pd-badge {
+      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(232,238,246,1);
+      background: rgba(255,255,255,.86);
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .profile-demo .pd-badge i {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #3ad6a8;
+      box-shadow: 0 0 0 3px rgba(58,214,168,.2);
+      display: inline-block;
+    }
+
+    .profile-demo .pd-tags {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .profile-demo .pd-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(28,36,48,.12);
+      background: rgba(255,255,255,.72);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .profile-demo .pd-tag i {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      display: inline-block;
+      background: var(--accent);
+    }
+
+    .profile-demo .pd-tag i.mint { background: var(--mint); }
+    .profile-demo .pd-tag i.sun { background: var(--sun); }
+    .profile-demo .pd-tag i.lav { background: var(--lav); }
+    .profile-demo .pd-tag i.rose { background: var(--accent2); }
+
+    .profile-demo .pd-bio {
+      margin-top: 10px;
+      border-radius: 14px;
+      border: 1px dashed rgba(232,238,246,1);
+      background: rgba(255,255,255,.66);
+      padding: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .profile-demo .pd-actions {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .profile-demo .pd-btn {
+      border: 2px solid #21372d;
+      background: #fffef8;
+      color: #111;
+      border-radius: 12px;
+      min-height: 38px;
+      padding: 0 12px;
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 3px 0 #21372d;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-demo .pd-btn.primary {
+      background: linear-gradient(135deg, #5aa9ff, #3f8fe9);
+      color: #fff;
+      border-color: #2e6db6;
+      box-shadow: 0 3px 0 #2e6db6;
+    }
+
+    .profile-demo .pd-right { display: grid; gap: 10px; min-width: 0; }
+
+    .profile-demo .pd-panel {
+      border-radius: 18px;
+      border: 1px solid rgba(28,36,48,.12);
+      background: rgba(255,255,255,.72);
+      padding: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,.07);
+    }
+
+    .profile-demo .pd-title {
+      margin: 0 0 9px;
+      font-size: 14px;
+      font-weight: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .profile-demo .pd-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 4px;
+      background: #ffcf4d;
+      box-shadow: 0 0 0 4px rgba(255,207,77,.18);
+      display: inline-block;
+    }
+
+    .profile-demo .pd-games {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .profile-demo .pd-game {
+      border-radius: 16px;
+      border: 1px solid rgba(28,36,48,.12);
+      background: rgba(255,255,255,.72);
+      padding: 9px;
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+
+    .profile-demo .pd-cover {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.72);
+      flex: 0 0 auto;
+      background: linear-gradient(135deg, rgba(90,169,255,.22), rgba(255,127,178,.16));
+    }
+
+    .profile-demo .pd-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .profile-demo .pd-gameMain { min-width: 0; }
+    .profile-demo .pd-gameName {
+      font-weight: 1000;
+      font-size: 13px;
+      line-height: 1.15;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .profile-demo .pd-mini {
+      margin-top: 5px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(28,36,48,.12);
+      background: rgba(255,255,255,.68);
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--muted);
+      max-width: 140px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .profile-demo .pd-contacts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .profile-demo .pd-contact {
+      border-radius: 14px;
+      border: 1px solid rgba(28,36,48,.12);
+      background: rgba(255,255,255,.72);
+      padding: 9px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-width: 0;
+    }
+
+    .profile-demo .pd-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(232,238,246,1);
+      background: #fff;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .profile-demo .pd-logo img { width: 16px; height: 16px; object-fit: contain; display: block; }
+
+    .profile-demo .pd-contactMain {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .profile-demo .pd-contactType {
+      font-size: 11px;
+      font-weight: 1000;
+      color: #2b3a50;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .profile-demo .pd-contactValue {
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .profile-demo .pd-live {
+      border-radius: 18px;
+      border: 1px solid rgba(28,36,48,.12);
+      background: rgba(255,255,255,.72);
+      padding: 10px;
+    }
+
+    .profile-demo .pd-liveTop {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .profile-demo .pd-live .pd-cover { width: 48px; height: 48px; border-radius: 15px; }
+
+    .profile-demo .pd-liveTitle {
+      margin: 0;
+      font-weight: 1000;
+      font-size: 13px;
+      line-height: 1.15;
+    }
+
+    .profile-demo .pd-liveSub {
+      margin: 4px 0 0;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    .profile-demo .pd-bar {
+      margin-top: 9px;
+      height: 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(232,238,246,1);
+      background: rgba(255,255,255,.7);
+      overflow: hidden;
+    }
+
+    .profile-demo .pd-bar span {
+      display: block;
+      width: 64%;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #3ad6a8, #4aa7ff);
+    }
+
+    .profile-demo .pd-time {
+      margin-top: 7px;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 900;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .msg-demo {
+      margin-top: 10px;
+      border-radius: 24px;
+      border: 1px solid rgba(232,238,246,1);
+      background: rgba(255,255,255,.7);
+      box-shadow: 0 12px 24px rgba(18,33,63,.08);
+      padding: 12px;
+    }
+
+    .msg-demo .msg-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 10px;
+      min-height: 360px;
+    }
+
+    .msg-demo .msg-view-switch {
+      display: none;
+      margin-bottom: 10px;
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 14px;
+      background: rgba(255,255,255,.82);
+      padding: 5px;
+      gap: 6px;
+    }
+
+    .msg-demo .msg-view-btn {
+      border: 2px solid rgba(28,36,48,.32);
+      border-radius: 11px;
+      background: #fff;
+      color: #28435a;
+      min-height: 36px;
+      padding: 0 12px;
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 3px 0 rgba(28,36,48,.32);
+      cursor: pointer;
+      transition: transform .14s ease, box-shadow .14s ease, background .14s ease, border-color .14s ease;
+      flex: 1 1 0;
+      white-space: nowrap;
+    }
+
+    .msg-demo .msg-view-btn.active {
+      border-color: rgba(22,76,105,.55);
+      background: #55c6ff;
+      color: #163147;
+      transform: translateY(1px) scale(.985);
+      box-shadow: 0 2px 0 rgba(22,76,105,.75);
+    }
+
+    .msg-demo .msg-pane {
+      border-radius: 18px;
+      border: 1px solid rgba(28,36,48,.12);
+      background: rgba(255,255,255,.76);
+      padding: 10px;
+      min-width: 0;
+    }
+
+    .msg-demo .msg-title {
+      margin: 0 0 8px;
+      font-size: 14px;
+      font-weight: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .msg-demo .msg-pill {
+      border: 1px solid rgba(232,238,246,1);
+      background: rgba(90,169,255,.12);
+      color: #24527f;
+      padding: 5px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .msg-demo .conv-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      height: 300px;
+      overflow: auto;
+      padding-right: 2px;
+      padding: 5px;
+    }
+
+    .msg-demo .conv-item {
+      cursor: pointer;
+      border: 2px solid rgba(28,36,48,.32);
+      border-radius: 14px;
+      background: #fff;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      box-shadow: 0 4px 0 rgba(28,36,48,.42);
+      transition: transform .14s ease, box-shadow .14s ease, background .14s ease, border-color .14s ease;
+    }
+
+    .msg-demo .conv-item.active {
+      border-color: rgba(22,76,105,.55);
+      background: #55c6ff;
+      transform: translateY(1px) scale(.985);
+      box-shadow: 0 2px 0 rgba(22,76,105,.75);
+    }
+
+    .msg-demo .conv-item:hover {
+      transform: translateY(-2px) rotate(-.35deg) scale(1.01);
+      box-shadow: 0 6px 0 rgba(28,36,48,.42);
+    }
+
+    .msg-demo .conv-item:active {
+      transform: translateY(1px) scale(.985);
+      box-shadow: 0 2px 0 rgba(28,36,48,.42), 0 6px 12px rgba(0,0,0,.10);
+    }
+
+    .msg-demo .conv-item.active:hover,
+    .msg-demo .conv-item.active:active {
+      transform: translateY(1px) scale(.985);
+      box-shadow: 0 2px 0 rgba(22,76,105,.75), 0 6px 12px rgba(85,198,255,.20);
+    }
+
+    .msg-demo .conv-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 11px;
+      overflow: hidden;
+      border: 1px solid rgba(232,238,246,1);
+      flex: 0 0 auto;
+    }
+
+    .msg-demo .conv-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .msg-demo .conv-main { min-width: 0; flex: 1; }
+    .msg-demo .conv-top { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+    .msg-demo .conv-name { font-size: 12px; font-weight: 1000; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .msg-demo .conv-time { font-size: 11px; font-weight: 800; color: var(--muted); flex: 0 0 auto; }
+    .msg-demo .conv-last { margin-top: 2px; font-size: 11px; color: #3c4b63; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .msg-demo .conv-unread {
+      min-width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: #ff5c7a;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 1000;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5px;
+      flex: 0 0 auto;
+    }
+
+    .msg-demo .chat-head {
+      border-bottom: 1px solid rgba(232,238,246,.9);
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .msg-demo .chat-user {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 1000;
+    }
+
+    .msg-demo .chat-user .conv-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+    }
+
+    .msg-demo .chat-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #3ad6a8;
+      display: inline-block;
+    }
+
+    .msg-demo .chat-body {
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 14px;
+      background: rgba(255,255,255,.76);
+      padding: 10px;
+      min-height: 220px;
+      max-height: 220px;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .msg-demo .bubble-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .msg-demo .bubble-row.me {
+      justify-content: flex-end;
+    }
+
+    .msg-demo .bubble-time {
+      font-size: 10px;
+      color: rgba(88,97,116,.78);
+      font-weight: 900;
+      white-space: nowrap;
+      align-self: center;
+      opacity: 0;
+      transform: translateY(2px);
+      transition: opacity .14s ease, transform .14s ease;
+    }
+
+    .msg-demo .bubble-row:hover .bubble-time,
+    .msg-demo .bubble-row:focus-within .bubble-time {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .msg-demo .bubble-time.left { order: 1; }
+    .msg-demo .bubble-time.right { order: 3; }
+    .msg-demo .bubble-row.me .msg-bubble { order: 2; }
+    .msg-demo .bubble-row.me .msg-bubble.me { margin-left: 0; }
+
+    .msg-demo .msg-bubble {
+      max-width: max-content;
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 12px;
+      background: rgba(255,255,255,.88);
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #2a3649;
+    }
+
+    .msg-demo .msg-bubble.me {
+      margin-left: auto;
+      background: rgba(90,169,255,.16);
+      border-color: rgba(90,169,255,.34);
+    }
+
+    .msg-demo .msg-meta {
+      margin-top: 3px;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .msg-demo .composer {
+      margin-top: 8px;
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 14px;
+      background: rgba(255,255,255,.76);
+      padding: 8px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .msg-demo .composer input {
+      width: 100%;
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 11px;
+      min-height: 38px;
+      padding: 0 11px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .msg-demo .composer button {
+      border: 2px solid #2e6db6;
+      border-radius: 11px;
+      min-height: 38px;
+      padding: 0 12px;
+      background: linear-gradient(135deg, #5aa9ff, #3f8fe9);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 1000;
+      box-shadow: 0 3px 0 #2e6db6;
+    }
+
+
+
+    body.force-mobile-preview #uikit .uikit-scroll-run,
+    body.force-mobile-preview #uikit .uikit-demo {
+      max-width: 430px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    body.force-mobile-preview #uikit .uikit-demo {
+      border-radius: 30px;
+      box-shadow: 0 16px 34px rgba(18,33,63,.2);
+      border-color: rgba(200,218,240,.95);
+    }
+
+    body.force-mobile-preview #uikit .uikit-sticky-nav-wrap {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    body.force-mobile-preview #uikit .uikit-sticky-nav-wrap .demo-navbar {
+      overflow: visible;
+      position: relative;
+    }
+
+    body.force-mobile-preview #uikit .uikit-sticky-nav-wrap .demo-navbar-main {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    body.force-mobile-preview #uikit .uikit-sticky-nav-wrap .demo-navbar-brand {
+      display: inline-flex !important;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    body.force-mobile-preview #uikit .uikit-sticky-nav-wrap .demo-menu-toggle {
+      display: inline-flex;
+      margin-right: auto;
+      z-index: 3;
+    }
+
+    body.force-mobile-preview #uikit .uikit-sticky-nav-wrap .demo-navbar-links {
+      display: none;
+      position: fixed;
+      top: var(--demo-sticky-menu-top, 132px);
+      left: 10px;
+      right: 10px;
+      border: 1px solid rgba(232,238,246,.95);
+      border-radius: 18px;
+      background:
+        radial-gradient(600px 220px at 0% 0%, rgba(90,169,255,.14), transparent 55%),
+        radial-gradient(560px 220px at 100% 0%, rgba(155,140,255,.12), transparent 60%),
+        #ffffff;
+      box-shadow: 0 16px 40px rgba(18,33,63,.16);
+      padding: 12px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      z-index: 80;
+      max-height: calc(100vh - 90px);
+      overflow-y: auto;
+      margin-left: 0;
+    }
+
+    body.force-mobile-preview #uikit .uikit-sticky-nav-wrap .demo-navbar-links.open {
+      display: flex;
+    }
+
+    body.force-mobile-preview #uikit .uikit-sticky-nav-wrap .nav-link {
+      width: 100%;
+      justify-content: flex-start;
+      height: 44px;
+      font-size: 15px;
+      font-weight: 800;
+      border-radius: 12px;
+      background: rgba(255,255,255,.95);
+      border-color: rgba(28,36,48,.3);
+      color: #28435a;
+      box-shadow: 0 3px 0 rgba(28,36,48,.30);
+    }
+
+    body.force-mobile-preview #uikit .uikit-sticky-nav-wrap .demo-mobile-backdrop.open {
+      display: block;
+      position: fixed;
+      inset: 0;
+      border: none;
+      background: transparent;
+      z-index: 70;
+      cursor: default;
+    }
+
+    body.force-mobile-preview #uikit .partie-page-grid,
+    body.force-mobile-preview #uikit .profile-demo .pd-grid,
+    body.force-mobile-preview #uikit .profile-demo .pd-games,
+    body.force-mobile-preview #uikit .profile-demo .pd-contacts {
+      grid-template-columns: 1fr;
+    }
+
+    body.force-mobile-preview #uikit .partie-view-switch {
+      display: none;
+    }
+
+    body.force-mobile-preview #uikit .partie-panels {
+      min-height: 0;
+    }
+
+    body.force-mobile-preview #uikit .partie-panel[data-partie-panel="modal"] {
+      display: none !important;
+    }
+
+    body.force-mobile-preview #uikit .partie-panel[data-partie-panel="page"] {
+      position: relative;
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+      visibility: visible;
+      z-index: 1;
+    }
+
+    body.force-mobile-preview #uikit .msg-demo .msg-layout {
+      display: block;
+      min-height: 0;
+    }
+
+    body.force-mobile-preview #uikit .msg-demo .msg-view-switch {
+      display: flex;
+    }
+
+    body.force-mobile-preview #uikit .msg-demo .msg-pane {
+      display: none;
+      min-height: min(72vh, 560px);
+    }
+
+    body.force-mobile-preview #uikit .msg-demo .msg-pane.active {
+      display: block;
+    }
+
+    body.force-mobile-preview #uikit .msg-demo .chat-body {
+      min-height: min(52vh, 430px);
+      max-height: min(52vh, 430px);
+    }
+
+    body.preview-animating #uikit .uikit-scroll-run {
+      animation: previewTogglePulse .34s cubic-bezier(.23,.94,.26,1);
+      transform-origin: top center;
+    }
+
+    @keyframes previewTogglePulse {
+      0% {
+        transform: translateY(8px) scale(.988);
+        opacity: .86;
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .section-head.with-tools .section-tools {
+        display: none;
+      }
+
+      .demo-navbar-brand { display: none !important; }
+      .uikit-demo .session {
+        grid-template-columns: 1fr;
+      }
+
+      #demo-session .session {
+        position: relative;
+        padding-bottom: 58px;
+      }
+
+      #demo-session .sTop {
+        align-items: flex-start;
+      }
+
+      #demo-session .gameIcon {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+      }
+
+      #demo-session .meta {
+        padding-left: 58px;
+      }
+
+      #demo-session .request-lock {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        margin: 0;
+        z-index: 2;
+        min-width: 34px;
+        justify-content: center;
+        padding: 7px 9px;
+      }
+
+      #demo-session .request-lock .request-label {
+        display: none;
+      }
+
+      #demo-session .badges {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        margin: 0;
+        z-index: 2;
+      }
+
+      #demo-session .join {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        margin: 0;
+        z-index: 2;
+      }
+
+      .uikit-demo .side,
+      .uikit-demo .badges {
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      .profile-demo .pd-grid,
+      .profile-demo .pd-games,
+      .profile-demo .pd-contacts {
+        grid-template-columns: 1fr;
+      }
+
+      .msg-demo .msg-layout {
+        display: block;
+        min-height: 0;
+      }
+
+      .msg-demo .msg-view-switch {
+        display: flex;
+      }
+
+      .msg-demo .msg-pane {
+        display: none;
+        min-height: min(72vh, 560px);
+      }
+
+      .msg-demo .msg-pane.active {
+        display: block;
+      }
+
+
+      .msg-demo .chat-body {
+        min-height: min(52vh, 430px);
+        max-height: min(52vh, 430px);
+      }
+    }
+
+    .stats {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stat {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.74);
+      border-radius: 15px;
+      padding: 11px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .cover {
+      min-height: 290px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      background:
+        radial-gradient(650px 350px at 20% 20%, rgba(90,169,255,0.23), transparent 60%),
+        radial-gradient(550px 300px at 70% 30%, rgba(255,127,178,0.2), transparent 58%),
+        rgba(255,255,255,0.75);
+      position: relative;
+    }
+
+    .cover img {
+      width: 100%;
+      height: 290px;
+      object-fit: contain;
+      object-position: center;
+      background: rgba(255,255,255,0.86);
+    }
+
+    .fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: var(--muted);
+      background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.65));
+      text-align: center;
+      padding: 12px;
+    }
+
+    #appcover {
+      padding: 0;
+    }
+
+    #appcover .appcover-duo {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 16px;
+    }
+
+    #appcover .appcover-shot {
+      margin-top: auto;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 12px;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      display: block;
+    }
+
+    #appcover .appcover-shot.desktop {
+      aspect-ratio: 16/10;
+      max-width: 100%;
+    }
+    #appcover .appcover-shot.mobile {
+      aspect-ratio: 9/16;
+      max-width: 100%;
+    }
+    .hero-title-row{
+      display: flex;
+    }
+
+    @media (max-width: 820px) {
+      #appcover .appcover-duo {
+        grid-template-columns: 1fr;
+      }
+
+      #appcover .appcover-shot {
+        max-height: none;
+      }
+    }
+
+    .identity-rules {
+      margin-top: 12px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255,255,255,.74);
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .identity-rules h4 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 1000;
+      color: #22344a;
+    }
+
+    .identity-rule-list {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .identity-rule-list li {
+      color: #34465d;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .identity-voice {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .identity-voice span {
+      border: 1px solid rgba(232,238,246,1);
+      border-radius: 999px;
+      background: rgba(255,255,255,.88);
+      padding: 6px 9px;
+      font-size: 11px;
+      font-weight: 900;
+      color: #35506a;
+    }
+
+    .section-head {
+      margin-bottom: 30px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-weight: 700;
+      max-width: 80ch;
+    }
+
+    .section-head.with-tools {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .section-head.with-tools .section-tools {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mobile-preview-toggle {
+      border: 2px solid rgba(22,76,105,.4);
+      border-radius: 999px;
+      min-height: 40px;
+      padding: 0 14px;
+      background:
+        radial-gradient(180px 120px at 20% 0%, rgba(255,255,255,.68), transparent 60%),
+        linear-gradient(135deg, rgba(90,169,255,.18), rgba(255,127,178,.16));
+      color: #1f3f57;
+      font-size: 12px;
+      font-weight: 1000;
+      box-shadow: 0 4px 0 rgba(22,76,105,.45), 0 10px 20px rgba(18,33,63,.12);
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+      white-space: nowrap;
+    }
+
+    .mobile-preview-toggle:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 6px 0 rgba(22,76,105,.45), 0 16px 30px rgba(18,33,63,.16);
+    }
+
+    .mobile-preview-toggle:active {
+      transform: translateY(1px) scale(.99);
+      box-shadow: 0 2px 0 rgba(22,76,105,.45), 0 8px 16px rgba(18,33,63,.12);
+    }
+
+    .mobile-preview-toggle.is-on {
+      border-color: rgba(41,124,62,.45);
+      background:
+        radial-gradient(180px 120px at 20% 0%, rgba(255,255,255,.72), transparent 60%),
+        linear-gradient(135deg, rgba(58,214,168,.24), rgba(90,169,255,.2));
+      color: #154831;
+      box-shadow: 0 4px 0 rgba(41,124,62,.42), 0 12px 24px rgba(26,94,62,.18);
+    }
+
+    .mobile-preview-note {
+      font-size: 11px;
+      font-weight: 900;
+      color: #3a5a76;
+      padding: 0 8px;
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(232,238,246,1);
+      background: rgba(255,255,255,.72);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .list {
+      margin: 8px 0 0;
+      padding-left: 19px;
+    }
+
+    .list li {
+      margin: 7px 0;
+      color: #273347;
+      font-weight: 700;
+    }
+
+    .tokens {
+      margin-top: 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.72);
+      padding: 11px;
+      overflow: auto;
+      font-size: 12px;
+      color: #263043;
+    }
+
+    .swatches {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .swatch {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.7);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px;
+    }
+
+    .swatch-color {
+      width: 34px;
+      height: 34px;
+      border-radius: 11px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: var(--color);
+    }
+
+    .ui-grid,
+    .screens,
+    .impact-grid {
+      margin-top: 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .ui-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .screens { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .impact-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .screen-filter {
+      margin-top: 14px;
+      display: inline-flex;
+      gap: 6px;
+      padding: 6px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.72);
+    }
+
+    .screen-filter button {
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 900;
+      border-radius: 999px;
+      padding: 9px 12px;
+      cursor: pointer;
+    }
+
+    .screen-filter .active {
+      background: linear-gradient(135deg, rgba(90,169,255,0.24), rgba(255,127,178,0.16));
+      border-color: rgba(90,169,255,0.3);
+      color: var(--ink);
+    }
+
+    .screen {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.72);
+      padding: 10px;
+    }
+
+    .screen-media {
+      min-height: 190px;
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .screen-media img {
+      width: 100%;
+      height: 190px;
+      object-fit: contain;
+      object-position: center;
+      background: rgba(255,255,255,0.86);
+    }
+
+    .screen p {
+      margin: 8px 0 0;
+      font-size: 13px;
+      color: #2c394d;
+      font-weight: 800;
+    }
+
+    .muted { color: var(--muted); }
+
+    .hidden { display: none !important; }
+
+    .footer {
+      padding: 38px 0 56px;
+      border-top: 1px solid rgba(232,238,246,0.9);
+      background: rgba(247,251,255,0.55);
+      margin-top: 24px;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      font-weight: 800;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.75);
+      padding: 9px 11px;
+    }
+
+    .to-top {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 13px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.85);
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity var(--mid) ease, transform var(--mid) ease;
+    }
+
+    .to-top.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity var(--mid) ease, transform var(--mid) ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-2,
+      .ui-grid,
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .screens {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head.with-tools {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .uikit-sticky-nav-wrap .demo-navbar {
+        overflow: visible;
+        position: relative;
+      }
+
+      .uikit-sticky-nav-wrap .demo-navbar-main {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex: 1 1 auto;
+      }
+
+      .uikit-sticky-nav-wrap .demo-navbar-brand {
+        display: inline-flex !important;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .uikit-sticky-nav-wrap .demo-menu-toggle {
+        display: inline-flex;
+        margin-right: auto;
+        z-index: 3;
+      }
+
+      .uikit-sticky-nav-wrap .demo-navbar-links {
+        display: none;
+        position: fixed;
+        top: var(--demo-sticky-menu-top, 132px);
+        left: 10px;
+        right: 10px;
+        border: 1px solid rgba(232,238,246,.95);
+        border-radius: 18px;
+        background:
+          radial-gradient(600px 220px at 0% 0%, rgba(90,169,255,.14), transparent 55%),
+          radial-gradient(560px 220px at 100% 0%, rgba(155,140,255,.12), transparent 60%),
+          #ffffff;
+        box-shadow: 0 16px 40px rgba(18,33,63,.16);
+        padding: 12px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        z-index: 80;
+        max-height: calc(100vh - 90px);
+        overflow-y: auto;
+        margin-left: 0;
+      }
+
+      .uikit-sticky-nav-wrap .demo-navbar-links.open {
+        display: flex;
+      }
+
+      .uikit-sticky-nav-wrap .nav-link {
+        width: 100%;
+        justify-content: flex-start;
+        height: 44px;
+        font-size: 15px;
+        font-weight: 800;
+        border-radius: 12px;
+        background: rgba(255,255,255,.95);
+        border-color: rgba(28,36,48,.3);
+        color: #28435a;
+        box-shadow: 0 3px 0 rgba(28,36,48,.30);
+      }
+
+      .uikit-sticky-nav-wrap.is-expanded .nav-link {
+        height: 44px;
+        font-size: 15px;
+        padding: 0 12px;
+      }
+
+      .uikit-sticky-nav-wrap .demo-mobile-backdrop {
+        display: none;
+      }
+
+      .uikit-sticky-nav-wrap .demo-mobile-backdrop.open {
+        display: block;
+        position: fixed;
+        inset: 0;
+        border: none;
+        background: transparent;
+        z-index: 70;
+        cursor: default;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .menu-btn { display: inline-grid; place-items: center; }
+
+      .nav {
+        display: none;
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        top: 64px;
+        background: rgba(247,251,255,0.92);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .nav.open {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .screens {
+        grid-template-columns: 1fr;
+      }
+
+      .swatches {
+        grid-template-columns: 1fr;
+      }
+
+      .uikit-sticky-nav-wrap {
+        width: 100%;
+      }
+
+      .uikit-sticky-nav-wrap .demo-navbar {
+        padding: 6px;
+        gap: 8px;
+      }
+
+      .uikit-sticky-nav-wrap .demo-navbar-main {
+        min-width: 0;
+        gap: 8px;
+      }
+
+      .uikit-sticky-nav-wrap .demo-navbar-brand img {
+        width: 24px;
+        height: 24px;
+      }
+
+      .uikit-sticky-nav-wrap.is-expanded .demo-navbar-brand img {
+        width: 28px;
+        height: 28px;
+      }
+
+      .uikit-sticky-nav-wrap .demo-navbar-links {
+        margin-left: 0;
+      }
+
+      .uikit-sticky-nav-wrap .demo-profile-btn {
+        width: 34px;
+        height: 34px;
+      }
+
+      .uikit-sticky-nav-wrap.is-expanded .demo-profile-btn {
+        width: 36px;
+        height: 36px;
+      }
+
+    }
+
+    @media (max-width: 520px) {
+      .uikit-sticky-nav-wrap .demo-wordmark {
+        font-size: 13px;
+      }
+
+      .uikit-sticky-nav-wrap .demo-navbar-links {
+        margin-left: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .to-top { transition: none; }
+    }
+    .code {
+      color: #2f4d3f !important;
+    }
+
+    .ami {
+      color: #e60012 !important;
+      margin-left: 5px;
+    }
+    .wordmark-main{
+      margin-top: auto;
+    }
+
+  </style>
 
 
 
 
 
 
-    <div class="animate-bottom">
+
+  <a href="#main" class="skip-link">Aller au contenu</a>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#top" class="brand" aria-label="Retour en haut">
+        <span class="brand-badge" aria-hidden="true">
+          <img src="images/mushroom190.png" alt="" />
+        </span>
+        <span class="brand-meta">
+          <span class="wordmark-main"><span class="code">Code</span><span class="ami">Ami</span></span>
+          <small>Plateforme sociale gaming</small>
+        </span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">☰</button>
+      <nav id="mainNav" class="nav" aria-label="Navigation principale">
+        <a href="#challenge">Pourquoi</a>
+        <a href="#vision">Vision</a>
+        <a href="#solution">Comment</a>
+        <a href="#design">Identité</a>
+        <a href="#uikit">Démo</a>
+        <a href="#impact">Impact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="section hero">
+      <div class="container hero-grid">
+        <article class="card reveal" style="    display: flex; flex-direction: column;">
+          <div class="hero-title-row">
+            <img src="images/mushroom190.png" style="width: 100px;" alt="Logo CodeAmi" class="hero-logo" />
+            <h1 class="wordmark-main"><span class="code">Code</span><span class="ami">Ami</span></h1>
+          </div>
+          <p class="subtitle">Vous ne jouerez plus seul !</p>
+          
+          <p class="lead" style="margin-top: auto;">
+            CodeAmi relance un concept simple: un seul endroit pour rencontrer des joueurs,
+            créer ou rejoindre une partie et jouer ensemble sans se perdre.
+          </p>
+          <div class="cta-row">
+            <a href="#vision" class="btn mangabtnhaut manga-btn">Découvrir le concept</a>
+            <a style="color: white;background: #e60012;" href="#uikit" class="btn mangabtnhaut manga-btn">Voir les démos produit</a>
+          </div>
+        </article>
+        
+
+        <div class="reveal">
+          <div id="appcover">
+            <div class="">
+              <img class="appcover-shot" src="images/codeami/caprev.png" alt="Preview desktop CodeAmi" onerror="this.classList.add('hidden'); this.closest('#appcover').querySelector('.fallback').classList.remove('hidden');" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container reveal" style="margin-top: -50px;">
+          <div class="stats">
+            <div class="stat"><strong>Un seul hub</strong><span>moins de dispersion, plus de rencontres</span></div>
+            <div class="stat"><strong>Simplicité</strong><span>créer/rejoindre en quelques clics</span></div>
+            <div class="stat"><strong>Social</strong><span>jouer ensemble sans barrière inutile</span></div>
+          </div>
+        </div>
+
+    <section id="challenge" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2>Pourquoi c'est nécessaire</h2>
+          <p>Aujourd'hui, il n'y a plus de juste milieu: d'un côté les micro-groupes Facebook/Discord souvent fermés ou difficiles à trouver, de l'autre Twitch où l'on regarde surtout les autres jouer. Entre les deux, il manque un espace fait pour jouer ensemble.</p>
+        </header>
+        <div class="grid-2">
+          <article class="card reveal">
+            <h3>Problèmes observés</h3>
+            <ul class="list">
+              <li>Découverte des joueurs trop fragmentée entre plateformes.</li>
+              <li>Trop de micro-communautés fermées pour un besoin universel.</li>
+              <li>Les plateformes de streaming privilegient le spectacle, pas l'organisation de parties entre joueurs.</li>
+              <li>Passer de "qui est chaud ?" à "la partie est lancée" reste laborieux.</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Direction choisie</h3>
+            <ul class="list">
+              <li>Une plateforme unique pour se rencontrer et s'organiser.</li>
+              <li>Un modèle clair: créer ou rejoindre une partie en direct.</li>
+              <li>Une expérience sociale qui favorise les connexions réelles entre joueurs.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2>Vision</h2>
+          <p>Le jeu vidéo est social par nature. L'objectif de CodeAmi est de redonner un espace ouvert où les joueurs se trouvent facilement, peu importe leur plateforme ou leur style de jeu.</p>
+        </header>
+        <div class="grid-2">
+          <article class="card reveal">
+            <h3>Ce qu'on veut remettre au centre</h3>
+            <ul class="list">
+              <li>La rencontre entre joueurs, pas juste la diffusion de contenu.</li>
+              <li>Des parties qui se lancent vite, sans long tunnel de discussion, tout en laissant la place à de vraies interactions ensuite.</li>
+              <li>Une ambiance accessible, inclusive et orientée entraide.</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Promesse produit</h3>
+            <ul class="list">
+              <li>Tu ne cherches plus partout: tout est au même endroit.</li>
+              <li>Tu ne joues plus seul: la mise en relation est le coeur du produit.</li>
+              <li>Tu gardes la main: création, accès et règles restent clairs.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
 
 
-      <div class="site-wrap">
+    <section id="solution" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2>Comment CodeAmi répond</h2>
+          <p>On simplifie le parcours au maximum: trouver, rejoindre, jouer. Si la bonne session n'existe pas, tu la crées sans friction.</p>
+        </header>
+        <div class="grid-2">
+          <article class="card reveal">
+            <h3>Briques produit</h3>
+            <ul class="list">
+              <li>Fiches de parties complètes: jeu, niveau, accès, horaires, ambiance.</li>
+              <li>Mécanique de participation simple et lisible.</li>
+              <li>Écosystème social relié: profils, détails de partie et messages.</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Expérience visée</h3>
+            <ul class="list">
+              <li>Moins d'hésitation, plus de parties qui se lancent vraiment.</li>
+              <li>Des décisions rapides grâce à une information claire.</li>
+              <li>Une parité mobile/desktop pour jouer partout sans rupture.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
+    <section id="design" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2>Identité visuelle</h2>
+          <p>Un style vivant mais propre: énergie communautaire, lisibilité forte, signaux d'action immédiats.</p>
+        </header>
 
+        <div class="grid-2">
+          <article class="card reveal">
+            <h3>Couleurs et intention</h3>
+            <div class="swatches">
+              <div class="swatch"><span class="swatch-color" style="--color:#f7fbff"></span><div><strong>--bg1</strong><br/><small>Fond principal · #f7fbff</small></div></div>
+              <div class="swatch"><span class="swatch-color" style="--color:#fff6fb"></span><div><strong>--bg2</strong><br/><small>Fond secondaire · #fff6fb</small></div></div>
+              <div class="swatch"><span class="swatch-color" style="--color:#1c2430"></span><div><strong>--ink</strong><br/><small>Texte fort · #1c2430</small></div></div>
+              <div class="swatch"><span class="swatch-color" style="--color:#586174"></span><div><strong>--muted</strong><br/><small>Texte secondaire · #586174</small></div></div>
+              <div class="swatch"><span class="swatch-color" style="--color:#5aa9ff"></span><div><strong>--accent</strong><br/><small>Action / focus · #5aa9ff</small></div></div>
+              <div class="swatch"><span class="swatch-color" style="--color:#ff7fb2"></span><div><strong>--accent2</strong><br/><small>Highlight social · #ff7fb2</small></div></div>
+            </div>
+          </article>
 
-        <div class="site-section" data-aos="fade">
-          <div class="container-fluid">
+          <article class="card reveal">
+            <h3>Principes d'interface</h3>
+            <pre class="tokens"><code>:root {
+  --bg1: #f7fbff;
+  --bg2: #fff6fb;
+  --ink: #1c2430;
+  --muted: #586174;
+  --card: #ffffffcc;
+  --border: #e8eef6;
+  --accent: #5aa9ff;
+  --accent2: #ff7fb2;
+  --mint: #45d6a0;
+  --sun: #ffc857;
+  --lav: #9b8cff;
+}</code></pre>
+            <p class="muted" style="margin-top:10px; font-weight:700;">Cards lisibles, CTA contrastés, badges d'état explicites, et micro-motions courtes pour renforcer la confiance sans distraire.</p>
+            <div class="identity-rules">
+              <h4>Règles de marque à garder</h4>
+              <ul class="identity-rule-list">
+                <li>Priorité au scan rapide: état, action, contexte.</li>
+                <li>Un CTA principal maximum par bloc pour éviter le bruit.</li>
+                <li>Des contrastes francs sur les actions, doux sur les surfaces.</li>
+                <li>Motion courte: feedback immédiat, pas d'animation gadget.</li>
+              </ul>
+              <div class="identity-voice" aria-label="Ton éditorial">
+                <span>Direct</span>
+                <span>Social</span>
+                <span>Accessible</span>
+                <span>Actionnable</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            <div class="row justify-content-center">
+    <section id="uikit" class="section">
+      <div class="container">
+        <header class="section-head reveal with-tools">
+          <div>
+            <h2>UI kit de l'app (démos proches du <a style="text-decoration: none;color: #5aa9ff;" href="https://www.codeami.fr" target="_blank">réel</a>)</h2>
+            <p>Les composants ci-dessous reprennent les patterns du produit: navbar, cartes de partie et ses détails, profil et messagerie, le tout responsive.</p>
+          </div>
+          <div class="section-tools" aria-label="Outils de preview">
+            <button
+              id="mobilePreviewToggle"
+              class="mobile-preview-toggle"
+              type="button"
+              aria-pressed="false"
+              title="Simuler le rendu mobile des démos sur desktop"
+            >
+              Aperçu mobile: OFF
+            </button>
+            <span class="mobile-preview-note" id="mobilePreviewNote">Mode desktop</span>
+          </div>
+        </header>
+        <div class="uikit-scroll-run" id="uikitScrollRun">
+          <div class="uikit-sticky-nav-wrap reveal uikit-demo">
+            <div class="demo-navbar">
+              <div class="demo-navbar-main">
+                <div class="demo-navbar-brand">
+                  <img src="images/mushroom190.png" alt="Logo mushroom CodeAmi" />
+                  <span class="demo-wordmark"><span class="code">Code</span><span class="ami">Ami</span></span>
+                </div>
+                <button class="demo-menu-toggle" id="demoMenuToggle" type="button" aria-expanded="false" aria-controls="demoNavLinks" aria-label="Ouvrir la navigation">☰</button>
+                <div class="demo-navbar-links" id="demoNavLinks">
+                  <a class="nav-link manga-btn is-active" href="#demo-session">Parties</a>
+                  <a class="nav-link manga-btn" href="#demo-partie-detail">Détails de partie</a>
+                  <a class="nav-link manga-btn" href="#demo-profil">Profil</a>
+                  <a class="nav-link manga-btn" href="#demo-messages">Messages<span class="notif-dot"></span></a>
+                </div>
+              </div>
+              <button type="button" class="demo-profile-btn" aria-label="Profil NoctisFR">
+                <img class="demo-profile-photo" src="https://api.dicebear.com/9.x/pixel-art/png?seed=NoctisFR" alt="NoctisFR" />
+              </button>
+            </div>
+            <button class="demo-mobile-backdrop" id="demoNavBackdrop" type="button" aria-label="Fermer la navigation"></button>
+          </div>
 
-              <div class="col-md-7">
-                <div class="row mb-5">
-                  <div class="col-12 eng">
-                    <h2 class="site-section-heading text-center">CodeAmi.fr <img style="max-width:75px;" src="/images/mushroom.png"
-                        class="fullW">
-                    </h2>
-                    </br>
-                    <h3>I'm still working on this project.</h3>
-                    </br>
-                    <h5>I do this as a tribute to a similar site that used to exist,<b>code-ami.fr</b></h5>
+          <div class="ui-grid">
 
-                    <h5>It a web application that will be used by Nintendo players to exchange friend-codes in order to play together.
-                    </h5>
-                    </br>
-                    <h5>Due to major changes, it is currently <b>unavailable</b>.<!--<a style="text-decoration: underline;" href="https://www.codeami.fr" target="_blank">codeami.fr</a> and I'm still working on the final version, wich will be more developped.-->
-                    </h5>
-                    </h5>
-                    <h5>I will expand this page as the project progresses.</h5>
-                    </br>
+          <article id="demo-session" class="card reveal uikit-demo ui-span-full anchor-target">
+            <h3>Parties en cours (une seule pour l'exemple)</h3>
+            <div class="sessions">
+              <article class="session">
+                <div>
+                  <div class="sTop">
+                    <div class="gameIcon" aria-hidden="true">
+                      <img src="https://media.rawg.io/media/crop/600/400/games/b4e/b4e4c73d5aa4ec66bbf75375c4847a2b.jpg" alt="Minecraft" class="gameIconImg" onerror="this.parentElement.innerHTML='MC'" />
+                    </div>
+                    <div class="meta">
+                      <b>
+                        Minecraft - Survie chill
+                        <span class="badge good">👑 Ta room</span>
+                        <span class="badge warn request-lock">🔒 <span class="request-label">Sur demande</span></span>
+                      </b>
+                      <div class="sub">Hôte : SteveMaster • PlayStation</div>
+                      <div class="pills">
+                        <span class="pill mint livePill"><i></i>En cours</span>
+                        <span class="pill"><i></i>3/8</span>
+                        <span class="pill"><i style="background:#6BCB77;"></i>Chill</span>
+                        <span class="pill"><i style="background:#FF9671;"></i>Vocal obligatoire</span>
+                      </div>
+                    </div>
                   </div>
+                </div>
 
+                <div class="side">
+                  <div class="badges">
+                    <span class="badge hot">⚡ En cours</span>
+                  </div>
+                  <a class="join mangaBtn" href="#demo-partie-detail">Voir</a>
+                </div>
+              </article>
+            </div>
+            <p class="uikit-note">Carte calquée sur la page Parties : infos prioritaires visibles, badges d'état, et CTA immédiate.</p>
+          </article>
 
-                  <div class="col-12 fr">
-                    <h2 class="site-section-heading text-center">CodeAmi.fr <img style="max-width:75px;" src="/images/mushroom.png"
-                        class="fullW">
-                    </h2>
-                    </br>
-                    <h3>Je suis toujours en train de travailler sur ce projet.</h3>
-                    </br>
-                    <h5>Je le fais en hommage à un site similaire qui existait jadis, <b>code-ami.fr</b></h5>
+          <article id="demo-partie-detail" class="card reveal uikit-demo ui-span-full anchor-target">
+            <h3>Détails d'une partie (Minecraft)</h3>
+            <div class="partie-view-switch" role="tablist" aria-label="Basculer la vue détails partie">
+              <button class="partie-view-btn active" type="button" role="tab" aria-selected="true" data-partie-view="modal">En modal</button>
+              <button class="partie-view-btn" type="button" role="tab" aria-selected="false" data-partie-view="page">En page</button>
+            </div>
 
-                    <h5>C'est une appli web qui servira aux joueurs Nintendo à échanger des codes amis pour jouer ensemble.
-                    </h5>
-                    </br>
-                    <h5>Le site est actuellement <b>indisponible</b> puisqu'il subit une grosse refonte <!-- <a style="text-decoration: underline;" href="https://www.codeami.fr" target="_blank">codeami.fr</a> et la version finale est en cours de développement et sera bien plus développée.-->
-                    </h5>
-                    </h5>
-                    <h5>J'étofferai cette page au fur et à mesure que le projet avancera :)</h5>
-                    </br>
+            <div class="partie-panels" id="partiePanels">
+              <div class="partie-panel active" data-partie-panel="modal">
+                <div class="modal-window">
+                  <div class="modalCard">
+                    <button class="modalClose" type="button" aria-label="Fermer">✕</button>
+
+                    <div class="modalInner">
+                      <div class="modalHead">
+                        <div class="modalTitle">
+                          <h2>Minecraft - Survie chill</h2>
+                          <div class="modalSub">
+                            <span class="pill mint"><i></i>En cours</span>
+                            <span class="pill sun"><i></i>Sur demande</span>
+                            <span class="pill"><i></i>PlayStation</span>
+                            <span class="pill"><i style="background:#6BCB77;"></i>Chill</span>
+                            <span class="pill"><i style="background:#FF9671;"></i>Vocal obligatoire</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="modalSection">
+                        <h3>Détails</h3>
+                        <div class="modalGameBadge">
+                          <div class="cover" aria-hidden="true">
+                            <img class="coverImg" src="https://media.rawg.io/media/crop/600/400/games/b4e/b4e4c73d5aa4ec66bbf75375c4847a2b.jpg" alt="Minecraft" onerror="this.parentElement.innerHTML='MC'" />
+                          </div>
+                          <div class="gText">
+                            <p class="g">Minecraft</p>
+                            <div class="platformInlineList">
+                              <span class="platformInlineChip">
+                                <span class="platformThumb" aria-hidden="true"><img src="https://cdn.simpleicons.org/playstation" alt="" /></span>
+                                PlayStation
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="timeline">
+                          <div class="timeTop main">
+                            <span>Aujourd'hui 20:30 - 23:30</span>
+                          </div>
+                          <div class="timeState">
+                            <span class="stateBadge">En cours</span>
+                            <span>Il est 21:18</span>
+                          </div>
+                          <div class="track active" aria-hidden="true">
+                            <div class="fill"></div>
+                          </div>
+                        </div>
+
+                        <div class="descBox">
+                          <b>Description</b>
+                          <div class="descText">Session chill Minecraft en survie. On farme ressources, on pose la base puis expedition nether.
+Recherche joueurs cool, pas de toxicite.</div>
+                        </div>
+
+                        <div class="accessLine">
+                          <b>Accès</b>
+                          <span>Sur demande</span>
+                        </div>
+                      </div>
+
+                      <div class="modalSection">
+                        <h3>Participants (3/8)</h3>
+                        <div class="people">
+                          <div class="personRow">
+                            <span class="avatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=SteveMaster" alt="SteveMaster" /></span>
+                            <div class="who">
+                              <b>👑 SteveMaster</b>
+                              <span class="muted">Auteur</span>
+                            </div>
+                          </div>
+                          <div class="personRow">
+                            <span class="avatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=AlexNova" alt="AlexNova" /></span>
+                            <div class="who">
+                              <b>AlexNova</b>
+                              <span class="muted">Participant</span>
+                            </div>
+                          </div>
+                          <div class="personRow">
+                            <span class="avatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=NoctisFR" alt="NoctisFR" /></span>
+                            <div class="who">
+                              <b>NoctisFR (Toi)</b>
+                              <span class="muted">Participant</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="modalSection">
+                        <h3>Messages</h3>
+                        <div class="chat">
+                          <div class="chatList">
+                            <div class="bubble">
+                              <span class="commentAvatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=SteveMaster" alt="SteveMaster" /></span>
+                              <div class="baloon">
+                                <div class="commentTop">
+                                  <span class="commentAuthor">SteveMaster</span>
+                                  <span class="commentTime">20:54</span>
+                                </div>
+                                <div class="commentMsg">On se retrouve près du village spawn.</div>
+                              </div>
+                            </div>
+                            <div class="bubble me">
+                              <div class="baloon">
+                                <div class="commentTop">
+                                  <span class="commentAuthor">Toi</span>
+                                  <span class="commentTime">20:56</span>
+                                </div>
+                                <div class="commentMsg">Ok, j'arrive avec stuff fer + bouffe.</div>
+                              </div>
+                              <span class="commentAvatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=NoctisFR" alt="Toi" /></span>
+                            </div>
+                            <div class="bubble">
+                              <span class="commentAvatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=AlexNova" alt="AlexNova" /></span>
+                              <div class="baloon">
+                                <div class="commentTop">
+                                  <span class="commentAuthor">AlexNova</span>
+                                  <span class="commentTime">20:58</span>
+                                </div>
+                                <div class="commentMsg">J'ouvre le portail nether dans 5 min.</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="composer">
+                          <input type="text" value="Je peux rejoindre le vocal dans 5 min." aria-label="Message" />
+                          <button type="button">Envoyer</button>
+                        </div>
+                      </div>
+
+                      <div class="modalSection">
+                        <h3>Contacts partagés</h3>
+                        <div class="sharedContactRow">
+                          <span class="sharedContactLogo" aria-hidden="true"><img src="https://cdn.simpleicons.org/playstation" alt="PlayStation" /></span>
+                          <div class="sharedContactMain">
+                            <b>PlayStation Network</b>
+                            <span class="sharedContactValue">SteveMaster_FR</span>
+                          </div>
+                        </div>
+                        <div class="sharedContactRow">
+                          <span class="sharedContactLogo" aria-hidden="true"><img src="https://cdn.simpleicons.org/discord" alt="Discord" /></span>
+                          <div class="sharedContactMain">
+                            <b>Discord</b>
+                            <span class="sharedContactValue">stevemaster#4821</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
+              <div class="partie-panel" data-partie-panel="page">
+                <div class="partie-page">
+                  <div class="partie-page-head">
+                    <div>
+                      <h4>Minecraft - Survie chill</h4>
+                      <div class="modalSub">
+                        <span class="pill mint"><i></i>En cours</span>
+                        <span class="pill sun"><i></i>Sur demande</span>
+                        <span class="pill"><i></i>PlayStation</span>
+                        <span class="pill"><i style="background:#6BCB77;"></i>Chill</span>
+                        <span class="pill"><i style="background:#FF9671;"></i>Vocal obligatoire</span>
+                      </div>
+                    </div>
+                    <button type="button" class="partie-cta danger">Quitter la partie</button>
+                  </div>
+
+                  <div class="partie-page-grid">
+                    <div class="partie-col">
+                      <section class="partie-block">
+                        <h5>Détails</h5>
+                        <div class="modalGameBadge">
+                          <div class="cover" aria-hidden="true">
+                            <img class="coverImg" src="https://media.rawg.io/media/crop/600/400/games/b4e/b4e4c73d5aa4ec66bbf75375c4847a2b.jpg" alt="Minecraft" onerror="this.parentElement.innerHTML='MC'" />
+                          </div>
+                          <div class="gText">
+                            <p class="g">Minecraft</p>
+                            <div class="platformInlineList">
+                              <span class="platformInlineChip">
+                                <span class="platformThumb" aria-hidden="true"><img src="https://cdn.simpleicons.org/playstation" alt="" /></span>
+                                PlayStation
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="timeline">
+                          <div class="timeTop main">
+                            <span>Aujourd'hui 20:30 - 23:30</span>
+                          </div>
+                          <div class="timeState">
+                            <span class="stateBadge">En cours</span>
+                            <span>Il est 21:18</span>
+                          </div>
+                          <div class="track active" aria-hidden="true">
+                            <div class="fill"></div>
+                          </div>
+                        </div>
+                        <div class="descBox">
+                          <b>Description</b>
+                          <div class="descText">Session chill Minecraft en survie. On farme ressources, on pose la base puis expedition nether.
+Recherche joueurs cool, pas de toxicite.</div>
+                        </div>
+                        <div class="accessLine">
+                          <b>Accès</b>
+                          <span>Sur demande</span>
+                        </div>
+                      </section>
+
+                      <section class="partie-block">
+                        <h5>Messages</h5>
+                        <div class="chat">
+                          <div class="chatList">
+                            <div class="bubble">
+                              <span class="commentAvatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=SteveMaster" alt="SteveMaster" /></span>
+                              <div class="baloon">
+                                <div class="commentTop">
+                                  <span class="commentAuthor">SteveMaster</span>
+                                  <span class="commentTime">20:54</span>
+                                </div>
+                                <div class="commentMsg">On se retrouve près du village spawn.</div>
+                              </div>
+                            </div>
+                            <div class="bubble me">
+                              <div class="baloon">
+                                <div class="commentTop">
+                                  <span class="commentAuthor">Toi</span>
+                                  <span class="commentTime">20:56</span>
+                                </div>
+                                <div class="commentMsg">Ok, j'arrive avec stuff fer + bouffe.</div>
+                              </div>
+                              <span class="commentAvatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=NoctisFR" alt="Toi" /></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="composer">
+                          <input type="text" value="Je peux relancer vers 22h ?" aria-label="Message" />
+                          <button type="button">Envoyer</button>
+                        </div>
+                      </section>
+                    </div>
+
+                    <aside class="partie-col">
+                      <section class="partie-block">
+                        <h5>Participants (3/8)</h5>
+                        <div class="people">
+                          <div class="personRow">
+                            <span class="avatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=SteveMaster" alt="SteveMaster" /></span>
+                            <div class="who">
+                              <b>👑 SteveMaster</b>
+                              <span class="muted">Auteur</span>
+                            </div>
+                          </div>
+                          <div class="personRow">
+                            <span class="avatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=AlexNova" alt="AlexNova" /></span>
+                            <div class="who">
+                              <b>AlexNova</b>
+                              <span class="muted">Participant</span>
+                            </div>
+                          </div>
+                          <div class="personRow">
+                            <span class="avatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=NoctisFR" alt="NoctisFR" /></span>
+                            <div class="who">
+                              <b>NoctisFR (Toi)</b>
+                              <span class="muted">Participant</span>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      <section class="partie-block">
+                        <h5>Contacts partagés</h5>
+                        <div class="sharedContactRow">
+                          <span class="sharedContactLogo" aria-hidden="true"><img src="https://cdn.simpleicons.org/playstation" alt="PlayStation" /></span>
+                          <div class="sharedContactMain">
+                            <b>PlayStation Network</b>
+                            <span class="sharedContactValue">SteveMaster_FR</span>
+                          </div>
+                        </div>
+                        <div class="sharedContactRow">
+                          <span class="sharedContactLogo" aria-hidden="true"><img src="https://cdn.simpleicons.org/discord" alt="Discord" /></span>
+                          <div class="sharedContactMain">
+                            <b>Discord</b>
+                            <span class="sharedContactValue">stevemaster#4821</span>
+                          </div>
+                        </div>
+                      </section>
+                    </aside>
+                  </div>
+                </div>
+              </div>
             </div>
+            <p class="uikit-note">Deux lectures d'un même contenu: modal rapide ou page complète, avec les mêmes blocs métier.</p>
+          </article>
 
+          <article id="demo-profil" class="card reveal uikit-demo ui-span-full anchor-target">
+            <h3>Profil utilisateur</h3>
+            <div class="profile-demo">
+              <div class="pd-grid">
+                <aside class="pd-card">
+                  <div class="pd-avatarRow">
+                    <div class="pd-avatar">
+                      <img src="https://api.dicebear.com/9.x/pixel-art/png?seed=AlexNova" alt="Avatar AlexNova" />
+                    </div>
+                    <div>
+                      <h4 class="pd-name">AlexNova</h4>
+                      <span class="pd-badge"><i></i>En ligne</span>
+                    </div>
+                  </div>
 
+                  <div class="pd-tags">
+                    <span class="pd-tag"><i class="mint"></i>FPS</span>
+                    <span class="pd-tag"><i class="sun"></i>Survie</span>
+                    <span class="pd-tag"><i class="lav"></i>Co-op</span>
+                    <span class="pd-tag"><i class="rose"></i>No toxic</span>
+                  </div>
 
+                  <div class="pd-bio">Joueuse chill en soirée. Préfère les sessions bien organisées avec vocal, objectifs clairs et bonne ambiance. Ouverte aux nouveaux joueurs.</div>
 
+                  <div class="pd-actions">
+                    <button class="pd-btn primary" type="button">Envoyer un message</button>
+                    <button class="pd-btn" type="button">Partager profil</button>
+                  </div>
+                </aside>
+
+                <div class="pd-right">
+                  <section class="pd-panel">
+                    <h4 class="pd-title"><span class="pd-dot"></span>Jeux possédés</h4>
+                    <div class="pd-games">
+                      <article class="pd-game">
+                        <span class="pd-cover"><img src="https://media.rawg.io/media/crop/600/400/games/b4e/b4e4c73d5aa4ec66bbf75375c4847a2b.jpg" alt="Minecraft" /></span>
+                        <div class="pd-gameMain">
+                          <div class="pd-gameName">Minecraft</div>
+                          <span class="pd-mini">PlayStation, PC</span>
+                        </div>
+                      </article>
+                      <article class="pd-game">
+                        <span class="pd-cover"><img src="https://media.rawg.io/media/crop/600/400/games/dcb/dcbb67f371a9a28ea38ffd73ee0f53f3.jpg" alt="Fortnite" /></span>
+                        <div class="pd-gameMain">
+                          <div class="pd-gameName">Fortnite</div>
+                          <span class="pd-mini">PC</span>
+                        </div>
+                      </article>
+                    </div>
+                  </section>
+
+                  <section class="pd-panel">
+                    <h4 class="pd-title"><span class="pd-dot" style="background:#3ad6a8; box-shadow:0 0 0 4px rgba(58,214,168,.18);"></span>Contacts</h4>
+                    <div class="pd-contacts">
+                      <article class="pd-contact">
+                        <span class="pd-logo"><img src="https://cdn.simpleicons.org/discord" alt="Discord" /></span>
+                        <div class="pd-contactMain">
+                          <span class="pd-contactType">Discord</span>
+                          <span class="pd-contactValue">alexnova#1092</span>
+                        </div>
+                      </article>
+                      <article class="pd-contact">
+                        <span class="pd-logo"><img src="https://cdn.simpleicons.org/playstation" alt="PlayStation" /></span>
+                        <div class="pd-contactMain">
+                          <span class="pd-contactType">PlayStation</span>
+                          <span class="pd-contactValue">AlexNova_FR</span>
+                        </div>
+                      </article>
+                    </div>
+                  </section>
+
+                  <section class="pd-live">
+                    <div class="pd-liveTop">
+                      <span class="pd-cover"><img src="https://media.rawg.io/media/crop/600/400/games/b4e/b4e4c73d5aa4ec66bbf75375c4847a2b.jpg" alt="Minecraft" /></span>
+                      <div>
+                        <p class="pd-liveTitle">Partie en cours - Survie chill</p>
+                        <p class="pd-liveSub">Room de SteveMaster, 3/8 joueurs</p>
+                      </div>
+                    </div>
+                    <div class="pd-bar" aria-hidden="true"><span></span></div>
+                    <div class="pd-time"><span>de 20:30</span><span>a 23:30</span></div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <p class="uikit-note">Identité, jeux, contacts et activité courante en une seule page.</p>
+          </article>
           </div>
         </div>
-        <div class="footer">
-          <div class="container-fluid text-center">
-            <p>
-              Copyright
-              <script>document.write(new Date().getFullYear());</script> All rights reserved | Morgan Bouyakhlef
-            </p>
-          </div>
-        </div>
 
+        <div class="ui-grid">
+          <article id="demo-messages" class="card reveal uikit-demo ui-span-full anchor-target uikit-last-demo">
+            <h3 class="stop-sticky">Messagerie</h3>
+            <div class="msg-demo">
+              <div class="msg-view-switch" role="tablist" aria-label="Basculer la vue messagerie">
+                <button class="msg-view-btn" type="button" role="tab" aria-selected="false" data-msg-view="list">Conversations</button>
+                <button class="msg-view-btn active" type="button" role="tab" aria-selected="true" data-msg-view="chat">Chat actif</button>
+              </div>
+              <div class="msg-layout">
+                <aside class="msg-pane" data-msg-panel="list">
+                  <h4 class="msg-title">Conversations <span class="msg-pill">1 non lu</span></h4>
+                  <div class="conv-list">
+                    <article class="conv-item active">
+                      <span class="conv-avatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=LunaRogue" alt="LunaRogue" /></span>
+                      <div class="conv-main">
+                        <div class="conv-top">
+                          <span class="conv-name">LunaRogue</span>
+                          <span class="conv-time">21:03</span>
+                        </div>
+                        <div class="conv-last">Go 22h pile, mode classé.</div>
+                      </div>
+                    </article>
+
+                    <article class="conv-item">
+                      <span class="conv-avatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=AlexNova" alt="AlexNova" /></span>
+                      <div class="conv-main">
+                        <div class="conv-top">
+                          <span class="conv-name">AlexNova</span>
+                          <span class="conv-time">20:47</span>
+                        </div>
+                        <div class="conv-last">Je t'envoie mon PSN apres ma partie.</div>
+                      </div>
+                    </article>
+
+                    <article class="conv-item">
+                      <span class="conv-avatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=SteveMaster" alt="SteveMaster" /></span>
+                      <div class="conv-main">
+                        <div class="conv-top">
+                          <span class="conv-name">SteveMaster</span>
+                          <span class="conv-time">19:33</span>
+                        </div>
+                        <div class="conv-last">Session Minecraft demain 20h30.</div>
+                      </div>
+                      <span class="conv-unread">1</span>
+                    </article>
+                  </div>
+                </aside>
+
+                <section class="msg-pane active" data-msg-panel="chat">
+                  <div class="chat-head">
+                    <div class="chat-user"><span class="conv-avatar"><img src="https://api.dicebear.com/9.x/pixel-art/png?seed=LunaRogue" alt="LunaRogue" /></span>LunaRogue <span class="chat-dot" aria-hidden="true"></span></div>
+                  </div>
+
+                  <div class="chat-body">
+                    <div class="bubble-row">
+                      <span class="bubble-time right">20:58</span>
+                      <div class="msg-bubble">
+                        Yes, on est deja 2 pour le jeu.
+                      </div>
+                    </div>
+                    <div class="bubble-row me">
+                      <span class="bubble-time left">21:00</span>
+                      <div class="msg-bubble me">
+                        Parfait, invite moi quand vous lancez.
+                      </div>
+                    </div>
+                    <div class="bubble-row">
+                      <span class="bubble-time right">21:03</span>
+                      <div class="msg-bubble">
+                        Go 22h pile, mode classé.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="composer">
+                    <input type="text" value="Ok, je suis dispo 22h." aria-label="Message" />
+                    <button type="button">Envoyer</button>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <p class="uikit-note">Messagerie orientée action: liste claire, chat actif, et comportement mobile/desktop cohérent.</p>
+          </article>
+          </div>
       </div>
+    </section>
 
 
+
+    </section>
+
+    <section id="impact" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2>Impact attendu</h2>
+          <p>Si le produit tient sa promesse, le gain est simple: plus de joueurs qui se rencontrent, plus de parties lancées, moins de temps perdu à chercher des micro commu perdues dans le net.</p>
+        </header>
+        <div class="impact-grid">
+          <article class="card reveal">
+            <h3>Lisibilité</h3>
+            <ul class="list">
+              <li>Les intentions de jeu deviennent immédiatement compréhensibles.</li>
+              <li>Les infos critiques restent visibles à chaque étape.</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Activation</h3>
+            <ul class="list">
+              <li>La création et la participation deviennent des réflexes.</li>
+              <li>Le passage intention -> partie est nettement plus court.</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <h3>Lien social</h3>
+            <ul class="list">
+              <li>Plus d'occasions de jouer avec de nouvelles personnes.</li>
+              <li>Une base communautaire ouverte qui dure dans le temps.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <div>
+        <strong>CodeAmi</strong>
+        <div class="muted" style="font-weight:700; margin-top:4px;">Plateforme sociale gaming - vous ne jouerez plus seul !</div>
+      </div>
+      <nav class="footer-links" aria-label="Liens externes">
+        <a href="https://github.com/mimoklef" target="_blank" rel="noreferrer noopener">GitHub</a>
+        <!--<a href="https://www.behance.net/USERNAME" target="_blank" rel="noreferrer noopener">Behance</a>-->
+        <a href="https://www.morganbkf.com/contact" target="_blank" rel="noreferrer noopener">Contact</a>
+      </nav>
     </div>
+  </footer>
 
+  <button class="to-top" id="toTop" type="button" aria-label="Remonter">↑</button>
 
+  <script>
+    (function () {
+      const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+      const menuBtn = document.getElementById("menuBtn");
+      const nav = document.getElementById("mainNav");
+      if (menuBtn && nav) {
+        menuBtn.addEventListener("click", function () {
+          const opened = nav.classList.toggle("open");
+          menuBtn.setAttribute("aria-expanded", opened ? "true" : "false");
+        });
+        nav.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", function () {
+            nav.classList.remove("open");
+            menuBtn.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
 
+      const observerTargets = document.querySelectorAll(".reveal");
+      if (!reduced && "IntersectionObserver" in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        observerTargets.forEach((el) => io.observe(el));
+      } else {
+        observerTargets.forEach((el) => el.classList.add("visible"));
+      }
 
+      const filterButtons = document.querySelectorAll("[data-filter]");
+      const screens = document.querySelectorAll(".screen[data-kind]");
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const mode = btn.getAttribute("data-filter") || "all";
+          filterButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          screens.forEach((card) => {
+            const kind = card.getAttribute("data-kind");
+            const show = mode === "all" || mode === kind;
+            card.classList.toggle("hidden", !show);
+          });
+        });
+      });
 
+      const toTop = document.getElementById("toTop");
+      const updateTop = function () {
+        if (!toTop) return;
+        toTop.classList.toggle("show", window.scrollY > 450);
+      };
+      updateTop();
+      window.addEventListener("scroll", updateTop, { passive: true });
+      if (toTop) {
+        toTop.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+        });
+      }
 
+      const mobilePreviewToggle = document.getElementById("mobilePreviewToggle");
+      const mobilePreviewNote = document.getElementById("mobilePreviewNote");
+      const desktopPreviewQuery = window.matchMedia("(min-width: 901px)");
 
+      const applyMobilePreviewState = function (enabled, persist) {
+        const isDesktop = desktopPreviewQuery.matches;
+        const active = Boolean(enabled && isDesktop);
 
+        if (persist) {
+          document.body.classList.add("preview-animating");
+          clearTimeout(applyMobilePreviewState._animTimer);
+          applyMobilePreviewState._animTimer = window.setTimeout(function () {
+            document.body.classList.remove("preview-animating");
+          }, 360);
+        }
 
+        document.body.classList.toggle("force-mobile-preview", active);
 
+        if (mobilePreviewToggle) {
+          mobilePreviewToggle.classList.toggle("is-on", active);
+          mobilePreviewToggle.setAttribute("aria-pressed", active ? "true" : "false");
+          mobilePreviewToggle.textContent = active ? "Aperçu mobile: ON" : "Aperçu mobile: OFF";
+        }
 
-    <script src="/js/langagesetting.js"></script>
+        if (mobilePreviewNote) {
+          mobilePreviewNote.textContent = active ? "Mode mobile simulé" : "Mode desktop";
+        }
+
+        if (persist) {
+          try {
+            window.localStorage.setItem("codeami-mobile-preview", active ? "1" : "0");
+          } catch (e) {
+            // Ignore localStorage failures in private contexts.
+          }
+        }
+
+        window.dispatchEvent(new CustomEvent("codeami:mobile-preview"));
+      };
+
+      if (mobilePreviewToggle) {
+        let savedMobilePreview = false;
+        try {
+          savedMobilePreview = window.localStorage.getItem("codeami-mobile-preview") === "1";
+        } catch (e) {
+          savedMobilePreview = false;
+        }
+
+        applyMobilePreviewState(savedMobilePreview, false);
+
+        mobilePreviewToggle.addEventListener("click", function () {
+          const next = !document.body.classList.contains("force-mobile-preview");
+          applyMobilePreviewState(next, true);
+        });
+
+        const syncPreviewAvailability = function () {
+          if (!desktopPreviewQuery.matches) {
+            applyMobilePreviewState(false, false);
+          } else {
+            let shouldRestore = false;
+            try {
+              shouldRestore = window.localStorage.getItem("codeami-mobile-preview") === "1";
+            } catch (e) {
+              shouldRestore = false;
+            }
+            applyMobilePreviewState(shouldRestore, false);
+          }
+        };
+
+        if (typeof desktopPreviewQuery.addEventListener === "function") {
+          desktopPreviewQuery.addEventListener("change", syncPreviewAvailability);
+        } else if (typeof desktopPreviewQuery.addListener === "function") {
+          desktopPreviewQuery.addListener(syncPreviewAvailability);
+        }
+      }
+
+      const partiePanelsRoot = document.getElementById("partiePanels");
+      if (partiePanelsRoot) {
+        const viewButtons = Array.from(document.querySelectorAll("[data-partie-view]"));
+        const panels = Array.from(partiePanelsRoot.querySelectorAll("[data-partie-panel]"));
+        const partieMobileQuery = window.matchMedia("(max-width: 900px)");
+
+        const isPartieMobileMode = function () {
+          return partieMobileQuery.matches || document.body.classList.contains("force-mobile-preview");
+        };
+
+        const syncPartieHeight = function () {
+          const activePanel = partiePanelsRoot.querySelector(".partie-panel.active");
+          if (!activePanel) return;
+          partiePanelsRoot.style.minHeight = `${activePanel.offsetHeight}px`;
+        };
+
+        const setPartieView = function (view) {
+          viewButtons.forEach((btn) => {
+            const isActive = btn.getAttribute("data-partie-view") === view;
+            btn.classList.toggle("active", isActive);
+            btn.setAttribute("aria-selected", isActive ? "true" : "false");
+          });
+
+          panels.forEach((panel) => {
+            const isActive = panel.getAttribute("data-partie-panel") === view;
+            panel.classList.toggle("active", isActive);
+          });
+
+          requestAnimationFrame(syncPartieHeight);
+        };
+
+        viewButtons.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            if (isPartieMobileMode()) {
+              setPartieView("page");
+              return;
+            }
+            const view = btn.getAttribute("data-partie-view");
+            if (!view) return;
+            setPartieView(view);
+          });
+        });
+
+        const syncPartieMode = function () {
+          if (isPartieMobileMode()) {
+            setPartieView("page");
+            return;
+          }
+          setPartieView("modal");
+        };
+
+        syncPartieMode();
+        window.addEventListener("resize", syncPartieHeight);
+        if (typeof partieMobileQuery.addEventListener === "function") {
+          partieMobileQuery.addEventListener("change", syncPartieMode);
+        } else if (typeof partieMobileQuery.addListener === "function") {
+          partieMobileQuery.addListener(syncPartieMode);
+        }
+        window.addEventListener("codeami:mobile-preview", syncPartieMode);
+      }
+
+      const msgDemoRoot = document.querySelector("#demo-messages .msg-demo");
+      if (msgDemoRoot) {
+        const msgViewButtons = Array.from(msgDemoRoot.querySelectorAll("[data-msg-view]"));
+        const msgPanels = Array.from(msgDemoRoot.querySelectorAll("[data-msg-panel]"));
+        const msgConvItems = Array.from(msgDemoRoot.querySelectorAll(".conv-item"));
+        const msgMobileQuery = window.matchMedia("(max-width: 900px)");
+
+        const isMsgMobileMode = function () {
+          return msgMobileQuery.matches || document.body.classList.contains("force-mobile-preview");
+        };
+
+        const setMsgView = function (view) {
+          msgViewButtons.forEach((btn) => {
+            const isActive = btn.getAttribute("data-msg-view") === view;
+            btn.classList.toggle("active", isActive);
+            btn.setAttribute("aria-selected", isActive ? "true" : "false");
+          });
+
+          msgPanels.forEach((panel) => {
+            const isActive = panel.getAttribute("data-msg-panel") === view;
+            panel.classList.toggle("active", isActive);
+          });
+        };
+
+        msgViewButtons.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const view = btn.getAttribute("data-msg-view");
+            if (!view) return;
+            setMsgView(view);
+          });
+        });
+
+        msgConvItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            if (!isMsgMobileMode()) return;
+            setMsgView("chat");
+          });
+        });
+
+        const syncMsgViewMode = function () {
+          if (isMsgMobileMode()) {
+            setMsgView("chat");
+            return;
+          }
+
+          msgViewButtons.forEach((btn) => {
+            btn.classList.remove("active");
+            btn.setAttribute("aria-selected", "false");
+          });
+          msgPanels.forEach((panel) => panel.classList.add("active"));
+        };
+
+        syncMsgViewMode();
+        if (typeof msgMobileQuery.addEventListener === "function") {
+          msgMobileQuery.addEventListener("change", syncMsgViewMode);
+        } else if (typeof msgMobileQuery.addListener === "function") {
+          msgMobileQuery.addListener(syncMsgViewMode);
+        }
+
+        window.addEventListener("codeami:mobile-preview", syncMsgViewMode);
+      }
+
+      const demoNavLinksRoot = document.getElementById("demoNavLinks");
+      if (demoNavLinksRoot) {
+        const demoMenuToggle = document.getElementById("demoMenuToggle");
+        const demoNavBackdrop = document.getElementById("demoNavBackdrop");
+        const mainTopbar = document.querySelector(".topbar");
+        const stickyWrap = document.querySelector(".uikit-sticky-nav-wrap");
+        const stickyRun = document.getElementById("uikitScrollRun");
+        const demoLinks = Array.from(demoNavLinksRoot.querySelectorAll('a[href^="#demo-"]'));
+        const demoTargets = demoLinks
+          .map((link) => {
+            const hash = link.getAttribute("href") || "";
+            const target = hash ? document.querySelector(hash) : null;
+            return target ? { link, target } : null;
+          })
+          .filter(Boolean);
+
+        const syncDemoActive = function () {
+          if (!demoTargets.length) return;
+          const mobileLike = window.matchMedia("(max-width: 760px)").matches || document.body.classList.contains("force-mobile-preview");
+          const probeY = mobileLike ? 136 : 165;
+          let active = demoTargets[0];
+
+          demoTargets.forEach((entry) => {
+            const rect = entry.target.getBoundingClientRect();
+            if (rect.top <= probeY) {
+              active = entry;
+            }
+          });
+
+          demoLinks.forEach((link) => link.classList.remove("is-active"));
+          active.link.classList.add("is-active");
+        };
+
+        const syncStickyState = function () {
+          if (!stickyWrap || !stickyRun) return;
+
+          const topbarBottom = mainTopbar ? Math.max(0, mainTopbar.getBoundingClientRect().bottom) : 70;
+          const topOffset = Math.round(topbarBottom + 2);
+          stickyWrap.style.setProperty("--demo-sticky-top", `${topOffset}px`);
+          const runRect = stickyRun.getBoundingClientRect();
+          const navHeight = stickyWrap.getBoundingClientRect().height;
+          stickyWrap.style.setProperty("--demo-sticky-menu-top", `${Math.round(topOffset + navHeight + 8)}px`);
+          const shouldStart = runRect.top <= topOffset;
+          const isWithinRun = runRect.bottom > topOffset + navHeight;
+          const isStickyActive = shouldStart && isWithinRun;
+
+          syncStickyState.hasExpanded = syncStickyState.hasExpanded || isStickyActive;
+          stickyWrap.classList.toggle("is-expanded", syncStickyState.hasExpanded || isStickyActive);
+        };
+
+        syncStickyState.hasExpanded = false;
+
+        const closeDemoMobileMenu = function () {
+          demoNavLinksRoot.classList.remove("open");
+          if (demoNavBackdrop) demoNavBackdrop.classList.remove("open");
+          if (demoMenuToggle) demoMenuToggle.setAttribute("aria-expanded", "false");
+        };
+
+        const toggleDemoMobileMenu = function () {
+          const opened = demoNavLinksRoot.classList.toggle("open");
+          if (demoNavBackdrop) demoNavBackdrop.classList.toggle("open", opened);
+          if (demoMenuToggle) demoMenuToggle.setAttribute("aria-expanded", opened ? "true" : "false");
+        };
+
+        if (demoMenuToggle) {
+          demoMenuToggle.addEventListener("click", function () {
+            toggleDemoMobileMenu();
+          });
+        }
+
+        if (demoNavBackdrop) {
+          demoNavBackdrop.addEventListener("click", function () {
+            closeDemoMobileMenu();
+          });
+        }
+
+        demoLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            demoLinks.forEach((item) => item.classList.remove("is-active"));
+            link.classList.add("is-active");
+            closeDemoMobileMenu();
+          });
+        });
+
+        const syncDemoNav = function () {
+          syncStickyState();
+          syncDemoActive();
+        };
+
+        syncDemoNav();
+        window.addEventListener("scroll", syncDemoNav, { passive: true });
+        window.addEventListener("resize", function () {
+          syncDemoNav();
+          if (window.innerWidth > 960) {
+            closeDemoMobileMenu();
+          }
+        });
+      }
+
+    })();
+  </script>
+
 
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/js.cookie.min.js"></script>
+    <script src="/js/langagesetting.js"></script>
+
+
+    <script>
+
+
+      function copyEmail() {
+        var range = document.createRange();
+        var selection = window.getSelection();
+        range.selectNodeContents(document.getElementById('email'));
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+      }
+
+
+    </script>
+
+
+
+
+
+
+
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/popper.min.js"></script>
