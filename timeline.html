@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <meta name="supported-color-schemes" content="light" />
   <title>Timeline Portfolio Séyès</title>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap");
@@ -13,6 +15,7 @@
       --date-red:#bc4a44;
       --date-red-dark:#8f2f33;
       --paper-glow:rgba(255,255,255,0.8);
+      color-scheme:light;
     }
 
     html, body{
@@ -21,6 +24,20 @@
       font-family:"Avenir Next", "Segoe UI", "Trebuchet MS", sans-serif;
       color:var(--ink);
       scroll-behavior:smooth;
+      background-color:#faf6ef;
+    }
+
+    @media (prefers-color-scheme: dark){
+      html, body{
+        background-color:#faf6ef;
+        color:var(--ink);
+      }
+    }
+
+    @media (forced-colors: active){
+      html, body, #page, #marge, .collage-card, .timeline-outro, .contact-chip{
+        forced-color-adjust:none;
+      }
     }
 
     #conteneur-extensible{
@@ -588,6 +605,103 @@
   box-shadow:none;
 }
 
+.timeline-outro{
+  max-width:920px;
+  margin:56px auto 0;
+  padding:24px 26px 22px;
+  background:rgba(255,255,255,0.88);
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius:4px 8px 5px 9px;
+  box-shadow:
+    0 14px 32px rgba(0,0,0,0.11),
+    0 3px 10px rgba(0,0,0,0.05);
+  transform:rotate(-1.2deg);
+  position:relative;
+}
+
+.timeline-outro-kicker{
+  margin:0 0 6px;
+  font-size:0.78rem;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  color:rgba(77, 58, 45, 0.78);
+}
+
+.timeline-outro h2{
+  margin:0 0 10px;
+  font-family:"Caveat", cursive;
+  font-size:clamp(2rem, 4.3vw, 3rem);
+  line-height:1;
+  color:#2a1f1d;
+}
+
+.timeline-outro p{
+  margin:0;
+  max-width:760px;
+  line-height:1.58;
+  color:#403b3a;
+}
+
+.timeline-contact-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:16px;
+}
+
+.contact-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border:1px dashed rgba(93, 64, 53, 0.34);
+  border-radius:999px;
+  background:rgba(255,255,255,0.78);
+  text-decoration:none;
+  color:#2f2a28;
+  font-weight:600;
+  font-size:0.92rem;
+  transition:transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+}
+
+button.contact-chip{
+  font-family:inherit;
+  cursor:pointer;
+}
+
+.contact-chip:hover,
+.contact-chip:focus-visible{
+  transform:translateY(-2px) rotate(-1deg);
+  background:rgba(255, 247, 226, 0.95);
+  box-shadow:0 8px 16px rgba(0,0,0,0.1);
+  outline:none;
+}
+
+.card-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(67, 53, 44, 0.38);
+  background:rgba(255, 248, 232, 0.9);
+  color:#2f2a28;
+  text-decoration:none;
+  font-size:0.8rem;
+  font-weight:700;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  transition:transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+}
+
+.card-cta:hover,
+.card-cta:focus-visible{
+  transform:translateY(-2px) rotate(-1deg);
+  box-shadow:0 6px 12px rgba(0,0,0,0.11);
+  filter:saturate(1.08);
+  outline:none;
+}
+
 .photo-piece.epicery-phone{
   margin-top:6px;
   margin-bottom:28px;
@@ -1003,6 +1117,31 @@
         width:min(100%, 92vw);
       }
 
+      .timeline-outro{
+        margin-top:36px;
+        padding:18px 16px 16px;
+        transform:rotate(-0.4deg);
+      }
+
+      .timeline-outro::before,
+      .timeline-outro::after{
+        width:54px;
+        height:16px;
+      }
+
+      .timeline-outro h2{
+        font-size:clamp(1.7rem, 8.2vw, 2.35rem);
+      }
+
+      .timeline-contact-links{
+        gap:8px;
+      }
+
+      .contact-chip{
+        width:100%;
+        justify-content:center;
+      }
+
       .card-top{
         grid-template-columns:1fr;
       }
@@ -1109,6 +1248,28 @@
       </div>
 
       <div id="timeline-root"></div>
+
+      <section class="timeline-outro" aria-label="Contact final">
+        <p class="timeline-outro-kicker">La suite</p>
+        <h2>On se capte ?</h2>
+        <p>
+          Si ce petit bout de vie t'a parlé, je suis dispo pour discuter et bosser sur des projets vraiment cool. N'hésite pas à me contacter !
+        </p>
+        <div class="timeline-contact-links">
+          <button
+            id="contact-email-copy"
+            class="contact-chip"
+            type="button"
+            data-email="morganbkf@gmail.com"
+            data-default-label="morganbkf@gmail.com"
+            data-copied-label="Adresse copiée !"
+            aria-live="polite"
+          >morganbkf@gmail.com</button>
+          <a class="contact-chip" href="https://www.linkedin.com/in/morganbkf/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="contact-chip" href="https://github.com/mimoklef" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="contact-chip" href="https://codepen.io/morganbkf" target="_blank" rel="noopener noreferrer">CodePen</a>
+        </div>
+      </section>
 
     </div>
   </div>
@@ -1246,6 +1407,12 @@
         aside: "Franchement pour du travail en ESN, c'était correct 🤔"
       },
       {
+        year: 2025,
+        title: "CodeAmi.fr - je lance une plateforme sociale gaming",
+        voice: "J'ai conçu et développé un espace pour aider les joueurs à se trouver vite, créer ou rejoindre des parties et rencontrer d'autres joueurs.",
+        aside: "Un projet qui mélange produit, UX et dev full-stack. Je n'en suis pas peu fier 😌"
+      },
+      {
         year: 2026,
         title: "Et maintenant ?",
         voice: "Je compte reprendre mes études dans l'[[UX]].",
@@ -1285,6 +1452,7 @@
       { mode: 'card', start: 2, span: 3, classes: 'tape-right soft', hidePhoto: true },
       { mode: 'card', start: 1, span: 3, classes: 'tape-double crumpled wide photo-contain', image: 'images/epicery_logo.png', outsidePhoto: 'images/timeline/epicery.png', outsideStart: 4, outsideSpan: 3, outsideOffset: 'offset-down epicery-near', outsideClassName: 'contain-photo epicery-phone' },
       { mode: 'card', start: 1, span: 3, classes: 'tape-center wide soft', hidePhoto: true, outsidePhoto: 'images/timeline/yourcodex1.png', outsideStart: 4, outsideSpan: 3, outsideOffset: 'offset-down', outsideClassName: 'contain-photo yourcodex-big' },
+      { mode: 'card', start: 2, span: 4, classes: 'tape-double wide soft photo-clean no-frame photo-contain', image: 'images/mushroom190.png', link: 'https://codeami.fr', ctaLabel: 'Voir codeami.fr', ctaLink: 'https://codeami.fr' },
       { mode: 'card', start: 3, span: 3, classes: 'tape-left crumpled text-only', hidePhoto: true, endHeart: true, endHeartImage: 'images/timeline/keurr.png' }
     ];
 
@@ -1337,7 +1505,7 @@
 
     const buildCard = (item, idx) => {
       const layout = manualLayoutByIndex[item._globalIndex] || { mode: 'card', start: 2, span: 3, classes: 'tape-left soft', hidePhoto: false };
-      const isGameDev2020 = item.year === 2020 && item.title === 'Petit jeu sur Unity';
+      const isGameDev2020 = item.year === 2020 && item.title.includes('Unity');
 
       if(layout.mode === 'raw'){
         return `
@@ -1406,6 +1574,9 @@
       const planeButtonHtml = isGameDev2020
         ? '<button id="launch-plane" class="plane-launch-btn" type="button">On fait un looping ?</button>'
         : '';
+      const ctaHtml = layout.ctaLink
+        ? `<a class="card-cta" href="${layout.ctaLink}" target="_blank" rel="noopener noreferrer">${layout.ctaLabel || 'Voir le projet'}</a>`
+        : '';
 
       return `
         <article class="${classes}" style="grid-column:${layout.start} / span ${layout.span};">
@@ -1421,6 +1592,7 @@
           </div>
           <div class="details">
             ${planeButtonHtml}
+            ${ctaHtml}
             <span>${renderMarkedText(item.aside)}</span>
           </div>
           ${belowPhotosHtml}
@@ -1514,6 +1686,48 @@
     };
 
     renderTimeline();
+
+    const setupEmailCopyButton = () => {
+      const emailBtn = document.getElementById('contact-email-copy');
+      if(!emailBtn){
+        return;
+      }
+
+      let resetTimer = null;
+      const defaultLabel = emailBtn.dataset.defaultLabel || emailBtn.textContent || '';
+      const copiedLabel = emailBtn.dataset.copiedLabel || 'Adresse copiée !';
+      const email = emailBtn.dataset.email || '';
+
+      emailBtn.addEventListener('click', async () => {
+        if(!email){
+          return;
+        }
+
+        try{
+          await navigator.clipboard.writeText(email);
+        } catch (_err){
+          const fallback = document.createElement('textarea');
+          fallback.value = email;
+          fallback.setAttribute('readonly', '');
+          fallback.style.position = 'fixed';
+          fallback.style.left = '-9999px';
+          document.body.appendChild(fallback);
+          fallback.select();
+          document.execCommand('copy');
+          fallback.remove();
+        }
+
+        emailBtn.textContent = copiedLabel;
+        if(resetTimer){
+          clearTimeout(resetTimer);
+        }
+        resetTimer = setTimeout(() => {
+          emailBtn.textContent = defaultLabel;
+        }, 2000);
+      });
+    };
+
+    setupEmailCopyButton();
     window.addEventListener('resize', placeMarkers);
     window.addEventListener('load', placeMarkers);
   </script>
