@@ -243,7 +243,15 @@ a {
     .site-navbar .site-navigation .site-menu a {
       text-decoration: none !important;
       font-size: 15px;
-      display: inline-block; }
+      display: inline-block;
+      -webkit-transition: -webkit-transform 0.16s ease;
+      transition: -webkit-transform 0.16s ease;
+      -o-transition: transform 0.16s ease;
+      transition: transform 0.16s ease;
+      transition: transform 0.16s ease, -webkit-transform 0.16s ease;
+      -webkit-transform-origin: center center;
+      -ms-transform-origin: center center;
+      transform-origin: center center; }
     .site-navbar .site-navigation .site-menu > li {
       display: inline-block;
       padding: 10px 5px; }
@@ -255,7 +263,10 @@ a {
         font-size: 15px;
         text-decoration: none !important; }
         .site-navbar .site-navigation .site-menu > li > a:hover {
-          color: red; }
+          color: rgba(255, 255, 255, 0.9);
+          -webkit-transform: scale(1.08);
+          -ms-transform: scale(1.08);
+          transform: scale(1.08); }
     .site-navbar .site-navigation .site-menu .has-children {
       position: relative; }
       .site-navbar .site-navigation .site-menu .has-children > a {
@@ -2476,7 +2487,15 @@ body * {
 
 .site-navbar .site-navigation .site-menu > li > a:hover,
 .site-mobile-menu .site-nav-wrap a:hover {
-  color: red !important;
+  color: #2f241f !important;
+}
+
+.site-navbar .site-navigation .site-menu > li > a:active,
+.site-mobile-menu .site-nav-wrap a:active {
+  color: #2f241f !important;
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 a,
@@ -2717,12 +2736,35 @@ body.theme-dark .site-mobile-menu .site-nav-wrap li.active > a {
   text-shadow: none !important;
 }
 
-body.theme-dark .site-navbar .site-navigation .site-menu > li > a:hover,
-body.theme-dark .site-mobile-menu .site-nav-wrap a:hover,
 body.theme-dark .contact-section .email-copy:hover,
 body.theme-dark .contact-section a:hover,
 body.theme-dark .contact-section a:hover .contact-info {
   color: #ff8f8f !important;
+}
+
+body.theme-dark .site-navbar .site-navigation .site-menu > li > a,
+body.theme-dark .site-mobile-menu .site-nav-wrap a {
+  transition: transform 0.16s ease !important;
+  transform-origin: center center;
+}
+
+body.theme-dark .site-navbar .site-navigation .site-menu > li > a:hover,
+body.theme-dark .site-navbar .site-navigation .site-menu > li > a:focus-visible,
+body.theme-dark .site-mobile-menu .site-nav-wrap a:hover,
+body.theme-dark .site-mobile-menu .site-nav-wrap a:focus-visible {
+  color: #ff6b6b !important;
+  transform: scale(1.08);
+}
+
+body.theme-dark .site-navbar .site-navigation .site-menu > li > a:active,
+body.theme-dark .site-mobile-menu .site-nav-wrap a:active {
+  color: #ff6b6b !important;
+  transform: scale(0.95);
+}
+
+body.theme-dark .site-mobile-menu .site-nav-wrap a:hover,
+body.theme-dark .site-mobile-menu .site-nav-wrap a:focus-visible {
+  display: inline-block;
 }
 
 body.theme-dark .form-control,
@@ -2805,6 +2847,31 @@ html.theme-dark body .contact-section {
 html.theme-dark body .site-navbar .site-navigation .site-menu .active > a,
 html.theme-dark body .site-mobile-menu .site-nav-wrap li.active > a {
   color: #ff6b6b !important;
+}
+
+html.theme-dark body .site-navbar .site-navigation .site-menu > li > a,
+html.theme-dark body .site-mobile-menu .site-nav-wrap a {
+  transition: transform 0.16s ease !important;
+  transform-origin: center center;
+}
+
+html.theme-dark body .site-navbar .site-navigation .site-menu > li > a:hover,
+html.theme-dark body .site-navbar .site-navigation .site-menu > li > a:focus-visible,
+html.theme-dark body .site-mobile-menu .site-nav-wrap a:hover,
+html.theme-dark body .site-mobile-menu .site-nav-wrap a:focus-visible {
+  color: #ff6b6b !important;
+  transform: scale(1.08);
+}
+
+html.theme-dark body .site-navbar .site-navigation .site-menu > li > a:active,
+html.theme-dark body .site-mobile-menu .site-nav-wrap a:active {
+  color: #ff6b6b !important;
+  transform: scale(0.95);
+}
+
+html.theme-dark body .site-mobile-menu .site-nav-wrap a:hover,
+html.theme-dark body .site-mobile-menu .site-nav-wrap a:focus-visible {
+  display: inline-block;
 }
 #launch-plane img {
   width: 70px;
