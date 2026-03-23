@@ -291,8 +291,13 @@
     const buttons = document.querySelectorAll('.cta');
     const A = document.getElementById('A');
     const B = document.getElementById('B');
+    const mobileQuery = window.matchMedia('(max-width: 991.98px)');
 
     function togglePanels() {
+      if (mobileQuery.matches) {
+        return;
+      }
+
       const AisVisible = A.classList.contains('is-visible');
 
       A.classList.toggle('is-visible', !AisVisible);
