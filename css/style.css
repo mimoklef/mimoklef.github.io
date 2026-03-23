@@ -252,7 +252,7 @@ a {
         text-transform: uppercase;
         letter-spacing: .1em;
         color: rgba(255, 255, 255, 0.5);
-        font-size: 12px;
+        font-size: 15px;
         text-decoration: none !important; }
         .site-navbar .site-navigation .site-menu > li > a:hover {
           color: red; }
@@ -2455,7 +2455,16 @@ body * {
 
 .site-navbar .site-navigation .site-menu .active > a,
 .site-mobile-menu .site-nav-wrap li.active > a {
-  color: red !important;
+  color: #2f241f !important;
+  border-image-source: url("https://raw.githubusercontent.com/mimoklef/highlighter-pen/refs/heads/main/assets/marker.png");
+  border-image-slice: 0 27 0 29 fill;
+  border-image-width: 0 0.9ch 0 0.9ch;
+  border-image-outset: 0 0.5ch 0 0.5ch;
+  border-image-repeat: round stretch;
+  background-color: transparent !important;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.58);
 }
 
 .site-navbar .site-navigation .site-menu > li > a:hover,
@@ -2696,6 +2705,9 @@ body.theme-dark .contact-section {
 body.theme-dark .site-navbar .site-navigation .site-menu .active > a,
 body.theme-dark .site-mobile-menu .site-nav-wrap li.active > a {
   color: #ff6b6b !important;
+  border-image: none !important;
+  background: none !important;
+  text-shadow: none !important;
 }
 
 body.theme-dark .site-navbar .site-navigation .site-menu > li > a:hover,
