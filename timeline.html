@@ -27,6 +27,10 @@
       background-color:#faf6ef;
     }
 
+    .none{
+      display:none !important;
+    }
+
     @media (prefers-color-scheme: dark){
       html, body{
         background-color:#faf6ef;
@@ -57,6 +61,82 @@
       box-sizing:border-box;
       position:relative;
       flex-shrink:0;
+    }
+
+    .margin-top-actions{
+      position:absolute;
+      top:14px;
+      left:10px;
+      right:10px;
+      z-index:30;
+      display:flex;
+      justify-content:flex-start;
+    }
+
+    .portfolio-side-link{
+      display:none;
+      align-items:center;
+      justify-content:center;
+      max-width:160px;
+      padding:8px 10px;
+      border:1px dashed rgba(93, 64, 53, 0.34);
+      border-radius:999px;
+      background:rgba(255,255,255,0.84);
+      color:#2f2a28;
+      text-decoration:none;
+      font-weight:700;
+      font-size:0.66rem;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      line-height:1.25;
+      transition:transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+    }
+
+    body.is-standalone .portfolio-side-link.standalone-only{
+      display:inline-flex;
+    }
+
+    .portfolio-mobile-wrap{
+      display:none;
+      margin:0 0 18px;
+    }
+
+    .portfolio-mobile-link{
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:8px 12px;
+      border:1px dashed rgba(93, 64, 53, 0.34);
+      border-radius:999px;
+      background:rgba(255,255,255,0.84);
+      color:#2f2a28;
+      text-decoration:none;
+      font-weight:700;
+      font-size:0.74rem;
+      letter-spacing:0.05em;
+      text-transform:uppercase;
+      line-height:1.25;
+      transition:transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+    }
+
+    body.is-standalone .portfolio-mobile-link.standalone-only{
+      display:inline-flex;
+    }
+
+    .portfolio-mobile-link:hover,
+    .portfolio-mobile-link:focus-visible{
+      transform:translateY(-1px) rotate(-1deg);
+      background:rgba(255, 247, 226, 0.96);
+      box-shadow:0 8px 16px rgba(0,0,0,0.1);
+      outline:none;
+    }
+
+    .portfolio-side-link:hover,
+    .portfolio-side-link:focus-visible{
+      transform:translateY(-1px) rotate(-1deg);
+      background:rgba(255, 247, 226, 0.96);
+      box-shadow:0 8px 16px rgba(0,0,0,0.1);
+      outline:none;
     }
 
     .date-marker{
@@ -124,6 +204,48 @@
       background:rgba(255,255,255,0.42);
       display:inline;
       box-shadow:8px 0 0 rgba(255,255,255,0.42), -8px 0 0 rgba(255,255,255,0.42);
+    }
+
+    .standalone-only{
+      display:none;
+    }
+
+    body.is-standalone .standalone-only{
+      display:inline-flex;
+    }
+
+    .embedded-only{
+      display:none;
+    }
+
+    body.is-embedded .embedded-only{
+      display:inline-flex;
+    }
+
+    .portfolio-top-link{
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      margin:0 0 26px;
+      padding:10px 16px;
+      border:1px dashed rgba(93, 64, 53, 0.34);
+      border-radius:999px;
+      background:rgba(255,255,255,0.78);
+      color:#2f2a28;
+      text-decoration:none;
+      font-weight:700;
+      font-size:0.88rem;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
+      transition:transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+    }
+
+    .portfolio-top-link:hover,
+    .portfolio-top-link:focus-visible{
+      transform:translateY(-2px) rotate(-1deg);
+      background:rgba(255, 247, 226, 0.95);
+      box-shadow:0 8px 16px rgba(0,0,0,0.1);
+      outline:none;
     }
 
     /* -------- BLOCS PAR ANNÉE -------- */
@@ -677,6 +799,70 @@ button.contact-chip{
   outline:none;
 }
 
+    button,
+    .contact-chip,
+    .card-cta,
+    .portfolio-side-link,
+    .portfolio-top-link,
+    .plane-launch-btn,
+    .back-to-top {
+      outline:none !important;
+    }
+
+    button:focus,
+    button:active,
+    .contact-chip:focus,
+    .contact-chip:active,
+    .card-cta:focus,
+    .card-cta:active,
+    .portfolio-side-link:focus,
+    .portfolio-side-link:active,
+    .portfolio-top-link:focus,
+    .portfolio-top-link:active,
+    .plane-launch-btn:focus,
+    .plane-launch-btn:active,
+    .back-to-top:focus,
+    .back-to-top:active {
+      outline:none !important;
+      box-shadow:none !important;
+    }
+
+    .back-to-top{
+      position:fixed;
+      right:14px;
+      bottom:14px;
+      width:34px;
+      height:34px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:1px dashed rgba(93, 64, 53, 0.34);
+      border-radius:999px;
+      background:rgba(255,255,255,0.86);
+      color:#2f2a28;
+      font-size:16px;
+      line-height:1;
+      cursor:pointer;
+      transform:translateY(10px);
+      opacity:0;
+      pointer-events:none;
+      z-index:999;
+      transition:opacity 0.16s ease, transform 0.16s ease, background-color 0.16s ease;
+    }
+
+    .back-to-top.is-visible{
+      opacity:1;
+      transform:translateY(0);
+      pointer-events:auto;
+    }
+
+    .back-to-top:hover,
+    .back-to-top:focus-visible{
+      background:rgba(255, 247, 226, 0.96);
+      transform:translateY(-1px);
+      outline:none;
+    }
+
 .card-cta{
   display:inline-flex;
   align-items:center;
@@ -1160,6 +1346,11 @@ button.contact-chip{
         display:none;
       }
 
+      .portfolio-mobile-wrap{
+        display:flex;
+        justify-content:flex-start;
+      }
+
       #page{
         margin-left:0;
         padding:42px 18px 70px;
@@ -1234,26 +1425,53 @@ button.contact-chip{
 </head>
 <body>
 
+  <script>
+    (function () {
+      var embedded = false;
+      try {
+        embedded = window.self !== window.top;
+      } catch (_e) {
+        embedded = true;
+      }
+      document.body.classList.add(embedded ? 'is-embedded' : 'is-standalone');
+    })();
+  </script>
+
   <div id="conteneur-extensible">
     <div id="marge">
+      <div class="margin-top-actions">
+        <a id="portfolio-side-link" class="portfolio-side-link standalone-only" href="/" aria-label="Voir mon portfolio">Voir mon portfolio</a>
+      </div>
       <div id="year-markers"></div>
     </div>
 
     <div id="page">
+      <div class="portfolio-mobile-wrap">
+        <a id="portfolio-mobile-link" class="portfolio-mobile-link standalone-only" href="/" aria-label="Voir mon portfolio">Voir mon portfolio</a>
+      </div>
       <div class="intro">
-        <h1>Mon histoire</h1>
-        <p>
+        <h1 class="fr">Mon histoire</h1>
+        <h1 class="eng">My story</h1>
+        <p class="fr">
           Ce carnet, c'est un bout de moi, année après année.
+        </p>
+        <p class="eng">
+          This notebook is a piece of me, year after year.
         </p>
       </div>
 
       <div id="timeline-root"></div>
 
       <section class="timeline-outro" aria-label="Contact final">
-        <p class="timeline-outro-kicker">La suite</p>
-        <h2>On se capte ?</h2>
-        <p>
+        <p class="timeline-outro-kicker fr">La suite</p>
+        <p class="timeline-outro-kicker eng">What's next</p>
+        <h2 class="fr">On se capte ?</h2>
+        <h2 class="eng">Let's connect?</h2>
+        <p class="fr">
           Si ce petit bout de vie t'a parlé, je suis dispo pour discuter et bosser sur des projets vraiment cool. N'hésite pas à me contacter !
+        </p>
+        <p class="eng">
+          If this little slice of life spoke to you, I am available to talk and work on truly cool projects. Feel free to reach out!
         </p>
         <div class="timeline-contact-links">
           <button
@@ -1262,12 +1480,14 @@ button.contact-chip{
             type="button"
             data-email="morganbkf@gmail.com"
             data-default-label="morganbkf@gmail.com"
-            data-copied-label="Adresse copiée !"
+            data-copied-label-fr="Adresse copiée !"
+            data-copied-label-eng="Address copied!"
             aria-live="polite"
           >morganbkf@gmail.com</button>
           <a class="contact-chip" href="https://www.linkedin.com/in/morganbkf/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a class="contact-chip" href="https://github.com/mimoklef" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a class="contact-chip" href="https://codepen.io/morganbkf" target="_blank" rel="noopener noreferrer">CodePen</a>
+          <a id="contact-portfolio-link" class="contact-chip" href="/">Voir mon portfolio</a>
         </div>
       </section>
 
@@ -1284,8 +1504,10 @@ button.contact-chip{
     >
   </div>
 
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Remonter en haut" title="Remonter en haut">↑</button>
+
   <script>
-    const extractedItems = [
+    const extractedItemsFr = [
       {
         year: 2000,
         title: "1er avril 2000 - Non, c'est pas une blague.",
@@ -1420,8 +1642,81 @@ button.contact-chip{
       }
     ];
 
+    const extractedItemsEng = [
+      { year: 2000, title: "April 1st, 2000 - No, this is not a joke.", voice: "Delivered by a stork, of course! My parents had to be happy; well, they better be, with a son like me 😎", aside: "Promise, after this I will be serious again (or almost)." },
+      { year: 2004, title: "The bike", voice: "This is when I finally learned to ride a two-wheel bike. Secret tip: you have to pedal, but keep it between us, OK?", aside: "I kept my butt on that thing until I was 12." },
+      { year: 2004, title: "The start of my passion for drawing", voice: "Until my teenage years, I drew all the time. My favorite cartoons, my friends, animals, basically everything 🤔", aside: "From doodles to decent sketches; I am not an artist, but I can handle it, apparently!" },
+      { year: 2011, title: "Flipnote, my god!", voice: "I loved every second spent creating little stories and animating them.", aside: "Click to watch the videos hehe, I found a few again..." },
+      { year: 2012, title: "I seriously start (old-school) Taekwondo", voice: "It quickly became a real passion, and when I was not watching martial arts movies, I was training.", aside: "I entered a few small tournaments and reached black belt." },
+      { year: 2017, title: "High school diploma at 17", voice: "Honestly, I barely made it. I was not very serious, I did not like school.", aside: "I loved languages and science, but doing calculations... not my thing 🥱" },
+      { year: 2017, title: "I start a DUT in 'Statistics and Decision Informatics'", voice: "I never thought I would like school one day, but everything has a beginning! I especially loved the software part.", aside: "I discover that I LOVE coding!" },
+      { year: 2017, title: "'I want to make video games!'", voice: "I discover [[Unreal Engine]] and [[Game Dev]]. I spend almost all my free time on it.", aside: "It even gave me a strong dev level that helped during my studies." },
+      { year: 2018, title: "My first internship as a [[PHP]] developer", voice: "It lasted only one month, but I loved it, and I built a booking app.", aside: "It looked very ugly BUT it worked! 😁" },
+      { year: 2019, title: "DUT completed", voice: "", aside: "Bye bye [[Data Science]], I want to code for real! 🗣" },
+      { year: 2019, title: "I join SUPINFO", voice: "Lots of school projects covering many different fields.", aside: "Very diverse, really a great curriculum!" },
+      { year: 2020, title: "I discover [[Node.js]] in class", voice: "Wow! Why did I not know this earlier? I felt like a caveman discovering fire, pure joy!", aside: "No way back after [[JavaScript]]. I do not want to touch anything else!" },
+      { year: 2020, title: "Small game on [[Unity]]", voice: "A class project: one month to build a rail shooter, Star Fox style.", aside: "I chose Porco Rosso as a theme because I love it!" },
+      { year: 2020, title: "3-month internship at OWNR - [[ASP.NET C#]] developer", voice: "In two months, I built the foundations of a web app for evaluation-grid management.", aside: "Also my first paid internship 😏" },
+      { year: 2020, title: "I join Epitech!", voice: "Intense pace. Projects everywhere. Code, code, code.", aside: "Let me breathe! 🗣" },
+      { year: 2020, title: "What better than a coding pool to learn to pee code?", voice: "My first [[Epitech]] pool: 48 hours to create a complete app.", aside: "Not trying to brag, but it was easier than expected! Then I discovered [[Vue.js]], my new love 😏" },
+      { year: 2021, title: "2021 -> 2022: I work as web designer & developer at Boardingates/Genius (work-study)", voice: "I got to work on a project from A to Z, from design to deployment and maintenance. A lot of autonomy!", aside: "And most of all... I worked with [[Node.js]] and [[Vue.js]] 😏" },
+      { year: 2022, title: "I get my MSc degree", voice: "I am finally freeee!", aside: "But what am I going to do now? (spoiler: coding.)" },
+      { year: 2022, title: "2022 -> 2024, Epicery!", voice: "After a few months unemployed, I jumped into real-world stuff: performance, bugs, incidents, mostly backend though 😞", aside: "I learned a lot, but I would have preferred touching a bit more of everything." },
+      { year: 2024, title: "2024 -> 2025, I work for a small ESN, YourCodex.", voice: "Code, code, and more code? Well actually, I also did a lot of design work there.", aside: "Honestly for ESN work, it was pretty decent 🤔" },
+      { year: 2025, title: "CodeAmi.fr - I launch a social gaming platform", voice: "I designed and built a space to help gamers quickly find each other, create or join matches, and meet new people.", aside: "A project mixing product, UX, and full-stack dev. I am genuinely proud of it 😌" },
+      { year: 2026, title: "And now?", voice: "I plan to go back to school in [[UX]].", aside: "A field I am especially interested in!" }
+    ];
+
     const timelineRoot = document.getElementById('timeline-root');
     const markersRoot = document.getElementById('year-markers');
+
+    const getCookieValue = (name) => {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) {
+        return parts.pop().split(';').shift();
+      }
+      return null;
+    };
+
+    const getActiveLanguage = () => {
+      const cookieLang = getCookieValue('lang');
+      return cookieLang === 'eng' ? 'eng' : 'fr';
+    };
+
+    const applyLanguageClasses = (lang) => {
+      const frEls = document.querySelectorAll('.fr');
+      const engEls = document.querySelectorAll('.eng');
+      const showFr = lang !== 'eng';
+
+      frEls.forEach((el) => el.classList.toggle('none', !showFr));
+      engEls.forEach((el) => el.classList.toggle('none', showFr));
+    };
+
+    const ensureLanguageScript = () => {
+      return new Promise((resolve) => {
+        if (typeof window.setlang === 'function' || typeof window.switchlang === 'function') {
+          resolve();
+          return;
+        }
+
+        const existing = document.querySelector('script[data-langagesetting="1"]');
+        if (existing) {
+          existing.addEventListener('load', () => resolve(), { once: true });
+          existing.addEventListener('error', () => resolve(), { once: true });
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.src = '/js/langagesetting.js';
+        script.dataset.langagesetting = '1';
+        script.onload = () => resolve();
+        script.onerror = () => resolve();
+        document.head.appendChild(script);
+      });
+    };
+
+    let currentLang = getActiveLanguage();
 
     const manualLayoutByIndex = [
       { mode: 'card', start: 2, span: 4, classes: 'tape-left soft photo-clean no-frame', image: 'images/timeline/2000_cigogne.png' },
@@ -1566,16 +1861,19 @@ button.contact-chip{
 
       const endHeartHtml = layout.endHeart
         ? `<div class=\"end-heart-wrap\">
-            <p class=\"end-heart-note\">Si tu es arrivé jusqu'ici, coeur sur toi !</p>
+            <p class="end-heart-note">${currentLang === 'eng' ? 'If you made it this far, much love to you!' : 'Si tu es arrivé jusqu\'ici, coeur sur toi !'}</p>
             <img class=\"end-heart-image\" src=\"${layout.endHeartImage}\" alt=\"Coeur\" loading=\"lazy\">
           </div>`
         : '';
 
       const planeButtonHtml = isGameDev2020
-        ? '<button id="launch-plane" class="plane-launch-btn" type="button">On fait un looping ?</button>'
+        ? `<button id="launch-plane" class="plane-launch-btn" type="button">${currentLang === 'eng' ? 'Let\'s do a loop?' : 'On fait un looping ?'}</button>`
         : '';
+      const localizedCtaLabel = currentLang === 'eng' && layout.ctaLabel === 'Voir codeami.fr'
+        ? 'See codeami.fr'
+        : layout.ctaLabel;
       const ctaHtml = layout.ctaLink
-        ? `<a class="card-cta" href="${layout.ctaLink}" target="_blank" rel="noopener noreferrer">${layout.ctaLabel || 'Voir le projet'}</a>`
+        ? `<a class="card-cta" href="${layout.ctaLink}" target="_blank" rel="noopener noreferrer">${localizedCtaLabel || (currentLang === 'eng' ? 'View project' : 'Voir le projet')}</a>`
         : '';
 
       return `
@@ -1672,7 +1970,8 @@ button.contact-chip{
     };
 
     const renderTimeline = () => {
-      const indexedItems = extractedItems.map((item, index) => ({ ...item, _globalIndex: index }));
+      const sourceItems = currentLang === 'eng' ? extractedItemsEng : extractedItemsFr;
+      const indexedItems = sourceItems.map((item, index) => ({ ...item, _globalIndex: index }));
       const grouped = groupByYear(indexedItems);
       const years = grouped.map(([year]) => year);
       timelineRoot.innerHTML = grouped.map(([year, items], idx) => {
@@ -1685,7 +1984,44 @@ button.contact-chip{
       placeMarkers();
     };
 
-    renderTimeline();
+    const refreshLanguageUI = () => {
+      const nextLang = getActiveLanguage();
+      if (nextLang === currentLang) {
+        return;
+      }
+      currentLang = nextLang;
+      applyLanguageClasses(currentLang);
+      renderTimeline();
+      updatePortfolioLinks();
+      if (typeof window.__timelineSyncBackToTopLabel === 'function') {
+        window.__timelineSyncBackToTopLabel();
+      }
+    };
+
+    const updatePortfolioLinks = () => {
+      const isEmbedded = document.body.classList.contains('is-embedded');
+      const isEng = currentLang === 'eng';
+
+      const topLabel = isEng ? 'See my portfolio' : 'Voir mon portfolio';
+      const bottomLabel = isEmbedded
+        ? (isEng ? 'Back to my portfolio' : 'Retourner a mon portfolio')
+        : topLabel;
+
+      ['portfolio-side-link', 'portfolio-mobile-link'].forEach((id) => {
+        const link = document.getElementById(id);
+        if (!link) {
+          return;
+        }
+        link.textContent = topLabel;
+        link.setAttribute('aria-label', topLabel);
+      });
+
+      const contactLink = document.getElementById('contact-portfolio-link');
+      if (contactLink) {
+        contactLink.textContent = bottomLabel;
+        contactLink.setAttribute('aria-label', bottomLabel);
+      }
+    };
 
     const setupEmailCopyButton = () => {
       const emailBtn = document.getElementById('contact-email-copy');
@@ -1695,8 +2031,11 @@ button.contact-chip{
 
       let resetTimer = null;
       const defaultLabel = emailBtn.dataset.defaultLabel || emailBtn.textContent || '';
-      const copiedLabel = emailBtn.dataset.copiedLabel || 'Adresse copiée !';
+      const copiedLabelFr = emailBtn.dataset.copiedLabelFr || 'Adresse copiée !';
+      const copiedLabelEng = emailBtn.dataset.copiedLabelEng || 'Address copied!';
       const email = emailBtn.dataset.email || '';
+
+      const getCopiedLabel = () => (currentLang === 'eng' ? copiedLabelEng : copiedLabelFr);
 
       emailBtn.addEventListener('click', async () => {
         if(!email){
@@ -1717,7 +2056,7 @@ button.contact-chip{
           fallback.remove();
         }
 
-        emailBtn.textContent = copiedLabel;
+        emailBtn.textContent = getCopiedLabel();
         if(resetTimer){
           clearTimeout(resetTimer);
         }
@@ -1727,7 +2066,55 @@ button.contact-chip{
       });
     };
 
+    const setupBackToTopButton = () => {
+      const btn = document.getElementById('back-to-top');
+      if(!btn){
+        return null;
+      }
+
+      const setButtonLabel = () => {
+        const isEng = currentLang === 'eng';
+        const label = isEng ? 'Back to top' : 'Remonter en haut';
+        btn.setAttribute('aria-label', label);
+        btn.setAttribute('title', label);
+      };
+
+      const onScroll = () => {
+        btn.classList.toggle('is-visible', window.scrollY > 520);
+      };
+
+      btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      setButtonLabel();
+      onScroll();
+
+      return setButtonLabel;
+    };
+
+    applyLanguageClasses(currentLang);
+    renderTimeline();
     setupEmailCopyButton();
+    updatePortfolioLinks();
+    window.__timelineSyncBackToTopLabel = setupBackToTopButton();
+
+    ensureLanguageScript().then(() => {
+      applyLanguageClasses(getActiveLanguage());
+      refreshLanguageUI();
+
+      if (typeof window.switchlang === 'function' && !window.__timelineSwitchWrapped) {
+        const originalSwitchlang = window.switchlang;
+        window.switchlang = function (e) {
+          originalSwitchlang.call(this, e);
+          refreshLanguageUI();
+        };
+        window.__timelineSwitchWrapped = true;
+      }
+    });
+
+    setInterval(refreshLanguageUI, 500);
     window.addEventListener('resize', placeMarkers);
     window.addEventListener('load', placeMarkers);
   </script>
