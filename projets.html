@@ -318,8 +318,8 @@
               color: #2f2622;
               font-weight: 700;
               position: absolute;
-              top: -15px;
-              right: 0;
+              top: 8px;
+              right: 10px;
               padding: 7px 12px;
               border-radius: 999px;
             }
@@ -617,6 +617,55 @@
               text-decoration: underline;
             }
 
+            html.theme-dark #content .projects-reboot {
+              --paper: #1f1b18;
+              --ink: #f4ede6;
+              --ink-soft: #c8bdb2;
+              --accent: #d77a6f;
+            }
+
+            html.theme-dark #content .projects-kicker {
+              color: rgba(231, 220, 210, 0.76);
+            }
+
+            html.theme-dark #content .project-card {
+              border-color: rgba(255, 255, 255, 0.14);
+              box-shadow: 0 16px 28px rgba(0, 0, 0, 0.45), 0 4px 10px rgba(0, 0, 0, 0.26);
+            }
+
+            html.theme-dark #content .project-year {
+              color: #f8efe6;
+              background: rgba(255, 255, 255, 0.08);
+            }
+
+            html.theme-dark #content .project-stack {
+              color: rgba(233, 222, 211, 0.76);
+            }
+
+            html.theme-dark #content .project-gallery img,
+            html.theme-dark #content .project-outside-gallery img {
+              border-color: rgba(255, 255, 255, 0.16);
+              background: #27211d;
+              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.38);
+            }
+
+            html.theme-dark #content .projects-note {
+              background: rgba(40, 33, 29, 0.86);
+              color: rgba(244, 235, 227, 0.92);
+            }
+
+            html.theme-dark #content .projects-note a {
+              color: #ffd2bf;
+            }
+
+            html.theme-dark #content .pinned-cluster.codeami-cluster::before {
+              opacity: 0.2;
+            }
+
+            html.theme-dark #content .pinned-cluster.tandem-cluster::after {
+              opacity: 0.22;
+            }
+
             @media (max-width: 992px) {
               #content .project-card,
               #content .project-card.wide {
@@ -668,30 +717,47 @@
               }
 
               #content .project-head {
-                padding-right: 0;
+                padding-right: 120px;
                 padding-top: 28px;
               }
 
               #content .project-year {
                 position: absolute;
                 top: 8px;
-                left: 10px;
-                right: auto;
+                right: 10px;
+                left: auto;
                 margin-top: 0;
                 font-size: 0.86rem;
               }
 
               #content .project-gallery,
               #content .project-card.wide .project-gallery {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns: 1fr;
+              }
+
+              #content .project-outside-gallery,
+              #content .project-outside-gallery.project-outside-gallery-3,
+              #content .project-outside-gallery.project-outside-gallery-4,
+              #content .project-outside-gallery.codeami-gallery,
+              #content .project-outside-gallery.tandem-gallery {
+                grid-template-columns: 1fr;
+              }
+
+              #content .project-outside-gallery.codeami-gallery .ca-shot-1,
+              #content .project-outside-gallery.codeami-gallery .ca-shot-2,
+              #content .project-outside-gallery.codeami-gallery .ca-shot-3 {
+                grid-column: auto;
+                margin-top: 0;
+                max-width: none;
+                justify-self: stretch;
               }
             }
           </style>
 
           <section class="projects-reboot">
             <header class="projects-hero" data-aos="fade-up" data-aos-delay="120">
-              <h1 class="fr">Quelques uns de mes projets</h1>
-              <h1 class="eng">Some of my projects</h1>
+              <h1 class="fr">Mes Projets</h1>
+              <h1 class="eng">My projects</h1>
             </header>
 
             <section class="projects-section" data-aos="fade-up" data-aos-delay="180">
@@ -786,7 +852,7 @@
                         <div class="project-head">
                           <div class="project-brand">
                             <img class="project-brand-logo tandem-logo" src="images/projets/tandem_logo.png" alt="Tandem logo" loading="lazy">
-                            <h3>(Boardingates / Genius)</h3>
+                            <h3>Boardingates / Genius</h3>
                           </div>
                           <span class="project-year">2021-2022</span>
                         </div>
