@@ -1,5 +1,14 @@
 $(function () {
 
+  function navigateIframe(url) {
+    if (!url) {
+      return;
+    }
+
+    $('body').removeClass('iframe-entering');
+    $("#iframeview").attr("src", url);
+  }
+
   function bindIframeScrollWatcher() {
     var frame = $("#iframeview")[0];
     if (!frame || !frame.contentWindow) {
@@ -40,7 +49,7 @@ $(function () {
           window.switchlangnavbar(event)
           window.frames[0].switchlang(event);
         } else {
-          $("#iframeview").attr("src", url);
+          navigateIframe(url);
         }
       }
     });
@@ -53,6 +62,13 @@ $(function () {
       history.replaceState(null, document.title, url);
       manageNavBar(link);
       bindIframeScrollWatcher();
+
+      $('body').addClass('iframe-entering');
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          $('body').removeClass('iframe-entering');
+        });
+      });
     });
   }
 })

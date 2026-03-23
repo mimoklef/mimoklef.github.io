@@ -1397,18 +1397,18 @@ body {
   .animate-bottom {
   position: relative;
   -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
+  -webkit-animation-duration: 220ms;
   animation-name: animatebottom;
-  animation-duration: 1s
+  animation-duration: 220ms
   }
   
   @-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 } 
+  from { bottom:-18px; opacity:0 } 
   to { bottom:0px; opacity:1 }
   }
   
   @keyframes animatebottom { 
-  from{ bottom:-100px; opacity:0 } 
+  from{ bottom:-18px; opacity:0 } 
   to{ bottom:0; opacity:1 }
   }
   
@@ -1540,7 +1540,40 @@ body {
     right:0px;
     bottom:0px;
     margin-top:60px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 110ms ease, transform 120ms ease;
     }
+
+  #inframe {
+    animation: pageEnterFromBottom 140ms ease-out both;
+  }
+
+  @keyframes pageEnterFromBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  body.iframe-entering #iframeview {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #iframeview,
+    body.iframe-entering #iframeview,
+    #inframe {
+      transition: none;
+      transform: none;
+      animation: none;
+    }
+  }
 
   body.navbar-away #iframeview {
     margin-top: 0;
