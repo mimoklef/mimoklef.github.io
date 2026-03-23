@@ -2043,6 +2043,64 @@ body::-webkit-scrollbar-thumb {
 body.animation-mode {
   background: linear-gradient(to bottom, #d6f0ff 0%, #bce3bc 100%);
 }
+
+#cloud-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body:not(.animation-mode) #cloud-container::before,
+body:not(.animation-mode) #cloud-container::after {
+  content: none;
+}
+
+body.theme-dark.animation-mode #cloud-container::before,
+body.theme-dark.animation-mode #cloud-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+body.theme-dark.animation-mode #cloud-container::before {
+  background-image:
+    radial-gradient(circle at 8% 14%, rgba(255, 255, 255, 0.95) 0 1.3px, transparent 1.5px),
+    radial-gradient(circle at 18% 36%, rgba(255, 255, 255, 0.75) 0 1.1px, transparent 1.3px),
+    radial-gradient(circle at 27% 10%, rgba(255, 255, 255, 0.85) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 36% 28%, rgba(255, 255, 255, 0.9) 0 1.25px, transparent 1.45px),
+    radial-gradient(circle at 45% 8%, rgba(255, 255, 255, 0.8) 0 1.15px, transparent 1.35px),
+    radial-gradient(circle at 56% 24%, rgba(255, 255, 255, 0.92) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 64% 12%, rgba(255, 255, 255, 0.85) 0 1.15px, transparent 1.35px),
+    radial-gradient(circle at 73% 34%, rgba(255, 255, 255, 0.74) 0 1.1px, transparent 1.3px),
+    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.88) 0 1.25px, transparent 1.45px),
+    radial-gradient(circle at 92% 30%, rgba(255, 255, 255, 0.8) 0 1.2px, transparent 1.4px);
+  opacity: 0.9;
+  animation: starTwinkle 5.2s ease-in-out infinite alternate;
+}
+
+body.theme-dark.animation-mode #cloud-container::after {
+  background-image:
+    radial-gradient(circle at 12% 50%, rgba(255, 255, 255, 0.7) 0 1.1px, transparent 1.3px),
+    radial-gradient(circle at 22% 64%, rgba(255, 255, 255, 0.9) 0 1.25px, transparent 1.45px),
+    radial-gradient(circle at 34% 46%, rgba(255, 255, 255, 0.82) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 48% 58%, rgba(255, 255, 255, 0.88) 0 1.15px, transparent 1.35px),
+    radial-gradient(circle at 61% 48%, rgba(255, 255, 255, 0.74) 0 1.05px, transparent 1.25px),
+    radial-gradient(circle at 72% 62%, rgba(255, 255, 255, 0.91) 0 1.3px, transparent 1.5px),
+    radial-gradient(circle at 84% 44%, rgba(255, 255, 255, 0.78) 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 94% 56%, rgba(255, 255, 255, 0.86) 0 1.1px, transparent 1.3px);
+  opacity: 0.65;
+  animation: starTwinkle 4.2s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes starTwinkle {
+  0% { opacity: 0.45; }
+  50% { opacity: 0.95; }
+  100% { opacity: 0.6; }
+}
+
 .cloud {
   position: absolute;
   width: 120px;
@@ -2616,6 +2674,16 @@ body.theme-dark .theme-toggle-btn {
 
 
 body.theme-dark.animation-mode,
+body.animation-mode {
+  background: linear-gradient(to bottom, #d6f0ff 0%, #bce3bc 100%) !important;
+}
+
+body.theme-dark.animation-mode {
+  background:
+    radial-gradient(120% 80% at 50% 100%, rgba(49, 69, 106, 0.48) 0%, rgba(15, 21, 34, 0) 45%),
+    linear-gradient(to bottom, #061126 0%, #0f2247 42%, #173768 78%, #244c77 100%) !important;
+}
+
 body.animation-mode {
   background: linear-gradient(to bottom, #d6f0ff 0%, #bce3bc 100%) !important;
 }
