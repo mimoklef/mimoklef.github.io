@@ -1516,6 +1516,13 @@ body {
 
   .site-navbar {
     transition: transform 0.24s ease, opacity 0.2s ease;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform, opacity;
   }
 
   body.navbar-away .site-navbar {
@@ -1542,7 +1549,7 @@ body {
     margin-top:60px;
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 110ms ease, transform 120ms ease;
+    transition: opacity 110ms ease, transform 120ms ease, margin-top 240ms ease, height 240ms ease;
     }
 
   #inframe {
