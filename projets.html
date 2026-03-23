@@ -201,204 +201,740 @@
       <div id="content" class="animate-bottom">
 
 
-        <div class="site-wrap">
+        <div class="site-wrap projects-reboot-wrap">
 
+          <style>
+            #content .projects-reboot {
+              --paper: #fff8ee;
+              --ink: #1f1b18;
+              --ink-soft: #59524b;
+              --accent: #b64136;
+              --tape-a: rgba(255, 223, 127, 0.62);
+              --tape-b: rgba(176, 214, 255, 0.58);
+              max-width: 1280px;
+              margin: 0 auto;
+              padding: 34px 16px 60px;
+              color: var(--ink);
+            }
+            #content .projects-hero {
+              position: relative;
+              padding: 8px 4px 10px;
+              margin-bottom: 34px;
+              background: transparent;
+              border: 0;
+              box-shadow: none;
+              overflow: visible;
+            }
 
+            #content .projects-hero::before,
+            #content .projects-hero::after {
+              content: none;
+            }
 
+            #content .projects-hero h1 {
+              margin: 0;
+              font-family: "Josefin Sans", "Trebuchet MS", sans-serif;
+              font-size: clamp(2rem, 5vw, 3.6rem);
+              letter-spacing: 0.02em;
+              text-transform: uppercase;
+            }
 
+            #content .projects-hero p {
+              margin: 14px 0 0;
+              max-width: 900px;
+              color: var(--ink-soft);
+              line-height: 1.6;
+              font-size: 1.02rem;
+            }
 
+            #content .projects-kicker {
+              margin: 0 0 6px;
+              font-size: 0.75rem;
+              letter-spacing: 0.13em;
+              text-transform: uppercase;
+              color: rgba(70, 57, 43, 0.7);
+              font-weight: 700;
+            }
 
+            #content .projects-section {
+              margin: 36px 0 30px;
+            }
 
-          </br>
+            #content .projects-section-title {
+              margin: 0 0 14px;
+              font-family: "Josefin Sans", "Trebuchet MS", sans-serif;
+              font-size: clamp(1.4rem, 2.9vw, 2.2rem);
+              text-transform: uppercase;
+              letter-spacing: 0.06em;
+            }
 
+            #content .projects-grid {
+              display: grid;
+              grid-template-columns: repeat(12, minmax(0, 1fr));
+              gap: 18px;
+            }
 
-          <div class="col-12 ">
-            <h2 class="site-section-heading text-center eng">Professional Experience</h2>
-            <h2 class="site-section-heading text-center fr">Experience Pro</h2>
-          </div>
+            #content .project-card {
+              grid-column: span 6;
+              position: relative;
+              background: var(--paper);
+              border: 1px solid rgba(0, 0, 0, 0.1);
+              box-shadow: 0 18px 28px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.05);
+              padding: 16px;
+              transform: none;
+            }
 
-          <div class="container-fluid" data-aos="fade" data-aos-delay="500">
-            <div class="row">
+            #content .project-card::before {
+              content: none;
+            }
 
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">YourCodex</h2>
-                    <h5 class="white eng">A software development services company</h5>
-                    <h5 class="white fr">Une ESN spécialisée en développement logiciel</h5>
+            #content .project-card::after {
+              content: none;
+            }
+
+            #content .project-head {
+              display: flex;
+              gap: 10px;
+              align-items: flex-start;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              margin-bottom: 10px;
+              position: relative;
+              padding-right: 140px;
+              text-align: left;
+            }
+
+            #content .project-head h3 {
+              margin: 0;
+              font-size: 1.34rem;
+              line-height: 1.2;
+              font-family: "Roboto Mono", monospace;
+            }
+
+            #content .project-year {
+              font-size: 1.2rem;
+              letter-spacing: 0.06em;
+              text-transform: uppercase;
+              color: #2f2622;
+              font-weight: 700;
+              position: absolute;
+              top: -15px;
+              right: 0;
+              padding: 7px 12px;
+              border-radius: 999px;
+            }
+
+            #content .project-summary {
+              margin: 0 0 10px;
+              color: var(--ink-soft);
+              line-height: 1.55;
+              font-size: 0.95rem;
+              text-align: left;
+            }
+
+            #content .project-stack {
+              margin: 0 0 12px;
+              font-size: 0.78rem;
+              text-transform: uppercase;
+              letter-spacing: 0.08em;
+              color: rgba(38, 31, 26, 0.72);
+              font-weight: 700;
+              text-align: left;
+            }
+
+            #content .project-gallery {
+              display: grid;
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              gap: 12px;
+            }
+
+            #content .project-gallery img {
+              width: 100%;
+              aspect-ratio: 16 / 10;
+              object-fit: contain;
+              border: 5px solid #fff;
+              box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
+              background: #fff;
+              min-height: 220px;
+            }
+
+            #content .project-gallery img:nth-child(2) {
+              transform: none;
+            }
+
+            #content .project-gallery img:nth-child(3) {
+              transform: none;
+            }
+
+            #content .project-card.pinned-project {
+              grid-column: span 12;
+              padding: 20px;
+              overflow: visible;
+              border-radius: 8px;
+            }
+
+            #content .project-card.pinned-project .project-layout {
+              display: block;
+            }
+
+            #content .project-brand {
+              display: inline-flex;
+              align-items: center;
+              gap: 14px;
+              text-align: left;
+            }
+
+            #content .project-brand-logo {
+              width: 52px;
+              height: 52px;
+              object-fit: contain;
+              flex-shrink: 0;
+            }
+
+            #content .project-brand-logo.tandem-logo {
+              width: 138px;
+              height: 38px;
+            }
+
+            #content .project-brand-logo.codeami-logo {
+              width: 62px;
+              height: 62px;
+            }
+
+            #content .project-brand h3 {
+              margin: 0;
+            }
+
+            #content .project-brand h3:not(.codeami-title) {
+              font-size: 1.66rem;
+            }
+
+            #content .codeami-title {
+              font-family: "Josefin Sans", "Trebuchet MS", sans-serif;
+              letter-spacing: 0.01em;
+              text-transform: none;
+              font-weight: 700;
+              font-size: 2rem;
+            }
+
+            #content .codeami-title .code {
+              color: #2f4d3f;
+            }
+
+            #content .codeami-title .ami {
+              color: #e60012;
+            }
+
+            #content .project-media-side .project-gallery {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            #content .project-outside-gallery {
+              display: grid;
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              gap: 12px;
+              grid-column: span 12;
+              margin: -4px 0 22px;
+              align-items: start;
+            }
+
+            #content .project-outside-gallery.project-outside-gallery-3 {
+              grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            #content .project-outside-gallery.project-outside-gallery-4 {
+              grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            #content .project-outside-gallery.codeami-gallery {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              gap: 14px;
+            }
+
+            #content .project-outside-gallery.codeami-gallery .ca-shot-1 {
+              grid-column: 1 / span 1;
+            }
+
+            #content .project-outside-gallery.codeami-gallery .ca-shot-2 {
+              grid-column: 2 / span 1;
+              margin-top: 18px;
+            }
+
+            #content .project-outside-gallery.codeami-gallery .ca-shot-3 {
+              grid-column: 1 / span 2;
+              margin-top: 6px;
+              max-width: 82%;
+              justify-self: center;
+            }
+
+            #content .project-outside-gallery.tandem-gallery {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              gap: 14px;
+            }
+
+            #content .project-outside-gallery.tandem-gallery .td-shot-1 {
+              grid-column: auto;
+            }
+
+            #content .project-shot {
+              display: block;
+              cursor: default;
+              border-radius: 2px;
+              transition: transform 0.16s ease;
+            }
+
+            #content .project-outside-gallery .project-shot:nth-child(odd) {
+              transform: rotate(-1.5deg);
+            }
+
+            #content .project-outside-gallery .project-shot:nth-child(even) {
+              transform: rotate(1.2deg);
+            }
+
+            #content .project-outside-gallery .project-shot:nth-child(3n) {
+              transform: rotate(-0.7deg) translateY(4px);
+            }
+
+            #content .project-outside-gallery img {
+              width: 100%;
+              aspect-ratio: 16 / 10;
+              object-fit: contain;
+              border: 5px solid #fff;
+              box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18);
+              background: #fff;
+              min-height: 240px;
+              transition: transform 0.16s ease, box-shadow 0.16s ease;
+            }
+
+            #content .project-outside-gallery.codeami-gallery img {
+              min-height: 280px;
+            }
+
+            #content .project-outside-gallery.tandem-gallery img {
+              min-height: 300px;
+            }
+
+            #content .project-shot:hover img,
+            #content .project-shot:focus-visible img {
+              transform: translateY(-2px);
+              box-shadow: 0 12px 22px rgba(0, 0, 0, 0.24);
+            }
+
+            #content .project-shot:hover,
+            #content .project-shot:focus-visible {
+              transform: rotate(0deg) translateY(-2px);
+            }
+
+            #content .pinned-text-card {
+              grid-column: span 8;
+              margin-bottom: 10px;
+            }
+
+            #content .pinned-text-card.compact-right {
+              justify-self: end;
+            }
+
+            #content .pinned-text-card.mini {
+              grid-column: span 7;
+            }
+
+            #content .pinned-text-card.hero {
+              grid-column: span 9;
+            }
+
+            #content .pinned-cluster {
+              grid-column: 1 / -1;
+              position: relative;
+              margin-bottom: 16px;
+              padding: 6px 0;
+            }
+
+            #content .pinned-cluster > * {
+              position: relative;
+              z-index: 1;
+            }
+
+            #content .pinned-cluster.codeami-cluster::before {
+              content: "";
+              position: absolute;
+              inset: 0;
+              background: url("images/projets/codeami_bg.png") center/cover no-repeat;
+              opacity: 0.14;
+              border-radius: 12px;
+              z-index: 0;
+              pointer-events: none;
+            }
+
+            #content .pinned-cluster.codeami-cluster {
+              padding: 16px 12px 10px;
+            }
+
+            #content .pinned-cluster.tandem-cluster {
+              padding-right: min(30%, 340px);
+              min-height: 520px;
+            }
+
+            #content .pinned-cluster.tandem-cluster::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              right: 0;
+              height: 100%;
+              width: min(30%, 340px);
+              background: url("images/projets/tandem_bg.png") center/cover no-repeat;
+              border-radius: 12px;
+              z-index: 0;
+            }
+
+            #content .project-media-side .project-gallery.one-col {
+              grid-template-columns: 1fr;
+            }
+
+            #content .project-media-side .project-gallery.one-col img {
+              aspect-ratio: 16 / 9;
+            }
+
+            #content .project-card.wide {
+              grid-column: span 12;
+            }
+
+            #content .project-card.wide .project-gallery {
+              grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            #content .projects-note {
+              margin-top: 30px;
+              padding: 14px 16px;
+              border-left: 4px solid var(--accent);
+              background: rgba(255, 251, 242, 0.82);
+              color: rgba(42, 35, 31, 0.82);
+              line-height: 1.6;
+              font-size: 0.95rem;
+            }
+
+            #content .projects-note a {
+              font-weight: 700;
+              text-decoration: underline;
+            }
+
+            @media (max-width: 992px) {
+              #content .project-card,
+              #content .project-card.wide {
+                grid-column: span 12;
+              }
+
+              #content .pinned-text-card,
+              #content .pinned-text-card.mini {
+                grid-column: span 12;
+                justify-self: auto;
+              }
+
+              #content .pinned-cluster.tandem-cluster {
+                padding-right: 0;
+                min-height: 0;
+              }
+
+              #content .pinned-cluster.tandem-cluster::after {
+                display: none;
+              }
+
+              #content .project-card.pinned-project .project-layout {
+                grid-template-columns: 1fr;
+              }
+
+              #content .project-outside-gallery,
+              #content .project-outside-gallery.project-outside-gallery-3,
+              #content .project-outside-gallery.project-outside-gallery-4 {
+                grid-template-columns: 1fr;
+                margin: 8px 0 18px;
+              }
+
+              #content .project-outside-gallery img {
+                min-height: 210px;
+              }
+
+              #content .project-card.wide .project-gallery {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+              }
+            }
+
+            @media (max-width: 640px) {
+              #content .projects-reboot {
+                padding: 22px 10px 46px;
+              }
+
+              #content .projects-hero {
+                padding: 4px 0 8px;
+              }
+
+              #content .project-head {
+                padding-right: 0;
+                padding-top: 28px;
+              }
+
+              #content .project-year {
+                position: absolute;
+                top: 8px;
+                left: 10px;
+                right: auto;
+                margin-top: 0;
+                font-size: 0.86rem;
+              }
+
+              #content .project-gallery,
+              #content .project-card.wide .project-gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+              }
+            }
+          </style>
+
+          <section class="projects-reboot">
+            <header class="projects-hero" data-aos="fade-up" data-aos-delay="120">
+              <h1 class="fr">Quelques uns de mes projets</h1>
+              <h1 class="eng">Some of my projects</h1>
+            </header>
+
+            <section class="projects-section" data-aos="fade-up" data-aos-delay="180">
+              <h2 class="projects-section-title fr">Epinglés</h2>
+              <h2 class="projects-section-title eng">Pinned</h2>
+              <div class="projects-grid">
+
+                <div class="pinned-cluster codeami-cluster">
+                  <article class="project-card pinned-project pinned-text-card hero">
+                    <div class="project-layout">
+                      <div>
+                        <div class="project-head">
+                          <div class="project-brand">
+                            <img class="project-brand-logo codeami-logo" src="images/mushroom190.png" alt="CodeAmi logo" loading="lazy">
+                            <h3 class="codeami-title"><span class="code">Code</span><span class="ami">Ami.fr</span></h3>
+                          </div>
+                          <span class="project-year">2025</span>
+                        </div>
+                        <p class="project-summary fr">Plateforme sociale gaming conçue pour trouver rapidement des partenaires de jeu, créer des sessions et simplifier les échanges entre joueurs.</p>
+                        <p class="project-summary eng">A social gaming platform built to quickly find teammates, create sessions, and streamline interactions between players.</p>
+                        <p class="project-stack">Product design, Full-stack web, UX flows, MEVN, CI/CD</p>
+                      </div>
+                    </div>
+                  </article>
+                  <div class="project-outside-gallery codeami-gallery" data-project="codeami">
+                    <div class="project-shot ca-shot-1">
+                      <img src="images/projets/codeami_title.png" alt="CodeAmi background screen" loading="lazy">
+                    </div>
+                    <div class="project-shot ca-shot-2">
+                      <img src="images/projets/codami_partie.PNG" alt="CodeAmi interface detail" loading="lazy">
+                    </div>
+                    <div class="project-shot ca-shot-3">
+                      <img src="images/projets/codeami_bg.png" alt="CodeAmi branding" loading="lazy">
+                    </div>
                   </div>
-                  <img src="images/yourcodex.png" alt="Image" class="img-fluid">
                 </div>
-                <div class="bottom-date">
-                    <h3>2024-2025</h3>
+
+                <article class="project-card pinned-project pinned-text-card compact-right">
+                  <div class="project-layout">
+                    <div>
+                      <div class="project-head">
+                        <div class="project-brand">
+                          <img class="project-brand-logo" src="images/yourcodex.png" alt="YourCodex logo" loading="lazy">
+                          <h3>YourCodex</h3>
+                        </div>
+                        <span class="project-year">2024-2025</span>
+                      </div>
+                      <p class="project-summary fr">(ESN) Plusieurs missions pour différents clients, alliant conception et développement d'applications web.</p>
+                      <p class="project-summary eng">(ESN) Multiple missions for different clients, combining web application design and development.</p>
+                      <p class="project-stack">Product design, full-stack development, client collaboration</p>
+                    </div>
+                  </div>
+                </article>
+                <div class="project-outside-gallery" data-project="yourcodex">
+                  <div class="project-shot">
+                    <img src="images/projets/yourcodex1.png" alt="YourCodex project visual 1" loading="lazy">
+                  </div>
+                  <div class="project-shot">
+                    <img src="images/projets/yourcodex2.png" alt="YourCodex project visual 2" loading="lazy">
+                  </div>
                 </div>
+
+                <article class="project-card pinned-project pinned-text-card">
+                  <div class="project-layout">
+                    <div>
+                      <div class="project-head">
+                        <div class="project-brand">
+                          <img class="project-brand-logo" src="images/epicery_logo.png" alt="Epicery logo" loading="lazy">
+                          <h3>Epicery</h3>
+                        </div>
+                        <span class="project-year">2022-2024</span>
+                      </div>
+                      <p class="project-summary fr">Plateforme e-commerce alimentaire à fort trafic.</p>
+                      <p class="project-summary eng">High-traffic fresh-food e-commerce platform.</p>
+                      <p class="project-stack">Backend engineering, Performance, Production support</p>
+                    </div>
+                  </div>
+                </article>
+                <div class="project-outside-gallery" data-project="epicery">
+                  <div class="project-shot">
+                    <img src="images/timeline/epicery.png" alt="Epicery app interface" loading="lazy">
+                  </div>
+                  <div class="project-shot">
+                    <img src="images/projets/epicery_pc.png" alt="Epicery desktop visual" loading="lazy">
+                  </div>
+                </div>
+
+                <div class="pinned-cluster tandem-cluster">
+                  <article class="project-card pinned-project pinned-text-card mini">
+                    <div class="project-layout">
+                      <div>
+                        <div class="project-head">
+                          <div class="project-brand">
+                            <img class="project-brand-logo tandem-logo" src="images/projets/tandem_logo.png" alt="Tandem logo" loading="lazy">
+                            <h3>(Boardingates / Genius)</h3>
+                          </div>
+                          <span class="project-year">2021-2022</span>
+                        </div>
+                        <p class="project-summary fr">Application de correspondance sécurisée pour enfants.</p>
+                        <p class="project-summary eng">Secure messaging application for children.</p>
+                        <p class="project-stack">Product design, MEVN, Real-time messaging</p>
+                      </div>
+                    </div>
+                  </article>
+                  <div class="project-outside-gallery tandem-gallery" data-project="tandem">
+                    <div class="project-shot td-shot-1">
+                      <img src="images/tandem/conversation_socket.gif" alt="Tandem real-time conversation" loading="lazy">
+                    </div>
+                    <div class="project-shot td-shot-2">
+                      <img src="images/projets/tandem_activites.png" alt="Tandem activities" loading="lazy">
+                    </div>
+                  </div>
+                </div>
+
               </div>
+            </section>
 
+            <section class="projects-section" data-aos="fade-up" data-aos-delay="220">
+              <h2 class="projects-section-title fr">Quelques Projets scolaires</h2>
+              <h2 class="projects-section-title eng">Some school projects</h2>
+              <div class="projects-grid">
 
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">Epicery</h2>
-                    <h5 class="white eng">The Uber of high-quality fresh produce</h5>
-                    <h5 class="white fr">L’Uber des produits frais de qualité</h5>
+                <article class="project-card">
+                  <div class="project-head">
+                    <h3>Starpig (Unity)</h3>
+                    <span class="project-year">2020</span>
                   </div>
-                  <img src="images/epicery_logo.png" alt="Image" class="img-fluid">
-                </div>
-                <div class="bottom-date">
-                    <h3>2022-2024</h3>
-                </div>
+                  <p class="project-summary fr">Rail shooter inspiré Star Fox réalisé en un mois: gameplay, patterns ennemis, HUD, et direction visuelle autour de l'univers Porco Rosso.</p>
+                  <p class="project-summary eng">A Star Fox-inspired rail shooter built in one month: gameplay loop, enemy patterns, HUD, and visual direction around a Porco Rosso vibe.</p>
+                  <p class="project-stack">Unity, Game loop design, UI/HUD, artistic direction</p>
+                  <div class="project-gallery">
+                    <img src="images/starpig/screen1.png" alt="Starpig gameplay screenshot 1" loading="lazy">
+                    <img src="images/starpig/screen2.png" alt="Starpig gameplay screenshot 2" loading="lazy">
+                  </div>
+                </article>
+
+                <article class="project-card">
+                  <div class="project-head">
+                    <h3>Count Of Money (Crypto)</h3>
+                    <span class="project-year">2021</span>
+                  </div>
+                  <p class="project-summary fr">Application crypto avec dashboard: gestion d'articles, suivi des tendances, vues détaillées et infos en temps réel.</p>
+                  <p class="project-summary eng">A crypto dashboard app with article management, trend tracking, detailed views, and real-time information.</p>
+                  <p class="project-stack">Node.js, Vue.js, API integration</p>
+                  <div class="project-gallery">
+                    <img src="images/crypto/articledetail.gif" alt="Crypto app detail" loading="lazy">
+                    <img src="images/crypto/mobilecrypto.gif" alt="Crypto mobile interaction" loading="lazy">
+                  </div>
+                </article>
+
+                <article class="project-card">
+                  <div class="project-head">
+                    <h3 class="fr">Piscine Epitech</h3>
+                    <h3 class="eng">Epitech Pool App Sprint</h3>
+                    <span class="project-year">2020</span>
+                  </div>
+                  <p class="project-summary fr">Sprint intensif de 48h pour livrer une application complète de gestion de planning.</p>
+                  <p class="project-summary eng">An intense 48-hour sprint to deliver a complete planning management app.</p>
+                  <p class="project-stack">Elixir (Phoenix), Team delivery, Vue.js</p>
+                  <div class="project-gallery">
+                    <img src="images/TimeManager/wts.png" alt="Fast prototype board" loading="lazy">
+                  </div>
+                </article>
+
+                <!--
+                <article class="project-card">
+                  <div class="project-head">
+                    <h3>Time Manager</h3>
+                    <span class="project-year">2020</span>
+                  </div>
+                </article>
+
+                <article class="project-card">
+                  <div class="project-head">
+                    <h3>WeatherApp</h3>
+                    <span class="project-year">2019</span>
+                  </div>
+                </article>
+
+                <article class="project-card">
+                  <div class="project-head">
+                    <h3>Music Player</h3>
+                    <span class="project-year">2019</span>
+                  </div>
+                </article>
+                -->
+
+                <p class="projects-note fr" style="grid-column: 1 / -1; margin-top: 4px;">Les autres ne valent pas trop la peine d'être montrés ou viendront plus tard.</p>
+                <p class="projects-note eng" style="grid-column: 1 / -1; margin-top: 4px;">The other ones are not really worth showcasing here or will come later.</p>
+
               </div>
+            </section>
 
-              <!--<div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="fr mb-3">CodeAmi.fr (fermé)</h2>
-                    <h2 class="eng mb-3">CodeAmi.fr (closed)</h2>
-                    <h5 class="white eng">Nintendo friend code exchange site</h5>
-                    <h5 class="white fr">Site d'échange de codes ami Nintendo</h5>
-                    
-                  </div>
-                  <img src="images/mushroom.png" alt="Image" class="img-fluid">
-                </div>
-                <div class="bottom-date">
-                    <h3>2021-2023</h3>
-                </div>
-              </div>-->
+            <section class="projects-section" data-aos="fade-up" data-aos-delay="260">
+              <h2 class="projects-section-title fr">Autres</h2>
+              <h2 class="projects-section-title eng">Other</h2>
+              <div class="projects-grid">
 
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">Boardingates / Genius</h2>
-                    <h5 class="white eng">Correspondence application</h5>
-                    <h5 class="white fr">Appli de correspondance</h5>
-                    <a href="tandem" class="btn btn-outline-white py-2 px-4"><span class="eng"><span class="eng">More
-                          Infos</span><span class="fr">Voir plus</span></span><span class="fr">Voir plus</span></a>
+                <article class="project-card">
+                  <div class="project-head">
+                    <h3>Flipnote</h3>
+                    <span class="project-year">2011</span>
                   </div>
-                  <img src="images/tandemlogo.png" alt="Image" class="img-fluid">
-                </div>
-                <div class="bottom-date">
-                    <h3>2021-2022</h3>
-                </div>
+                  <p class="project-summary fr">Premiers essais de narration animée et animation 2D mini scènes. Une base créative qui a nourri la suite.</p>
+                  <p class="project-summary eng">Early experiments in animated storytelling and 2D mini-scene animation. A creative foundation that fueled what came next.</p>
+                  <p class="project-stack">Storyboarding, 2D animation practice</p>
+                  <div class="project-gallery">
+                    <img src="images/timeline/2011-flipnote1.png" alt="Flipnote frame 1" loading="lazy">
+                    <img src="images/timeline/2011-flipnote4.png" alt="Flipnote frame 3" loading="lazy">
+                  </div>
+                </article>
+
+                <article class="project-card">
+                  <div class="project-head">
+                    <h3>Unreal Game Dev Prototypes</h3>
+                    <span class="project-year">2017</span>
+                  </div>
+                  <p class="project-summary fr">Série de prototypes orientés gameplay et level logic: exploration de blueprinting, architecture de scènes et game design.</p>
+                  <p class="project-summary eng">A set of gameplay and level-logic prototypes exploring blueprinting, scene architecture, and game design.</p>
+                  <p class="project-stack">Unreal Engine, Blueprint scripting, Prototyping</p>
+                  <div class="project-gallery">
+                    <img src="images/timeline/2017-jeuvideo.png" alt="Unreal prototype screenshot" loading="lazy">
+                    <img src="images/timeline/2017-jeuvideo1.png" alt="Unreal gameplay scene" loading="lazy">
+                  </div>
+                </article>
+
+          
+
               </div>
+            </section>
 
+            <p class="projects-note fr">Pour en savoir plus sur moi, regarde <a href="/timeline">mon histoire</a>.</p>
+            <p class="projects-note eng">To learn more about me, check out <a href="/timeline">my story</a>.</p>
 
-
-
-
+            <div class="footer">
+              <div class="container-fluid text-center">
+                <p>
+                  Copyright
+                  <script>document.write(new Date().getFullYear());</script> All rights reserved | Morgan Bouyakhlef
+                </p>
+              </div>
             </div>
-          </div>
-
-
-          <div class="col-12 ">
-            <h2 class="site-section-heading text-center eng">My School projects</h2>
-            <h2 class="site-section-heading text-center fr">Mes projets de classe</h2>
-          </div>
-
-          <div class="container-fluid" data-aos="fade" data-aos-delay="500">
-            <div class="row">
-
-
-
-
-
-
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">Starpig</h2>
-                    <h5 class="white eng">Video Game made on Unity</h5>
-                    <h5 class="white fr">Jeu vidéo réalisé sur Unity</h5>
-                    <a href="starpig" class="btn btn-outline-white py-2 px-4"><span class="eng">More Infos</span><span
-                        class="fr">Voir plus</span></a>
-                  </div>
-                  <img src="images/tumbsp.png" style="height: 100%;" alt="Image" class="img-fluid">
-                </div>
-                <div class="bottom-date">
-                    <h3>2020</h3>
-                </div>
-              </div>
-
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">Count Of Money</h2>
-                    <h5 class="white eng">Crypto-currencies app with NodeJS/Vue.js</h5>
-                    <h5 class="white fr">Appli de crypto-monnaies en NodeJS/Vue.js</h5>
-                    <a href="crypto" class="btn btn-outline-white py-2 px-4"><span class="eng"><span class="eng">More
-                          Infos</span><span class="fr">Voir plus</span></span><span class="fr">Voir plus</span></a>
-                  </div>
-                  <img src="images/cryptoto.png" alt="Image" class="img-fluid">
-                </div>
-                <div class="bottom-date">
-                    <h3>2021</h3>
-                </div>
-              </div>
-
-
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">Time Manager</h2>
-                    <h5 class="white eng">Time managing app made with Elixir/Vue.js</h5>
-                    <h5 class="white fr">Appli de Time Management en Elixir/Vue.js</h5>
-                    <a href="timemanager" class="btn btn-outline-white py-2 px-4"><span class="eng"><span class="eng">More
-                          Infos</span><span class="fr">Voir plus</span></span><span class="fr">Voir plus</span></a>
-                  </div>
-                  <img src="images/timeMan.png" alt="Image" class="img-fluid">
-                </div>
-                <div class="bottom-date">
-                    <h3>2020</h3>
-                </div>
-              </div>
-
-
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">WeatherApp</h2>
-                    <h5 class="white eng">A Node.js weather web app</h5>
-                    <h5 class="white fr">Appli de web météo en Node.js</h5>
-                    <a href="weather" class="btn btn-outline-white py-2 px-4"><span class="eng">More Infos</span><span
-                        class="fr">Voir plus</span></a>
-                  </div>
-                  <img src="images/meteo.png" alt="Image" class="img-fluid">
-                </div>
-                <div class="bottom-date">
-                    <h3>2019</h3>
-                </div>
-              </div>
-
-              <div class="col-lg-4">
-                <div class="image-wrap-2">
-                  <div class="image-info">
-                    <h2 class="mb-3">Music Player</h2>
-                    <h5 class="white eng">A C# ASP.NET web music player</h5>
-                    <h5 class="white fr">Appli web de streaming musical en C# ASP.NET</h5>
-                    <a href="/musicplayer" class="btn btn-outline-white py-2 px-4"><span class="eng">More
-                        Infos</span><span class="fr">Voir plus</span></a>
-                  </div>
-                  <img src="images/musica.png" alt="Image" class="img-fluid">
-                </div>
-                <div class="bottom-date">
-                    <h3>2019</h3>
-                </div>
-              </div>
-
-
-
-
-            </div>
-          </div>
-
-
-          <div class="footer">
-            <div class="container-fluid text-center">
-              <p>
-                Copyright
-                <script>document.write(new Date().getFullYear());</script> All rights reserved | Morgan Bouyakhlef
-              </p>
-            </div>
-          </div>
+          </section>
         </div>
       </div>
 
