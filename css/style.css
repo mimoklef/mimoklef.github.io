@@ -1835,13 +1835,13 @@ body::-webkit-scrollbar-thumb {
 .cta {
   margin-top: 35px;
   padding: 16px 30px;
-  border: 1px solid white;
-  background: none;
-  color: white;
+  border: 1px solid rgba(81, 81, 81);
+  background: transparent;
+  color: #111;
   border-radius: 30px;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease;
   outline: none !important;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -1849,26 +1849,22 @@ body::-webkit-scrollbar-thumb {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    transition:
-      background-color 0.1s ease,
-      color 0.1s ease,
-      transform 0.001s ease-out;
+    transition: transform 0.01s ease;
 }
 
 .cta:hover {
-  background-color: white;
-  color: black;
+  background: transparent;
+  transform: scale(1.03);
 }
 
 .cta:active {
-  transform: scale(0.95);
+  transform: scale(0.99);
 }
 
   .codepen-link {
   color: rgba(255, 255, 255, 0.5);
   transition: color 0.3s ease;
   padding-left: 0px !important;
-  margin: 0px !important;
 
 }
 .site-mobile-menu .site-nav-wrap[data-class="social"] > li:first-child a {
@@ -1884,6 +1880,7 @@ body::-webkit-scrollbar-thumb {
   .codepen-link svg{
     width: 21px;
     margin: auto;
+    fill: transparent !important;
   }
 
 
@@ -1937,8 +1934,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .hero-footer .icon-fleche {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
   margin-right: 8px;
   display: inline-block;
 }
@@ -2029,8 +2028,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 .contact-section a:hover{
-  opacity: 0.4;
-  color: white;
+  opacity: 1;
+  color: #b60000;
+}
+
+.contact-section a:hover .contact-info {
+  color: #b60000;
 }
 
 
@@ -2075,19 +2078,16 @@ body.animation-mode {
 }
 
 
-
-
-
 #launch-circle {
   position: fixed;
   bottom: 20px;
   left: 20px;
   width: 120px;
   height: 120px;
-  background: radial-gradient(circle at center, #ffffff, #e0f7e9);
+  background: #fff;
   border: 4px solid #ea7070;
   border-radius: 50%;
-  box-shadow: 0 0 20px rgba(140, 215, 144, 0.6);
+  box-shadow: 0 0 20px rgba(215, 140, 140, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2095,11 +2095,10 @@ body.animation-mode {
   transition: transform 0.2s ease, opacity 0.5s ease;
   z-index: 20;
   animation: pulse 2s infinite;
-
-  -webkit-user-select: none; /* Chrome, Safari */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* Internet Explorer/Edge */
-  user-select: none;         /* Standard */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 @media (max-width: 768px) {
@@ -2184,7 +2183,7 @@ body.animation-mode {
   width: auto;
   height: 80px;
   margin-bottom: -10px;
-  background-image: url('images/frogy.png');
+  background-image: url('../images/frogy.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom center;
@@ -2330,6 +2329,347 @@ body.animation-mode {
   width: 80px;
   height: auto;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Global light-theme lock for the portfolio */
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background: #faf6ef !important;
+  color: #000 !important;
+}
+
+body,
+body * {
+  color: #000 !important;
+}
+
+.site-navbar .site-navigation .site-menu .active > a,
+.site-mobile-menu .site-nav-wrap li.active > a {
+  color: red !important;
+}
+
+.site-navbar .site-navigation .site-menu > li > a:hover,
+.site-mobile-menu .site-nav-wrap a:hover {
+  color: red !important;
+}
+
+a,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  color: #000 !important;
+}
+
+.bg-black,
+.site-footer,
+.site-mobile-menu,
+.site-mobile-menu .site-mobile-menu-body,
+.site-mobile-menu .site-mobile-menu-header,
+.site-navbar,
+.site-navbar .container-fluid,
+.site-wrap,
+#notframe,
+#inframe {
+  background: #faf6ef !important;
+}
+
+.site-footer p,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer h5,
+.site-footer a,
+.site-footer .footer-heading,
+.text-white-opacity-05,
+.contact-section,
+.contact-section a,
+.hero-section,
+.hero-footer a,
+.codepen-link,
+.site-menu a,
+.site-navigation a {
+  color: #000 !important;
+}
+
+.form-control,
+input,
+textarea,
+select,
+button {
+  color: #000 !important;
+}
+
+.form-control {
+  background: #fff !important;
+  border-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+svg,
+[class^="icon-"],
+[class*=" icon-"] {
+  color: #000 !important;
+}
+
+.codepen-link svg {
+  fill: transparent !important;
+}
+
+svg path,
+svg circle,
+svg rect,
+svg polygon,
+svg line,
+svg polyline {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.codepen-link svg path,
+.codepen-link svg circle,
+.codepen-link svg rect,
+.codepen-link svg polygon,
+.codepen-link svg line,
+.codepen-link svg polyline {
+  fill: transparent !important;
+}
+
+.hero-footer .icon-fleche path,
+.hero-footer .icon-fleche circle,
+.hero-footer .icon-fleche rect,
+.hero-footer .icon-fleche polygon,
+.hero-footer .icon-fleche line,
+.hero-footer .icon-fleche polyline {
+  fill: transparent !important;
+  stroke: currentColor !important;
+}
+
+.contact-section .email-tooltip,
+.contact-section .email-tooltip * {
+  color: #fff !important;
+}
+
+.contact-section .email-copy:hover,
+.contact-section .email-copy:focus-visible,
+.contact-section a:hover,
+.contact-section a:hover .contact-info {
+  color: #b60000 !important;
+  opacity: 1 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background: #faf6ef !important;
+    color: #000 !important;
+  }
+}
+
+@media (forced-colors: active) {
+  html,
+  body,
+  .site-wrap,
+  .site-navbar,
+  .site-mobile-menu,
+  .site-footer,
+  .contact-section,
+  .hero-section,
+  .form-control,
+  button,
+  input,
+  textarea,
+  a {
+    forced-color-adjust: none;
+  }
+}
+
+/* Keep frog experience background when animation mode is active */
+body.animation-mode {
+  background: linear-gradient(to bottom, #d6f0ff 0%, #bce3bc 100%) !important;
+}
+
+body.animation-mode #notframe,
+body.animation-mode #inframe,
+body.animation-mode .site-wrap {
+  background: transparent !important;
+}
+
+/* Theme toggle button */
+.theme-toggle-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: none;
+  background: none;
+  color: #111 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none !important;
+  padding: 6px;
+  line-height: 1;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle-btn .bulb {
+  width: 24px;
+  height: 30px;
+  color: currentColor;
+  transition: transform 120ms ease;
+}
+
+.theme-toggle-btn:hover .bulb {
+  transform: scale(1.1);
+}
+
+.theme-toggle-btn:active .bulb {
+  transform: scale(0.90);
+}
+
+.theme-toggle-btn .bulb path,
+.theme-toggle-btn .bulb .rays path {
+  fill: none !important;
+}
+
+.theme-toggle-btn .bulb .rays {
+  opacity: 0;
+}
+
+.theme-toggle-btn .bulb .bulb-fill {
+  fill: none !important;
+}
+
+
+
+.theme-toggle-btn.is-on .bulb .bulb-fill {
+  fill: #FFE082 !important;
+}
+
+.theme-toggle-btn.is-on .bulb .rays {
+  opacity: 1;
+}
+
+/* Manual dark mode */
+html.theme-dark,
+body.theme-dark {
+  background: #0e1114 !important;
+  color: #eceff3 !important;
+}
+
+body.theme-dark,
+body.theme-dark * {
+  color: #eceff3 !important;
+}
+
+body.theme-dark a,
+body.theme-dark a:visited,
+body.theme-dark a:hover,
+body.theme-dark a:focus,
+body.theme-dark a:active {
+  color: #eceff3 !important;
+}
+
+body.theme-dark .site-navbar,
+body.theme-dark .site-navbar .container-fluid,
+body.theme-dark .site-wrap,
+body.theme-dark .site-mobile-menu,
+body.theme-dark .site-mobile-menu .site-mobile-menu-header,
+body.theme-dark .site-mobile-menu .site-mobile-menu-body,
+body.theme-dark #notframe,
+body.theme-dark #inframe,
+body.theme-dark .hero-section,
+body.theme-dark .contact-section {
+  background: #0e1114 !important;
+}
+
+body.theme-dark .site-navbar .site-navigation .site-menu .active > a,
+body.theme-dark .site-mobile-menu .site-nav-wrap li.active > a {
+  color: #ff6b6b !important;
+}
+
+body.theme-dark .site-navbar .site-navigation .site-menu > li > a:hover,
+body.theme-dark .site-mobile-menu .site-nav-wrap a:hover,
+body.theme-dark .contact-section .email-copy:hover,
+body.theme-dark .contact-section a:hover,
+body.theme-dark .contact-section a:hover .contact-info {
+  color: #ff8f8f !important;
+}
+
+body.theme-dark .form-control,
+body.theme-dark input,
+body.theme-dark textarea,
+body.theme-dark select {
+  background: #171c22 !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  color: #eceff3 !important;
+}
+
+body.theme-dark .theme-toggle-btn {
+  color: #eceff3 !important;
+  box-shadow: none;
+}
+
+
+body.theme-dark.animation-mode,
+body.animation-mode {
+  background: linear-gradient(to bottom, #d6f0ff 0%, #bce3bc 100%) !important;
+}
+
+body.theme-dark.animation-mode #notframe,
+body.theme-dark.animation-mode #inframe,
+body.theme-dark.animation-mode .site-wrap,
+body.theme-dark.animation-mode .site-section,
+body.theme-dark.animation-mode .hero-section,
+body.theme-dark.animation-mode .animate-bottom,
+body.animation-mode #notframe,
+body.animation-mode #inframe,
+body.animation-mode .site-wrap,
+body.animation-mode .site-section,
+body.animation-mode .hero-section,
+body.animation-mode .animate-bottom {
+  background: transparent !important;
+}
+
+/* First-paint dark mode (before JS adds class on body) */
+html.theme-dark body {
+  background: #0e1114 !important;
+  color: #eceff3 !important;
+}
+
+html.theme-dark body,
+html.theme-dark body * {
+  color: #eceff3 !important;
+}
+
+html.theme-dark body a,
+html.theme-dark body a:visited,
+html.theme-dark body a:hover,
+html.theme-dark body a:focus,
+html.theme-dark body a:active {
+  color: #eceff3 !important;
+}
+
+html.theme-dark body .site-navbar,
+html.theme-dark body .site-navbar .container-fluid,
+html.theme-dark body .site-wrap,
+html.theme-dark body .site-mobile-menu,
+html.theme-dark body .site-mobile-menu .site-mobile-menu-header,
+html.theme-dark body .site-mobile-menu .site-mobile-menu-body,
+html.theme-dark body #notframe,
+html.theme-dark body #inframe,
+html.theme-dark body .hero-section,
+html.theme-dark body .contact-section {
+  background: #0e1114 !important;
+}
+
+html.theme-dark body .site-navbar .site-navigation .site-menu .active > a,
+html.theme-dark body .site-mobile-menu .site-nav-wrap li.active > a {
+  color: #ff6b6b !important;
 }
 #launch-plane img {
   width: 70px;

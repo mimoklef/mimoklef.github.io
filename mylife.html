@@ -1,0 +1,1619 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Caveat:wght@400..700&display=swap");
+
+:root{
+  --ink:#111111;
+  --muted: rgba(17,17,17,.68);
+  color-scheme: light;
+
+  --paperShadow: 0 26px 80px rgba(0,0,0,.12);
+  --tileShadow: 0 18px 50px rgba(0,0,0,.14);
+
+  --tile-radius: 10px;
+  --panel-pad: 1vh 2vw;
+
+  --marginW: 197px;
+  --seyes-size: 80px 80px;
+  --seyes-margin-url: url("https://www.morganbkf.com/images/seyes/carreau_marge_seyes.svg");
+  --seyes-page-url: url("https://www.morganbkf.com/images/seyes/carreau_seyes.svg");
+
+  --filterH: 56px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  color: var(--ink);
+  font-family:"Archivo", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  overflow-x:hidden;
+
+  background:
+    radial-gradient(900px 550px at 20% -10%, rgba(255, 228, 160, .22), transparent 60%),
+    radial-gradient(800px 520px at 90% 10%, rgba(255, 180, 190, .18), transparent 55%),
+    #faf6ef;
+}
+
+@media (prefers-color-scheme: dark){
+  body{
+    color: var(--ink);
+    background:
+      radial-gradient(900px 550px at 20% -10%, rgba(255, 228, 160, .22), transparent 60%),
+      radial-gradient(800px 520px at 90% 10%, rgba(255, 180, 190, .18), transparent 55%),
+      #faf6ef;
+  }
+}
+
+@media (forced-colors: active){
+  html, body, .seyes-root, .seyes-margin, .seyes-page{
+    forced-color-adjust:none;
+  }
+}
+
+mark,
+.note__text mark,
+.seyes-title mark,
+.year-break__year mark{
+  border-image-source: url("https://i.ibb.co/F4zmKmw7/image-removebg-preview-19.png");
+  border-image-slice: 0 27 0 29 fill;
+  border-image-width: 0px 1ch 0px 1ch;
+  border-image-outset: 0px 1ch 0px 1ch;
+  border-image-repeat: round stretch;
+  background-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0.8em 0;
+}
+
+/* SÉYÈS ROOT (plein écran) */
+.seyes-root{
+  display:flex;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  position: relative;
+  border-radius: 0;
+  overflow: clip;
+  box-shadow: var(--paperShadow);
+  border: 1px solid rgba(0,0,0,.08);
+  background: rgba(255,255,255,.35);
+}
+
+/* MARGE */
+.seyes-margin{
+  width: var(--marginW);
+  background-image: var(--seyes-margin-url);
+  background-repeat: repeat;
+  background-size: var(--seyes-size);
+  border-right: 2px solid rgba(255, 128, 128, .95);
+  position: relative;
+  z-index: 4;
+}
+
+/* PAGE */
+.seyes-page{
+  flex: 1;
+  margin-left: -2px;
+  background-image: var(--seyes-page-url);
+  background-repeat: repeat;
+  background-size: var(--seyes-size);
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+.seyes-page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(255,255,255,.12);
+  pointer-events:none;
+}
+
+/* TITRE manuscrit */
+.seyes-title{
+  position: relative;
+  z-index: 6;
+  padding: clamp(34px, 7vh, 110px) clamp(24px, 4vw, 80px) 10px;
+}
+.seyes-title__h1{
+  margin: 0;
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  font-size: clamp(3.6rem, 7.8vw, 6.8rem);
+  line-height: 1.02;
+  color: rgba(17,17,17,.86);
+  transform: rotate(-1deg);
+  text-shadow: 0 2px 0 rgba(0,0,0,.05);
+}
+.seyes-title__sub{
+  margin: 8px 0 0 0;
+  color: rgba(17,17,17,.58);
+  font-size: clamp(13px, 1.4vw, 16px);
+  max-width: 70ch;
+  transform: rotate(-.3deg);
+}
+
+/* FILTRES sticky */
+.filters{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display:flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items:center;
+  padding: 10px 14px;
+  min-height: var(--filterH);
+
+  background: rgba(255,255,255,.48);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+.filters__left{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.filters__right{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+}
+
+.filter{
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.35);
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+}
+.filter input{ width: 16px; height: 16px; }
+.filter span{
+  font-size: 13px;
+  color: rgba(17,17,17,.80);
+}
+
+.filters__btn{
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.40);
+  padding: 8px 12px;
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+  cursor:pointer;
+}
+.filters__btn:active{ transform: translateY(1px); }
+
+.filters__hint{
+  font-size: 12px;
+  color: rgba(17,17,17,.55);
+  white-space:nowrap;
+}
+
+/* ACTIVE YEAR (fixed) */
+.active-year-rail{
+  position: fixed;
+  top: 14vh;
+  left: 0; /* calculà en JS */
+  transform: translateX(-50%);
+  z-index: 100;
+  pointer-events:none;
+}
+.active-year-rail__year{
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  font-size: clamp(34px, 4.2vw, 64px);
+  color: rgba(17,17,17,.78);
+  line-height: 1;
+  transform: rotate(-3deg);
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(0,0,0,.10);
+  box-shadow: 0 10px 30px rgba(0,0,0,.10);
+  position:relative;
+}
+.active-year-rail__year::after{
+  content:"";
+  position:absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 8px;
+  height: 2px;
+  background: rgba(17,17,17,.18);
+  transform: rotate(-2deg);
+  border-radius: 999px;
+}
+
+/* PANELS */
+.panels{
+  list-style:none;
+  margin:0;
+  padding: 0 0 7vh 0;
+  position:relative;
+  z-index: 2;
+}
+
+.panel{
+  height: clamp(74vh, 82vh, 92vh);
+  padding: var(--panel-pad);
+  margin-bottom: var(--panel-gap, 42vh);
+  position:relative;
+}
+.panel.is-hidden{ display:none !important; }
+
+.year-break{
+  padding: 3vh 0 1vh;
+  margin: 0;
+}
+.year-break.is-hidden{ display:none !important; }
+.year-break__year{
+  display:block;
+  width: fit-content;
+  margin: 0 auto;
+  font-family:"Caveat", cursive;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 4.8rem);
+  line-height: 1;
+  color: rgba(17,17,17,.48);
+  transform: translateX(var(--yx, 0px)) rotate(var(--yrot, -2deg));
+  white-space:nowrap;
+  letter-spacing:.5px;
+}
+
+.panel__stage{
+  position:relative;
+  height: 100%;
+  width: min(1180px, calc(100% - 4vw));
+  margin: 0 auto;
+}
+
+.doodles{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index: 1;
+}
+.doodle{
+  position:absolute;
+  left: var(--dx);
+  top: var(--dy);
+  transform: rotate(var(--dr, 0deg));
+  opacity:.55;
+}
+.doodle--dash{
+  width: clamp(78px, 9vw, 140px);
+  border-top: 2px dotted rgba(17,17,17,.28);
+}
+.doodle--circle{
+  width: clamp(22px, 2vw, 34px);
+  height: clamp(22px, 2vw, 34px);
+  border: 2px dashed rgba(17,17,17,.22);
+  border-radius: 999px;
+}
+.doodle--scribble{
+  font-family:"Caveat", cursive;
+  font-size: clamp(22px, 2.2vw, 32px);
+  color: rgba(17,17,17,.33);
+}
+
+marker{
+  mix-blend-mode: multiply;
+  opacity: .92;
+  filter: saturate(1.03) brightness(1.01);
+}
+
+/* Collage */
+.collage{ position:absolute; inset:0; }
+
+/* Photo collàe */
+.img-tile{
+  position:absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  transform: translate(-50%, -50%) rotate(var(--r));
+  z-index: var(--z);
+  margin:0;
+  border-radius: 10px;
+  overflow:hidden;
+  box-shadow: var(--tileShadow);
+  border: 1px solid rgba(0,0,0,.10);
+  background: transparent;
+  will-change: transform;
+}
+.img-tile img{
+  display:block;
+  width:100%;
+  height:auto;
+  opacity:1;
+  transform: none;
+  will-change: transform, opacity;
+}
+
+/* Sans cadre */
+.img-tile.is-raw{
+  border: 0;
+  box-shadow: 0 16px 45px rgba(0,0,0,.16);
+  border-radius: 8px;
+}
+
+/* Effet “dessin/scan” */
+.img-tile.is-drawn img{
+  filter: grayscale(.15) contrast(1.18) brightness(1.03) saturate(.9);
+}
+.img-tile.is-drawn{
+  border: 0;
+  box-shadow: 0 12px 38px rgba(0,0,0,.14);
+  border-radius: 8px;
+}
+
+/* Scotch */
+.img-tile.has-tape::after{
+  content:"";
+  position:absolute;
+  top: -10px; left: 10px;
+  width: 56px; height: 18px;
+  background: rgba(255,255,255,.52);
+  border: 1px solid rgba(0,0,0,.06);
+  transform: rotate(-10deg);
+  border-radius: 3px;
+  opacity:.72;
+  pointer-events:none;
+}
+
+/* NOTE */
+.note{
+  position:absolute;
+  width: var(--w, 40vw);
+  z-index: var(--z, 30);
+  transform: rotate(var(--rot, -1.5deg));
+}
+.note__box{
+  width:100%;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.60);
+  box-shadow: var(--tileShadow);
+  backdrop-filter: blur(10px);
+  position:relative;
+  overflow:hidden;
+}
+.note__box::before{
+  content:"";
+  position:absolute;
+  inset: -6px;
+  border: 2px dashed rgba(0,0,0,.10);
+  border-radius: 18px;
+  transform: rotate(-.5deg);
+  pointer-events:none;
+}
+.note__text{
+  padding: clamp(14px, 2vw, 22px);
+  display:grid;
+  gap: 10px;
+  opacity:1;
+  transform: none;
+  will-change: transform, opacity;
+}
+
+.kicker{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.sticker{
+  font-family:"Caveat", cursive;
+  font-size: 16px;
+  line-height: 1;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.58);
+  border: 1px solid rgba(0,0,0,.10);
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+  transform: rotate(var(--srot, -2deg));
+  position:relative;
+}
+.sticker::after{
+  content:"";
+  position:absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 6px;
+  height: 2px;
+  background: rgba(17,17,17,.12);
+  transform: rotate(1deg);
+  border-radius: 999px;
+}
+
+.note__text h3{
+  margin:0;
+  font-family:"Caveat", cursive;
+  font-weight: 700;
+  font-size: clamp(2.0rem, 3.4vw, 3.2rem);
+  line-height: 1.02;
+  color: rgba(17,17,17,.92);
+}
+.note__text p{
+  margin:0;
+  font-size: clamp(13px, 1.5vw, 16px);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 74ch;
+}
+.note__text p.aside{
+  font-family:"Caveat", cursive;
+  font-size: 18px;
+  color: rgba(17,17,17,.60);
+  transform: rotate(-.8deg);
+}
+
+/* placements */
+.pos-right{ right: 2vw; top: 12vh; }
+.pos-left{ left: 2vw; top: 14vh; }
+.pos-bottom-right{ right: 3vw; bottom: 9vh; }
+.pos-bottom-left{ left: 3vw; bottom: 9vh; }
+
+/* interlude */
+.panel.is-interlude .collage{ display:none; }
+.panel.is-interlude .note{
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%) rotate(-1.2deg);
+  width: min(860px, 90vw);
+}
+
+/* responsive */
+@media (max-width: 980px){
+  :root{ --marginW: 140px; }
+  .year-break{ padding: 4vh 3vw 1.5vh; }
+  .note{ width: min(86vw, 760px); }
+  .img-tile{ width: min(var(--w), 78vw); }
+}
+@media (max-width: 560px){
+  :root{ --marginW: 96px; }
+  .pos-right,.pos-left,.pos-bottom-right,.pos-bottom-left{
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: 10vh;
+    transform: translateX(-50%) rotate(-1.5deg);
+  }
+  .active-year-rail{ top: 10vh; }
+}
+
+</style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.3.16/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/mimoklef/highlighter-pen@v1.0.5/dist/highlighter-pen.js"></script>
+
+    <main class="seyes-root" data-app="timeline">
+    <aside class="seyes-margin" aria-hidden="true">
+        <div class="active-year-rail">
+        <div class="active-year-rail__year" data-active-year>2000</div>
+        </div>
+    </aside>
+
+    <section class="seyes-page">
+        <header class="seyes-title">
+        <h1 class="seyes-title__h1">Je scrolle dans mon carnet</h1>
+        
+        </header>
+
+        <!-- Filtres auto -->
+        <div class="filters" data-filters>
+        <div class="filters__left" data-filters-list></div>
+        <div class="filters__right">
+            <button class="filters__btn" type="button" data-all>Tout</button>
+            <button class="filters__btn" type="button" data-none>Rien</button>
+            <span class="filters__hint" data-visible-count></span>
+        </div>
+        </div>
+
+        <ul class="panels" data-panels></ul>
+    </section>
+    </main>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+if (window.HighlighterPen) {
+  HighlighterPen().init();
+}
+
+// Lenis smooth scroll
+const lenis = new Lenis({ lerp: 0.085, smoothWheel: true });
+function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+requestAnimationFrame(raf);
+
+/* =========================
+  TON DATA (corrigé)
+========================= */
+const items = [
+  // 2000
+  {
+    id: "2000-born",
+    year: 2000,
+    kind: "story",
+    cats: ["personal", "art"],
+    title: "1er avril 2000 — Non, c'est pas une blague.",
+    voice:
+      "Livraison par cigogne, bien sûr ! Mes parents devaient être contents ; enfin, ils ont intérêt, avec un fils comme moi 😎",
+    aside: "Promis après ça, je redeviens sérieux (ou presque).",
+    textPos: "pos-right",
+    noteRot: "-1.8deg",
+    tags: ["naissance", "lore", "cigogne"],
+    images: [
+      { src:"/images/myhistory/cigogne.png", style:"raw", tape:true, x: 14, y: 25, w: "20vw", r: "-9deg", z: 2 },
+    ]
+  },
+
+  // vélo tôt
+  {
+    id: "2004-2012-bike",
+    year: 2004,
+    kind: "story",
+    cats: ["sport", "personal"],
+    title: "Le vélo",
+    voice:
+      "C'est à cet âge que j'ai “réussi” à faire du vélo à 2 roues. Bon, le secret, c'est qu'il faut pédaler, mais ça reste entre nous, OK ?",
+    aside: "J'ai eu le cul posé dessus jusqu'à mes 12 ans.",
+    textPos: "pos-bottom-right",
+    noteRot: "1.2deg",
+    tags: ["vélo", "sport", "outdoor"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1520975693412-35a0e0e1d8fb?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 14, y: 16, w: "20vw", r: "-10deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1520975958225-8dc08e8a8f0f?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 30, y: 14, w: "19vw", r: "7deg", z: 3 },
+    ]
+  },
+
+  // 2004-2011 dessins
+  {
+    id: "2004-2011-drawings",
+    year: 2004,
+    kind: "story",
+    cats: ["art", "dessin"],
+    title: "Début de ma passion pour le dessin",
+    voice:
+      "Jusqu'à mes 11 ans, je dessinais tout le temps. Mes dessins animés préférés, mes amis, des animaux, un peu de tout en fait 🤔",
+    aside: "Bon, ça va du gribouilli au dessin plus ou moins correct ; je ne suis pas un artiste, mais je dessine plutôt bien…",
+    textPos: "pos-left",
+    noteRot: "-2.2deg",
+    tags: ["enfance", "dessin", "gribouillages"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1400&q=60", style:"drawn", tape:true, x: 62, y: 14, w: "20vw", r: "-8deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1526481280695-3c687fd5432c?auto=format&fit=crop&w=1400&q=60", style:"drawn", tape:false, x: 76, y: 16, w: "19vw", r: "7deg", z: 3 },
+      { src:"https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1400&q=60", style:"drawn", tape:true, x: 88, y: 20, w: "18vw", r: "-4deg", z: 4 },
+      { src:"https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&w=1400&q=60", style:"drawn", tape:false, x: 64, y: 38, w: "21vw", r: "6deg", z: 5 },
+    ]
+  },
+
+  // taekwondo 2005
+  {
+    id: "2005-tkd",
+    year: 2005,
+    kind: "story",
+    cats: ["sport"],
+    title: "Je commence le Taekwondo à 5 ans",
+    voice:
+      "Bon, à cet âge, je n'étais ni sérieux ni assidu, mais c'est un début...",
+    aside:
+      "J'y retourne après, t'inquiète.",
+    textPos: "pos-right",
+    noteRot: "-1.6deg",
+    tags: ["taekwondo", "sport"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 14, y: 16, w: "20vw", r: "-9deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1517964108460-7ea34f52a0c2?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 28, y: 14, w: "19vw", r: "6deg", z: 3 },
+      { src:"https://images.unsplash.com/photo-1526401485004-2aa7f3b3f9b6?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 20, y: 36, w: "18vw", r: "-5deg", z: 4 },
+    ]
+  },
+
+  // flipnote
+  {
+    id: "2012-2015-flipnote",
+    year: 2011,
+    kind: "story",
+    cats: ["flipnote", "art", "dessin"],
+    title: "Flipnote, nom de Dieu !",
+    voice:
+      "J'ai adoré chaque seconde passée dessus à créer des petites histoires et les animer",
+    aside: "Ça m'a donné quelques bases en animation 2D aussi, héhé...",
+    textPos: "pos-bottom-left",
+    noteRot: "1.1deg",
+    tags: ["flipnote", "animation", "dessin", "imagination"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 30, y: 16, w: "20vw", r: "-8deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 46, y: 14, w: "19vw", r: "6deg", z: 3 },
+      { src:"https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 62, y: 16, w: "18vw", r: "-5deg", z: 4 },
+      { src:"https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 78, y: 14, w: "21vw", r: "7deg", z: 5 },
+    ]
+  },
+
+  // taekwondo sérieux 2012 (+ photos 2012-2017)
+  {
+    id: "2012-tkd",
+    year: 2012,
+    kind: "story",
+    cats: ["sport"],
+    title: "Je commence sérieusement le (old school) Taekwondo",
+    voice:
+      "Cette fois, ça devient une vraie passion, et quand je ne regarde pas des films d'arts martiaux, je m'entraîne. En parallèle, je fais du parkour et plein d'autres trucs.",
+    aside:
+      "Je fais quelques petits tournois et j'atteins la ceinture noire",
+    textPos: "pos-right",
+    noteRot: "-1.6deg",
+    tags: ["taekwondo", "sport", "compétition"],
+    images: [
+      // placeholders TKD
+      { src:"https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 14, y: 16, w: "20vw", r: "-9deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1517964108460-7ea34f52a0c2?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 28, y: 14, w: "19vw", r: "6deg", z: 3 },
+      { src:"https://images.unsplash.com/photo-1526401485004-2aa7f3b3f9b6?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 20, y: 36, w: "18vw", r: "-5deg", z: 4 },
+
+      // ✅ ajoute des photos “2012-2017” (tu remplaceras)
+      { src:"https://images.unsplash.com/photo-1526402465029-63f4e2b2c82a?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 34, y: 34, w: "21vw", r: "8deg", z: 5 },
+      { src:"https://images.unsplash.com/photo-1526401485004-2aa7f3b3f9b6?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 16, y: 58, w: "19vw", r: "-7deg", z: 6 },
+    ]
+  },
+
+  // bac
+  {
+    id: "2017-bac",
+    year: 2017,
+    kind: "story",
+    cats: ["studies"],
+    title: "Obtention du Bac à 17 ans",
+    voice:
+      "En vrai, je l'ai obtenu de justesse. J'étais pas très sérieux, j'aimais pas l'école.",
+    aside: "Je ne m'intéressais qu'aux langues et aux sciences, mais flemme de faire des calculs 🥱",
+    textPos: "pos-left",
+    noteRot: "-2.0deg",
+    tags: ["bac", "école", "études", "diplôme"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 62, y: 14, w: "20vw", r: "-8deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 76, y: 16, w: "19vw", r: "7deg", z: 3 },
+    ]
+  },
+
+  // DUT
+  {
+    id: "2017-dut-sid",
+    year: 2017,
+    kind: "story",
+    cats: ["studies"],
+    title: "DUT “Statistiques et Informatique Décisionnelle”",
+    voice:
+      "Je ne pensais pas aimer “l'école” un jour mais il y a un début à tout !",
+    aside: "Je découvre que j'ADORE le dév.",
+    textPos: "pos-bottom-right",
+    noteRot: "1.4deg",
+    tags: ["DUT", "stats", "informatique"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1551281044-8b89a55b0a4a?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 14, y: 16, w: "20vw", r: "-10deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 30, y: 14, w: "19vw", r: "7deg", z: 3 },
+      { src:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 46, y: 16, w: "18vw", r: "-4deg", z: 4 },
+    ]
+  },
+
+  // interlude game dev
+  {
+    id: "2017-gamedev-start",
+    year: 2017,
+    kind: "interlude",
+    cats: ["projects"],
+    title: "“je veux faire des jeux vidéo !”",
+    voice:
+      "Je découvre Unreal Engine et le Game Dev. J'y passe pratiquement tout mon temps libre.",
+    aside: "Ça me donne même un très bon niveau en dév., ce qui me donne un réel avantage dans mes études.",
+    tags: ["game dev", "proto", "dév."],
+    images: []
+  },
+
+  // stage 2018
+  {
+    id: "2018-internship",
+    year: 2018,
+    kind: "story",
+    cats: ["internships", "pro"],
+    title: "Stage DUT (2018) en tant que développeur PHP",
+    voice:
+      "Ça n'a duré qu'un mois, mais j'ai adoré.",
+    aside: "Ça y est, j'en suis sûr maintenant : j'aime le dév !",
+    textPos: "pos-right",
+    noteRot: "-1.3deg",
+    tags: ["stage", "dév.", "web"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 14, y: 16, w: "20vw", r: "-9deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 28, y: 14, w: "19vw", r: "6deg", z: 3 },
+    ]
+  },
+
+  // diplôme 2019
+  {
+    id: "2019-dut-diploma",
+    year: 2019,
+    kind: "story",
+    cats: ["studies"],
+    title: "2019 — DUT obtenu",
+    voice:
+      "",
+    aside: "Je m'en fous de la Data Science, je veux faire du dév ! 🗣",
+    textPos: "pos-left",
+    noteRot: "-1.9deg",
+    tags: ["diplôme", "DUT"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 62, y: 14, w: "20vw", r: "-8deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 76, y: 16, w: "19vw", r: "7deg", z: 3 },
+    ]
+  },
+
+  // supinfo 2019
+  {
+    id: "2019-supinfo",
+    year: 2019,
+    kind: "story",
+    cats: ["studies", "projects"],
+    title: "2019 - J'intègre SUPINFO",
+    voice:
+      "Beaucoup de projets de classe qui touchent à plein de domaines différents.",
+    aside: "C'était vraiment chouette !",
+    textPos: "pos-bottom-right",
+    noteRot: "1.4deg",
+    tags: ["SUPINFO", "projets", "études"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 14, y: 16, w: "20vw", r: "-10deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 30, y: 14, w: "19vw", r: "7deg", z: 3 },
+      { src:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 46, y: 16, w: "18vw", r: "-4deg", z: 4 },
+    ]
+  },
+
+  // nodejs
+  {
+    id: "2020-nodejs",
+    year: 2020,
+    kind: "story",
+    cats: ["projects", "studies"],
+    title: "2020 — Je découvre Node.js en classe",
+    voice:
+      "Mais wow ! Pourquoi j'ai pas connu ça plus tôt ? Je suis un homme de Cro-Magnon qui découvre le feu, c'est la joie !",
+    aside:
+      "Y a pas de retour en arrière avec JavaScript. Je veux plus toucher à autre chose que ça !",
+    textPos: "pos-left",
+    noteRot: "-2.2deg",
+    tags: ["node.js", "javascript", "dév."],
+    images: [
+      { src:"https://images.unsplash.com/photo-1506466010722-395aa2bef877?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 62, y: 14, w: "20vw", r: "-8deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 76, y: 16, w: "19vw", r: "7deg", z: 3 },
+      { src:"https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 88, y: 20, w: "18vw", r: "-4deg", z: 4 },
+      { src:"https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 64, y: 38, w: "21vw", r: "6deg", z: 5 },
+    ]
+  },
+
+  // starpig
+  {
+    id: "2020-starpig",
+    year: 2020,
+    kind: "story",
+    cats: ["projects", "studies"],
+    title: "2020 — Projet en classe de Game Dev",
+    voice:
+      "Projet de classe : shooter sur rails façon Star Fox, sur le thème Porco Rosso.",
+    aside:
+      "Je mets vraiment en pratique Unity, et franchement c'est très chouette aussi !",
+    textPos: "pos-left",
+    noteRot: "-2.2deg",
+    tags: ["game dev", "porco rosso", "unity", "C#"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1506466010722-395aa2bef877?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 62, y: 14, w: "20vw", r: "-8deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 76, y: 16, w: "19vw", r: "7deg", z: 3 },
+      { src:"https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 88, y: 20, w: "18vw", r: "-4deg", z: 4 },
+      { src:"https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 64, y: 38, w: "21vw", r: "6deg", z: 5 },
+    ]
+  },
+
+  // stage 2020
+  {
+    id: "2020-internship",
+    year: 2020,
+    kind: "story",
+    cats: ["internships", "pro"],
+    title: "Stage SUPINFO (2020) — Développeur ASP.NET C#",
+    voice:
+      "En 2 mois, je crée une web app de gestion de grilles d'évaluation.",
+    aside: "C'est aussi mon premier stage rémunéré 😏",
+    textPos: "pos-bottom-left",
+    noteRot: "1.3deg",
+    tags: ["stage", "prod", "asp.net", "C#"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 30, y: 16, w: "20vw", r: "-8deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 46, y: 14, w: "19vw", r: "6deg", z: 3 },
+    ]
+  },
+
+  // epitech msc
+  {
+    id: "2020-2022-epitech",
+    year: 2020,
+    kind: "story",
+    cats: ["studies"],
+    title: "2020 → 2022 — EPITECH MSc",
+    voice:
+      "Rythme intense. Des projets à tout va. Du dév, du dév, du dév.",
+    aside:
+      "Laissez-moi respirer ! 🗣 (non, en vrai j'abuse un peu)",
+    textPos: "pos-right",
+    noteRot: "-1.4deg",
+    tags: ["EPITECH", "MSc", "alternance"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 14, y: 16, w: "20vw", r: "-9deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 28, y: 14, w: "19vw", r: "6deg", z: 3 },
+      { src:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 20, y: 36, w: "18vw", r: "-5deg", z: 4 },
+      { src:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 34, y: 34, w: "21vw", r: "8deg", z: 5 },
+    ]
+  },
+
+  // piscine
+  {
+    id: "piscine",
+    year: 2020,
+    kind: "story",
+    cats: ["studies", "projects"],
+    title: "Quoi de mieux qu'une piscine pour apprendre à pisser du code",
+    voice:
+      "48 h pour pondre une application entière dans des technos que je n'avais jamais vues, pourquoi pas ?",
+    aside:
+      "Ce n'est pas pour faire le mec, mais c'était plus facile que je le pensais 😏",
+    textPos: "pos-right",
+    noteRot: "-1.4deg",
+    tags: ["Epitech", "elixir / phoenix", "vue.js", "dév."],
+    images: [
+      { src:"https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 14, y: 16, w: "20vw", r: "-9deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 28, y: 14, w: "19vw", r: "6deg", z: 3 },
+      { src:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 20, y: 36, w: "18vw", r: "-5deg", z: 4 },
+      { src:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 34, y: 34, w: "21vw", r: "8deg", z: 5 },
+    ]
+  },
+
+  // alternance
+  {
+    id: "alternance",
+    year: 2021,
+    kind: "story",
+    cats: ["pro"],
+    title: "2021 - 2022 — Je travaille comme concepteur et dév. web chez Boardingates/Genius, en alternance",
+    voice:
+      "J'ai l'occasion de travailler sur un projet de A à Z, de la conception au déploiement et à la maintenance. J'apprends beaucoup !",
+    aside:
+      "Puis surtout, j'ai fait du node.js 😏",
+    textPos: "pos-right",
+    noteRot: "-1.4deg",
+    tags: ["alternance", "node.js", "vue.js", "dév."],
+    images: [
+      { src:"https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 14, y: 16, w: "20vw", r: "-9deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 28, y: 14, w: "19vw", r: "6deg", z: 3 },
+      { src:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 20, y: 36, w: "18vw", r: "-5deg", z: 4 },
+      { src:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 34, y: 34, w: "21vw", r: "8deg", z: 5 },
+    ]
+  },
+
+  // diplôme 2022
+  {
+    id: "2022-diploma",
+    year: 2022,
+    kind: "story",
+    cats: ["studies"],
+    title: "2022 — diplôme MSc obtenu",
+    voice:
+      "J'ai quand même acquis un bon niveau en dév.",
+    aside: "Mais que vais-je faire maintenant ? 😦",
+    textPos: "pos-left",
+    noteRot: "-2.0deg",
+    tags: ["diplôme", "msc"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true, x: 62, y: 14, w: "20vw", r: "-8deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 76, y: 16, w: "19vw", r: "7deg", z: 3 },
+    ]
+  },
+
+  // epicery
+  {
+    id: "2022-2024-epicery",
+    year: 2022,
+    kind: "story",
+    cats: ["pro"],
+    title: "2022 → 2024 — Epicery : Du dév, du dév, du dév !",
+    voice:
+      "Expérience où la prod devient très concrète : performance, bugs, incidents, priorités, et surtout… la qualité sur le long terme, faut faire quelque chose qui tient.",
+    aside:
+      "Chouette expérience, j'ai beaucoup appris !",
+    textPos: "pos-bottom-right",
+    noteRot: "1.6deg",
+    tags: ["dév.", "backend", "delivery",  "prod"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true,  x: 14, y: 17, w: "20vw", r: "-8deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 31, y: 15, w: "19vw", r: "6deg", z: 3 },
+      { src:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true,  x: 47, y: 17, w: "18vw", r: "-4deg", z: 4 },
+      { src:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 62, y: 19, w: "21vw", r: "5deg", z: 5 },
+    ]
+  },
+
+  // yourcodex
+  {
+    id: "2024-yourcodex",
+    year: 2024,
+    kind: "story",
+    cats: ["pro"],
+    title: "2024 → 2025 — YourCodex : Du code, du code et encore du code ?",
+    voice:
+      "Non, en vrai, là j'ai fait beaucoup de conception aussi. J'ai pu travailler sur des projets divers et variés, beaucoup échanger avec les clients, et j'en passe.",
+    aside:
+      "Franchement pour du travail en ESN, c'était pas si horrible. Je m'attendais à pire",
+    textPos: "pos-right",
+    noteRot: "-1.6deg",
+    tags: ["dév.", "conception", "esn", "prod"],
+    images: [
+      { src:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true,  x: 14, y: 17, w: "21vw", r: "-7deg", z: 2 },
+      { src:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:false, x: 30, y: 14, w: "19vw", r: "6deg", z: 3 },
+      { src:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=60", style:"raw", tape:true,  x: 21, y: 36, w: "20vw", r: "-5deg", z: 4 },
+    ]
+  },
+
+  // closing
+  {
+    id: "closing",
+    year: 2026,
+    kind: "story",
+    cats: ["personal", "studies", "pro"],
+    title: "Et maintenant ?",
+    voice:
+      "Je compte poursuivre dans le dév en reprenant mes études dans l'UX.",
+    aside: "Et je cherche une alternance (en dév), du coup recrutez-moi en fait !",
+    tags: ["reprise d'études", "alternance", "dév.", "UX"],
+    images: []
+  },
+];
+
+/* =========================
+   PLACEMENTS AUTO (photos)
+   -> tu peux copier-coller les src, ça varie quand même
+========================= */
+
+// petit hash stable (pour avoir des layouts “cohérents” par item)
+function hashStr(s){
+  let h = 2166136261;
+  for (let i=0;i<s.length;i++){
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (h >>> 0);
+}
+
+function clamp(n, min, max){
+  return Math.max(min, Math.min(max, n));
+}
+
+/* =========================
+   EDITOR LAYOUT (manuel)
+  -> édite ici sans toucher aux fonctions
+========================= */
+const EDITOR_LAYOUT = {
+  panel: {
+    // "2000-born": { textPos: "pos-left", noteRot: "-1deg", noteWidth: "min(44vw, 740px)" },
+  },
+  images: {
+    // Non utilisé pour le placement des images.
+    // Le placement image est édité directement dans items[].images[]
+    // via: x, y, w, r, z, tape
+    // "2000-born": [
+    //   { x: 18, y: 16, w: "22vw", r: "-7deg", z: 2, tape: true },
+    //   { x: 36, y: 28, w: "19vw", r: "4deg", z: 3, tape: false },
+    // ],
+  },
+  doodles: {
+    // "2000-born": [
+    //   { type: "dash", x: 12, y: 20, r: -6 },
+    //   { type: "circle", x: 42, y: 62, r: 8 },
+    //   { type: "scribble", x: 56, y: 22, r: -4, glyph: "✦" },
+    // ],
+  },
+  years: {
+    // "2000": { rot: -1.2, shift: 6 },
+  }
+};
+
+function getPanelLayout(item){
+  return (EDITOR_LAYOUT.panel && EDITOR_LAYOUT.panel[item.id]) || {};
+}
+
+function getResolvedTextPos(item){
+  const cfg = getPanelLayout(item);
+  return cfg.textPos || item.textPos || "pos-right";
+}
+
+function getSlotBank(textPos){
+  const banks = {
+    "pos-right": [
+      { x: 14, y: 16, r: -9 },
+      { x: 28, y: 14, r: 6 },
+      { x: 20, y: 36, r: -5 },
+      { x: 34, y: 34, r: 8 },
+      { x: 16, y: 58, r: -7 },
+      { x: 30, y: 56, r: 5 },
+      { x: 22, y: 76, r: -4 },
+      { x: 38, y: 74, r: 6 },
+      { x: 42, y: 22, r: -3 },
+      { x: 40, y: 48, r: 4 },
+    ],
+    "pos-left": [
+      { x: 62, y: 14, r: -8 },
+      { x: 76, y: 16, r: 7 },
+      { x: 88, y: 20, r: -4 },
+      { x: 64, y: 38, r: 6 },
+      { x: 80, y: 36, r: -7 },
+      { x: 90, y: 44, r: 4 },
+      { x: 66, y: 62, r: -5 },
+      { x: 82, y: 60, r: 8 },
+      { x: 72, y: 78, r: -3 },
+      { x: 88, y: 76, r: 5 },
+    ],
+    "pos-bottom-right": [
+      { x: 14, y: 16, r: -10 },
+      { x: 30, y: 14, r: 7 },
+      { x: 46, y: 16, r: -4 },
+      { x: 62, y: 18, r: 5 },
+      { x: 78, y: 16, r: -6 },
+      { x: 18, y: 34, r: 8 },
+      { x: 36, y: 34, r: -5 },
+      { x: 54, y: 34, r: 6 },
+      { x: 22, y: 52, r: -4 },
+      { x: 42, y: 52, r: 5 },
+    ],
+    "pos-bottom-left": [
+      { x: 30, y: 16, r: -8 },
+      { x: 46, y: 14, r: 6 },
+      { x: 62, y: 16, r: -5 },
+      { x: 78, y: 14, r: 7 },
+      { x: 90, y: 18, r: -4 },
+      { x: 40, y: 34, r: 8 },
+      { x: 58, y: 34, r: -6 },
+      { x: 76, y: 34, r: 5 },
+      { x: 50, y: 52, r: -3 },
+      { x: 70, y: 52, r: 4 },
+    ],
+    "default": [
+      { x: 14, y: 16, r: -8 },
+      { x: 30, y: 16, r: 6 },
+      { x: 74, y: 16, r: -4 },
+      { x: 88, y: 18, r: 7 },
+      { x: 18, y: 36, r: -5 },
+      { x: 34, y: 36, r: 5 },
+      { x: 68, y: 36, r: -6 },
+      { x: 84, y: 36, r: 4 },
+      { x: 22, y: 56, r: 8 },
+      { x: 78, y: 56, r: -3 },
+    ]
+  };
+
+  return banks[textPos] || banks.default;
+}
+
+function rotateList(list, shift){
+  return list.map((_, i) => list[(i + shift) % list.length]);
+}
+
+function widthByCount(count, index, itemId){
+  if (count <= 2){
+    const base = [24, 22, 23, 21];
+    return `${base[(hashStr(`${itemId}:w2:${index}`) % base.length)]}vw`;
+  }
+  if (count <= 4){
+    const base = [20, 19, 18, 21, 19];
+    return `${base[(hashStr(`${itemId}:w4:${index}`) % base.length)]}vw`;
+  }
+  const base = [18, 17, 16, 19, 17, 18];
+  return `${base[(hashStr(`${itemId}:w6:${index}`) % base.length)]}vw`;
+}
+
+function layoutFor(item, count){
+  const itemId = item.id;
+  const textPos = getResolvedTextPos(item);
+  const slotBank = getSlotBank(textPos);
+  const shift = hashStr(`${itemId}:slots`) % slotBank.length;
+  const rotatedSlots = rotateList(slotBank, shift);
+
+  const selected = [];
+  const maxSlots = Math.min(count, rotatedSlots.length);
+
+  for (let i = 0; i < maxSlots; i++){
+    const seed = hashStr(`${itemId}:${i}`);
+    const slot = rotatedSlots[i];
+    const jitterX = ((seed % 7) - 3) * 0.8;
+    const jitterY = (((seed >> 5) % 7) - 3) * 0.85;
+    const rJitter = ((hashStr(`${itemId}:${i}:r`) % 9) - 4) * 0.5;
+
+    const card = {
+      x: clamp(slot.x + jitterX, 8, 92),
+      y: clamp(slot.y + jitterY, 10, 88),
+      w: widthByCount(count, i, itemId),
+      r: `${slot.r + rJitter}deg`,
+      z: 2 + i,
+      tape: (i + (seed % 2)) % 2 === 0,
+    };
+
+    selected.push(card);
+  }
+
+  // Si count > slots disponibles, on répète proprement les derniers slots en réduisant la taille
+  for (let i = maxSlots; i < count; i++){
+    const seed = hashStr(`${itemId}:extra:${i}`);
+    const slot = rotatedSlots[i % rotatedSlots.length];
+    selected.push({
+      x: clamp(slot.x + ((seed % 5) - 2) * 0.7, 8, 92),
+      y: clamp(slot.y + (((seed >> 3) % 5) - 2) * 0.7, 10, 88),
+      w: "16vw",
+      r: `${slot.r + (((seed >> 7) % 7) - 3) * 0.4}deg`,
+      z: 2 + i,
+      tape: i % 2 === 0,
+    });
+  }
+
+  return selected;
+}
+
+function normalizeImages(){
+  for (const it of items){
+    const imgs = it.images || [];
+    if (!imgs.length) continue;
+
+    const L = layoutFor(it, imgs.length);
+    it.images = imgs.map((img, i) => {
+      const p = { ...L[i] };
+      const direct = {
+        x: img.x,
+        y: img.y,
+        w: img.w,
+        r: img.r,
+        z: img.z,
+        tape: img.tape,
+      };
+
+      const resolvedX = Number.isFinite(direct.x) ? direct.x : p.x;
+      const resolvedY = Number.isFinite(direct.y) ? direct.y : p.y;
+      const resolvedW = (typeof direct.w === "string" && direct.w.trim()) ? direct.w : p.w;
+      const resolvedR = (typeof direct.r === "string" && direct.r.trim()) ? direct.r : p.r;
+      const resolvedZ = Number.isFinite(direct.z) ? direct.z : p.z;
+      const resolvedTape = (typeof direct.tape === "boolean") ? direct.tape : p.tape;
+
+      return {
+        ...img,
+        x: resolvedX,
+        y: resolvedY,
+        w: resolvedW,
+        r: resolvedR,
+        z: resolvedZ,
+        tape: resolvedTape
+      };
+    });
+  }
+}
+normalizeImages();
+
+/* =========================
+   RENDER
+========================= */
+const panelsEl = document.querySelector("[data-panels]");
+const activeYearEl = document.querySelector("[data-active-year]");
+const marginEl = document.querySelector(".seyes-margin");
+const railEl = document.querySelector(".active-year-rail");
+
+function makeFigure(img){
+  const classes = ["img-tile"];
+  if (img.style === "raw") classes.push("is-raw");
+  if (img.style === "drawn") classes.push("is-drawn");
+  if (img.tape) classes.push("has-tape");
+
+  return `
+    <figure class="${classes.join(" ")}"
+      style="--x:${img.x}%; --y:${img.y}%; --w:${img.w}; --r:${img.r}; --z:${img.z};">
+      <img src="${img.src}" alt="">
+    </figure>
+  `;
+}
+
+function makeDoodles(seed){
+  const manualDoodles = (EDITOR_LAYOUT.doodles && EDITOR_LAYOUT.doodles[seed]) || null;
+  if (Array.isArray(manualDoodles) && manualDoodles.length){
+    const entries = manualDoodles.map((d) => {
+      const type = d.type || "dash";
+      const x = d.x ?? 50;
+      const y = d.y ?? 50;
+      const r = d.r ?? 0;
+      if (type === "circle"){
+        return `<span class="doodle doodle--circle" style="--dx:${x}%; --dy:${y}%; --dr:${r}deg;"></span>`;
+      }
+      if (type === "scribble"){
+        const glyph = d.glyph || "✦";
+        return `<span class="doodle doodle--scribble" style="--dx:${x}%; --dy:${y}%; --dr:${r}deg;">${glyph}</span>`;
+      }
+      return `<span class="doodle doodle--dash" style="--dx:${x}%; --dy:${y}%; --dr:${r}deg;"></span>`;
+    });
+    return `<div class="doodles" aria-hidden="true">${entries.join("")}</div>`;
+  }
+
+  const glyphs = ["~", "✦", "✶", "◦", "⋯", "↺", "✎"];
+  const entries = [];
+  const count = 5;
+
+  for (let i = 0; i < count; i++){
+    const h = hashStr(`${seed}:doodle:${i}`);
+    const x = 10 + (h % 80);
+    const y = 12 + ((h >> 7) % 70);
+    const rot = ((h >> 13) % 34) - 17;
+    const typeIndex = h % 3;
+
+    if (typeIndex === 0){
+      entries.push(`<span class="doodle doodle--dash" style="--dx:${x}%; --dy:${y}%; --dr:${rot}deg;"></span>`);
+      continue;
+    }
+    if (typeIndex === 1){
+      entries.push(`<span class="doodle doodle--circle" style="--dx:${x}%; --dy:${y}%; --dr:${rot}deg;"></span>`);
+      continue;
+    }
+
+    const g = glyphs[h % glyphs.length];
+    entries.push(`<span class="doodle doodle--scribble" style="--dx:${x}%; --dy:${y}%; --dr:${rot}deg;">${g}</span>`);
+  }
+
+  return `<div class="doodles" aria-hidden="true">${entries.join("")}</div>`;
+}
+
+function makeYearBreak(year){
+  const yearCfg = (EDITOR_LAYOUT.years && EDITOR_LAYOUT.years[String(year)]) || null;
+  const h = hashStr(`year-break:${year}`);
+  const rot = yearCfg && typeof yearCfg.rot === "number" ? yearCfg.rot : ((h % 10) - 5) * 0.45;
+  const shift = yearCfg && typeof yearCfg.shift === "number" ? yearCfg.shift : ((h >> 5) % 26) - 13;
+
+  return `
+    <li class="year-break" data-year-break data-year="${year}">
+      <span class="year-break__year" style="--yrot:${rot}deg; --yx:${shift}px;">${year}</span>
+    </li>
+  `;
+}
+
+const seenYears = new Set();
+const timelineChunks = [];
+
+items.forEach((it) => {
+  const panelCfg = getPanelLayout(it);
+  const textPos = panelCfg.textPos || it.textPos || "pos-right";
+  const noteRot = panelCfg.noteRot || it.noteRot || "-1.5deg";
+  const noteWidth = panelCfg.noteWidth || "min(46vw, 780px)";
+
+  if (!seenYears.has(it.year)){
+    timelineChunks.push(makeYearBreak(it.year));
+    seenYears.add(it.year);
+  }
+
+  const isInterlude = it.kind === "interlude";
+  const collageHTML = isInterlude ? "" : `
+    <div class="collage">
+      ${(it.images || []).map(makeFigure).join("")}
+    </div>
+  `;
+
+  const stickers = (it.tags || []).slice(0, 10).map((t, i) => {
+    const rots = ["-2deg","1deg","-1deg","2deg","-3deg","1.5deg","-2.6deg","2.2deg","-1.2deg","1.9deg"];
+    return `<span class="sticker" style="--srot:${rots[i % rots.length]}">${t}</span>`;
+  }).join("");
+
+  const catsAttr = (it.cats || []).join(" ");
+
+  timelineChunks.push(`
+    <li class="panel ${isInterlude ? "is-interlude":""}"
+        data-panel
+        id="${it.id}"
+        data-year="${it.year}"
+        data-cats="${catsAttr}">
+      <div class="panel__stage">
+        ${makeDoodles(it.id)}
+        ${collageHTML}
+
+        <article class="note ${isInterlude ? "" : textPos}"
+          style="--w: ${noteWidth}; --z: 30; --rot: ${noteRot};">
+          <div class="note__box">
+            <div class="note__text">
+              <div class="kicker">
+                <span class="sticker" style="--srot:-3deg">${it.year}</span>
+                ${stickers}
+              </div>
+              <h3>${it.title}</h3>
+              <p>${it.voice || ""}</p>
+              ${it.aside ? `<p class="aside">${it.aside}</p>` : ""}
+            </div>
+          </div>
+        </article>
+      </div>
+    </li>
+  `);
+});
+
+panelsEl.innerHTML = timelineChunks.join("");
+
+function gapForYearDelta(delta){
+  if (delta <= 0) return "10vh";  // même année
+  if (delta === 1) return "16vh";
+  if (delta === 2) return "22vh";
+  if (delta <= 4) return "28vh";
+  return "36vh";
+}
+
+function applyYearSpacing(){
+  const panels = Array.from(document.querySelectorAll("[data-panel]"));
+  const visiblePanels = panels.filter(p => !p.classList.contains("is-hidden"));
+
+  panels.forEach((p) => p.style.setProperty("--panel-gap", "42vh"));
+  if (!visiblePanels.length) return;
+
+  visiblePanels.forEach((panel, index) => {
+    const next = visiblePanels[index + 1];
+    if (!next){
+      panel.style.setProperty("--panel-gap", "14vh");
+      return;
+    }
+
+    const currentYear = Number(panel.dataset.year) || 0;
+    const nextYear = Number(next.dataset.year) || currentYear;
+    const delta = Math.max(0, nextYear - currentYear);
+    panel.style.setProperty("--panel-gap", gapForYearDelta(delta));
+  });
+}
+
+applyYearSpacing();
+
+/* =========================
+   ANIMATIONS
+========================= */
+function setupScrollAnimations(){
+  ScrollTrigger.getAll().forEach(t => t.kill());
+
+  document.querySelectorAll(".img-tile img").forEach((img) => {
+    img.style.opacity = "1";
+    img.style.transform = "none";
+  });
+
+  document.querySelectorAll(".note__text").forEach((noteText) => {
+    noteText.style.opacity = "1";
+    noteText.style.transform = "none";
+  });
+
+  ScrollTrigger.refresh();
+}
+setupScrollAnimations();
+
+/* =========================
+  ACTIVE YEAR (corrigé)
+   -> suit le panel le plus “actif”
+   -> prend en compte le sticky filters
+========================= */
+let lastYear = null;
+let pending = false;
+
+function positionRail(){
+  const marginRect = marginEl.getBoundingClientRect();
+  const x = marginRect.left + marginRect.width * 0.5;
+  railEl.style.left = `${x}px`;
+}
+
+function getVisiblePanels(){
+  return Array.from(document.querySelectorAll("[data-panel]"))
+    .filter(p => !p.classList.contains("is-hidden"));
+}
+
+function getRefY(){
+  const filters = document.querySelector("[data-filters]");
+  const fh = filters ? filters.getBoundingClientRect().height : 0;
+  // un point de référence sous la barre sticky
+  return fh + window.innerHeight * 0.22;
+}
+
+function computeActiveYear(){
+  const panels = getVisiblePanels();
+  if (!panels.length) return null;
+
+  const refY = getRefY();
+  let best = null;
+  let bestDist = Infinity;
+
+  for (const p of panels){
+    const r = p.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > window.innerHeight) continue;
+
+    // distance du haut du panel au point ref
+    const d = Math.abs(r.top - refY);
+    if (d < bestDist){
+      bestDist = d;
+      best = p;
+    }
+  }
+
+  const chosen = best || panels[0];
+  return Number(chosen.dataset.year) || null;
+}
+
+function updateYear(){
+  pending = false;
+
+  const y = computeActiveYear();
+  if (!y) return;
+
+  if (y !== lastYear){
+    lastYear = y;
+    activeYearEl.textContent = String(y);
+
+    gsap.fromTo(activeYearEl, { rotation: -7, y: -6, opacity: 0.65 }, {
+      rotation: -3,
+      y: 0,
+      opacity: 1,
+      duration: 0.22,
+      ease: "power2.out"
+    });
+  }
+}
+
+function requestUpdate(){
+  if (pending) return;
+  pending = true;
+  requestAnimationFrame(updateYear);
+}
+
+positionRail();
+requestUpdate();
+
+lenis.on("scroll", () => {
+  ScrollTrigger.update();
+  requestUpdate();
+});
+
+window.addEventListener("resize", () => {
+  positionRail();
+  requestUpdate();
+  ScrollTrigger.refresh();
+}, { passive:true });
+
+setTimeout(() => {
+  positionRail();
+  requestUpdate();
+  ScrollTrigger.refresh();
+}, 250);
+
+/* =========================
+   FILTRES AUTO (cats)
+========================= */
+const filtersListEl = document.querySelector("[data-filters-list]");
+const countEl = document.querySelector("[data-visible-count]");
+const btnAll = document.querySelector("[data-all]");
+const btnNone = document.querySelector("[data-none]");
+
+function niceLabel(cat){
+  const map = {
+    personal: "Perso",
+    sport: "Sport",
+    art: "Art",
+    dessin: "Dessin",
+    flipnote: "Flipnote",
+    studies: "Études",
+    internships: "Stages",
+    projects: "Projets",
+    pro: "Pro",
+  };
+  return map[cat] || (cat.charAt(0).toUpperCase() + cat.slice(1));
+}
+
+function buildCats(){
+  const set = new Set();
+  items.forEach(it => (it.cats || []).forEach(c => set.add(c)));
+  const all = Array.from(set);
+
+  // ordre “logique” (les autres après)
+  const preferred = ["personal","sport","art","dessin","flipnote","studies","internships","projects","pro"];
+  all.sort((a,b) => {
+    const ia = preferred.indexOf(a);
+    const ib = preferred.indexOf(b);
+    if (ia === -1 && ib === -1) return a.localeCompare(b);
+    if (ia === -1) return 1;
+    if (ib === -1) return -1;
+    return ia - ib;
+  });
+  return all;
+}
+
+function renderFilters(){
+  const cats = buildCats();
+  filtersListEl.innerHTML = cats.map(cat => `
+    <label class="filter">
+      <input type="checkbox" data-cat="${cat}" checked>
+      <span>${niceLabel(cat)}</span>
+    </label>
+  `).join("");
+}
+renderFilters();
+
+function getCheckboxes(){
+  return Array.from(document.querySelectorAll("input[type='checkbox'][data-cat]"));
+}
+function getActiveCats(){
+  return getCheckboxes().filter(c => c.checked).map(c => c.dataset.cat);
+}
+
+function panelMatches(panel, activeCats){
+  const cats = (panel.dataset.cats || "").split(/\s+/).filter(Boolean);
+  if (!activeCats.length) return false;
+  return cats.some(c => activeCats.includes(c));
+}
+
+function updateYearBreakVisibility(){
+  const visibleYears = new Set(
+    Array.from(document.querySelectorAll("[data-panel]"))
+      .filter(p => !p.classList.contains("is-hidden"))
+      .map(p => p.dataset.year)
+  );
+
+  Array.from(document.querySelectorAll("[data-year-break]")).forEach((b) => {
+    const y = b.dataset.year;
+    b.classList.toggle("is-hidden", !visibleYears.has(y));
+  });
+}
+
+function applyFilters(){
+  const activeCats = getActiveCats();
+  const panels = Array.from(document.querySelectorAll("[data-panel]"));
+
+  let visible = 0;
+  for (const p of panels){
+    const ok = panelMatches(p, activeCats);
+    p.classList.toggle("is-hidden", !ok);
+    if (ok) visible++;
+  }
+
+  countEl.textContent = `${visible} panel${visible > 1 ? "s" : ""}`;
+
+  updateYearBreakVisibility();
+  applyYearSpacing();
+  setupScrollAnimations();
+  positionRail();
+  requestUpdate();
+}
+
+getCheckboxes().forEach(cb => cb.addEventListener("change", applyFilters));
+
+btnAll.addEventListener("click", () => {
+  getCheckboxes().forEach(cb => cb.checked = true);
+  applyFilters();
+});
+btnNone.addEventListener("click", () => {
+  getCheckboxes().forEach(cb => cb.checked = false);
+  applyFilters();
+});
+
+applyFilters();
+
+    </script>
+</body>
+</html>

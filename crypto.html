@@ -5,11 +5,25 @@
   <title>Crypto - Express.js / Vue.js</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="google" content="notranslate">
+  
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+<meta name="google" content="notranslate">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-
+    <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('portfolio-theme');
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('theme-dark');
+        }
+      } catch (e) {
+        /* ignore localStorage access errors */
+      }
+    })();
+  </script>
   <link
     href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
     rel="stylesheet">

@@ -9,11 +9,27 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="google-site-verification" content="v8Bjw68Y3K95ulT7hYcSHgDT70pvXu2z_NwIVtBXBDM" />
+    
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+<meta name="google-site-verification" content="v8Bjw68Y3K95ulT7hYcSHgDT70pvXu2z_NwIVtBXBDM" />
     <meta name="google" content="notranslate">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem('portfolio-theme');
+          if (savedTheme === 'dark') {
+            document.documentElement.classList.add('theme-dark');
+          }
+        } catch (e) {
+          /* ignore localStorage access errors */
+        }
+      })();
+    </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
     <link
@@ -253,7 +269,7 @@
 
 
       <button class="cta fr">Concepteur & Développeur Web</button>
-      <button class="cta eng">Web conceptor & developer</button>
+      <button class="cta eng">Web Designer & Developer</button>
     </div>
 
     <style>
@@ -271,23 +287,31 @@
     </style>
 <script>
 
-  const buttons = document.querySelectorAll('.cta');
-  const A = document.getElementById('A');
-  const B = document.getElementById('B');
+  function initHeroInteractions() {
+    const buttons = document.querySelectorAll('.cta');
+    const A = document.getElementById('A');
+    const B = document.getElementById('B');
 
-  function togglePanels() {
-    const AisVisible = A.classList.contains('is-visible');
+    function togglePanels() {
+      const AisVisible = A.classList.contains('is-visible');
 
-    A.classList.toggle('is-visible', !AisVisible);
-    A.classList.toggle('is-hidden', AisVisible);
+      A.classList.toggle('is-visible', !AisVisible);
+      A.classList.toggle('is-hidden', AisVisible);
 
-    B.classList.toggle('is-visible', AisVisible);
-    B.classList.toggle('is-hidden', !AisVisible);
+      B.classList.toggle('is-visible', AisVisible);
+      B.classList.toggle('is-hidden', !AisVisible);
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', togglePanels);
+    });
   }
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', togglePanels);
-  });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroInteractions);
+  } else {
+    initHeroInteractions();
+  }
 
 </script>
     
@@ -297,11 +321,35 @@
   </div>
   <div class="hero-footer">
     <div>
-      <a class="fr" href="/projets"> <img src="images/icon_fleche.png" alt="→" class="icon-fleche"> Mes projets</a>
-      <a class="eng" href="/projets"> <img src="images/icon_fleche.png" alt="→" class="icon-fleche"> My projects</a>
+      <a class="fr" href="/projets">
+        <svg class="icon-fleche" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" aria-hidden="true" focusable="false">
+          <path d="M38 12 V56 Q38 68 50 68 H84" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M72 44 L96 68 L72 92" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Mes projets
+      </a>
+      <a class="eng" href="/projets">
+        <svg class="icon-fleche" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" aria-hidden="true" focusable="false">
+          <path d="M38 12 V56 Q38 68 50 68 H84" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M72 44 L96 68 L72 92" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        My projects
+      </a>
       <!--<a href="/contact"> <img src="images/icon_fleche.png" alt="→" class="icon-fleche"> Contact</a>-->
-      <a class="fr" target="_blank" href="/files/Book_Morgan_Bouyakhlef.pdf"> <img src="images/icon_fleche.png" alt="→" class="icon-fleche">Mon histoire</a>
-      <a class="eng" target="_blank" href="/files/Book_Morgan_Bouyakhlef_english.pdf"> <img src="images/icon_fleche.png" alt="→" class="icon-fleche">My history</a>
+      <a class="fr" href="/timeline">
+        <svg class="icon-fleche" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" aria-hidden="true" focusable="false">
+          <path d="M38 12 V56 Q38 68 50 68 H84" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M72 44 L96 68 L72 92" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Mon histoire
+      </a>
+      <a class="eng" href="/timeline">
+        <svg class="icon-fleche" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" aria-hidden="true" focusable="false">
+          <path d="M38 12 V56 Q38 68 50 68 H84" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M72 44 L96 68 L72 92" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        My history
+      </a>
     </div>
   </div>
 </section>
