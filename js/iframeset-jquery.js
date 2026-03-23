@@ -17,8 +17,12 @@ $(function () {
 
     try {
       var frameWindow = frame.contentWindow;
+      var frameDocument = frameWindow.document;
       var onScroll = function () {
-        var y = frameWindow.scrollY || frameWindow.pageYOffset || 0;
+        var scroller = frameDocument && frameDocument.scrollingElement
+          ? frameDocument.scrollingElement
+          : null;
+        var y = frameWindow.scrollY || frameWindow.pageYOffset || (scroller ? scroller.scrollTop : 0) || 0;
         $('body').toggleClass('navbar-away', y > 20);
       };
 
@@ -26,11 +30,54 @@ $(function () {
         frameWindow.removeEventListener('scroll', frameWindow.__navbarAwayHandler);
       }
 
+      if (frameWindow.__navbarAwayDocHandler && frameDocument) {
+        frameDocument.removeEventListener('scroll', frameWindow.__navbarAwayDocHandler, true);
+      }
+
       frameWindow.__navbarAwayHandler = onScroll;
+      frameWindow.__navbarAwayDocHandler = onScroll;
       frameWindow.addEventListener('scroll', onScroll, { passive: true });
+
+      if (frameDocument) {
+        frameDocument.addEventListener('scroll', onScroll, { passive: true, capture: true });
+      }
+
       onScroll();
     } catch (e) {
       $('body').removeClass('navbar-away');
+    }
+  }
+
+  function syncIframeShellState(animateEntry) {
+    var frame = $("#iframeview")[0];
+    if (!frame || !frame.contentWindow || !frame.contentDocument) {
+      return;
+    }
+
+    try {
+      var href = frame.contentWindow.location.href || '';
+      var cleanHref = href.split('#')[0].split('?')[0];
+      var parts = cleanHref.split('/');
+      var link = parts[parts.length - 1] || '';
+
+      if (frame.contentDocument.title) {
+        document.title = frame.contentDocument.title;
+      }
+
+      history.replaceState(null, document.title, href);
+      manageNavBar(link);
+      bindIframeScrollWatcher();
+
+      if (animateEntry) {
+        $('body').addClass('iframe-entering');
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            $('body').removeClass('iframe-entering');
+          });
+        });
+      }
+    } catch (e) {
+      return;
     }
   }
 
@@ -55,21 +102,14 @@ $(function () {
     });
 
     $("#iframeview").on('load', function () {
-      document.title = $("#iframeview")[0].contentDocument.title;
-      let url = $("#iframeview")[0].contentWindow.location.href;
-      var pieces = url.split("/");
-      link = pieces[pieces.length - 1];
-      history.replaceState(null, document.title, url);
-      manageNavBar(link);
-      bindIframeScrollWatcher();
-
-      $('body').addClass('iframe-entering');
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-          $('body').removeClass('iframe-entering');
-        });
-      });
+      syncIframeShellState(true);
     });
+
+    // Some browsers/pages can complete the first iframe load before this handler is attached.
+    syncIframeShellState(false);
+    setTimeout(function () { syncIframeShellState(false); }, 150);
+    setTimeout(function () { syncIframeShellState(false); }, 350);
+    setTimeout(function () { syncIframeShellState(false); }, 700);
   }
 })
 
