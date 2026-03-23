@@ -1,5 +1,30 @@
 $(function () {
 
+  function bindIframeScrollWatcher() {
+    var frame = $("#iframeview")[0];
+    if (!frame || !frame.contentWindow) {
+      return;
+    }
+
+    try {
+      var frameWindow = frame.contentWindow;
+      var onScroll = function () {
+        var y = frameWindow.scrollY || frameWindow.pageYOffset || 0;
+        $('body').toggleClass('navbar-away', y > 20);
+      };
+
+      if (frameWindow.__navbarAwayHandler) {
+        frameWindow.removeEventListener('scroll', frameWindow.__navbarAwayHandler);
+      }
+
+      frameWindow.__navbarAwayHandler = onScroll;
+      frameWindow.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    } catch (e) {
+      $('body').removeClass('navbar-away');
+    }
+  }
+
   if (inIframe()) {
     $("#notframe").remove()
 
@@ -27,6 +52,7 @@ $(function () {
       link = pieces[pieces.length - 1];
       history.replaceState(null, document.title, url);
       manageNavBar(link);
+      bindIframeScrollWatcher();
     });
   }
 })

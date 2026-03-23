@@ -1514,6 +1514,16 @@ body {
     margin-top: -15px ;
   }
 
+  .site-navbar {
+    transition: transform 0.24s ease, opacity 0.2s ease;
+  }
+
+  body.navbar-away .site-navbar {
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
   #iframeview{
     width: 100%;
     height: calc(100% - 60px) !important;
@@ -1531,6 +1541,11 @@ body {
     bottom:0px;
     margin-top:60px;
     }
+
+  body.navbar-away #iframeview {
+    margin-top: 0;
+    height: 100% !important;
+  }
 
 #volume {
   position: absolute;
