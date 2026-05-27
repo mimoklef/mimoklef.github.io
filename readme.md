@@ -20,7 +20,7 @@ Je cherche à évoluer vers des projets combinant **développement et UX Design*
 
 ### Consultant Développeur d’application
 
-**YourCodex (2024 — 2025)**
+**YourCodex (2024 — 2026)**
 
 * Conception et développement de plateformes internes (gestion, comptes, planning)
 * Création et maintenance de plateformes de réservation

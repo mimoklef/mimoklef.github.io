@@ -1630,7 +1630,7 @@ button.contact-chip{
       },
       {
         year: 2025,
-        title: "CodeAmi.fr - je lance une plateforme sociale gaming",
+        title: "CodeAmi.net - je lance une plateforme sociale gaming",
         voice: "J'ai conçu et développé un espace pour aider les joueurs à se trouver vite, créer ou rejoindre des parties et rencontrer d'autres joueurs.",
         aside: "Un projet qui mélange produit, UX et dev full-stack. Je n'en suis pas peu fier 😌"
       },
@@ -1663,7 +1663,7 @@ button.contact-chip{
       { year: 2022, title: "I get my MSc degree", voice: "I am finally freeee!", aside: "But what am I going to do now? (spoiler: coding.)" },
       { year: 2022, title: "2022 -> 2024, Epicery!", voice: "After a few months unemployed, I jumped into real-world stuff: performance, bugs, incidents, mostly backend though 😞", aside: "I learned a lot, but I would have preferred touching a bit more of everything." },
       { year: 2024, title: "2024 -> 2026, I work for a small ESN, YourCodex.", voice: "Code, code, and more code? Well actually, I also did a lot of design work there.", aside: "Honestly for ESN work, it was pretty decent 🤔" },
-      { year: 2025, title: "CodeAmi.fr - I launch a social gaming platform", voice: "I designed and built a space to help gamers quickly find each other, create or join matches, and meet new people.", aside: "A project mixing product, UX, and full-stack dev. I am genuinely proud of it 😌" },
+      { year: 2025, title: "CodeAmi.net - I launch a social gaming platform", voice: "I designed and built a space to help gamers quickly find each other, create or join matches, and meet new people.", aside: "A project mixing product, UX, and full-stack dev. I am genuinely proud of it 😌" },
       { year: 2026, title: "And now?", voice: "I plan to go back to school in [[UX]].", aside: "A field I am especially interested in!" }
     ];
 
@@ -1747,7 +1747,7 @@ button.contact-chip{
       { mode: 'card', start: 2, span: 3, classes: 'tape-right soft', hidePhoto: true },
       { mode: 'card', start: 1, span: 3, classes: 'tape-double crumpled wide photo-contain', image: 'images/epicery_logo.png', outsidePhoto: 'images/timeline/epicery.png', outsideStart: 4, outsideSpan: 3, outsideOffset: 'offset-down epicery-near', outsideClassName: 'contain-photo epicery-phone' },
       { mode: 'card', start: 1, span: 3, classes: 'tape-center wide soft', hidePhoto: true, outsidePhoto: 'images/timeline/yourcodex1.png', outsideStart: 4, outsideSpan: 3, outsideOffset: 'offset-down', outsideClassName: 'contain-photo yourcodex-big' },
-      { mode: 'card', start: 2, span: 4, classes: 'tape-double wide soft photo-clean no-frame photo-contain', image: 'images/mushroom190.png', link: 'https://codeami.fr', ctaLabel: 'Voir codeami.fr', ctaLink: 'https://codeami.fr' },
+      { mode: 'card', start: 2, span: 4, classes: 'tape-double wide soft photo-clean no-frame photo-contain', image: 'images/mushroom190.png', link: 'https://codeami.net', ctaLabel: 'Voir codeami.net', ctaLink: 'https://codeami.net' },
       { mode: 'card', start: 3, span: 3, classes: 'tape-left crumpled text-only', hidePhoto: true, endHeart: true, endHeartImage: 'images/timeline/keurr.png' }
     ];
 
@@ -1869,8 +1869,8 @@ button.contact-chip{
       const planeButtonHtml = isGameDev2020
         ? `<button id="launch-plane" class="plane-launch-btn" type="button">${currentLang === 'eng' ? 'Let\'s do a loop?' : 'On fait un looping ?'}</button>`
         : '';
-      const localizedCtaLabel = currentLang === 'eng' && layout.ctaLabel === 'Voir codeami.fr'
-        ? 'See codeami.fr'
+      const localizedCtaLabel = currentLang === 'eng' && layout.ctaLabel === 'Voir codeami.net'
+        ? 'See codeami.net'
         : layout.ctaLabel;
       const ctaHtml = layout.ctaLink
         ? `<a class="card-cta" href="${layout.ctaLink}" target="_blank" rel="noopener noreferrer">${localizedCtaLabel || (currentLang === 'eng' ? 'View project' : 'Voir le projet')}</a>`
