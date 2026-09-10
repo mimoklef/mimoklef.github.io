@@ -9,15 +9,19 @@
   const jumpHeight = 80;
   const jumpDuration = 400;
   const delay = 300;
-  const frogWidth = 100;
   const jumpsPerSide = 7;
 
   let direction = 1;
-  let screenWidth = window.innerWidth;
-  let step = Math.floor((screenWidth - frogWidth) / jumpsPerSide);
-  let positionX = 20;
+  let positionProgress = 0;
   let jumpCount = 0;
   const maxJumps = jumpsPerSide * 2;
+
+  function updateFrogPosition() {
+    const availableWidth = Math.max(0, document.documentElement.clientWidth - frog.offsetWidth);
+    // Leave room for the frog's 15-degree tilt at both edges.
+    const edgeMargin = Math.min(30, availableWidth / 2);
+    frog.style.left = `${edgeMargin + (availableWidth - edgeMargin * 2) * positionProgress}px`;
+  }
 
   function easeOut(t) {
     return 1 - Math.pow(1 - t, 3);
@@ -28,8 +32,6 @@
   }
 
   async function jump() {
-    let nextX = positionX + direction * step;
-
     if (jumpCount === jumpsPerSide) {
       direction *= -1;
       const flip = direction === -1 ? 'rotateY(180deg)' : '';
@@ -57,6 +59,8 @@
       return;
     }
 
+    const startProgress = positionProgress;
+    const nextProgress = (direction === 1 ? jumpCount + 1 : maxJumps - jumpCount - 1) / jumpsPerSide;
     const startTime = performance.now();
     await new Promise(resolve => {
       function frame(now) {
@@ -65,19 +69,18 @@
 
         const y = t < 0.5 ? easeOut(t * 2) : 1 - easeIn((t - 0.5) * 2);
         const dy = -y * jumpHeight;
-        const dx = positionX + direction * step * t;
+        positionProgress = startProgress + (nextProgress - startProgress) * t;
 
         const baseAngle = -15;
         const angle = (t < 0.5 ? y : (1 - y)) * baseAngle;
         const flip = direction === -1 ? 'rotateY(180deg)' : '';
 
-        frog.style.left = dx + "px";
+        updateFrogPosition();
         frog.style.transform = `${flip} translateY(${dy}px) rotate(${angle}deg)`;
 
         if (t < 1) {
           requestAnimationFrame(frame);
         } else {
-          positionX += direction * step;
           frog.style.transform = `${flip} translateY(0px) rotate(0deg)`;
           jumpCount++;
           resolve();
@@ -95,10 +98,10 @@
     ground.style.width = '100%';
     body.classList.add('animation-mode');
     direction = 1;
-    positionX = 20;
+    positionProgress = 0;
     jumpCount = 0;
-    frog.style.left = '20px';
     frog.style.display = 'flex';
+    updateFrogPosition();
 
     cloudContainer.innerHTML = '';
     const clouds = [
@@ -123,8 +126,5 @@
     }, 1000);
   });
 
-  window.addEventListener("resize", () => {
-    screenWidth = window.innerWidth;
-    step = Math.floor((screenWidth - frogWidth) / jumpsPerSide);
-  });
+  window.addEventListener('resize', updateFrogPosition);
 
