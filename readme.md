@@ -1,4 +1,4 @@
-# Morgan Bouyakhlef — Portfolio
+# Mohamed Bouyakhlef — Portfolio
 
 Concepteur & Développeur Web avec 4 ans d’expérience, spécialisé en **JavaScript (Node.js / Vue.js)** et très intéressé par le **design d’expérience (UX)**.
 
@@ -55,13 +55,13 @@ Je cherche à évoluer vers des projets combinant **développement et UX Design*
 
 ## 🌐 Portfolio et CV détaillé
 
-👉 https://www.morganbkf.com 
-👉 [Mon CV détaillé](https://www.morganbkf.com/files/Morgan_Bouyakhlef.pdf) 
+👉 https://www.mohabkf.com 
+👉 [Mon CV détaillé](https://www.mohabkf.com/files/Mohamed_Bouyakhlef.pdf) 
 
 
 ## 📫 Contact
 
-* Email : [morganbkf@gmail.com](mailto:morganbkf@gmail.com) 
+* Email : [bouyakhlefmohamed@gmail.com](mailto:bouyakhlefmohamed@gmail.com) 
 * GitHub : https://github.com/mimoklef
 
 ---
