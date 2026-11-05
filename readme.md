@@ -1,4 +1,4 @@
-# Mohamed Bouyakhlef — Portfolio
+# Mohamed Bouyakhlef - Portfolio
 
 Concepteur & Développeur Web avec 4 ans d’expérience, spécialisé en **JavaScript (Node.js / Vue.js)** et très intéressé par le **design d’expérience (UX)**.
 
@@ -20,7 +20,7 @@ Je cherche à évoluer vers des projets combinant **développement et UX Design*
 
 ### Consultant Développeur d’application
 
-**YourCodex (2024 — 2026)**
+**YourCodex (2024 - 2026)**
 
 * Conception et développement de plateformes internes (gestion, comptes, planning)
 * Création et maintenance de plateformes de réservation
@@ -29,7 +29,7 @@ Je cherche à évoluer vers des projets combinant **développement et UX Design*
 
 ### Développeur Fullstack
 
-**Epicery — Paris (2022 — 2024)**
+**Epicery - Paris (2022 - 2024)**
 
 * Développement d’une plateforme de livraison
 * Maintenance et amélioration du backend
@@ -38,7 +38,7 @@ Je cherche à évoluer vers des projets combinant **développement et UX Design*
 
 ### Concepteur & Développeur d’application
 
-**Boardingates / Genius — Montpellier (2021 — 2022)**
+**Boardingates / Genius - Montpellier (2021 - 2022)**
 
 * Création d’une application web et mobile (type réseau social)
 * UX : conception des parcours utilisateurs et interfaces

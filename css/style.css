@@ -2289,6 +2289,139 @@ body.theme-dark.animation-mode #cloud-container::after {
   z-index: 5;
   transition: width 1s ease-out;
 }
+
+.frog-flowers {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.frog-flower {
+  position: absolute;
+  width: 32px;
+  margin-left: -16px;
+  transform-origin: center bottom;
+  animation: frogFlowerPop 650ms ease-out both;
+}
+
+.frog-flower__stem {
+  position: absolute;
+  top: 18px;
+  bottom: 0;
+  left: calc(50% - 1.5px);
+  width: 3px;
+  border-radius: 3px;
+  border: 1px solid #36543c;
+  background: #91bb72;
+}
+
+.frog-flower__stem::before,
+.frog-flower__stem::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 6px;
+  border: 1px solid #36543c;
+  background: linear-gradient(150deg, #c2df95 45%, #79ac6b 46%);
+}
+
+.frog-flower__stem::before {
+  bottom: 5px;
+  right: 1px;
+  border-radius: 100% 0 100% 0;
+  transform: rotate(25deg);
+}
+
+.frog-flower__stem::after {
+  bottom: 11px;
+  left: 2px;
+  border-radius: 0 100% 0 100%;
+  transform: rotate(-25deg);
+}
+
+.frog-flower__bloom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 36px;
+}
+
+.frog-flower__petal {
+  --petal-shape: polygon(50% 14%, 63% 2%, 81% 5%, 96% 22%, 100% 44%, 86% 72%, 50% 100%, 14% 72%, 0 44%, 4% 22%, 19% 5%, 37% 2%);
+  position: absolute;
+  top: 0;
+  left: 9px;
+  width: 14px;
+  height: 18px;
+  background: #754657;
+  clip-path: var(--petal-shape);
+  transform-origin: center bottom;
+  transform: rotate(var(--petal-angle));
+}
+
+.frog-flower__petal::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  clip-path: var(--petal-shape);
+  background: linear-gradient(135deg, #fff8f2 0 20%, var(--petal-color) 21% 67%, var(--petal-shade) 68%);
+}
+
+.frog-flower__petal::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  left: calc(50% - 0.5px);
+  width: 1px;
+  height: 5px;
+  border-radius: 50%;
+  background: #a65478;
+}
+
+.frog-flower__bloom::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #754657;
+  border-radius: 50%;
+  background: #ffe6a0;
+  box-shadow: inset -1px -1px 0 #e5a66c;
+}
+
+.frog-flower:nth-child(4n + 1)::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: -9px;
+  width: 8px;
+  height: 12px;
+  background: #fff4d8;
+  clip-path: polygon(50% 0, 63% 36%, 100% 50%, 63% 64%, 50% 100%, 37% 64%, 0 50%, 37% 36%);
+}
+
+@keyframes frogFlowerPop {
+  0% { opacity: 0; transform: scale(0) rotate(var(--flower-tilt)); }
+  60% { opacity: 1; transform: scale(1.18) rotate(var(--flower-tilt)); }
+  80% { transform: scale(0.94) rotate(var(--flower-tilt)); }
+  100% { opacity: 1; transform: scale(1) rotate(var(--flower-tilt)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frog-flower {
+    animation-name: none;
+    transform: rotate(var(--flower-tilt));
+  }
+}
+
 #frog {
   position: fixed;
   bottom: 40px;

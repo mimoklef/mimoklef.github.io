@@ -31,6 +31,47 @@
     return t * t * t;
   }
 
+  function plantFlowers() {
+    const flowers = document.createElement('div');
+    flowers.className = 'frog-flowers';
+    flowers.setAttribute('aria-hidden', 'true');
+    const colors = [
+      ['#ffc2d7', '#e98bac'],
+      ['#fff1dd', '#e9bdad'],
+      ['#f5a0c3', '#d86f9c'],
+      ['#efd7f6', '#bd95d8']
+    ];
+    const count = Math.max(5, Math.min(20, Math.floor(document.documentElement.clientWidth / 85)));
+
+    for (let i = 0; i < count; i++) {
+      const flower = document.createElement('span');
+      flower.className = 'frog-flower';
+      flower.style.left = `${5 + ((i + 0.2 + Math.random() * 0.6) / count) * 90}%`;
+      flower.style.bottom = `${6 + Math.random() * 8}px`;
+      flower.style.height = `${32 + Math.random() * 12}px`;
+      const [petalColor, petalShade] = colors[i % colors.length];
+      flower.style.setProperty('--petal-color', petalColor);
+      flower.style.setProperty('--petal-shade', petalShade);
+      flower.style.setProperty('--flower-tilt', `${Math.random() * 20 - 10}deg`);
+      flower.style.animationDelay = `${1 + i * 0.12 + Math.random() * 0.25}s`;
+
+      const stem = document.createElement('span');
+      stem.className = 'frog-flower__stem';
+      const bloom = document.createElement('span');
+      bloom.className = 'frog-flower__bloom';
+      for (let petalIndex = 0; petalIndex < 5; petalIndex++) {
+        const petal = document.createElement('span');
+        petal.className = 'frog-flower__petal';
+        petal.style.setProperty('--petal-angle', `${petalIndex * 72}deg`);
+        bloom.appendChild(petal);
+      }
+      flower.append(stem, bloom);
+      flowers.appendChild(flower);
+    }
+
+    ground.replaceChildren(flowers);
+  }
+
   async function jump() {
     if (jumpCount === jumpsPerSide) {
       direction *= -1;
@@ -49,6 +90,7 @@
       await new Promise(r => setTimeout(r, 300));
 
       frog.style.display = 'none';
+      ground.replaceChildren();
       ground.style.width = '0';
       launch.style.opacity = '1';
       launch.style.transform = 'scale(1)';
@@ -94,6 +136,8 @@
   }
 
   launch.addEventListener('click', () => {
+    if (body.classList.contains('animation-mode')) return;
+
     launch.classList.add('animate-out');
     ground.style.width = '100%';
     body.classList.add('animation-mode');
@@ -102,6 +146,7 @@
     jumpCount = 0;
     frog.style.display = 'flex';
     updateFrogPosition();
+    plantFlowers();
 
     cloudContainer.innerHTML = '';
     const clouds = [
