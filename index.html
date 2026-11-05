@@ -311,10 +311,6 @@
       btn.addEventListener('click', togglePanels);
     });
 
-    // L'accueil est affiche dans une iframe : eviter une double alerte.
-    if (window.self !== window.top) {
-      window.alert("Je t'ai hacké Zozo !");
-    }
   }
 
   if (document.readyState === 'loading') {
