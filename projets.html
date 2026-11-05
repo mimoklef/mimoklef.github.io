@@ -558,6 +558,40 @@
               padding: 16px 12px 10px;
             }
 
+            #content .pinned-cluster.minutes-cluster {
+              padding: 16px 12px 10px;
+            }
+
+            #content .pinned-cluster.minutes-cluster::before {
+              content: "";
+              position: absolute;
+              inset: 0;
+              background: url("images/15minutes.png") center/cover no-repeat;
+              opacity: 0.16;
+              border-radius: 12px;
+              z-index: 0;
+              pointer-events: none;
+            }
+
+            #content .project-outside-gallery.minutes-gallery {
+              grid-template-columns: minmax(0, 1fr);
+            }
+
+            #content .project-outside-gallery.minutes-gallery .project-shot {
+              transform: none;
+              cursor: pointer;
+              width: 100%;
+              max-width: 900px;
+              justify-self: center;
+            }
+
+            #content .project-outside-gallery.minutes-gallery img {
+              display: block;
+              height: auto;
+              min-height: 0;
+              aspect-ratio: auto;
+            }
+
             #content .pinned-cluster.tandem-cluster {
               padding-right: min(30%, 340px);
               min-height: 520px;
@@ -753,6 +787,30 @@
               <h2 class="projects-section-title fr">Epinglés</h2>
               <h2 class="projects-section-title eng">Pinned</h2>
               <div class="projects-grid">
+
+                <div class="pinned-cluster minutes-cluster">
+                  <article class="project-card pinned-project pinned-text-card hero">
+                    <div class="project-layout">
+                      <div>
+                        <div class="project-head">
+                          <div class="project-brand">
+                            <h3>15 Minutes</h3>
+                          </div>
+                          <span class="project-year">2026</span>
+                        </div>
+                        <p class="project-summary fr">La légende raconte qu'après 15 minutes de retard d'un professeur, les élèves sont libres de partir. Viens voir si c'est vrai dans ce jeu que j'ai réalisé dans le cadre d'un projet scolaire.</p>
+                        <p class="project-summary eng">Legend has it that if a teacher is 15 minutes late, students are free to leave. Come find out if it's true in this game I created for a school project.</p>
+                        <p class="project-summary fr"><a href="https://itch.io/jam/scenarium-jam/rate/5208354" target="_blank" rel="noopener noreferrer">Découvrir le jeu sur itch.io ↗</a></p>
+                        <p class="project-summary eng"><a href="https://itch.io/jam/scenarium-jam/rate/5208354" target="_blank" rel="noopener noreferrer">Discover the game on itch.io ↗</a></p>
+                      </div>
+                    </div>
+                  </article>
+                  <div class="project-outside-gallery minutes-gallery" data-project="15-minutes">
+                    <a class="project-shot" href="https://itch.io/jam/scenarium-jam/rate/5208354" target="_blank" rel="noopener noreferrer">
+                      <img src="images/15minutes1.png" alt="15 Minutes — visual novel" width="630" height="500" loading="lazy">
+                    </a>
+                  </div>
+                </div>
 
                 <div class="pinned-cluster codeami-cluster">
                   <article class="project-card pinned-project pinned-text-card hero">
@@ -956,7 +1014,7 @@
                   <p class="project-summary eng">Early experiments in animated storytelling and 2D mini-scene animation. A creative foundation that fueled what came next.</p>
                   <p class="project-stack">Storyboarding, 2D animation practice</p>
                   <div class="project-gallery">
-                    <img src="images/timeline/2011-flipnote1.png" alt="Flipnote frame 1" loading="lazy">
+                    <img src="images/timeline/2011-flipnote3.png" alt="Flipnote frame 3" loading="lazy">
                     <img src="images/timeline/2011-flipnote4.png" alt="Flipnote frame 3" loading="lazy">
                   </div>
                 </article>
